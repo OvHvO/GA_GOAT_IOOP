@@ -1,0 +1,118 @@
+CREATE TABLE Customers(
+	customer_ID INT PRIMARY KEY IDENTITY(1000,1),
+	customerUsername VARCHAR(20) NOT NULL,
+	customerPW VARCHAR(20) NOT NULL,
+	customerContactNum INT NOT NULL
+);
+
+CREATE TABLE Admins(
+	admin_ID INT PRIMARY KEY IDENTITY(5000,1),
+	adminUsername VARCHAR(20) NOT NULL,
+	adminPW VARCHAR(20) NOT NULL,
+	adminContactNum INT NOT NULL
+);
+
+CREATE TABLE Mechanics(
+	mechanic_ID INT PRIMARY KEY IDENTITY(10000,1),
+	mechanicUsername VARCHAR(20) NOT NULL,
+	mechanicPW VARCHAR(20) NOT NULL,
+	mechanicContactNum INT NOT NULL
+);
+
+CREATE TABLE Receptionists(
+	rcptionist_ID INT PRIMARY KEY IDENTITY(15000,1),
+	rcptionistUsername VARCHAR(20) NOT NULL,
+	rcptionistPW VARCHAR(20) NOT NULL,
+	rcptionistContactNum VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE Reports(
+	report_ID INT PRIMARY KEY IDENTITY(20000,1),
+	net_profit INT NOT NULL,
+	rcptionist_ID INT,
+	FOREIGN KEY (rcptionist_ID) REFERENCES Receptionists(rcptionist_ID)
+);
+
+CREATE TABLE CustomerFeedback(
+	cusFeedback_ID INT PRIMARY KEY IDENTITY(25000,1),
+	dateFeedback DATETIME NOT NULL,
+	cusFeedBackContent VARCHAR(255) NOT NULL,
+	customer_ID INT,
+	FOREIGN KEY (customer_ID) REFERENCES Customers(customer_ID)
+);
+
+CREATE TABLE Parts(
+	part_ID INT PRIMARY KEY IDENTITY(60000,1),
+	partName VARCHAR(100) NOT NULL,
+	partQuantity INT NOT NULL,
+	partPrice INT NOT NULL
+);
+
+CREATE TABLE Service(
+	service_ID INT PRIMARY KEY IDENTITY(30000,1),
+	serviceName VARCHAR(255) NOT NULL,
+	serviceInfo VARCHAR(255) NOT NULL,
+	serviceTimeTaken VARCHAR(255) NOT NULL,
+	servicePrice INT NOT NULL,
+	serviceOffer INT, 
+	admin_ID INT,
+	part_ID INT,
+	FOREIGN KEY (admin_ID) REFERENCES Admins(admin_ID),
+	FOREIGN KEY (part_ID) REFERENCES Parts(part_ID)
+);
+
+
+CREATE TABLE ServiceAppoinments(
+	serviceAP_ID INT PRIMARY KEY IDENTITY(40000,1),
+	serviceAPDate DATE NOT NULL,
+	carNum VARCHAR(20) NOT NULL,
+	carVersion VARCHAR(255) NOT NULL,
+	customer_ID INT NOT NULL,
+	FOREIGN KEY (customer_ID) REFERENCES Customers(customer_ID)
+);
+
+CREATE TABLE Tasks(
+	task_ID INT PRIMARY KEY IDENTITY(50000,1),
+	taskStatus VARCHAR(255) NOT NULL,
+	collectionTime DATETIME,
+	addRepair VARCHAR(255),
+	mechanic_ID INT NOT NULL,
+	serviceAP_ID INT NOT NULL,
+	rcptionist_ID INT NOT NULL,
+	FOREIGN KEY (mechanic_ID) REFERENCES Mechanics(mechanic_ID),
+	FOREIGN KEY (serviceAP_ID) REFERENCES ServiceAppoinments(serviceAP_ID),
+	FOREIGN KEY (rcptionist_ID) REFERENCES Receptionists(rcptionist_ID)
+);
+
+CREATE TABLE Payments(
+	payment_ID INT PRIMARY KEY IDENTITY(35000,1),
+	paymentStatus VARCHAR(255) NOT NULL,
+	paymentDate DATE NOT NULL,
+	paymentValue INT NOT NULL,
+	customer_ID INT NOT NULL,
+	rcptionist_ID INT NOT NULL, 
+	task_ID INT NOT NULL,
+	FOREIGN KEY (customer_ID) REFERENCES Customers(customer_ID),
+	FOREIGN KEY (rcptionist_ID) REFERENCES Receptionists(rcptionist_ID),
+	FOREIGN KEY (task_ID) REFERENCES Tasks(task_ID)
+);
+
+CREATE TABLE ServiceAdd(
+	serviceAdd_ID INT PRIMARY KEY IDENTITY(45000,1),
+	service_ID INT NOT NULL,
+	serviceAP_ID INT NOT NULL,
+	FOREIGN KEY (service_ID) REFERENCES Services(service_ID),
+	FOREIGN KEY (serviceAP_ID) REFERENCES ServiceAppoinments(serviceAP_ID)
+);
+
+
+CREATE TABLE Requests(
+	request_ID INT PRIMARY KEY IDENTITY(55000,1),
+	requestPartQuantity INT NOT NULL,
+	rrequestStatus VARCHAR(255) NOT NULL,
+	part_ID INT NOT NULL,
+	task_ID INT NOT NULL,
+	FOREIGN KEY (part_ID) REFERENCES Parts(part_ID),
+	FOREIGN KEY (task_ID) REFERENCES Tasks(task_ID)
+);
+	
