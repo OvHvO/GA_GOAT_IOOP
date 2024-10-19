@@ -15,18 +15,27 @@ using System.Diagnostics.Eventing.Reader;
 namespace GA_TestRun1
 {
     internal class Users
-    {
+    {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
         string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA_GIT_IOOP\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
+        
         private string username;
         private string password;
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
 
+        //Constructor
         public Users(string username, string password)
         {
             username = Username;
             password = Password;
         }
+
+        public Users(string username) 
+        {
+            username = Username;
+        }
+
+
         public string LoginForms(string username, string password)
         {   string status=null;
             SqlConnection con= new SqlConnection(connection);
@@ -121,6 +130,88 @@ namespace GA_TestRun1
         return status;        
             
         }
+        // Receptionist-(ADD/DEL Customer)
+        //Define SignUp Roles
+        public void Customer_Sup(string username, string password,int contactNum)
+        {
+            SqlConnection Sp_con=new SqlConnection(connection);
+            Sp_con.Open();
+            string command = "Insert into Users(Username,Password,Roles)\r\nvalues(@username,@password,'Customer')";
+            string command2 = "Insert into Customers(customerUsername,customerPW,customerContactNum)\r\nvalues(@username,@password,@contactNum)";
+            SqlCommand Sp_cmd=new SqlCommand(command,Sp_con);
+            SqlCommand sp_cmd2=new SqlCommand(command2,Sp_con);
+            
+            
+            sp_cmd2.Parameters.AddWithValue("@username", username);
+            sp_cmd2.Parameters.AddWithValue ("@password", password);
+            sp_cmd2.Parameters.AddWithValue("@contactNum", contactNum);
+            Sp_cmd.Parameters.AddWithValue("@username", username);
+            Sp_cmd.Parameters.AddWithValue("@password", password);
+            if (sp_cmd2.ExecuteNonQuery() == 1 && Sp_cmd.ExecuteNonQuery() == 1) 
+            {
+                MessageBox.Show("SignUp Sucessfull");
+            }
+            else
+            {
+                MessageBox.Show("SignUp Failed");
+            }
+            Sp_con.Close();
+        }
 
+        public void Mechanic_Sup(string username, string password, int contactNum)
+        {
+            SqlConnection Sp_con = new SqlConnection(connection);
+            Sp_con.Open();
+            string command = "Insert into Users(Username,Password,Roles)\r\nvalues(@username,@password,'Mechanic')";
+            SqlCommand Sp_cmd = new SqlCommand(command, Sp_con);
+            string command2 = "Insert into Mechanics(mechanicUsername,mechanicPW,mechanicContactNum)\r\nvalues(@username,@password,@contactNum)";
+            SqlCommand sp_cmd2 = new SqlCommand(command2, Sp_con);
+            
+
+            sp_cmd2.Parameters.AddWithValue("@username", username);
+            sp_cmd2.Parameters.AddWithValue("@password", password);
+            sp_cmd2.Parameters.AddWithValue("@contactNum", contactNum);
+            Sp_cmd.Parameters.AddWithValue("@username", username);
+            Sp_cmd.Parameters.AddWithValue("@password", password);
+            Sp_con.Close();
+            if (sp_cmd2.ExecuteNonQuery() == 1 && Sp_cmd.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("SignUp Sucessfull");
+            }
+            else
+            {
+                MessageBox.Show("SignUp Failed");
+            }
+        }
+
+        public void Receptionist_Sup(string username, string password, int contactNum)
+        {
+            SqlConnection Sp_con = new SqlConnection(connection);
+            Sp_con.Open();
+            string command = "Insert into Users(Username,Password,Roles)\r\nvalues(@username,@password,'Receptionist')";
+            SqlCommand Sp_cmd = new SqlCommand(command, Sp_con);
+            string command2 = "Insert into Receptionist(rcptionistUsername,rcptionistPW,rcptionistContactNum)\r\nvalues(@username,@password,@contactNum)";
+            SqlCommand sp_cmd2 = new SqlCommand(command2, Sp_con);
+            
+
+            sp_cmd2.Parameters.AddWithValue("@username", username);
+            sp_cmd2.Parameters.AddWithValue("@password", password);
+            sp_cmd2.Parameters.AddWithValue("@contactNum", contactNum);
+            Sp_cmd.Parameters.AddWithValue("@username", username);
+            Sp_cmd.Parameters.AddWithValue("@password", password);
+            if (sp_cmd2.ExecuteNonQuery() == 1 && Sp_cmd.ExecuteNonQuery() == 1)
+            {
+                 MessageBox.Show( "SignUp Sucessfull");
+                
+            }
+            else
+            {
+                MessageBox.Show("SignUp Failed");
+            }
+            Sp_con.Close();
+        }
+            
+       
     }
 }
+

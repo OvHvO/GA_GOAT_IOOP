@@ -232,6 +232,9 @@
     <EmbeddedResource Include="Receptionist\Receptionist_home.resx">
       <DependentUpon>Receptionist_home.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sign_Up_form.resx">
+      <DependentUpon>Sign_Up_form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Update_profile.resx">
       <DependentUpon>Update_profile.cs</DependentUpon>
     </EmbeddedResource>
