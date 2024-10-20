@@ -138,7 +138,10 @@ namespace GA_TestRun1
            
         }
 
-        
+        private void Sign_Up_form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

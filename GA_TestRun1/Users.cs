@@ -16,7 +16,7 @@ namespace GA_TestRun1
 {
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
-        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA_GIT_IOOP\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
+        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA-Backup001\\GA_GOAT_IOOP\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         
         private string username;
         private string password;
@@ -37,7 +37,9 @@ namespace GA_TestRun1
 
 
         public string LoginForms(string username, string password)
-        {   string status=null;
+        {
+            //string role = null;
+            string status=null;
             SqlConnection con= new SqlConnection(connection);
             con.Open();
             //find user exsit or not
@@ -69,6 +71,7 @@ namespace GA_TestRun1
                                 {
                                     Receptionist_home Form = new Receptionist_home();
                                     Form.ShowDialog();
+                                    
                                     return status = "Login Sucessfull";
 
                                 }
@@ -76,6 +79,7 @@ namespace GA_TestRun1
                                 {
                                     Customer_home customer = new Customer_home();
                                     customer.ShowDialog();
+                                    
                                     return status = "Login Sucessfull";
 
                                 }
@@ -83,13 +87,14 @@ namespace GA_TestRun1
                                 {
                                     Admins_home admins = new Admins_home();
                                     admins.ShowDialog();
+                                    
                                     return status = "Login Sucessfull";
                                 }
                             case 3:
                                 {
                                     Mechanic_home mechanic = new Mechanic_home();
                                     mechanic.ShowDialog();
-
+                                   
                                     return status = "Login Sucessfull";
                                 }
                             default:
@@ -133,55 +138,101 @@ namespace GA_TestRun1
         // Receptionist-(ADD/DEL Customer)
         //Define SignUp Roles
         public void Customer_Sup(string username, string password,int contactNum)
-        {
+        {   
             SqlConnection Sp_con=new SqlConnection(connection);
             Sp_con.Open();
             string command = "Insert into Users(Username,Password,Roles)\r\nvalues(@username,@password,'Customer')";
-            string command2 = "Insert into Customers(customerUsername,customerPW,customerContactNum)\r\nvalues(@username,@password,@contactNum)";
-            SqlCommand Sp_cmd=new SqlCommand(command,Sp_con);
-            SqlCommand sp_cmd2=new SqlCommand(command2,Sp_con);
             
-            
-            sp_cmd2.Parameters.AddWithValue("@username", username);
-            sp_cmd2.Parameters.AddWithValue ("@password", password);
-            sp_cmd2.Parameters.AddWithValue("@contactNum", contactNum);
+            SqlCommand Sp_cmd=new SqlCommand(command,Sp_con); 
             Sp_cmd.Parameters.AddWithValue("@username", username);
             Sp_cmd.Parameters.AddWithValue("@password", password);
-            if (sp_cmd2.ExecuteNonQuery() == 1 && Sp_cmd.ExecuteNonQuery() == 1) 
-            {
-                MessageBox.Show("SignUp Sucessfull");
+            
+            if (Sp_cmd.ExecuteNonQuery() == 1) 
+            { //Retrive user ID
+                string command3 = "select Users.User_ID\r\nfrom Users\r\nwhere Users.Username=@username";
+                SqlCommand Sp_cmd2=new SqlCommand(command3,Sp_con);
+                Sp_cmd2.Parameters.AddWithValue("@username", username);
+                int Userid = Convert.ToInt32(Sp_cmd2.ExecuteScalar());
+
+                //Check the user ID have or not
+                if (Userid > 0)
+                {   // add userid into Customer Table   
+                    
+                    string command2 = "Insert into Customers(customerUsername,customerPW,customerContactNum,User_ID)\r\nvalues(@username,@password,@contactNum,@User_ID)";
+                    SqlCommand sp_cmd2=new SqlCommand(command2,Sp_con);
+          
+                    sp_cmd2.Parameters.AddWithValue("@username", username);
+                    sp_cmd2.Parameters.AddWithValue ("@password", password);
+                    sp_cmd2.Parameters.AddWithValue("@contactNum", contactNum);
+            
+                    sp_cmd2.Parameters.AddWithValue("@User_ID",Userid );
+                    if (sp_cmd2.ExecuteNonQuery() == 1 )
+                    {
+                        MessageBox.Show("SignUp Sucessfull");
+                    }
+                    else
+                    {
+                        MessageBox.Show("SignUp Failed");
+                    }
+
+
+                }
+
             }
-            else
-            {
-                MessageBox.Show("SignUp Failed");
-            }
+            else { MessageBox.Show("Something Went Wrong, Please Try Again"); }
+           
+
             Sp_con.Close();
         }
 
+
+        
         public void Mechanic_Sup(string username, string password, int contactNum)
         {
             SqlConnection Sp_con = new SqlConnection(connection);
             Sp_con.Open();
             string command = "Insert into Users(Username,Password,Roles)\r\nvalues(@username,@password,'Mechanic')";
             SqlCommand Sp_cmd = new SqlCommand(command, Sp_con);
-            string command2 = "Insert into Mechanics(mechanicUsername,mechanicPW,mechanicContactNum)\r\nvalues(@username,@password,@contactNum)";
-            SqlCommand sp_cmd2 = new SqlCommand(command2, Sp_con);
-            
-
-            sp_cmd2.Parameters.AddWithValue("@username", username);
-            sp_cmd2.Parameters.AddWithValue("@password", password);
-            sp_cmd2.Parameters.AddWithValue("@contactNum", contactNum);
             Sp_cmd.Parameters.AddWithValue("@username", username);
             Sp_cmd.Parameters.AddWithValue("@password", password);
+
+            if (Sp_cmd.ExecuteNonQuery() == 1)
+            { //Retrive user ID
+                string command3 = "select Users.User_ID\r\nfrom Users\r\nwhere Users.Username=@username";
+                SqlCommand Sp_cmd2 = new SqlCommand(command3, Sp_con);
+                Sp_cmd2.Parameters.AddWithValue("@username", username);
+                int Userid = Convert.ToInt32(Sp_cmd2.ExecuteScalar());
+
+                //Check the user ID have or not
+                if (Userid > 0)
+                {   // add userid into Customer Table   
+
+                    string command2 = "Insert into Mechanics(mechanicUsername,mechanicPW,mechanicContactNum)\r\nvalues(@username,@password,@contactNum,@User_ID)";
+                    SqlCommand sp_cmd2 = new SqlCommand(command2, Sp_con);
+
+                    sp_cmd2.Parameters.AddWithValue("@username", username);
+                    sp_cmd2.Parameters.AddWithValue("@password", password);
+                    sp_cmd2.Parameters.AddWithValue("@contactNum", contactNum);
+
+                    sp_cmd2.Parameters.AddWithValue("@User_ID", Userid);
+                    if (sp_cmd2.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("SignUp Sucessfull");
+                    }
+                    else
+                    {
+                        MessageBox.Show("SignUp Failed");
+                    }
+
+
+                }
+
+            }
+            else { MessageBox.Show("Something Went Wrong, Please Try Again"); }
+
+
             Sp_con.Close();
-            if (sp_cmd2.ExecuteNonQuery() == 1 && Sp_cmd.ExecuteNonQuery() == 1)
-            {
-                MessageBox.Show("SignUp Sucessfull");
-            }
-            else
-            {
-                MessageBox.Show("SignUp Failed");
-            }
+            
         }
 
         public void Receptionist_Sup(string username, string password, int contactNum)
@@ -190,24 +241,43 @@ namespace GA_TestRun1
             Sp_con.Open();
             string command = "Insert into Users(Username,Password,Roles)\r\nvalues(@username,@password,'Receptionist')";
             SqlCommand Sp_cmd = new SqlCommand(command, Sp_con);
-            string command2 = "Insert into Receptionist(rcptionistUsername,rcptionistPW,rcptionistContactNum)\r\nvalues(@username,@password,@contactNum)";
-            SqlCommand sp_cmd2 = new SqlCommand(command2, Sp_con);
-            
-
-            sp_cmd2.Parameters.AddWithValue("@username", username);
-            sp_cmd2.Parameters.AddWithValue("@password", password);
-            sp_cmd2.Parameters.AddWithValue("@contactNum", contactNum);
             Sp_cmd.Parameters.AddWithValue("@username", username);
             Sp_cmd.Parameters.AddWithValue("@password", password);
-            if (sp_cmd2.ExecuteNonQuery() == 1 && Sp_cmd.ExecuteNonQuery() == 1)
-            {
-                 MessageBox.Show( "SignUp Sucessfull");
-                
+
+            if (Sp_cmd.ExecuteNonQuery() == 1)
+            { //Retrive user ID
+                string command3 = "select Users.User_ID\r\nfrom Users\r\nwhere Users.Username=@username";
+                SqlCommand Sp_cmd2 = new SqlCommand(command3, Sp_con);
+                Sp_cmd2.Parameters.AddWithValue("@username", username);
+                int Userid = Convert.ToInt32(Sp_cmd2.ExecuteScalar());
+
+                //Check the user ID have or not
+                if (Userid > 0)
+                {   // add userid into Customer Table   
+
+                    string command2 = "Insert into Receptionist(rcptionistUsername,rcptionistPW,rcptionistContactNum)\r\nvalues(@username,@password,@contactNum,@User_ID)";
+                    SqlCommand sp_cmd2 = new SqlCommand(command2, Sp_con);
+
+                    sp_cmd2.Parameters.AddWithValue("@username", username);
+                    sp_cmd2.Parameters.AddWithValue("@password", password);
+                    sp_cmd2.Parameters.AddWithValue("@contactNum", contactNum);
+
+                    sp_cmd2.Parameters.AddWithValue("@User_ID", Userid);
+                    if (sp_cmd2.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("SignUp Sucessfull");
+                    }
+                    else
+                    {
+                        MessageBox.Show("SignUp Failed");
+                    }
+
+
+                }
+
             }
-            else
-            {
-                MessageBox.Show("SignUp Failed");
-            }
+            else { MessageBox.Show("Something Went Wrong, Please Try Again"); }
+
             Sp_con.Close();
         }
             

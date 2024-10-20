@@ -25,5 +25,11 @@ namespace GA_TestRun1.Receptionist
         {
 
         }
+
+        private void Rcp_Add_Click(object sender, EventArgs e)
+        {
+            Rcp_signUp_form addcus= new Rcp_signUp_form();
+            addcus.ShowDialog();
+        }
     }
 }

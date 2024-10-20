@@ -199,6 +199,12 @@
     <Compile Include="Mechanics\Mechanic_home.Designer.cs">
       <DependentUpon>Mechanic_home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Receptionist\Rcp_signUp_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receptionist\Rcp_signUp_form.Designer.cs">
+      <DependentUpon>Rcp_signUp_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Receptionist\Receptionist_home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Pages.resx">
       <DependentUpon>Login_Pages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receptionist\Rcp_signUp_form.resx">
+      <DependentUpon>Rcp_signUp_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Receptionist\Receptionist_home.resx">
       <DependentUpon>Receptionist_home.cs</DependentUpon>
