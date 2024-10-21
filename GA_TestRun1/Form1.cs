@@ -76,5 +76,17 @@ namespace GA_TestRun1
             int salary = 10000;
             insertData(name, position, salary);
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Login_Pages login = new Login_Pages();
+            login.ShowDialog();
+            this.Close();
+        }
     }
 }
