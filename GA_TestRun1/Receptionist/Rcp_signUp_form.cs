@@ -82,6 +82,7 @@ namespace GA_TestRun1.Receptionist
                                 case 0:
                                     {
                                         signup.Customer_Sup(Sup_username_txt.Text, Sup_password_txt.Text, phoneNum);
+
                                         Sup_password_txt.Clear();
                                         Sup_username_txt.Clear();
                                         Sup_contNum_txt.Clear();
