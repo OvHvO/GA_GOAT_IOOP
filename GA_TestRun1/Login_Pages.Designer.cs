@@ -36,6 +36,7 @@
             this.L_sigin_btn = new System.Windows.Forms.Button();
             this.L_signin_lbl = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.Lpages_showpw = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // L_pages_title
@@ -44,7 +45,7 @@
             this.L_pages_title.Font = new System.Drawing.Font("Showcard Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_pages_title.Location = new System.Drawing.Point(209, 59);
             this.L_pages_title.Name = "L_pages_title";
-            this.L_pages_title.Size = new System.Drawing.Size(333, 43);
+            this.L_pages_title.Size = new System.Drawing.Size(321, 42);
             this.L_pages_title.TabIndex = 0;
             this.L_pages_title.Text = "Welcome To xxx";
             // 
@@ -80,6 +81,7 @@
             // 
             this.L_pw_txt.Location = new System.Drawing.Point(266, 187);
             this.L_pw_txt.Name = "L_pw_txt";
+            this.L_pw_txt.PasswordChar = '*';
             this.L_pw_txt.Size = new System.Drawing.Size(158, 22);
             this.L_pw_txt.TabIndex = 4;
             this.L_pw_txt.TextChanged += new System.EventHandler(this.L_pw_txt_TextChanged);
@@ -116,11 +118,24 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "New For Here ?";
             // 
+            // Lpages_showpw
+            // 
+            this.Lpages_showpw.AutoSize = true;
+            this.Lpages_showpw.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lpages_showpw.Location = new System.Drawing.Point(266, 235);
+            this.Lpages_showpw.Name = "Lpages_showpw";
+            this.Lpages_showpw.Size = new System.Drawing.Size(151, 24);
+            this.Lpages_showpw.TabIndex = 9;
+            this.Lpages_showpw.Text = "Show Password";
+            this.Lpages_showpw.UseVisualStyleBackColor = true;
+            this.Lpages_showpw.CheckedChanged += new System.EventHandler(this.Lpages_showpw_CheckedChanged);
+            // 
             // Login_Pages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Lpages_showpw);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.L_signin_lbl);
             this.Controls.Add(this.L_sigin_btn);
@@ -131,6 +146,7 @@
             this.Controls.Add(this.L_pages_title);
             this.Name = "Login_Pages";
             this.Text = "Login_Pages";
+            this.Load += new System.EventHandler(this.Login_Pages_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,5 +162,6 @@
         private System.Windows.Forms.Button L_sigin_btn;
         private System.Windows.Forms.LinkLabel L_signin_lbl;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox Lpages_showpw;
     }
 }
