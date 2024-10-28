@@ -37,7 +37,7 @@ namespace GA_TestRun1
 
         private void L_sigin_btn_Click(object sender, EventArgs e)
         {   
-            Users signin=new Users(L_username_txt.Text,L_pw_txt.Text);
+            Users signin = new Users(L_username_txt.Text,L_pw_txt.Text);
             Users userName = new Users(L_username_txt.Text);
             Receptionists recep = new Receptionists(L_username_txt.Text,L_pw_txt.Text);
             
