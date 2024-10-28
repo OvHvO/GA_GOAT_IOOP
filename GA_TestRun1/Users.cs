@@ -18,11 +18,6 @@ namespace GA_TestRun1
 
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
-<<<<<<< HEAD
-=======
-
-        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\New folder\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
->>>>>>> 34a5f16594d1498fea7dbc1155a86750e2afd84e
 
         string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA-Backup002\\GA_GOAT_IOOP\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         private string Username;
@@ -156,32 +151,32 @@ namespace GA_TestRun1
                                     Select mechanicUsername from Mechanics where mechanicUsername= @username
                                     UNION ALL
                                     Select adminUsername from Admins where adminUsername=@username";
-            SqlCommand cmd2=new SqlCommand(query1, Sp_con);
-            cmd2.Parameters.AddWithValue ("@username", username);
+            SqlCommand cmd2 = new SqlCommand(query1, Sp_con);
+            cmd2.Parameters.AddWithValue("@username", username);
 
-            if (cmd2.ExecuteNonQuery() == 0) 
-            { 
+            if (cmd2.ExecuteNonQuery() == 0)
+            {
 
-                    string command2 = "Insert into Customers(customerUsername,customerPW,customerContactNum,)\r\nvalues(@username,@password,@contactNum)";
-                    SqlCommand sp_cmd2 = new SqlCommand(command2, Sp_con);
+                string command2 = "Insert into Customers(customerUsername,customerPW,customerContactNum,)\r\nvalues(@username,@password,@contactNum)";
+                SqlCommand sp_cmd2 = new SqlCommand(command2, Sp_con);
 
-                    sp_cmd2.Parameters.AddWithValue("@username", username);
-                    sp_cmd2.Parameters.AddWithValue("@password", password);
-                    sp_cmd2.Parameters.AddWithValue("@contactNum", contactNum);
+                sp_cmd2.Parameters.AddWithValue("@username", username);
+                sp_cmd2.Parameters.AddWithValue("@password", password);
+                sp_cmd2.Parameters.AddWithValue("@contactNum", contactNum);
 
-                    if (sp_cmd2.ExecuteNonQuery() == 1)
-                    {
-                        MessageBox.Show("SignUp Sucessfull");
-                    }
-                    else
-                    {
-                        MessageBox.Show("SignUp Failed");
-                    }
+                if (sp_cmd2.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("SignUp Sucessfull");
+                }
+                else
+                {
+                    MessageBox.Show("SignUp Failed");
+                }
             }
 
             else
             {
-                MessageBox.Show("The Username Seems has been Used, Please Try Again","Username Issues");
+                MessageBox.Show("The Username Seems has been Used, Please Try Again", "Username Issues");
             }
 
 
@@ -241,9 +236,9 @@ namespace GA_TestRun1
 
         }
 
-            
-           
-        
+
+
+
 
         public void Receptionist_Sup(string username, string password, int contactNum)
         {
@@ -306,7 +301,6 @@ namespace GA_TestRun1
                 sp_con.Open();
                 // begin the update
 
-<<<<<<< HEAD
 
                 string query = @"
                 SELECT 'rcptionist' AS role FROM Receptionists WHERE rcptionistUsername = @username 
@@ -314,41 +308,19 @@ namespace GA_TestRun1
                 UNION
                 SELECT 'customer' AS role FROM Customers WHERE customerUsername = @username 
                 SELECT 'mechanic' AS role FROM Mechanics WHERE mechanicUsername = @username";
-                SqlCommand cmd=new SqlCommand(query,sp_con);
+                SqlCommand cmd = new SqlCommand(query, sp_con);
                 cmd.Parameters.AddWithValue("@username", oldusername);
-                
+
 
 
                 string[] Roles = { "rcptionist", "customer", "admin", "mechanic" };
-                    string Positions = (cmd.ExecuteScalar().ToString());
-                    for (int i = 0; i < Roles.Length; i++)
-=======
-                string query = "Select roles from Users";
-                SqlCommand cmd = new SqlCommand(query, sp_con);
-                string[] Roles = { "Receptionist", "Customer", "Admins", "Mechanic" };
                 string Positions = (cmd.ExecuteScalar().ToString());
                 for (int i = 0; i < Roles.Length; i++)
                 {
                     if (Roles[i] == Positions)
->>>>>>> 34a5f16594d1498fea7dbc1155a86750e2afd84e
                     {
                         switch (i)
                         {
-<<<<<<< HEAD
-                            switch (i)
-                            {
-                                case 0:
-                                    {
-                                        Receptionists recep = new Receptionists(username, password);
-                                        recep.rcpUpdateProf(oldusername, username, password);
-                                        //status = "Update Sucessful!";
-                                        //return status;  
-                                        break;
-                                    }
-                                    //case 1: { Put Your Code for Customer.....
-                            }
-
-=======
                             case 0:
                                 {
                                     Receptionists recep = new Receptionists(username, password);
@@ -358,19 +330,14 @@ namespace GA_TestRun1
                                     break;
                                 }
                                 //case 1: { Put Your Code for Customer.....
->>>>>>> 34a5f16594d1498fea7dbc1155a86750e2afd84e
                         }
-                       
 
                     }
 
-<<<<<<< HEAD
-                
-=======
+
                 }
 
 
->>>>>>> 34a5f16594d1498fea7dbc1155a86750e2afd84e
             }
         }
 
@@ -378,15 +345,15 @@ namespace GA_TestRun1
     }
 
 }
-            
-                
-                
-        
-    
 
 
 
 
-   
+
+
+
+
+
+
 
 
