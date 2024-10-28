@@ -91,9 +91,15 @@ namespace GA_TestRun1
 
         private void button5_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             //TestEnv Te = new TestEnv();
             //Te.ShowDialog();
             //this.Close();
+=======
+            TestEnv Te = new TestEnv();
+            Te.ShowDialog();
+            this.Close();
+>>>>>>> 34a5f16594d1498fea7dbc1155a86750e2afd84e
         }
     }
 }

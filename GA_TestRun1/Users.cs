@@ -18,6 +18,11 @@ namespace GA_TestRun1
 
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
+<<<<<<< HEAD
+=======
+
+        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\New folder\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
+>>>>>>> 34a5f16594d1498fea7dbc1155a86750e2afd84e
 
         string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA-Backup002\\GA_GOAT_IOOP\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         private string Username;
@@ -301,6 +306,7 @@ namespace GA_TestRun1
                 sp_con.Open();
                 // begin the update
 
+<<<<<<< HEAD
 
                 string query = @"
                 SELECT 'rcptionist' AS role FROM Receptionists WHERE rcptionistUsername = @username 
@@ -316,9 +322,19 @@ namespace GA_TestRun1
                 string[] Roles = { "rcptionist", "customer", "admin", "mechanic" };
                     string Positions = (cmd.ExecuteScalar().ToString());
                     for (int i = 0; i < Roles.Length; i++)
+=======
+                string query = "Select roles from Users";
+                SqlCommand cmd = new SqlCommand(query, sp_con);
+                string[] Roles = { "Receptionist", "Customer", "Admins", "Mechanic" };
+                string Positions = (cmd.ExecuteScalar().ToString());
+                for (int i = 0; i < Roles.Length; i++)
+                {
+                    if (Roles[i] == Positions)
+>>>>>>> 34a5f16594d1498fea7dbc1155a86750e2afd84e
                     {
-                        if (Roles[i] == Positions)
+                        switch (i)
                         {
+<<<<<<< HEAD
                             switch (i)
                             {
                                 case 0:
@@ -332,12 +348,29 @@ namespace GA_TestRun1
                                     //case 1: { Put Your Code for Customer.....
                             }
 
+=======
+                            case 0:
+                                {
+                                    Receptionists recep = new Receptionists(username, password);
+                                    recep.rcpUpdateProf(oldusername, username, password);
+                                    //status = "Update Sucessful!";
+                                    //return status;  
+                                    break;
+                                }
+                                //case 1: { Put Your Code for Customer.....
+>>>>>>> 34a5f16594d1498fea7dbc1155a86750e2afd84e
                         }
                        
 
                     }
 
+<<<<<<< HEAD
                 
+=======
+                }
+
+
+>>>>>>> 34a5f16594d1498fea7dbc1155a86750e2afd84e
             }
         }
 
