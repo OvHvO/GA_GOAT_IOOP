@@ -16,7 +16,7 @@ namespace GA_TestRun1.Receptionist
     {
 
         static string connectionS = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA-Backup001\\GA_GOAT_IOOP\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
-        static SqlConnection conn = new SqlConnection(connectionS);
+        SqlConnection conn = new SqlConnection(connectionS);
         private string Username;
         private string Password;
         private string SelectedItems;
@@ -43,6 +43,7 @@ namespace GA_TestRun1.Receptionist
         {
 
             ArrayList ViewCus = new ArrayList();
+            SqlConnection conn = new SqlConnection(connectionS);
             conn.Open();
             //call customer username
             string command = "Select customerUsername from Customers";
@@ -61,6 +62,8 @@ namespace GA_TestRun1.Receptionist
         public static ArrayList viewProfileCus(string Selected)
         {
             ArrayList CusDetail = new ArrayList();
+            SqlConnection conn = new SqlConnection(connectionS);
+
             conn.Open();
             string command = "Select customerUsername,CustomerContactNum from Customers where customerUsername=@username";
             SqlCommand cmd = new SqlCommand(command, conn);
@@ -80,14 +83,13 @@ namespace GA_TestRun1.Receptionist
 
         public void delCus(string selected)
         {
+            SqlConnection conn = new SqlConnection(connectionS);
+
             conn.Open();
             string command = "Delete from Customers where customerUsername=@username";
-            string command2 = "Delete from Users where Username=@username";
             SqlCommand cmd = new SqlCommand(command, conn);
-            SqlCommand cmd2 = new SqlCommand(command2, conn);
             cmd.Parameters.AddWithValue("@username", selected);
-            cmd2.Parameters.AddWithValue("@username", selected);
-            if (cmd.ExecuteNonQuery() > 0 && cmd2.ExecuteNonQuery() > 0)
+            if (cmd.ExecuteNonQuery() > 0 )
             {
                 MessageBox.Show("Delete Sucessfully!", "Delete Customer");
             }
@@ -102,6 +104,8 @@ namespace GA_TestRun1.Receptionist
         //refresh method
         public static List<string> refCus()
         {
+            SqlConnection conn = new SqlConnection(connectionS);
+
             List<string> cusName = new List<string>();
             conn.Open();
             string query = "Select customerUsername from Customers";
@@ -117,16 +121,27 @@ namespace GA_TestRun1.Receptionist
 
         public void rcpUpdateProf(string oldusername,string username, string password)
         {
-           
+            
+
+
             Username = username;
             Password = password;
 
-            using (conn)
+            using (SqlConnection conn = new SqlConnection(connectionS))
             {
                 conn.Open();
                 SqlTransaction transaction = conn.BeginTransaction(); // begin the update
                 try
                 {
+                    string query1 = @"Select rcptionistUsername from Receptionists where rcptionistUsername=@username
+                                    UNION ALL
+                                    Select customerUsername from Customers where customerUsername=@username
+                                    UNION ALL
+                                    Select mechanicUsername from Mechanics where mechanicUsername= @username
+                                    UNION ALL
+                                    Select adminUsername from Admins where adminUsername=@username";
+                    SqlCommand cmd =new SqlCommand(query1, conn, transaction);
+                    cmd.Parameters.AddWithValue ("@username", username);
 
                     string query2 = "Update Receptionists set rcptionistUsername=@username,rcptionistPW=@password where rcptionistUsername=@oldusername";
                     SqlCommand cmd2 = new SqlCommand(query2, conn, transaction);
@@ -134,14 +149,9 @@ namespace GA_TestRun1.Receptionist
                     cmd2.Parameters.AddWithValue("@password", password);
                     cmd2.Parameters.AddWithValue("@oldusername", oldusername);
 
-                    //Update Users table
 
-                    string query3 = "Update Users set Username=@username,Password=@password where Username=@oldusername";
-                    SqlCommand cmd3 = new SqlCommand(query3, conn, transaction);
-                    cmd3.Parameters.AddWithValue("@username", username);
-                    cmd3.Parameters.AddWithValue("@password", password);
-                    cmd3.Parameters.AddWithValue("@oldusername", oldusername);
-                    if (cmd2.ExecuteNonQuery() > 0 && cmd3.ExecuteNonQuery() > 0)
+                   
+                    if (cmd2.ExecuteNonQuery() > 0 && cmd.ExecuteNonQuery()==0)
                     {
                         transaction.Commit(); //transaction done (when all database change sucess, it will commit change)
                         MessageBox.Show("Update Sucessfull");
@@ -151,7 +161,9 @@ namespace GA_TestRun1.Receptionist
                     {
                     
                         transaction.Rollback(); //Rollback transactions (at least one failed to change, it will cancel the change)
-                        MessageBox.Show("Update Failed, Please try again"); 
+                        string messages = "The Username seems has been used or the update failed, Please Try again later";
+                        errorMessage(messages); 
+                        
                     }
                        
 
@@ -168,6 +180,11 @@ namespace GA_TestRun1.Receptionist
                
             }
             
+        }
+
+        public void errorMessage(string messages)
+        {
+            MessageBox.Show(messages,"Error");
         }
 
     }
