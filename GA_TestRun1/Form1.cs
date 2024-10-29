@@ -89,6 +89,20 @@ namespace GA_TestRun1
             this.Close();
         }
 
-        
+private void button5_Click(object sender, EventArgs e)
+{
+  }
+}
+            Te.ShowDialog();
+            this.Close();
+=======
+
+            //TestEnv Te = new TestEnv();
+            //Te.ShowDialog();
+            //this.Close();
+
+     
+>>>>>>> Stashed changes
+        }
     }
 }
