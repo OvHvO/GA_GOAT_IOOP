@@ -175,6 +175,7 @@
     <Compile Include="Admins\Admins_home.Designer.cs">
       <DependentUpon>Admins_home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admins\Admins_Source.cs" />
     <Compile Include="Customer\Customer_home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +234,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users.cs" />
+    <EmbeddedResource Include="Admins\Admins_home.resx">
+      <DependentUpon>Admins_home.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer\Customer_home.resx">
       <DependentUpon>Customer_home.cs</DependentUpon>
     </EmbeddedResource>
