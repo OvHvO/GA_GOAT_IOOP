@@ -91,9 +91,18 @@ namespace GA_TestRun1
 
         private void button5_Click(object sender, EventArgs e)
         {
+<<<<<<< Updated upstream
             TestEnv Te = new TestEnv();
             Te.ShowDialog();
             this.Close();
+=======
+
+            //TestEnv Te = new TestEnv();
+            //Te.ShowDialog();
+            //this.Close();
+
+     
+>>>>>>> Stashed changes
         }
     }
 }
