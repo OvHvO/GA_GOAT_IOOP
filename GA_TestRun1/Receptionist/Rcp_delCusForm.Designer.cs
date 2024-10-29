@@ -104,6 +104,7 @@
             this.Cus_detail_listb.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.Cus_detail_listb.Size = new System.Drawing.Size(245, 154);
             this.Cus_detail_listb.TabIndex = 0;
+            this.Cus_detail_listb.SelectedIndexChanged += new System.EventHandler(this.Cus_detail_listb_SelectedIndexChanged);
             // 
             // ref_Rcpbtn
             // 
