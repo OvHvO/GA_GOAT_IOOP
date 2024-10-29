@@ -104,5 +104,10 @@ namespace GA_TestRun1.Receptionist
 
            
         }
+
+        private void Cus_detail_listb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

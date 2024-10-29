@@ -28,13 +28,13 @@ namespace GA_TestRun1
         //Constructor
         public Users(string username, string password)
         {
-            Username = username;
-            Password = password;
+            usernames = username;
+            passwords = password;
         }
 
         public Users(string username)
         {
-            Username = username;
+            usernames = username;
         }
 
         public string LoginForms(string username, string password)
@@ -293,8 +293,8 @@ namespace GA_TestRun1
         public void updateProf(string username, string password)
         { //string status;
             string oldusername = Username; //save the old username into new variable
-            Username = username;           // retrive the new username and password
-            Password = password;
+            usernames = username;           // retrive the new username and password
+            passwords = password;
 
             using (SqlConnection sp_con = new SqlConnection(connection))
             {

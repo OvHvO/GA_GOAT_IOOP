@@ -20,23 +20,23 @@ namespace GA_TestRun1.Receptionist
         private string Username;
         private string Password;
         private string SelectedItems;
-        public string username
+        public string usernames
         {
             get => Username; set => Username = value;
         }
-        public string password { get => Password; set => Password = value; }
+        public string passwords { get => Password; set => Password = value; }
         public string selecteditem { get => SelectedItems; set => SelectedItems = value; }
 
         public Receptionists(string username, string password)
         {
-            Username = username;
-            Password = password;
+            usernames = username;
+            passwords = password;
 
         }
 
         public Receptionists(string selecteditems)
         {
-            SelectedItems = selecteditems;
+            selecteditem = selecteditems;
         }
 
         public static ArrayList ViewCustomer()
@@ -124,8 +124,8 @@ namespace GA_TestRun1.Receptionist
 
 
 
-            Username = username;
-            Password = password;
+            usernames = username;
+            passwords = password;
 
             using (SqlConnection conn = new SqlConnection(connectionS))
             {
