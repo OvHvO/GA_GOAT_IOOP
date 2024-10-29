@@ -19,7 +19,7 @@ namespace GA_TestRun1
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
 
-        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA-Backup002\\GA_GOAT_IOOP\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
+        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\GA_TestRun1\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
         private string Username;
         private string Password;
         public string usernames { get => Username; set => Username = value; }
@@ -73,7 +73,7 @@ namespace GA_TestRun1
                             }
                         case 2:
                             {
-                                Admins_home admins = new Admins_home();
+                                Admins_home admins = new Admins_home(username);
                                 SigninP.Hide();
                                 admins.ShowDialog();
 
