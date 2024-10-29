@@ -18,8 +18,11 @@ namespace GA_TestRun1
         {
             InitializeComponent();
         }
-
-        public string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# Learning\\GA_TestRun1\\GA_TestRun1\\Database2.mdf\";Integrated Security = True";
+        
+        //*******Please change yr string before using database*******//
+        
+        
+        public string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA_GIT01\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
 
         private void button1_Click(object sender, EventArgs e)
         { 
@@ -72,6 +75,34 @@ namespace GA_TestRun1
             string position = "Customer";
             int salary = 10000;
             insertData(name, position, salary);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Login_Pages login = new Login_Pages();
+            login.ShowDialog();
+            this.Close();
+        }
+
+private void button5_Click(object sender, EventArgs e)
+{
+  }
+}
+            Te.ShowDialog();
+            this.Close();
+=======
+
+            //TestEnv Te = new TestEnv();
+            //Te.ShowDialog();
+            //this.Close();
+
+     
+>>>>>>> Stashed changes
         }
     }
 }
