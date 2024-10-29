@@ -21,5 +21,9 @@ namespace GA_TestRun1.Admins
             InitializeComponent();
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
