@@ -18,10 +18,12 @@ namespace GA_TestRun1.Receptionist
     public partial class Receptionist_home : Form
     {   
         public static string name;
-        public Receptionist_home(string n)
+        public Receptionist_home(string n, string connectionS)
         {   
             InitializeComponent();
             name = n;
+            Receptionists recep = new Receptionists(connectionS);
+
         }
 
         private void Receptionist_home_Load(object sender, EventArgs e)

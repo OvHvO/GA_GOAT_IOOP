@@ -18,11 +18,11 @@ namespace GA_TestRun1.Admins
     public partial class Admins_home : Form
     {
         private string userN;
-        public Admins_home(string username)
+        public Admins_home(string username, string connection)
         {
             InitializeComponent();
             userN = username;
-            Admins_Source admin = new Admins_Source();
+            Admins_Source admin = new Admins_Source(connection);
             object[] adminProfile = admin.Admin_Profile(userN);
             for (int i = 0; i < adminProfile.Length; i++)
             {

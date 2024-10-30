@@ -86,8 +86,11 @@ namespace GA_TestRun1
         {
             foreach (string input in inputs) 
             {
-                string.IsNullOrWhiteSpace(input);
-                return false;
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    return false;
+                }
+                
             }
             return true;
         }
