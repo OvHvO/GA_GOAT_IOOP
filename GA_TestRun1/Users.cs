@@ -328,8 +328,6 @@ namespace GA_TestRun1
                                     break;
                                 }
 
-                            case 1: 
-                                {
 
                                 //case 1: { Put Your Code for Customer.....
                         }
