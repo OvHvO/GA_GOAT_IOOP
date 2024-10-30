@@ -313,7 +313,7 @@ namespace GA_TestRun1
 
 
 
-                string[] Roles = { "rcptionist", "mechanic", "admin", "customer" };
+                string[] Roles = { "rcptionist", "customer", "admin", "mechanic" };
                 string Positions = (cmd.ExecuteScalar().ToString());
                 for (int i = 0; i < Roles.Length; i++)
                 {
@@ -328,13 +328,10 @@ namespace GA_TestRun1
                                     break;
                                 }
 
-                            case 1:
+                            case 1: 
                                 {
-                                    Mechanic mechanic = new Mechanic(username, password);
-                                    mechanic.mcnUpdateProf(oldusername, username, password);
-                                    break;
-                                }
-                                //case 2: { Put Your Code for Customer.....
+
+                                //case 1: { Put Your Code for Customer.....
                         }
 
                     }
