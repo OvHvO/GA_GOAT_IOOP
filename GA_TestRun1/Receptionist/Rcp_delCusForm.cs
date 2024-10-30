@@ -84,8 +84,8 @@ namespace GA_TestRun1.Receptionist
             //Receptionists recep = new Receptionists(Selected);
             DialogResult delAcceptorNot = MessageBox.Show("Are you confirm want to delete this customer?", "Delete Customer", MessageBoxButtons.YesNo);
             if (delAcceptorNot == DialogResult.Yes)
-            {   Receptionists recep= new Receptionists();
-                recep.delCus(Selected);
+            {  
+                Receptionists.delCus(Selected);
 
 
             }

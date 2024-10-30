@@ -26,10 +26,7 @@ namespace GA_TestRun1.Receptionist
         public string passwords { get => Password; set => Password = value; }
         public string selecteditem { get => SelectedItems; set => SelectedItems = value; }
 
-        public Receptionists()
-        {
-
-        }
+        
         public Receptionists(string connection)
         {
             connectionS = connection;
@@ -88,7 +85,7 @@ namespace GA_TestRun1.Receptionist
 
         }
 
-        public void delCus(string selected)
+        public static void delCus(string selected)
         {
             SqlConnection conn = new SqlConnection(connectionS);
 
@@ -157,16 +154,26 @@ namespace GA_TestRun1.Receptionist
                     cmd2.Parameters.AddWithValue("@oldusername", oldusername);
 
 
+                    if (cmd.ExecuteScalar() == null) 
+                    { 
+                        if (cmd2.ExecuteNonQuery() == 1 )
+                        {
+                            transaction.Commit(); //transaction done (when all database change sucess, it will commit change)
+                            MessageBox.Show("Update Sucessfull");
 
-                    if (cmd2.ExecuteNonQuery() > 0 && cmd.ExecuteNonQuery() == 0)
-                    {
-                        transaction.Commit(); //transaction done (when all database change sucess, it will commit change)
-                        MessageBox.Show("Update Sucessfull");
+                        }
+                        else
+                        {
 
+                            transaction.Rollback(); //Rollback transactions (at least one failed to change, it will cancel the change)
+                            string messages = "Update failed";
+                            errorMessage(messages);
+
+
+                        }
                     }
                     else
                     {
-
                         transaction.Rollback(); //Rollback transactions (at least one failed to change, it will cancel the change)
                         string messages = "The Username seems has been used or the update failed, Please Try again later";
                         errorMessage(messages);
