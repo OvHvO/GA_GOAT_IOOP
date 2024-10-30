@@ -154,7 +154,7 @@ namespace GA_TestRun1
             SqlCommand cmd2 = new SqlCommand(query1, Sp_con);
             cmd2.Parameters.AddWithValue("@username", username);
 
-            if (cmd2.ExecuteNonQuery() == 0)
+            if (cmd2.ExecuteScalar() == null)
             {
 
                 string command2 = "Insert into Customers(customerUsername,customerPW,customerContactNum,)\r\nvalues(@username,@password,@contactNum)";
@@ -204,7 +204,7 @@ namespace GA_TestRun1
             SqlCommand cmd2 = new SqlCommand(query1, Sp_con);
             cmd2.Parameters.AddWithValue("@username", username);
 
-            if (cmd2.ExecuteNonQuery() == 0)
+            if (cmd2.ExecuteScalar() == null)
             {
 
                 string command2 = "Insert into Mechanics(mechanicUsername,mechanicPW,mechanicContactNum,)\r\nvalues(@username,@password,@contactNum)";
@@ -257,7 +257,7 @@ namespace GA_TestRun1
             SqlCommand cmd2 = new SqlCommand(query1, Sp_con);
             cmd2.Parameters.AddWithValue("@username", username);
 
-            if (cmd2.ExecuteNonQuery() == 0)
+            if (cmd2.ExecuteScalar()==null)
             {
 
                 string command2 = "Insert into Receptionists(rcptionistUsername,rcptionistPW,rcptionistContactNum,)\r\nvalues(@username,@password,@contactNum)";
@@ -292,7 +292,7 @@ namespace GA_TestRun1
 
         public void updateProf(string username, string password)
         { //string status;
-            string oldusername = Username; //save the old username into new variable
+            string oldusername = usernames; //save the old username into new variable
             usernames = username;           // retrive the new username and password
             passwords = password;
 
