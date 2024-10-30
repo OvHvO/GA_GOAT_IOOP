@@ -117,4 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>1. The Admin can only perform actions that benefit the system; otherwise, they will be stripped of their privileges.
+2. The Admin cannot arbitrarily delete staff information or randomly alter the prices of various services.
+3. The Admin can gather insights from customer feedback to identify areas where the system needs further improvement.</value>
+  </data>
 </root>

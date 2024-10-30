@@ -18,14 +18,14 @@ namespace GA_TestRun1
         {
             InitializeComponent();
         }
-        
+
         //*******Please change yr string before using database*******//
-        
-        
+
+
         public string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA_GIT01\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
 
         private void button1_Click(object sender, EventArgs e)
-        { 
+        {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -47,7 +47,7 @@ namespace GA_TestRun1
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                
+
                 // 添加参数以避免 SQL 注入攻击
                 command.Parameters.AddWithValue("@customerUsername", name);
                 command.Parameters.AddWithValue("@customerPW", position);
@@ -66,7 +66,7 @@ namespace GA_TestRun1
                 {
                     MessageBox.Show($"SQL Error: {ex.Message}");
                 }
-            }  
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -89,20 +89,5 @@ namespace GA_TestRun1
             this.Close();
         }
 
-private void button5_Click(object sender, EventArgs e)
-{
-  }
-}
-            Te.ShowDialog();
-            this.Close();
-=======
-
-            //TestEnv Te = new TestEnv();
-            //Te.ShowDialog();
-            //this.Close();
-
-     
->>>>>>> Stashed changes
-        }
     }
 }
