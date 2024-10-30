@@ -194,6 +194,7 @@
     <Compile Include="Login_Pages.Designer.cs">
       <DependentUpon>Login_Pages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mechanics\Mechanic.cs" />
     <Compile Include="Mechanics\Mechanic_home.cs">
       <SubType>Form</SubType>
     </Compile>
