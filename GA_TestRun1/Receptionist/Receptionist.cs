@@ -15,8 +15,7 @@ namespace GA_TestRun1.Receptionist
     internal class Receptionists
     {
 
-        static string connectionS = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA-Backup001\\GA_GOAT_IOOP\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
-        SqlConnection conn = new SqlConnection(connectionS);
+        static string connectionS; 
         private string Username;
         private string Password;
         private string SelectedItems;
@@ -27,6 +26,14 @@ namespace GA_TestRun1.Receptionist
         public string passwords { get => Password; set => Password = value; }
         public string selecteditem { get => SelectedItems; set => SelectedItems = value; }
 
+        public Receptionists()
+        {
+
+        }
+        public Receptionists(string connection)
+        {
+            connectionS = connection;
+        }
         public Receptionists(string username, string password)
         {
             usernames = username;
@@ -34,10 +41,10 @@ namespace GA_TestRun1.Receptionist
 
         }
 
-        public Receptionists(string selecteditems)
-        {
-            selecteditem = selecteditems;
-        }
+        //public Receptionists(string selecteditems)
+        //{
+        //    selecteditem = selecteditems;
+        //}
 
         public static ArrayList ViewCustomer()
         {
