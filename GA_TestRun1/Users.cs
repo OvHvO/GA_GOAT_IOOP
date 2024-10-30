@@ -324,11 +324,13 @@ namespace GA_TestRun1
                             case 0:
                                 {
                                     Receptionists recep = new Receptionists(username, password);
-                                    recep.rcpUpdateProf(oldusername, username, password);
-                                    //status = "Update Sucessful!";
-                                    //return status;  
+                                    recep.rcpUpdateProf(oldusername, username, password);  
                                     break;
                                 }
+
+                            case 1: 
+                                {
+
                                 //case 1: { Put Your Code for Customer.....
                         }
 
