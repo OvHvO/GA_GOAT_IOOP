@@ -44,7 +44,7 @@ namespace GA_TestRun1.Receptionist
             //MessageBox.Show(Selected);
             string Selected = Cus_listBox.SelectedItem.ToString();
             ArrayList CusDetail = Receptionists.viewProfileCus(Selected);
-            Receptionists recep = new Receptionists(Selected);
+            //Receptionists recep = new Receptionists(Selected);
 
                 foreach (var items in CusDetail)
                 {
@@ -81,11 +81,11 @@ namespace GA_TestRun1.Receptionist
         private void button1_Click(object sender, EventArgs e)
         {
             string Selected = Cus_listBox.SelectedItem.ToString();
-            Receptionists recep = new Receptionists(Selected);
+            //Receptionists recep = new Receptionists(Selected);
             DialogResult delAcceptorNot = MessageBox.Show("Are you confirm want to delete this customer?", "Delete Customer", MessageBoxButtons.YesNo);
             if (delAcceptorNot == DialogResult.Yes)
-            {
-                recep.delCus(Selected);
+            {  
+                Receptionists.delCus(Selected);
 
 
             }

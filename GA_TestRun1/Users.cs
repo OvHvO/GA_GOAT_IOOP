@@ -19,7 +19,7 @@ namespace GA_TestRun1
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
 
-        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\Source\\Repos\\GA_GOAT_IOOP\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
+        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA-Backup003\\GA_GOAT_IOOP\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         private string Username;
         private string Password;
         public string usernames { get => Username; set => Username = value; }
@@ -54,7 +54,7 @@ namespace GA_TestRun1
                     {
                         case 0:
                             {
-                                Receptionist_home Form = new Receptionist_home(username);
+                                Receptionist_home Form = new Receptionist_home(username, connection);
 
                                 SigninP.Hide();
                                 Form.ShowDialog();
@@ -73,7 +73,7 @@ namespace GA_TestRun1
                             }
                         case 2:
                             {
-                                Admins_home admins = new Admins_home(username);
+                                Admins_home admins = new Admins_home(username, connection);
                                 SigninP.Hide();
                                 admins.ShowDialog();
 
@@ -154,7 +154,7 @@ namespace GA_TestRun1
             SqlCommand cmd2 = new SqlCommand(query1, Sp_con);
             cmd2.Parameters.AddWithValue("@username", username);
 
-            if (cmd2.ExecuteNonQuery() == 0)
+            if (cmd2.ExecuteScalar() == null)
             {
 
                 string command2 = "Insert into Customers(customerUsername,customerPW,customerContactNum,)\r\nvalues(@username,@password,@contactNum)";
@@ -204,7 +204,7 @@ namespace GA_TestRun1
             SqlCommand cmd2 = new SqlCommand(query1, Sp_con);
             cmd2.Parameters.AddWithValue("@username", username);
 
-            if (cmd2.ExecuteNonQuery() == 0)
+            if (cmd2.ExecuteScalar() == null)
             {
 
                 string command2 = "Insert into Mechanics(mechanicUsername,mechanicPW,mechanicContactNum,)\r\nvalues(@username,@password,@contactNum)";
@@ -257,7 +257,7 @@ namespace GA_TestRun1
             SqlCommand cmd2 = new SqlCommand(query1, Sp_con);
             cmd2.Parameters.AddWithValue("@username", username);
 
-            if (cmd2.ExecuteNonQuery() == 0)
+            if (cmd2.ExecuteScalar()==null)
             {
 
                 string command2 = "Insert into Receptionists(rcptionistUsername,rcptionistPW,rcptionistContactNum,)\r\nvalues(@username,@password,@contactNum)";
@@ -292,7 +292,7 @@ namespace GA_TestRun1
 
         public void updateProf(string username, string password)
         { //string status;
-            string oldusername = Username; //save the old username into new variable
+            string oldusername = usernames; //save the old username into new variable
             usernames = username;           // retrive the new username and password
             passwords = password;
 
@@ -328,8 +328,7 @@ namespace GA_TestRun1
                                     break;
                                 }
 
-
-                                //case 1: { Put Your Code for Customer.....
+                            
                         }
 
                     }

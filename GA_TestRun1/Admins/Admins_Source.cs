@@ -9,11 +9,11 @@ namespace GA_TestRun1.Admins
 {
     internal class Admins_Source
     {
-        public string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\GA_TestRun1\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
+        public string connectionString;
 
-        public Admins_Source()
+        public Admins_Source(string connection)
         {
-            
+            connectionString = connection;  
 
         }
 
@@ -50,6 +50,5 @@ namespace GA_TestRun1.Admins
             }
         }
 
-        public 
     }
 }
