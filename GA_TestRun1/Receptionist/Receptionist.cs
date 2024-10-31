@@ -19,6 +19,7 @@ namespace GA_TestRun1.Receptionist
         private string Username;
         private string Password;
         private string SelectedItems;
+        //private Cus_deleteForm cus = new Cus_deleteForm(connectionS);
         public string usernames
         {
             get => Username; set => Username = value;
@@ -30,6 +31,7 @@ namespace GA_TestRun1.Receptionist
         public Receptionists(string connection)
         {
             connectionS = connection;
+            
         }
         public Receptionists(string username, string password)
         {
