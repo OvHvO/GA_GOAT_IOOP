@@ -30,16 +30,6 @@ namespace GA_TestRun1.Admins
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void staff_MNG_Click(object sender, EventArgs e)
         {
 
@@ -47,15 +37,18 @@ namespace GA_TestRun1.Admins
 
         private void service_MNG_Click(object sender, EventArgs e)
         {
+            Admin_service obj1 = new Admin_service();
+            obj1.Dock = DockStyle.Fill;
 
+            panel2.Controls.Add(obj1);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btn_sales_Report_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btn_cus_FB_Click(object sender, EventArgs e)
         {
 
         }
