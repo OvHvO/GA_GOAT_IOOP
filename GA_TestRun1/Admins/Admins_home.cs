@@ -32,7 +32,7 @@ namespace GA_TestRun1.Admins
 
         private void staff_MNG_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void service_MNG_Click(object sender, EventArgs e)
