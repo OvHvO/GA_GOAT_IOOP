@@ -362,3 +362,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/GA_TestRun1/Database_GADataSet.Designer.cs
+/GA_TestRun1/Database_GADataSet.xss
+/GA_TestRun1/Database_GADataSet.xsd
+/GA_TestRun1/Database_GADataSet.xsc
