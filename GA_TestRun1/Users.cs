@@ -157,7 +157,7 @@ namespace GA_TestRun1
             if (cmd2.ExecuteScalar() == null)
             {
 
-                string command2 = "Insert into Customers(customerUsername,customerPW,customerContactNum,)\r\nvalues(@username,@password,@contactNum)";
+                string command2 = "Insert into Customers(customerUsername,customerPW,customerContactNum)\r\nvalues(@username,@password,@contactNum)";
                 SqlCommand sp_cmd2 = new SqlCommand(command2, Sp_con);
 
                 sp_cmd2.Parameters.AddWithValue("@username", username);

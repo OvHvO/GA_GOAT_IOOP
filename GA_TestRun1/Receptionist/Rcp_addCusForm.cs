@@ -14,18 +14,36 @@ using GA_TestRun1.Mechanics;
 
 namespace GA_TestRun1.Receptionist
 {
-    public partial class Rcp_signUp_form : Form
-    {
-        public Rcp_signUp_form()
+    public partial class Rcp_addCusForm : UserControl
+    {   
+        //Create an Instance Fields
+        private static Rcp_addCusForm _instance;
+        public Rcp_addCusForm()
         {
             InitializeComponent();
         }
 
+        //Instance Constructor Used to Connect With Database and Other Pages
+        //Create an Instance Constructors(Property)
 
-        private void Rcp_signUp_form_Load(object sender, EventArgs e)
+        public static Rcp_addCusForm Instance
         {
-            Sup_Cbox_role.SelectedIndex=0;
+            get 
+            {
+                if (_instance == null)
+                {
+                    _instance = new Rcp_addCusForm();
+                }
+                return _instance;
+            }
+
         }
+
+        private void Rcp_addCusForm_Load(object sender, EventArgs e)
+        {
+            Sup_Cbox_role.SelectedIndex = 0;
+        }
+
         private void Sup_username_txt_TextChanged(object sender, EventArgs e)
         {
 
@@ -50,6 +68,7 @@ namespace GA_TestRun1.Receptionist
         {
 
         }
+
         private void Sup_btn_Click(object sender, EventArgs e)
         {
             Users signup = new Users(Sup_username_txt.Text, Sup_password_txt.Text);
@@ -59,12 +78,12 @@ namespace GA_TestRun1.Receptionist
                 Sup_password_txt.Clear();
                 Sup_Cpassword_txt.Clear();
             }
-            else if (!CheckIsNullorEmpty(Sup_contNum_txt.Text,Sup_Cpassword_txt.Text,Sup_password_txt.Text,Sup_username_txt.Text))
+            else if (!CheckIsNullorEmpty(Sup_contNum_txt.Text, Sup_Cpassword_txt.Text, Sup_password_txt.Text, Sup_username_txt.Text))
             {
-                MessageBox.Show("Please fill all the blanks before submit!!!","Check Again");
+                MessageBox.Show("Please fill all the blanks before submit!!!", "Check Again");
             }
 
-            
+
             else
             {   //loop for the combobox and define what user have selected
                 for (int i = 0; i < Sup_Cbox_role.Items.Count; i++)
@@ -107,8 +126,8 @@ namespace GA_TestRun1.Receptionist
                     }
                 }
             }
-        } 
-        
+        }
+
         //Check the user input is null or not (*params is parameter)
         private bool CheckIsNullorEmpty(params string[] inputs)
         {
@@ -118,11 +137,9 @@ namespace GA_TestRun1.Receptionist
                 {
                     return false;
                 }
-               
-             }  
-          return true;  
+
+            }
+            return true;
         }
     }
 }
-
-        

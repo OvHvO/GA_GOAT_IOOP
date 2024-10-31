@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,19 +14,44 @@ using GA_TestRun1.Admins;
 using GA_TestRun1.Customer;
 using GA_TestRun1.Mechanics;
 
+
 namespace GA_TestRun1.Receptionist
 {
-    public partial class Rcp_delCusForm : Form
-    {
-        public Rcp_delCusForm()
+    public partial class Cus_deleteForm : UserControl
+    {   //Create an Instance Constructor and Property
+        
+        private static Cus_deleteForm _instance;
+       
+        
+        public Cus_deleteForm()
         {
             InitializeComponent();
-        }
-        private void Rcp_delCusForm_Load(object sender, EventArgs e)
-        {   //Dynamic Arraylist
-            
-            ArrayList CusName = new ArrayList();
 
+        }
+
+
+        //创建实例（instance）
+        public static Cus_deleteForm Instance
+        {
+            get 
+            { 
+                if (_instance == null)      // 当实例为null值，会创建一个新的实例，并返回
+                {
+                    _instance = new Cus_deleteForm();
+                }
+                return _instance;           
+            }
+        }
+
+       
+
+       
+
+
+
+        private void Cus_deleteForm_Load(object sender, EventArgs e)
+        {
+            ArrayList CusName = new ArrayList();
             CusName = Receptionists.ViewCustomer();
             foreach (var items in CusName)
             {
@@ -38,53 +64,34 @@ namespace GA_TestRun1.Receptionist
             //clear the previous detail avoid repeated data
 
             Cus_detail_listb.Items.Clear();
-            
-            try 
+
+            try
             {
-            //MessageBox.Show(Selected);
-            string Selected = Cus_listBox.SelectedItem.ToString();
-            ArrayList CusDetail = Receptionists.viewProfileCus(Selected);
-            //Receptionists recep = new Receptionists(Selected);
+                //MessageBox.Show(Selected);
+                string Selected = Cus_listBox.SelectedItem.ToString();
+                ArrayList CusDetail = Receptionists.viewProfileCus(Selected);
+                //Receptionists recep = new Receptionists(Selected);
 
                 foreach (var items in CusDetail)
                 {
-                Cus_detail_listb.Items.Add(items);
-               
-                }  
-               
+                    Cus_detail_listb.Items.Add(items);
+
+                }
+
             }
             catch (Exception er)
             {
-                MessageBox.Show("Something Went Worng" +er.Message, "Error");
+                MessageBox.Show("Something Went Worng" + er.Message, "Error");
             }
-
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        //cusprofile
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void Check_cus_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //Delete Customer Button
-        private void button1_Click(object sender, EventArgs e)
+        private void Cus_del_Click(object sender, EventArgs e)
         {
             string Selected = Cus_listBox.SelectedItem.ToString();
             //Receptionists recep = new Receptionists(Selected);
             DialogResult delAcceptorNot = MessageBox.Show("Are you confirm want to delete this customer?", "Delete Customer", MessageBoxButtons.YesNo);
             if (delAcceptorNot == DialogResult.Yes)
-            {  
+            {
                 Receptionists.delCus(Selected);
 
 
@@ -92,17 +99,16 @@ namespace GA_TestRun1.Receptionist
         }
 
         private void ref_Rcpbtn_Click(object sender, EventArgs e)
-        {   //Refresh the data to avoid deleted data
+        {
+            //Refresh the data to avoid deleted data
 
             Cus_listBox.Items.Clear();
             //call refresh method(static)
-            List<string> cusName= Receptionists.refCus();
-            foreach (var cus in cusName) 
+            List<string> cusName = Receptionists.refCus();
+            foreach (var cus in cusName)
             {
                 Cus_listBox.Items.Add(cus);
             }
-
-           
         }
 
         private void Cus_detail_listb_SelectedIndexChanged(object sender, EventArgs e)
