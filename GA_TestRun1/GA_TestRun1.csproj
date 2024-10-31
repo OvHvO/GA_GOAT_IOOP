@@ -207,17 +207,17 @@
     <Compile Include="Mechanics\Mechanic_home.Designer.cs">
       <DependentUpon>Mechanic_home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Receptionist\Rcp_delCusForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Receptionist\Cus_deleteForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Receptionist\Rcp_delCusForm.Designer.cs">
-      <DependentUpon>Rcp_delCusForm.cs</DependentUpon>
+    <Compile Include="Receptionist\Cus_deleteForm.Designer.cs">
+      <DependentUpon>Cus_deleteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Receptionist\Rcp_signUp_form.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Receptionist\Rcp_addCusForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Receptionist\Rcp_signUp_form.Designer.cs">
-      <DependentUpon>Rcp_signUp_form.cs</DependentUpon>
+    <Compile Include="Receptionist\Rcp_addCusForm.Designer.cs">
+      <DependentUpon>Rcp_addCusForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Receptionist\Receptionist.cs" />
     <Compile Include="Receptionist\Receptionist_home.cs">
@@ -231,6 +231,12 @@
     </Compile>
     <Compile Include="Sign_Up_form.Designer.cs">
       <DependentUpon>Sign_Up_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateProfileF.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UpdateProfileF.Designer.cs">
+      <DependentUpon>UpdateProfileF.cs</DependentUpon>
     </Compile>
     <Compile Include="Update_profile.cs">
       <SubType>Form</SubType>
@@ -256,17 +262,20 @@
     <EmbeddedResource Include="Login_Pages.resx">
       <DependentUpon>Login_Pages.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Receptionist\Rcp_delCusForm.resx">
-      <DependentUpon>Rcp_delCusForm.cs</DependentUpon>
+    <EmbeddedResource Include="Receptionist\Cus_deleteForm.resx">
+      <DependentUpon>Cus_deleteForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Receptionist\Rcp_signUp_form.resx">
-      <DependentUpon>Rcp_signUp_form.cs</DependentUpon>
+    <EmbeddedResource Include="Receptionist\Rcp_addCusForm.resx">
+      <DependentUpon>Rcp_addCusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Receptionist\Receptionist_home.resx">
       <DependentUpon>Receptionist_home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sign_Up_form.resx">
       <DependentUpon>Sign_Up_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateProfileF.resx">
+      <DependentUpon>UpdateProfileF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update_profile.resx">
       <DependentUpon>Update_profile.cs</DependentUpon>
