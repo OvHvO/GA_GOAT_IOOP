@@ -38,10 +38,10 @@
             this.btn_service_MNG = new System.Windows.Forms.Button();
             this.btn_staff_MNG = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.admin_Panel = new System.Windows.Forms.Panel();
             this.FeatureBox.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.admin_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -144,31 +144,31 @@
             this.panel1.Size = new System.Drawing.Size(143, 526);
             this.panel1.TabIndex = 5;
             // 
-            // panel2
+            // admin_Panel
             // 
-            this.panel2.BackColor = System.Drawing.Color.Salmon;
-            this.panel2.Controls.Add(this.AdminProfilelistBox);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Location = new System.Drawing.Point(143, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(726, 524);
-            this.panel2.TabIndex = 5;
+            this.admin_Panel.BackColor = System.Drawing.Color.Salmon;
+            this.admin_Panel.Controls.Add(this.AdminProfilelistBox);
+            this.admin_Panel.Controls.Add(this.textBox2);
+            this.admin_Panel.Controls.Add(this.textBox1);
+            this.admin_Panel.Location = new System.Drawing.Point(143, 0);
+            this.admin_Panel.Name = "admin_Panel";
+            this.admin_Panel.Size = new System.Drawing.Size(726, 524);
+            this.admin_Panel.TabIndex = 5;
             // 
             // Admins_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 524);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.admin_Panel);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Admins_home";
             this.Text = "Admins_home";
             this.FeatureBox.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.admin_Panel.ResumeLayout(false);
+            this.admin_Panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -184,6 +184,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ListBox AdminProfilelistBox;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel admin_Panel;
     }
 }

@@ -37,10 +37,7 @@ namespace GA_TestRun1.Admins
 
         private void service_MNG_Click(object sender, EventArgs e)
         {
-            Admin_service obj1 = new Admin_service();
-            obj1.Dock = DockStyle.Fill;
-
-            panel2.Controls.Add(obj1);
+            LoadUserControl(new Admin_service());
         }
 
         private void btn_sales_Report_Click(object sender, EventArgs e)
@@ -52,5 +49,14 @@ namespace GA_TestRun1.Admins
         {
 
         }
+
+        private void LoadUserControl(UserControl userControl)
+        {
+            admin_Panel.Controls.Clear();
+
+            userControl.Dock = DockStyle.Fill;
+            admin_Panel.Controls.Add(userControl);
+        }
+
     }
 }
