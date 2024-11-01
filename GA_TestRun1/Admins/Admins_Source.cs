@@ -54,6 +54,7 @@ namespace GA_TestRun1.Admins
         public List<string> Service_Net()
         {
             string query = @"select serviceName from Service";
+            List<string> serviceList = new List<string>();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -63,21 +64,48 @@ namespace GA_TestRun1.Admins
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        if (reader.Read())
+                        while (reader.Read())
                         {
-                            List<string> serviceList = new List<string>();
                             serviceList.Add(reader["serviceName"].ToString());
-                            return serviceList;
                         }
-                        else
-                        {
-                            return null;
-                        }
+
                     }
 
                 }
             }
+            return serviceList;
         }
 
+        public object[] Service_Details(string targetService)
+        {
+            string query = @"select serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, admin_ID, part_ID from Service
+                                where serviceName = @serviceName";
+            object[] serviceDetails = new object[6];
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@serviceName", targetService);
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            serviceDetails[0] = "Service Info :" + reader["serviceInfo"].ToString();
+                            serviceDetails[1] = "Time taken :" + reader["serviceTimeTaken"].ToString();
+                            serviceDetails[2] = "Price :" + reader["servicePrice"].ToString();
+                            serviceDetails[3] = "Promotion :" + reader["serviceOffer"].ToString() + "%";
+                            serviceDetails[4] = "Admin_ID:" + reader["admin_ID"].ToString();
+                            serviceDetails[5] = "Part_ID:" + reader["part_ID"].ToString();
+
+                        }
+
+                    }
+
+                }
+            }
+            return serviceDetails;
+        }
     }
 }

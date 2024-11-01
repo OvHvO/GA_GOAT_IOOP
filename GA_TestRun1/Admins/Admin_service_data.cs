@@ -18,5 +18,12 @@ namespace GA_TestRun1.Admins
 
         }
 
+        public Admin_service_data(string editService)
+        {
+            InitializeComponent();
+
+
+        }
+
     }
 }
