@@ -18,7 +18,6 @@ namespace GA_TestRun1
 
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
-
         string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\GA_TestRun1\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
         private string Username;
         private string Password;
@@ -340,7 +339,10 @@ namespace GA_TestRun1
             }
         }
 
-
+        public static class ConnectionS_admin
+        {
+            public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\GA_TestRun1\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
+        }
     }
 
 }

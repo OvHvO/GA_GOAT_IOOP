@@ -6,23 +6,24 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Collections;
 using System.Windows.Forms;
+using static GA_TestRun1.Users;
 
 namespace GA_TestRun1.Admins
 {
     internal class Admins_Source
     {
-        public string connectionString;
 
-        public Admins_Source(string connection)
+
+        public Admins_Source()
         {
-            connectionString = connection;  
+
         }
 
         public object[] Admin_Profile(string userN)
         {
             string query = @"select admin_ID, adminUsername, adminContactNum from Admins 
                              where adminUsername = @username";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -55,7 +56,7 @@ namespace GA_TestRun1.Admins
         {
             string query = @"select serviceName from Service";
             List<string> serviceList = new List<string>();
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -81,7 +82,7 @@ namespace GA_TestRun1.Admins
             string query = @"select serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, admin_ID, part_ID from Service
                                 where serviceName = @serviceName";
             object[] serviceDetails = new object[6];
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

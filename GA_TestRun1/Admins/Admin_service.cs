@@ -14,14 +14,12 @@ namespace GA_TestRun1.Admins
 {
     public partial class Admin_service : UserControl
     {
-        private string connection_admin;
         private string selectedItem;
 
-        public Admin_service(string connection)
+        public Admin_service()
         {
             InitializeComponent();
-            connection_admin = connection;
-            Admins_Source admin = new Admins_Source(connection);
+            Admins_Source admin = new Admins_Source();
             List<string> serviceList = admin.Service_Net();
             foreach (string service in serviceList)
             {
@@ -35,7 +33,7 @@ namespace GA_TestRun1.Admins
 
             selectedItem = ServiceListBox.SelectedItem as string;
 
-            Admins_Source selected_S_Details = new Admins_Source(connection_admin);
+            Admins_Source selected_S_Details = new Admins_Source();
             object[] serviceDetails = selected_S_Details.Service_Details(selectedItem);
             foreach (object service in serviceDetails)
             {

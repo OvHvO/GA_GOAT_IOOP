@@ -12,17 +12,15 @@ namespace GA_TestRun1.Admins
 {
     public partial class Admin_service_data : UserControl
     {
+
         public Admin_service_data()
         {
             InitializeComponent();
-
         }
 
         public Admin_service_data(string editService)
         {
             InitializeComponent();
-
-
         }
 
     }
