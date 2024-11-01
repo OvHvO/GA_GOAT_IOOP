@@ -30,34 +30,33 @@ namespace GA_TestRun1.Admins
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void staff_MNG_Click(object sender, EventArgs e)
         {
-
+            LoadUserControl(new Admin_staff());
         }
 
         private void service_MNG_Click(object sender, EventArgs e)
         {
-
+            LoadUserControl(new Admin_service());
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btn_sales_Report_Click(object sender, EventArgs e)
         {
-
+            LoadUserControl(new Admin_salesreport());
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btn_cus_FB_Click(object sender, EventArgs e)
         {
-
+            LoadUserControl(new Admin_cus_FB());
         }
+
+        private void LoadUserControl(UserControl userControl)
+        {
+            admin_Panel.Controls.Clear();
+
+            userControl.Dock = DockStyle.Fill;
+            admin_Panel.Controls.Add(userControl);
+        }
+
     }
 }
