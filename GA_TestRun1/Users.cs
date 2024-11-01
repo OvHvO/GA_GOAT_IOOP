@@ -12,19 +12,35 @@ using GA_TestRun1.Mechanics;
 using System.Windows.Forms;
 using System.Diagnostics.Eventing.Reader;
 using System.Net.Http.Headers;
+using System.Transactions;
 
 namespace GA_TestRun1
 {
 
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
-        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\GA_TestRun1\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
+
+        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA-Backup003\\GA_GOAT_IOOP\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
+
         private string Username;
         private string Password;
+        private string ContactNum;
         public string usernames { get => Username; set => Username = value; }
         public string passwords { get => Password; set => Password = value; }
 
+        public string contactnum { get => ContactNum; set => ContactNum = value; }
+
         //Constructor
+
+        public Users(string username, string password, string contactNum)
+        {
+            usernames = username;
+            passwords= password;
+            contactnum = contactNum;
+        }
+            
+
+
         public Users(string username, string password)
         {
             usernames = username;
@@ -36,10 +52,17 @@ namespace GA_TestRun1
             usernames = username;
         }
 
+        //parameterless constructor
+        public Users()
+        {
+
+        }
+
         public string LoginForms(string username, string password)
         {
             var SigninP = new Login_Pages();
             //string role = null;
+            SqlConnection conn = new SqlConnection(connection);
             string status = null;
             string role = AuthenticateUser(connection, username, password);
             string[] Roles = new string[4] { "rcptionist", "customer", "admin", "mechanic" };
@@ -53,10 +76,43 @@ namespace GA_TestRun1
                     {
                         case 0:
                             {
-                                Receptionist_home Form = new Receptionist_home(username, connection);
+                                conn.Open();
+                                string query3 = "Create Table ##temptable(RcpUsername varchar(50), RcpPw nchar(50), OldName varchar(50))";
+                                SqlCommand cmd3 = new SqlCommand(query3, conn);
+                                
+                                    try
+                                    {
+                                        cmd3.ExecuteNonQuery();
+                                        string query4 = "Insert Into ##temptable(RcpUsername,RcpPw) values (@username,@password)";
+                                        SqlCommand cmd4 = new SqlCommand(query4, conn);
+                                        cmd4.Parameters.AddWithValue("@username", username);
+                                        cmd4.Parameters.AddWithValue("@password", password);
+                                        cmd4.ExecuteNonQuery();
+                                        Receptionist_home Form = new Receptionist_home(username, connection, contactnum);
+                                        Receptionists recep = new Receptionists(username, password);
 
-                                SigninP.Hide();
-                                Form.ShowDialog();
+                                    SigninP.Hide();
+                                        Form.ShowDialog();
+
+                                    }
+                                    catch (SqlException ) 
+                                    {
+                                        string query4 = "Insert Into ##temptable(RcpUsername,RcpPw) values (@username,@password)";
+                                        SqlCommand cmd4 = new SqlCommand(query4, conn);
+                                        cmd4.Parameters.AddWithValue("@username", username);
+                                        cmd4.Parameters.AddWithValue("@password", password);
+                                        cmd4.ExecuteNonQuery();
+                                        Receptionist_home Form = new Receptionist_home(username, connection, contactnum);
+
+                                    SigninP.Hide();
+                                        Form.ShowDialog();
+
+
+                                    }
+
+                                
+
+                               
 
                                 return status = "Login Sucessfull";
 
@@ -303,9 +359,11 @@ namespace GA_TestRun1
 
                 string query = @"
                 SELECT 'rcptionist' AS role FROM Receptionists WHERE rcptionistUsername = @username 
+                UNION
                 SELECT 'admin' AS role FROM Admins WHERE adminUsername = @username 
                 UNION
                 SELECT 'customer' AS role FROM Customers WHERE customerUsername = @username 
+                UNION
                 SELECT 'mechanic' AS role FROM Mechanics WHERE mechanicUsername = @username";
                 SqlCommand cmd = new SqlCommand(query, sp_con);
                 cmd.Parameters.AddWithValue("@username", oldusername);
@@ -322,8 +380,9 @@ namespace GA_TestRun1
                         {
                             case 0:
                                 {
-                                    Receptionists recep = new Receptionists(username, password);
-                                    recep.rcpUpdateProf(oldusername, username, password);  
+                                    Receptionists recep = new Receptionists(username,password);
+                                    recep.rcpUpdateProf(oldusername, username, password);
+                                    
                                     break;
                                 }
 
@@ -339,10 +398,12 @@ namespace GA_TestRun1
             }
         }
 
+
         public static class ConnectionS_admin
         {
             public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\GA_TestRun1\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
         }
+
     }
 
 }
