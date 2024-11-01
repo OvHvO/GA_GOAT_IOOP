@@ -144,7 +144,7 @@
             // 
             // serviceChangeBtn
             // 
-            this.serviceChangeBtn.Location = new System.Drawing.Point(380, 350);
+            this.serviceChangeBtn.Location = new System.Drawing.Point(380, 344);
             this.serviceChangeBtn.Name = "serviceChangeBtn";
             this.serviceChangeBtn.Size = new System.Drawing.Size(82, 23);
             this.serviceChangeBtn.TabIndex = 12;

@@ -76,5 +76,11 @@ namespace GA_TestRun1.Admins
         {
 
         }
+
+        private void adminServiceDeletebtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
