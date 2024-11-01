@@ -40,8 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.serviceChangeBtn = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -143,23 +142,14 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Part ID";
             // 
-            // button1
+            // serviceChangeBtn
             // 
-            this.button1.Location = new System.Drawing.Point(276, 360);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Confirm";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(387, 360);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.serviceChangeBtn.Location = new System.Drawing.Point(380, 350);
+            this.serviceChangeBtn.Name = "serviceChangeBtn";
+            this.serviceChangeBtn.Size = new System.Drawing.Size(82, 23);
+            this.serviceChangeBtn.TabIndex = 12;
+            this.serviceChangeBtn.Text = "Confirm";
+            this.serviceChangeBtn.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -178,8 +168,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.serviceChangeBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -193,7 +182,7 @@
             this.Controls.Add(this.ServicePriceTB);
             this.Controls.Add(this.ServiceNameTB);
             this.Name = "Admin_service_data";
-            this.Size = new System.Drawing.Size(544, 426);
+            this.Size = new System.Drawing.Size(544, 400);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,8 +202,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button serviceChangeBtn;
         private System.Windows.Forms.Button button3;
     }
 }

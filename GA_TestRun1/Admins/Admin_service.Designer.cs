@@ -37,6 +37,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ServiceDetailslistB = new System.Windows.Forms.ListBox();
             this.admin_service_panel = new System.Windows.Forms.Panel();
+            this.cancelBtn = new System.Windows.Forms.Button();
             this.admin_service_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             // 
             // adminServiceAddbtn
             // 
-            this.adminServiceAddbtn.Location = new System.Drawing.Point(52, 347);
+            this.adminServiceAddbtn.Location = new System.Drawing.Point(52, 346);
             this.adminServiceAddbtn.Name = "adminServiceAddbtn";
             this.adminServiceAddbtn.Size = new System.Drawing.Size(75, 23);
             this.adminServiceAddbtn.TabIndex = 1;
@@ -62,7 +63,7 @@
             // 
             // adminServiceEditbtn
             // 
-            this.adminServiceEditbtn.Location = new System.Drawing.Point(220, 347);
+            this.adminServiceEditbtn.Location = new System.Drawing.Point(221, 346);
             this.adminServiceEditbtn.Name = "adminServiceEditbtn";
             this.adminServiceEditbtn.Size = new System.Drawing.Size(75, 23);
             this.adminServiceEditbtn.TabIndex = 2;
@@ -72,7 +73,7 @@
             // 
             // adminServiceDeletebtn
             // 
-            this.adminServiceDeletebtn.Location = new System.Drawing.Point(414, 347);
+            this.adminServiceDeletebtn.Location = new System.Drawing.Point(414, 346);
             this.adminServiceDeletebtn.Name = "adminServiceDeletebtn";
             this.adminServiceDeletebtn.Size = new System.Drawing.Size(75, 23);
             this.adminServiceDeletebtn.TabIndex = 3;
@@ -111,14 +112,25 @@
             this.admin_service_panel.Controls.Add(this.adminServiceAddbtn);
             this.admin_service_panel.Location = new System.Drawing.Point(0, 0);
             this.admin_service_panel.Name = "admin_service_panel";
-            this.admin_service_panel.Size = new System.Drawing.Size(544, 426);
+            this.admin_service_panel.Size = new System.Drawing.Size(544, 400);
             this.admin_service_panel.TabIndex = 6;
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Location = new System.Drawing.Point(414, 403);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(75, 23);
+            this.cancelBtn.TabIndex = 7;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // Admin_service
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
+            this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.admin_service_panel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Admin_service";
@@ -139,5 +151,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ListBox ServiceDetailslistB;
         private System.Windows.Forms.Panel admin_service_panel;
+        private System.Windows.Forms.Button cancelBtn;
     }
 }

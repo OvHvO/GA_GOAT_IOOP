@@ -48,15 +48,28 @@ namespace GA_TestRun1.Admins
 
         private void adminServiceEditbtn_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new Admin_service_data(selectedItem));
+            if (selectedItem != null)
+            { 
+                LoadUserControl(new Admin_service_data(selectedItem));
+            }
+
+            else
+            {
+                MessageBox.Show("Please f**king choose a service idiot");
+            }
         }
 
-        private void LoadUserControl(UserControl userControl)
+        public void LoadUserControl(UserControl userControl)
         {
             admin_service_panel.Controls.Clear();
 
             userControl.Dock = DockStyle.Fill;
             admin_service_panel.Controls.Add(userControl);
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new Admin_service());
         }
     }
 }

@@ -12,7 +12,7 @@ namespace GA_TestRun1.Admins
 {
     public partial class Admin_service_data : UserControl
     {
-
+        
         public Admin_service_data()
         {
             InitializeComponent();
@@ -30,6 +30,7 @@ namespace GA_TestRun1.Admins
             ServicePriceTB.Text = editServiceInfo[3];
             ServiceOfferTB.Text = editServiceInfo[4];
             ServicePartIDTB.Text = editServiceInfo[5];
+
         }
 
     }
