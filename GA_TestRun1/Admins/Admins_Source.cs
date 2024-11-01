@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using static GA_TestRun1.Users;
 using Microsoft.Identity.Client;
 using System.Threading;
+using System.ServiceProcess;
 
 namespace GA_TestRun1.Admins
 {
@@ -141,6 +142,90 @@ namespace GA_TestRun1.Admins
                 }
             }
             return editServiceInfo;
+        }
+
+        public string Part_Checking(int selectedPart)
+        {
+            string query = @"select partName from Parts where part_ID = @partID";
+            string partName = null;
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@partID", selectedPart);
+                    connection.Open();
+
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        partName = result.ToString();
+                    }
+                }
+            }
+            return partName;
+        }
+
+        public bool Service_Change(string type, string serviceName, string serviceInfo, string serviceTimeTaken, int servicePrice, int serviceOffer, int admin_ID, int part_ID)
+        {
+            if (type == "ADD")
+            {
+                string query = "INSERT INTO Service (serviceName, serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, admin_ID, part_ID) VALUES (@ServiceName, @ServiceInfo, @ServiceTimeTaken, @ServicePrice, @ServiceOffer, @Admin_ID, @Part_ID)";
+
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                    {
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@ServiceName", serviceName);
+                            command.Parameters.AddWithValue("@ServiceInfo", serviceInfo);
+                            command.Parameters.AddWithValue("@ServiceTimeTaken", serviceTimeTaken);
+                            command.Parameters.AddWithValue("@ServicePrice", servicePrice);
+                            command.Parameters.AddWithValue("@ServiceOffer", serviceOffer);
+                            command.Parameters.AddWithValue("@admin_ID", admin_ID);
+                            command.Parameters.AddWithValue("@part_ID", part_ID);
+
+                            connection.Open();
+                            int rowsAffected = command.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                return true;
+                            }
+
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+
+                catch(SqlException ex)
+                {
+                    if(ex.Number == 547) //547 is the number when foreign key has problem in our database
+                    {
+                        MessageBox.Show("The ParrID does not exist");
+                        return false;
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Okay gg I will lay off");
+                        return false;
+                    }
+                }
+
+            }
+
+            else if (type == "EDIT")
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -41,7 +41,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.serviceChangeBtn = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.partCheckBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ServiceNameTB
@@ -150,24 +150,26 @@
             this.serviceChangeBtn.TabIndex = 12;
             this.serviceChangeBtn.Text = "Confirm";
             this.serviceChangeBtn.UseVisualStyleBackColor = true;
+            this.serviceChangeBtn.Click += new System.EventHandler(this.serviceChangeBtn_Click);
             // 
-            // button3
+            // partCheckBtn
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(418, 293);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(44, 22);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "check";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.UseVisualStyleBackColor = true;
+            this.partCheckBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.partCheckBtn.Location = new System.Drawing.Point(418, 293);
+            this.partCheckBtn.Name = "partCheckBtn";
+            this.partCheckBtn.Size = new System.Drawing.Size(44, 22);
+            this.partCheckBtn.TabIndex = 14;
+            this.partCheckBtn.Text = "check";
+            this.partCheckBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.partCheckBtn.UseVisualStyleBackColor = true;
+            this.partCheckBtn.Click += new System.EventHandler(this.partCheckBtn_Click);
             // 
             // Admin_service_data
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Controls.Add(this.button3);
+            this.BackColor = System.Drawing.Color.Salmon;
+            this.Controls.Add(this.partCheckBtn);
             this.Controls.Add(this.serviceChangeBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -203,6 +205,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button serviceChangeBtn;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button partCheckBtn;
     }
 }
