@@ -36,7 +36,7 @@ namespace GA_TestRun1.Admins
                             object[] adminProfile = new object[3];
                             adminProfile[0] = "Admin ID:" + reader["admin_ID"].ToString();
                             adminProfile[1] = "Admin UserName:" + reader["adminUsername"].ToString();
-                            adminProfile[2] = "Admin Contact Number:" + reader["adminContactNum"].ToString();
+                            adminProfile[2] = "Admin Contact Number: +60" + reader["adminContactNum"].ToString();
 
                             return adminProfile;
                         }
