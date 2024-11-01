@@ -126,7 +126,7 @@
             this.Controls.Add(this.rcp_delCusGpbox);
             this.Controls.Add(this.Rcp_delCus_lbltxt);
             this.Name = "Cus_deleteForm";
-            this.Size = new System.Drawing.Size(704, 456);
+            this.Size = new System.Drawing.Size(791, 504);
             this.Load += new System.EventHandler(this.Cus_deleteForm_Load);
             this.Rcp_delCusProf_Gpbox.ResumeLayout(false);
             this.rcp_delCusGpbox.ResumeLayout(false);

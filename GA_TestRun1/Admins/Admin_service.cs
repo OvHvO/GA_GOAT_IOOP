@@ -16,5 +16,10 @@ namespace GA_TestRun1.Admins
         {
             InitializeComponent();
         }
+
+        private void Admin_service_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

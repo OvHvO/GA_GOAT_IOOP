@@ -177,7 +177,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Sup_title);
             this.Name = "Rcp_addCusForm";
-            this.Size = new System.Drawing.Size(776, 456);
+            this.Size = new System.Drawing.Size(791, 504);
             this.Load += new System.EventHandler(this.Rcp_addCusForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

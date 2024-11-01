@@ -19,13 +19,26 @@ namespace GA_TestRun1
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
 
-        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\GA_TestRun1\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
+        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA-Backup003\\GA_GOAT_IOOP\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         private string Username;
         private string Password;
+        private string ContactNum;
         public string usernames { get => Username; set => Username = value; }
         public string passwords { get => Password; set => Password = value; }
 
+        public string contactnum { get => ContactNum; set => ContactNum = value; }
+
         //Constructor
+
+        public Users(string username, string password, string contactNum)
+        {
+            usernames = username;
+            passwords= password;
+            contactnum = contactNum;
+        }
+            
+
+
         public Users(string username, string password)
         {
             usernames = username;
@@ -35,6 +48,12 @@ namespace GA_TestRun1
         public Users(string username)
         {
             usernames = username;
+        }
+
+        //parameterless constructor
+        public Users()
+        {
+
         }
 
         public string LoginForms(string username, string password)
@@ -54,8 +73,9 @@ namespace GA_TestRun1
                     {
                         case 0:
                             {
-                                Receptionist_home Form = new Receptionist_home(username, connection);
-
+                               
+                                Receptionist_home Form = new Receptionist_home(username, connection, contactnum);
+                                Receptionists recep = new Receptionists(username,password);
                                 SigninP.Hide();
                                 Form.ShowDialog();
 
@@ -304,9 +324,11 @@ namespace GA_TestRun1
 
                 string query = @"
                 SELECT 'rcptionist' AS role FROM Receptionists WHERE rcptionistUsername = @username 
+                UNION
                 SELECT 'admin' AS role FROM Admins WHERE adminUsername = @username 
                 UNION
                 SELECT 'customer' AS role FROM Customers WHERE customerUsername = @username 
+                UNION
                 SELECT 'mechanic' AS role FROM Mechanics WHERE mechanicUsername = @username";
                 SqlCommand cmd = new SqlCommand(query, sp_con);
                 cmd.Parameters.AddWithValue("@username", oldusername);
@@ -323,8 +345,9 @@ namespace GA_TestRun1
                         {
                             case 0:
                                 {
-                                    Receptionists recep = new Receptionists(username, password);
-                                    recep.rcpUpdateProf(oldusername, username, password);  
+                                    Receptionists recep = new Receptionists(username,password);
+                                    recep.rcpUpdateProf(oldusername, username, password);
+                                    
                                     break;
                                 }
 
@@ -340,7 +363,8 @@ namespace GA_TestRun1
             }
         }
 
-
+        
+       
     }
 
 }

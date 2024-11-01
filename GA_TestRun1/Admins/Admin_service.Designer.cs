@@ -37,6 +37,7 @@
             this.BackColor = System.Drawing.Color.Salmon;
             this.Name = "Admin_service";
             this.Size = new System.Drawing.Size(726, 524);
+            this.Load += new System.EventHandler(this.Admin_service_Load);
             this.ResumeLayout(false);
 
         }

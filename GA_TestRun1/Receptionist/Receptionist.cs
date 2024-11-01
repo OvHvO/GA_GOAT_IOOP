@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IdentityModel.Tokens;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +17,10 @@ namespace GA_TestRun1.Receptionist
     {
 
         static string connectionS; 
-        private string Username;
+        private static string Username;
         private string Password;
         private string SelectedItems;
+        private string ContactNum;
         //private Cus_deleteForm cus = new Cus_deleteForm(connectionS);
         public string usernames
         {
@@ -26,8 +28,8 @@ namespace GA_TestRun1.Receptionist
         }
         public string passwords { get => Password; set => Password = value; }
         public string selecteditem { get => SelectedItems; set => SelectedItems = value; }
+        public string contactnum { get => ContactNum; set => ContactNum = value; }
 
-        
         public Receptionists(string connection)
         {
             connectionS = connection;
@@ -39,11 +41,18 @@ namespace GA_TestRun1.Receptionist
             passwords = password;
 
         }
+        public Receptionists()
+        {
+            
+        }
+        public Receptionists(string connection,string username,string contact)
+        {
+            connectionS = connection;
+            usernames = username;
+            contactnum = contact;
+        }
 
-        //public Receptionists(string selecteditems)
-        //{
-        //    selecteditem = selecteditems;
-        //}
+      
 
         public static ArrayList ViewCustomer()
         {
@@ -198,10 +207,63 @@ namespace GA_TestRun1.Receptionist
 
         }
 
+
+
+        public static Array  newprofile()
+        {  string user;
+            user = Username;
+            SqlConnection conn = new SqlConnection(connectionS);
+            conn.Open();
+            string[] newProf = new string[2];
+            
+            
+                string query = "Select rcptionistUsername,rcptionistContactNum from Receptionists where rcptionistUsername=@username";
+                SqlCommand cmd= new SqlCommand(query,conn);
+                cmd.Parameters.AddWithValue("@username",user);
+
+                SqlDataReader read= cmd.ExecuteReader();
+                while (read.Read())
+                {   
+                    newProf[0] = read.GetString(0);
+                    newProf[1] = read.GetString(1);
+               
+                } 
+            
+
+            conn.Close();
+            return newProf;
+
+
+        }
+       
+
+
+
+        //public void newProf(out string newUsername,out string contactNum)
+        //{
+        //    newUsername = usernames;
+        //    contactNum = "";
+        //    SqlConnection sp_con = new SqlConnection(connectionS);
+        //    sp_con.Open();
+        //    string query = "Select rcptionistUsername,rcptionistContactNum from Receptionists where rcptionistUsername=@username";
+        //   SqlCommand cmd=new SqlCommand(query,sp_con);
+        //    cmd.Parameters.AddWithValue ("@username",newUsername);
+        //    SqlDataReader read= cmd.ExecuteReader();
+        //    while (read.Read()) 
+        //    {
+        //        newUsername=read.GetString(0);
+        //        contactNum = read.GetString(1);
+        //    }
+        //    sp_con.Close();
+
+        //}
+
         public void errorMessage(string messages)
         {
             MessageBox.Show(messages, "Error");
         }
+
+
 
     }
 }

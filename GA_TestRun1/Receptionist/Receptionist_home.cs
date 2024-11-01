@@ -20,12 +20,22 @@ namespace GA_TestRun1.Receptionist
     public partial class Receptionist_home : Form
     {
        
-        public static string name;
-        public Receptionist_home(string n, string connectionS)
+        private static string name;
+        private static string contact;
+        private static string connection;
+        public Receptionist_home(string n, string connectionS, string contactnum)
         {   
             InitializeComponent();
             name = n;
-            Receptionists recep = new Receptionists(connectionS);
+            Receptionists recep = new Receptionists(connectionS,n,contactnum);
+            string[] newprof = (string[])Receptionists.newprofile();
+            if (newprof.Length > 1)
+            {   
+                contactnum = newprof[1];
+            }
+
+            contact = contactnum;
+            connection = connectionS;
             //Cus_deleteForm Cus_del = new Cus_deleteForm(connectionS);
            
         }
@@ -35,7 +45,9 @@ namespace GA_TestRun1.Receptionist
            
 
             Rcp_home_lbl.Text = $"Welcome! {name}";
-
+            ContactNumtxt_lbl.Text=contact;
+            nametxt_lbl.Text = name;
+            Roletxt_lbl.Text = "Receptionist";
             
         }
 
@@ -68,18 +80,7 @@ namespace GA_TestRun1.Receptionist
             Users object01=new Users(name);
             UpdateProfileF profile_form= new UpdateProfileF (name);
             //profile_form.ShowDialog();
-
-            if (!panel1.Controls.Contains(UpdateProfileF.Instance))
-            {
-                panel1.Controls.Add(UpdateProfileF.Instance);
-                UpdateProfileF.Instance.Dock= DockStyle.Fill;
-                UpdateProfileF.Instance.BringToFront();
-            }
-
-            else
-            {
-                UpdateProfileF.Instance.BringToFront();
-            }
+            Instance_loadControl(UpdateProfileF.Instance);
 
         }
         
@@ -88,52 +89,106 @@ namespace GA_TestRun1.Receptionist
        
         private void Rcp_home_delCus_Click(object sender, EventArgs e)
         {
-            // 确认实例(instance=Cus_deleteForm)是否存在于Panel 1 中，假如不存在就创建一个实例，并移到最前面
-            
-            if (!panel1.Controls.Contains(Cus_deleteForm.Instance))
-            {
-                panel1.Controls.Add(Cus_deleteForm.Instance);
-                Cus_deleteForm.Instance.Dock = DockStyle.Fill;
-                Cus_deleteForm.Instance.BringToFront();
-
-            } 
-            //假如 Cus_deleteForm存在 Panel1 中就将Panel1 移动到前方
-            else
-
-            {
-                Cus_deleteForm.Instance.BringToFront();
-            }
-
-
-
-            //var DEl= new Rcp_delCusForm();
-            //DEl.ShowDialog();
+            Instance_loadControl(Cus_deleteForm.Instance);
         }
 
         private void Rcp_Add_Click(object sender, EventArgs e)
         {
+            panel1.Controls.Clear ();
+            Loadcontrol(new Rcp_addCusForm());
+
+
             
-            //panel1.Visible = false;
-            if (!panel1.Controls.Contains(Rcp_addCusForm.Instance))
-            {
-                panel1.Controls.Add(Rcp_addCusForm.Instance);
-                Rcp_addCusForm.Instance.Dock = DockStyle.Fill;
-                Rcp_addCusForm.Instance.BringToFront();
-
-            }
-            else
-            {
-                Rcp_addCusForm.Instance.BringToFront();
-            }
-
-
-            //Rcp_signUp_form addcus= new Rcp_signUp_form();
-            //addcus.ShowDialog();
         }
 
         private void Cus_delF_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        // Load The usercontrol with the clear pages
+        private void Loadcontrol(UserControl controlp)
+        {
+            panel1.Visible = true;
+            panel1.Controls.Clear();
+            controlp.Dock= DockStyle.Fill;
+            panel1.Controls.Add(controlp);
+        }
+
+        // Load Usercontrol with previous data (the data won't delete when switch pages)
+        private void Instance_loadControl(UserControl controlPage)
+        {    // 确认实例(instance=Cus_deleteForm)是否存在于Panel 1 中，假如不存在就创建一个实例，并移到最前面
+            if (!panel1.Controls.Contains(controlPage))
+            {
+                panel1.Visible = true;
+                panel1.Controls.Add (controlPage);
+                controlPage.Dock= DockStyle.Fill;
+                controlPage.BringToFront ();
+            }
+            //假如 Cus_deleteForm存在 Panel1 中就将Panel1 移动到前方
+
+            else
+            {
+                controlPage.BringToFront();
+            }
+        }
+
+        private void nametxt_lbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ContactNumtxt_lbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Roletxt_lbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rcp_manageAppbtn_btn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void rcp_homebtn_btn_Click(object sender, EventArgs e)
+        {   panel1.Controls.Clear ();
+            panel1 .Visible = false;
+
+            string[] newprof = (string[])Receptionists.newprofile();
+            if (newprof.Length > 1)
+            {
+                Rcp_home_lbl.Text = $"Welcome! {newprof[0]}";
+                ContactNumtxt_lbl.Text = newprof[1];
+                nametxt_lbl.Text = newprof[0];
+            }
+
+
+        }
+
+        private void rcp_CheckinOutbtn_btn_Click(object sender, EventArgs e)
+        {
+            
+        }
+        private void rcp_srcInvbtn_btn_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        
+        
     }
 }

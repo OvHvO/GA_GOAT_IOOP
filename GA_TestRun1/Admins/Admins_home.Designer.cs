@@ -51,7 +51,7 @@
             this.textBox1.Location = new System.Drawing.Point(38, 20);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(343, 37);
+            this.textBox1.Size = new System.Drawing.Size(343, 45);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "ADMIN INTERFACE";
             // 
@@ -74,6 +74,7 @@
             this.textBox2.Size = new System.Drawing.Size(343, 159);
             this.textBox2.TabIndex = 3;
             this.textBox2.Text = resources.GetString("textBox2.Text");
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // FeatureBox
             // 
@@ -154,6 +155,7 @@
             this.admin_Panel.Name = "admin_Panel";
             this.admin_Panel.Size = new System.Drawing.Size(726, 524);
             this.admin_Panel.TabIndex = 5;
+            this.admin_Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.admin_Panel_Paint);
             // 
             // Admins_home
             // 
