@@ -194,6 +194,12 @@
     <Compile Include="Admins\Admin_service.Designer.cs">
       <DependentUpon>Admin_service.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admins\Admin_service_data.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Admins\Admin_service_data.Designer.cs">
+      <DependentUpon>Admin_service_data.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admins\Admin_staff.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -276,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admins\Admin_service.resx">
       <DependentUpon>Admin_service.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admins\Admin_service_data.resx">
+      <DependentUpon>Admin_service_data.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admins\Admin_staff.resx">
       <DependentUpon>Admin_staff.cs</DependentUpon>
