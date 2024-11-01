@@ -33,7 +33,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.ServiceListBox = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
@@ -75,13 +75,13 @@
             this.button3.Text = "DELETE";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // ServiceListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(52, 131);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(147, 134);
-            this.listBox1.TabIndex = 4;
+            this.ServiceListBox.FormattingEnabled = true;
+            this.ServiceListBox.Location = new System.Drawing.Point(52, 131);
+            this.ServiceListBox.Name = "ServiceListBox";
+            this.ServiceListBox.Size = new System.Drawing.Size(147, 134);
+            this.ServiceListBox.TabIndex = 4;
             // 
             // contextMenuStrip1
             // 
@@ -102,7 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
             this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.ServiceListBox);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -121,7 +121,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox ServiceListBox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ListBox listBox2;
     }

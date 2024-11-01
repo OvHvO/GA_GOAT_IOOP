@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Collections;
+using System.Windows.Forms;
 
 namespace GA_TestRun1.Admins
 {
@@ -14,7 +16,6 @@ namespace GA_TestRun1.Admins
         public Admins_Source(string connection)
         {
             connectionString = connection;  
-
         }
 
         public object[] Admin_Profile(string userN)
@@ -34,11 +35,39 @@ namespace GA_TestRun1.Admins
                         if (reader.Read())
                         {
                             object[] adminProfile = new object[3];
-                            adminProfile[0] = "Admin ID:" + reader["admin_ID"].ToString();
+                            adminProfile[0] = reader["admin_ID"];
                             adminProfile[1] = "Admin UserName:" + reader["adminUsername"].ToString();
                             adminProfile[2] = "Admin Contact Number: +60" + reader["adminContactNum"].ToString();
 
                             return adminProfile;
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        public List<string> Service_Net()
+        {
+            string query = @"select serviceName from Service";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            List<string> serviceList = new List<string>();
+                            serviceList.Add(reader["serviceName"].ToString());
+                            return serviceList;
                         }
                         else
                         {

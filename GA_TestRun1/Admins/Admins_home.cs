@@ -18,6 +18,8 @@ namespace GA_TestRun1.Admins
     public partial class Admins_home : Form
     {
         private string userN;
+        private string connection_admin;
+        public string connection_admin_P { get => connection_admin; set => connection_admin_P = value; }
         private int adminID;
         public int adminID_P { get => adminID; set => adminID = value; }
 
@@ -25,7 +27,8 @@ namespace GA_TestRun1.Admins
         {
             InitializeComponent();
             userN = username;
-            Admins_Source admin = new Admins_Source(connection);
+            connection_admin = connection;
+            Admins_Source admin = new Admins_Source(connection_admin);
             object[] adminProfile = admin.Admin_Profile(userN);
             for (int i = 0; i < adminProfile.Length; i++)
             {
@@ -44,7 +47,7 @@ namespace GA_TestRun1.Admins
 
         private void service_MNG_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new Admin_service());
+            LoadUserControl(new Admin_service(connection_admin_P));
         }
 
         private void btn_sales_Report_Click(object sender, EventArgs e)
