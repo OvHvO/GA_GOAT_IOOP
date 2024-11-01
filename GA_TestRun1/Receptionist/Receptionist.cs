@@ -15,9 +15,9 @@ namespace GA_TestRun1.Receptionist
 {
     internal class Receptionists
     {
-
+        
         static string connectionS; 
-        private static string Username;
+        private  string Username;
         private string Password;
         private string SelectedItems;
         private string ContactNum;
@@ -163,12 +163,22 @@ namespace GA_TestRun1.Receptionist
                     cmd2.Parameters.AddWithValue("@username", username);
                     cmd2.Parameters.AddWithValue("@password", password);
                     cmd2.Parameters.AddWithValue("@oldusername", oldusername);
+                    
+                    //Enter into Temp Table
+                    string query3 = "Update ##temptable set RcpUsername=@username, RcpPw=@password, OldName=@oldusername";
+                    SqlCommand cmd3 = new SqlCommand(query3 , conn, transaction);
+                    cmd3.Parameters.AddWithValue("@username",username);
+                    cmd3.Parameters.AddWithValue("@password",password);
+                    cmd3.Parameters.AddWithValue("@oldusername",oldusername);
+                    cmd3.ExecuteNonQuery();
+                    
+
 
 
                     if (cmd.ExecuteScalar() == null) 
                     { 
                         if (cmd2.ExecuteNonQuery() == 1 )
-                        {
+                        {   
                             transaction.Commit(); //transaction done (when all database change sucess, it will commit change)
                             MessageBox.Show("Update Sucessfull");
 
@@ -209,29 +219,61 @@ namespace GA_TestRun1.Receptionist
 
 
 
-        public static Array  newprofile()
-        {  string user;
-            user = Username;
-            SqlConnection conn = new SqlConnection(connectionS);
-            conn.Open();
-            string[] newProf = new string[2];
+        public static Array newprofile(string name)
+        {   string connections=connectionS;
+            using (SqlConnection conn = new SqlConnection(connections)) 
+            {
+                string newuser;
+                conn.Open();
+                
+                string query1 = "Select RcpUsername from ##temptable where RcpUsername=@username";
+                SqlCommand cmd = new SqlCommand(query1,conn);
+                cmd.Parameters.AddWithValue ("@username",name);
+                string[] newProf = new string[2];
+                //check the name is oldusername or newusername
+                if (cmd.ExecuteScalar() != null) 
+                { 
+                    newuser=cmd.ExecuteScalar().ToString();
+                    
+                
             
-            
-                string query = "Select rcptionistUsername,rcptionistContactNum from Receptionists where rcptionistUsername=@username";
-                SqlCommand cmd= new SqlCommand(query,conn);
-                cmd.Parameters.AddWithValue("@username",user);
+                    string query = "Select rcptionistUsername,rcptionistContactNum from Receptionists where rcptionistUsername=@username";
+                    SqlCommand cmd2= new SqlCommand(query,conn);
+                    cmd2.Parameters.AddWithValue("@username",newuser);
 
-                SqlDataReader read= cmd.ExecuteReader();
-                while (read.Read())
-                {   
-                    newProf[0] = read.GetString(0);
-                    newProf[1] = read.GetString(1);
+                    SqlDataReader read= cmd2.ExecuteReader();
+                    while (read.Read())
+                    {   
+                        newProf[0] = read.GetString(0);
+                        newProf[1] = read.GetString(1);
                
-                } 
-            
+                    }  
+                    conn.Close();
+                    return newProf;
 
-            conn.Close();
-            return newProf;
+                }
+                string query2 = "Select RcpUsername from ##temptable where OldName=@username";
+                SqlCommand cmd3 = new SqlCommand(query2,conn);
+                cmd3.Parameters.AddWithValue("@username",name);
+                newuser=cmd3.ExecuteScalar().ToString();
+                string query3 = "Select rcptionistUsername,rcptionistContactNum from Receptionists where rcptionistUsername=@username";
+                SqlCommand cmd4= new SqlCommand(query3,conn);
+                cmd4.Parameters.AddWithValue("@username",newuser);
+                
+                SqlDataReader read2 = cmd4.ExecuteReader();
+                while (read2.Read())
+                {
+                    newProf[0] = read2.GetString(0);
+                    newProf[1] = read2.GetString(1);
+                } 
+                conn.Close();
+           
+                return newProf;
+
+
+
+                   
+            }
 
 
         }

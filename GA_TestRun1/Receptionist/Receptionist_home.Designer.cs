@@ -43,14 +43,9 @@ namespace GA_TestRun1.Receptionist
             this.panel1 = new System.Windows.Forms.Panel();
             this.rcp_calandar = new System.Windows.Forms.MonthCalendar();
             this.Rcp_Profpanel = new System.Windows.Forms.Panel();
-            this.Roletxt_lbl = new System.Windows.Forms.Label();
-            this.Role_lbl = new System.Windows.Forms.Label();
-            this.ContactNumtxt_lbl = new System.Windows.Forms.Label();
-            this.ContactNum_lbl = new System.Windows.Forms.Label();
-            this.nametxt_lbl = new System.Windows.Forms.Label();
-            this.namelbl = new System.Windows.Forms.Label();
+            this.rcp_profieBox_btn = new System.Windows.Forms.Button();
+            this.Rcp_profileBox = new System.Windows.Forms.ListBox();
             this.prof_lbl = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.nav_Bar.SuspendLayout();
             this.Rcp_Profpanel.SuspendLayout();
             this.SuspendLayout();
@@ -170,7 +165,7 @@ namespace GA_TestRun1.Receptionist
             // 
             this.panel1.Location = new System.Drawing.Point(133, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 504);
+            this.panel1.Size = new System.Drawing.Size(787, 504);
             this.panel1.TabIndex = 6;
             this.panel1.Visible = false;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -184,81 +179,38 @@ namespace GA_TestRun1.Receptionist
             // 
             // Rcp_Profpanel
             // 
-            this.Rcp_Profpanel.Controls.Add(this.listBox1);
-            this.Rcp_Profpanel.Controls.Add(this.Roletxt_lbl);
-            this.Rcp_Profpanel.Controls.Add(this.Role_lbl);
-            this.Rcp_Profpanel.Controls.Add(this.ContactNum_lbl);
-            this.Rcp_Profpanel.Controls.Add(this.namelbl);
-            this.Rcp_Profpanel.Controls.Add(this.ContactNumtxt_lbl);
+            this.Rcp_Profpanel.Controls.Add(this.rcp_profieBox_btn);
+            this.Rcp_Profpanel.Controls.Add(this.Rcp_profileBox);
             this.Rcp_Profpanel.Controls.Add(this.prof_lbl);
-            this.Rcp_Profpanel.Controls.Add(this.nametxt_lbl);
             this.Rcp_Profpanel.Location = new System.Drawing.Point(529, 0);
             this.Rcp_Profpanel.Name = "Rcp_Profpanel";
             this.Rcp_Profpanel.Size = new System.Drawing.Size(391, 498);
             this.Rcp_Profpanel.TabIndex = 3;
             // 
-            // Roletxt_lbl
+            // rcp_profieBox_btn
             // 
-            this.Roletxt_lbl.AutoSize = true;
-            this.Roletxt_lbl.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Roletxt_lbl.Location = new System.Drawing.Point(269, 263);
-            this.Roletxt_lbl.Name = "Roletxt_lbl";
-            this.Roletxt_lbl.Size = new System.Drawing.Size(50, 20);
-            this.Roletxt_lbl.TabIndex = 5;
-            this.Roletxt_lbl.Text = "label1";
-            this.Roletxt_lbl.Click += new System.EventHandler(this.Roletxt_lbl_Click);
+            this.rcp_profieBox_btn.Location = new System.Drawing.Point(30, 440);
+            this.rcp_profieBox_btn.Name = "rcp_profieBox_btn";
+            this.rcp_profieBox_btn.Size = new System.Drawing.Size(87, 41);
+            this.rcp_profieBox_btn.TabIndex = 7;
+            this.rcp_profieBox_btn.Text = "Refresh";
+            this.rcp_profieBox_btn.UseVisualStyleBackColor = true;
+            this.rcp_profieBox_btn.Click += new System.EventHandler(this.rcp_profieBox_btn_Click);
             // 
-            // Role_lbl
+            // Rcp_profileBox
             // 
-            this.Role_lbl.AutoSize = true;
-            this.Role_lbl.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Role_lbl.Location = new System.Drawing.Point(7, 263);
-            this.Role_lbl.Name = "Role_lbl";
-            this.Role_lbl.Size = new System.Drawing.Size(41, 20);
-            this.Role_lbl.TabIndex = 5;
-            this.Role_lbl.Text = "Role";
-            // 
-            // ContactNumtxt_lbl
-            // 
-            this.ContactNumtxt_lbl.AutoSize = true;
-            this.ContactNumtxt_lbl.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContactNumtxt_lbl.Location = new System.Drawing.Point(269, 208);
-            this.ContactNumtxt_lbl.Name = "ContactNumtxt_lbl";
-            this.ContactNumtxt_lbl.Size = new System.Drawing.Size(50, 20);
-            this.ContactNumtxt_lbl.TabIndex = 4;
-            this.ContactNumtxt_lbl.Text = "label3";
-            this.ContactNumtxt_lbl.Click += new System.EventHandler(this.ContactNumtxt_lbl_Click);
-            // 
-            // ContactNum_lbl
-            // 
-            this.ContactNum_lbl.AutoSize = true;
-            this.ContactNum_lbl.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContactNum_lbl.Location = new System.Drawing.Point(7, 208);
-            this.ContactNum_lbl.Name = "ContactNum_lbl";
-            this.ContactNum_lbl.Size = new System.Drawing.Size(121, 20);
-            this.ContactNum_lbl.TabIndex = 4;
-            this.ContactNum_lbl.Text = "Contact Number";
-            // 
-            // nametxt_lbl
-            // 
-            this.nametxt_lbl.AutoSize = true;
-            this.nametxt_lbl.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nametxt_lbl.Location = new System.Drawing.Point(269, 159);
-            this.nametxt_lbl.Name = "nametxt_lbl";
-            this.nametxt_lbl.Size = new System.Drawing.Size(50, 20);
-            this.nametxt_lbl.TabIndex = 3;
-            this.nametxt_lbl.Text = "label2";
-            this.nametxt_lbl.Click += new System.EventHandler(this.nametxt_lbl_Click);
-            // 
-            // namelbl
-            // 
-            this.namelbl.AutoSize = true;
-            this.namelbl.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.namelbl.Location = new System.Drawing.Point(7, 159);
-            this.namelbl.Name = "namelbl";
-            this.namelbl.Size = new System.Drawing.Size(49, 20);
-            this.namelbl.TabIndex = 3;
-            this.namelbl.Text = "Name";
+            this.Rcp_profileBox.BackColor = System.Drawing.SystemColors.Control;
+            this.Rcp_profileBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Rcp_profileBox.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rcp_profileBox.FormattingEnabled = true;
+            this.Rcp_profileBox.ItemHeight = 20;
+            this.Rcp_profileBox.Location = new System.Drawing.Point(11, 145);
+            this.Rcp_profileBox.Name = "Rcp_profileBox";
+            this.Rcp_profileBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Rcp_profileBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.Rcp_profileBox.Size = new System.Drawing.Size(370, 240);
+            this.Rcp_profileBox.TabIndex = 6;
+            this.Rcp_profileBox.SelectedIndexChanged += new System.EventHandler(this.Rcp_profileBox_SelectedIndexChanged);
             // 
             // prof_lbl
             // 
@@ -269,17 +221,6 @@ namespace GA_TestRun1.Receptionist
             this.prof_lbl.Size = new System.Drawing.Size(202, 40);
             this.prof_lbl.TabIndex = 2;
             this.prof_lbl.Text = "Your Profile";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(24, 317);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listBox1.Size = new System.Drawing.Size(120, 148);
-            this.listBox1.TabIndex = 6;
             // 
             // Receptionist_home
             // 
@@ -319,17 +260,12 @@ namespace GA_TestRun1.Receptionist
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel Rcp_Profpanel;
         private System.Windows.Forms.Label prof_lbl;
-        private System.Windows.Forms.Label ContactNum_lbl;
-        private System.Windows.Forms.Label namelbl;
-        private System.Windows.Forms.Label Roletxt_lbl;
-        private System.Windows.Forms.Label Role_lbl;
-        private System.Windows.Forms.Label ContactNumtxt_lbl;
-        private System.Windows.Forms.Label nametxt_lbl;
         private System.Windows.Forms.MonthCalendar rcp_calandar;
         private System.Windows.Forms.Button rcp_homebtn;
         private System.Windows.Forms.Button rcp_srcInvbtn;
         private System.Windows.Forms.Button rcp_CheckinOutbtn;
         private System.Windows.Forms.Button rcp_manageAppbtn;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox Rcp_profileBox;
+        private System.Windows.Forms.Button rcp_profieBox_btn;
     }
 }

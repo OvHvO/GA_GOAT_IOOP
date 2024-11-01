@@ -12,6 +12,7 @@ using GA_TestRun1.Mechanics;
 using System.Windows.Forms;
 using System.Diagnostics.Eventing.Reader;
 using System.Net.Http.Headers;
+using System.Transactions;
 
 namespace GA_TestRun1
 {
@@ -60,6 +61,7 @@ namespace GA_TestRun1
         {
             var SigninP = new Login_Pages();
             //string role = null;
+            SqlConnection conn = new SqlConnection(connection);
             string status = null;
             string role = AuthenticateUser(connection, username, password);
             string[] Roles = new string[4] { "rcptionist", "customer", "admin", "mechanic" };
@@ -73,11 +75,43 @@ namespace GA_TestRun1
                     {
                         case 0:
                             {
+                                conn.Open();
+                                string query3 = "Create Table ##temptable(RcpUsername varchar(50), RcpPw nchar(50), OldName varchar(50))";
+                                SqlCommand cmd3 = new SqlCommand(query3, conn);
+                                
+                                    try
+                                    {
+                                        cmd3.ExecuteNonQuery();
+                                        string query4 = "Insert Into ##temptable(RcpUsername,RcpPw) values (@username,@password)";
+                                        SqlCommand cmd4 = new SqlCommand(query4, conn);
+                                        cmd4.Parameters.AddWithValue("@username", username);
+                                        cmd4.Parameters.AddWithValue("@password", password);
+                                        cmd4.ExecuteNonQuery();
+                                        Receptionist_home Form = new Receptionist_home(username, connection, contactnum);
+                                        Receptionists recep = new Receptionists(username, password);
+
+                                    SigninP.Hide();
+                                        Form.ShowDialog();
+
+                                    }
+                                    catch (SqlException ) 
+                                    {
+                                        string query4 = "Insert Into #temptable(RcpUsername,RcpPw) values (@username,@password)";
+                                        SqlCommand cmd4 = new SqlCommand(query4, conn);
+                                        cmd4.Parameters.AddWithValue("@username", username);
+                                        cmd4.Parameters.AddWithValue("@password", password);
+                                        cmd4.ExecuteNonQuery();
+                                        Receptionist_home Form = new Receptionist_home(username, connection, contactnum);
+
+                                    SigninP.Hide();
+                                        Form.ShowDialog();
+
+
+                                    }
+
+                                
+
                                
-                                Receptionist_home Form = new Receptionist_home(username, connection, contactnum);
-                                Receptionists recep = new Receptionists(username,password);
-                                SigninP.Hide();
-                                Form.ShowDialog();
 
                                 return status = "Login Sucessfull";
 

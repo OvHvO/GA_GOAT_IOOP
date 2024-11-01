@@ -20,35 +20,45 @@ namespace GA_TestRun1.Receptionist
     public partial class Receptionist_home : Form
     {
        
-        private static string name;
-        private static string contact;
-        private static string connection;
-        public Receptionist_home(string n, string connectionS, string contactnum)
+        private  string name;
+        private  string contact;
+        private  string connection;
+        
+        public Receptionist_home(string n,string connectionS, string contactnum)
         {   
             InitializeComponent();
             name = n;
-            Receptionists recep = new Receptionists(connectionS,n,contactnum);
-            string[] newprof = (string[])Receptionists.newprofile();
-            if (newprof.Length > 1)
-            {   
-                contactnum = newprof[1];
-            }
-
+            Receptionists receptionists = new Receptionists(connectionS);
+            
             contact = contactnum;
             connection = connectionS;
             //Cus_deleteForm Cus_del = new Cus_deleteForm(connectionS);
            
         }
 
+        public Receptionist_home(string newUsername) 
+        {
+            name = newUsername;
+        
+        }
+
+
+
         private void Receptionist_home_Load(object sender, EventArgs e)
         {
-           
-
-            Rcp_home_lbl.Text = $"Welcome! {name}";
-            ContactNumtxt_lbl.Text=contact;
-            nametxt_lbl.Text = name;
-            Roletxt_lbl.Text = "Receptionist";
+            LoadhomePage();
             
+            
+
+        }
+        
+        private void LoadhomePage()
+        {   Rcp_profileBox.Items.Clear ();
+            string[] newprof = (string[])Receptionists.newprofile(name);
+            Rcp_home_lbl.Text = newprof[0];
+            Rcp_profileBox.Items.Add($"Username:                   {newprof[0]}\n");
+            Rcp_profileBox.Items.Add($"Contact Number:             {newprof[1]}");
+            Rcp_profileBox.Items.Add($"Roles                       Receptionist");
         }
 
         
@@ -161,15 +171,15 @@ namespace GA_TestRun1.Receptionist
         private void rcp_homebtn_btn_Click(object sender, EventArgs e)
         {   panel1.Controls.Clear ();
             panel1 .Visible = false;
+            //Rcp_profileBox.Items.Clear ();
+            //string[] newprof = (string[])Receptionists.newprofile(name);
+            //foreach (var items in newprof)
+            //{
+            //    Rcp_profileBox.Items.Add($"Username:           {items[0]}");
+            //    Rcp_profileBox.Items.Add($"Contact Number:     {items[1]}");
+            //    Rcp_profileBox.Items.Add($"Roles               Receptionist");
 
-            string[] newprof = (string[])Receptionists.newprofile();
-            if (newprof.Length > 1)
-            {
-                Rcp_home_lbl.Text = $"Welcome! {newprof[0]}";
-                ContactNumtxt_lbl.Text = newprof[1];
-                nametxt_lbl.Text = newprof[0];
-            }
-
+            //}
 
         }
 
@@ -187,8 +197,14 @@ namespace GA_TestRun1.Receptionist
 
         }
 
+        private void Rcp_profileBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-        
-        
+        }
+
+        private void rcp_profieBox_btn_Click(object sender, EventArgs e)
+        {
+            LoadhomePage();
+        }
     }
 }
