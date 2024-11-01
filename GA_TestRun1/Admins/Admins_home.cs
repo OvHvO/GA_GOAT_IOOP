@@ -65,5 +65,14 @@ namespace GA_TestRun1.Admins
             admin_Panel.Controls.Add(userControl);
         }
 
+        private void admin_Panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

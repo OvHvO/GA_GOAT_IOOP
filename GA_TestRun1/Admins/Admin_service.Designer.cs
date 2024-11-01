@@ -134,9 +134,11 @@
             this.Controls.Add(this.admin_service_panel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Admin_service";
+
             this.Size = new System.Drawing.Size(544, 426);
             this.admin_service_panel.ResumeLayout(false);
             this.admin_service_panel.PerformLayout();
+
             this.ResumeLayout(false);
 
         }

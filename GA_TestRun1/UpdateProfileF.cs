@@ -22,6 +22,7 @@ namespace GA_TestRun1
             InitializeComponent();
         }
 
+        // Create an Instance Constructor
         public static UpdateProfileF Instance
         {
             get

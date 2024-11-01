@@ -71,5 +71,10 @@ namespace GA_TestRun1.Admins
         {
             LoadUserControl(new Admin_service());
         }
+
+        private void Admin_service_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
