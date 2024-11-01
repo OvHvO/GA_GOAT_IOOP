@@ -7,16 +7,18 @@ using System.Data.SqlClient;
 using System.Collections;
 using System.Windows.Forms;
 using static GA_TestRun1.Users;
+using Microsoft.Identity.Client;
+using System.Threading;
 
 namespace GA_TestRun1.Admins
 {
     internal class Admins_Source
     {
-
+        public string selectedItem;
 
         public Admins_Source()
         {
-
+            Thread.Sleep(400);
         }
 
         public object[] Admin_Profile(string userN)
@@ -107,6 +109,38 @@ namespace GA_TestRun1.Admins
                 }
             }
             return serviceDetails;
+        }
+
+        public string[] Edit_Service(string targetService)
+        {
+            string query = @"select serviceName, serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, part_ID from Service
+                                where serviceName = @serviceName";
+            string[] editServiceInfo = new string[6];
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@serviceName", targetService);
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            editServiceInfo[0] = reader["serviceName"].ToString();
+                            editServiceInfo[1] = reader["serviceInfo"].ToString();
+                            editServiceInfo[2] = reader["serviceTimeTaken"].ToString();
+                            editServiceInfo[3] = reader["servicePrice"].ToString();
+                            editServiceInfo[4] = reader["serviceOffer"].ToString();
+                            editServiceInfo[5] = reader["part_ID"].ToString();
+
+                        }
+
+                    }
+
+                }
+            }
+            return editServiceInfo;
         }
     }
 }

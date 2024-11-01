@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.ServiceNameTB = new System.Windows.Forms.TextBox();
+            this.ServicePriceTB = new System.Windows.Forms.TextBox();
+            this.ServiceTimeTakenTB = new System.Windows.Forms.TextBox();
+            this.ServiceOfferTB = new System.Windows.Forms.TextBox();
+            this.ServiceInfoTB = new System.Windows.Forms.TextBox();
+            this.ServicePartIDTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,47 +45,49 @@
             this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // ServiceNameTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(124, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.ServiceNameTB.Location = new System.Drawing.Point(124, 53);
+            this.ServiceNameTB.Multiline = true;
+            this.ServiceNameTB.Name = "ServiceNameTB";
+            this.ServiceNameTB.Size = new System.Drawing.Size(134, 42);
+            this.ServiceNameTB.TabIndex = 0;
             // 
-            // textBox2
+            // ServicePriceTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(362, 53);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.ServicePriceTB.Location = new System.Drawing.Point(362, 53);
+            this.ServicePriceTB.Name = "ServicePriceTB";
+            this.ServicePriceTB.Size = new System.Drawing.Size(100, 20);
+            this.ServicePriceTB.TabIndex = 1;
             // 
-            // textBox3
+            // ServiceTimeTakenTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(124, 267);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
+            this.ServiceTimeTakenTB.Location = new System.Drawing.Point(124, 267);
+            this.ServiceTimeTakenTB.Name = "ServiceTimeTakenTB";
+            this.ServiceTimeTakenTB.Size = new System.Drawing.Size(134, 20);
+            this.ServiceTimeTakenTB.TabIndex = 2;
             // 
-            // textBox4
+            // ServiceOfferTB
             // 
-            this.textBox4.Location = new System.Drawing.Point(362, 161);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 3;
+            this.ServiceOfferTB.Location = new System.Drawing.Point(362, 161);
+            this.ServiceOfferTB.Name = "ServiceOfferTB";
+            this.ServiceOfferTB.Size = new System.Drawing.Size(100, 20);
+            this.ServiceOfferTB.TabIndex = 3;
             // 
-            // textBox5
+            // ServiceInfoTB
             // 
-            this.textBox5.Location = new System.Drawing.Point(124, 161);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 4;
+            this.ServiceInfoTB.Location = new System.Drawing.Point(124, 161);
+            this.ServiceInfoTB.Multiline = true;
+            this.ServiceInfoTB.Name = "ServiceInfoTB";
+            this.ServiceInfoTB.Size = new System.Drawing.Size(134, 75);
+            this.ServiceInfoTB.TabIndex = 4;
             // 
-            // textBox6
+            // ServicePartIDTB
             // 
-            this.textBox6.Location = new System.Drawing.Point(362, 267);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 5;
+            this.ServicePartIDTB.Location = new System.Drawing.Point(362, 267);
+            this.ServicePartIDTB.Name = "ServicePartIDTB";
+            this.ServicePartIDTB.Size = new System.Drawing.Size(100, 20);
+            this.ServicePartIDTB.TabIndex = 5;
             // 
             // label1
             // 
@@ -143,7 +145,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(260, 360);
+            this.button1.Location = new System.Drawing.Point(276, 360);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 12;
@@ -184,12 +186,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ServicePartIDTB);
+            this.Controls.Add(this.ServiceInfoTB);
+            this.Controls.Add(this.ServiceOfferTB);
+            this.Controls.Add(this.ServiceTimeTakenTB);
+            this.Controls.Add(this.ServicePriceTB);
+            this.Controls.Add(this.ServiceNameTB);
             this.Name = "Admin_service_data";
             this.Size = new System.Drawing.Size(544, 426);
             this.ResumeLayout(false);
@@ -199,12 +201,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox ServiceNameTB;
+        private System.Windows.Forms.TextBox ServicePriceTB;
+        private System.Windows.Forms.TextBox ServiceTimeTakenTB;
+        private System.Windows.Forms.TextBox ServiceOfferTB;
+        private System.Windows.Forms.TextBox ServiceInfoTB;
+        private System.Windows.Forms.TextBox ServicePartIDTB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

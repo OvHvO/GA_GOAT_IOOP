@@ -16,11 +16,20 @@ namespace GA_TestRun1.Admins
         public Admin_service_data()
         {
             InitializeComponent();
+            Admins_Source addService = new Admins_Source();
         }
 
-        public Admin_service_data(string editService)
+        public Admin_service_data(string selectedService)
         {
             InitializeComponent();
+            Admins_Source editService = new Admins_Source();
+            string[] editServiceInfo = editService.Edit_Service(selectedService);
+            ServiceNameTB.Text = editServiceInfo[0];
+            ServiceInfoTB.Text = editServiceInfo[1];
+            ServiceTimeTakenTB.Text = editServiceInfo[2];
+            ServicePriceTB.Text = editServiceInfo[3];
+            ServiceOfferTB.Text = editServiceInfo[4];
+            ServicePartIDTB.Text = editServiceInfo[5];
         }
 
     }
