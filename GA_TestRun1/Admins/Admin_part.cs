@@ -13,7 +13,7 @@ namespace GA_TestRun1.Admins
     public partial class Admin_part : UserControl
     {
         private string selected;
-
+        private string typeOfChange;
         public Admin_part()
         {
             InitializeComponent();
@@ -34,6 +34,50 @@ namespace GA_TestRun1.Admins
             PartNameTB.Text = selected;
             PartQuantityTB.Text = partDetails[1];
             PartPriceTB.Text = partDetails[2];
+        }
+
+        private void PartDeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (selected != null)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    Admins_Source deletePart = new Admins_Source();
+                    bool deleteResult = deletePart.Delete_Part(selected);
+                    if (deleteResult)
+                    {
+                        MessageBox.Show("Successfully deleted");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Problem Occurs, please try again");
+                    }
+                }
+
+            }
+        }
+
+        private void PartSaveBtn_Click(object sender, EventArgs e)
+        {
+            string partName = PartNameTB.Text.ToString();
+            int partQuantity = Convert.ToInt32(PartQuantityTB.Text);
+            int partPrice = Convert.ToInt32(PartPriceTB.Text);
+            if (PartListBox.Text != null)
+            {
+                PartNameTB.ReadOnly = true;
+                typeOfChange = "EDIT";
+                Admins_Source partEDIT = new Admins_Source();
+                bool result = partEDIT.Part_Change(typeOfChange, partName, partQuantity, partPrice);
+            }
+            else
+            {
+                typeOfChange = "ADD";
+                Admins_Source partADD = new Admins_Source();
+                bool result = partADD.Part_Change(typeOfChange, partName, partQuantity, partPrice);
+            }
+
         }
     }
 }

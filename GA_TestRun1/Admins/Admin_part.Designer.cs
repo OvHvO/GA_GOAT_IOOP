@@ -34,19 +34,19 @@
             this.PartQuantityTB = new System.Windows.Forms.TextBox();
             this.PartNameTB = new System.Windows.Forms.TextBox();
             this.PartPriceTB = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.PartDeleteBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.PartSaveBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PartManagement
             // 
             this.PartManagement.AutoSize = true;
             this.PartManagement.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PartManagement.Location = new System.Drawing.Point(123, 48);
+            this.PartManagement.Location = new System.Drawing.Point(129, 29);
             this.PartManagement.Name = "PartManagement";
             this.PartManagement.Size = new System.Drawing.Size(266, 33);
             this.PartManagement.TabIndex = 0;
@@ -55,7 +55,7 @@
             // PartListBox
             // 
             this.PartListBox.FormattingEnabled = true;
-            this.PartListBox.Location = new System.Drawing.Point(188, 96);
+            this.PartListBox.Location = new System.Drawing.Point(201, 82);
             this.PartListBox.Name = "PartListBox";
             this.PartListBox.Size = new System.Drawing.Size(147, 134);
             this.PartListBox.TabIndex = 7;
@@ -89,14 +89,15 @@
             this.PartPriceTB.Size = new System.Drawing.Size(100, 20);
             this.PartPriceTB.TabIndex = 12;
             // 
-            // button2
+            // PartDeleteBtn
             // 
-            this.button2.Location = new System.Drawing.Point(320, 242);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "DELETE";
-            this.button2.UseVisualStyleBackColor = true;
+            this.PartDeleteBtn.Location = new System.Drawing.Point(320, 242);
+            this.PartDeleteBtn.Name = "PartDeleteBtn";
+            this.PartDeleteBtn.Size = new System.Drawing.Size(75, 23);
+            this.PartDeleteBtn.TabIndex = 14;
+            this.PartDeleteBtn.Text = "DELETE";
+            this.PartDeleteBtn.UseVisualStyleBackColor = true;
+            this.PartDeleteBtn.Click += new System.EventHandler(this.PartDeleteBtn_Click);
             // 
             // label1
             // 
@@ -134,26 +135,27 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "Price";
             // 
-            // button3
+            // PartSaveBtn
             // 
-            this.button3.Location = new System.Drawing.Point(139, 242);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "SAVE";
-            this.button3.UseVisualStyleBackColor = true;
+            this.PartSaveBtn.Location = new System.Drawing.Point(139, 242);
+            this.PartSaveBtn.Name = "PartSaveBtn";
+            this.PartSaveBtn.Size = new System.Drawing.Size(75, 23);
+            this.PartSaveBtn.TabIndex = 19;
+            this.PartSaveBtn.Text = "SAVE";
+            this.PartSaveBtn.UseVisualStyleBackColor = true;
+            this.PartSaveBtn.Click += new System.EventHandler(this.PartSaveBtn_Click);
             // 
             // Admin_part
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.PartSaveBtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.PartDeleteBtn);
             this.Controls.Add(this.PartPriceTB);
             this.Controls.Add(this.PartNameTB);
             this.Controls.Add(this.PartQuantityTB);
@@ -175,11 +177,11 @@
         private System.Windows.Forms.TextBox PartQuantityTB;
         private System.Windows.Forms.TextBox PartNameTB;
         private System.Windows.Forms.TextBox PartPriceTB;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button PartDeleteBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button PartSaveBtn;
     }
 }

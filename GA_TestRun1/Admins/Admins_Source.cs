@@ -153,9 +153,9 @@ namespace GA_TestRun1.Admins
                     {
                         if (reader.Read())
                         {
-                            partDetails[0] = "Part ID :" + reader["part_ID"].ToString();
-                            partDetails[1] = "Quantity :" + reader["partQuantity"].ToString();
-                            partDetails[2] = "Price :" + reader["partPrice"].ToString();
+                            partDetails[0] = reader["part_ID"].ToString();
+                            partDetails[1] = reader["partQuantity"].ToString();
+                            partDetails[2] = reader["partPrice"].ToString();
 
                         }
 
@@ -339,6 +339,122 @@ namespace GA_TestRun1.Admins
 
                     return rowsAffect > 0; //logic if (rowsAffect > 0) = true, < 0 = false. It will also be a boolean data type 
                 }
+            }
+        }
+
+        public bool Delete_Part(string selectedName)
+        {
+            string query = @"delete from Parts where partName = @PartName";
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PartName", selectedName);
+                    connection.Open();
+
+                    int rowsAffect = command.ExecuteNonQuery();
+
+                    return rowsAffect > 0; //logic if (rowsAffect > 0) = true, < 0 = false. It will also be a boolean data type 
+                }
+            }
+        }
+
+        public bool Part_Change(string type, string partName, int partQuantity, int partPrice)
+        {
+            if (type == "ADD")
+            {
+                string query = "insert into Parts (partName, partQuantity, partPrice) values (@PartName, @PartQuantity, @PartPrice)";
+
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                    {
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@PartName", partName);
+                            command.Parameters.AddWithValue("@PartQuantity", partQuantity);
+                            command.Parameters.AddWithValue("@PartPrice", partPrice);
+
+                            connection.Open();
+                            int rowsAffected = command.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                return true;
+                            }
+
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+
+                catch (SqlException ex)
+                {
+                    if (ex.Number == 547) //547 is the number when foreign key has problem in our database
+                    {
+                        MessageBox.Show("Error.....");
+                        return false;
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Okay gg I will lay off");
+                        return false;
+                    }
+                }
+
+            }
+
+            else if (type == "EDIT")
+            {
+                string query = "update Parts \r\n SET partQuantity = @PartQauntity, \r\npartPrice = @PartPrice \r\n where partName = @PartName;";
+
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                    {
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@PartName", partName);
+                            command.Parameters.AddWithValue("@PartQuantity", partQuantity);
+                            command.Parameters.AddWithValue("@PartPrice", partPrice);
+
+                            connection.Open();
+                            int rowsAffected = command.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                return true;
+                            }
+
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+
+                catch (SqlException ex)
+                {
+                    if (ex.Number == 547)  //547 is the number when foreign key has problem in our database
+                    {
+                        MessageBox.Show("The partName does not exist");
+                        return false;
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Okay gg I will lay off");
+                        return false;
+                    }
+                }
+            }
+
+            else
+            {
+                return false;
             }
         }
     }
