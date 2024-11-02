@@ -29,11 +29,11 @@ namespace GA_TestRun1.Admins
         {
             selected = PartListBox.SelectedItem as string;
             Admins_Source selectedPart = new Admins_Source();
-            object[] partDetails = selectedPart.Part_Details(selected);
-            foreach (string service in partDetails)
-            {
-
-            }
+            string[] partDetails = selectedPart.Part_Details(selected);
+            PartIDTB.Text = partDetails[0];
+            PartNameTB.Text = selected;
+            PartQuantityTB.Text = partDetails[1];
+            PartPriceTB.Text = partDetails[2];
         }
     }
 }

@@ -102,7 +102,7 @@ namespace GA_TestRun1.Admins
 
         private void PartBtn_Click(object sender, EventArgs e)
         {
-
+            LoadUserControl(new Admin_part());
         }
     }
 }

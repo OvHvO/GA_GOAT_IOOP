@@ -115,7 +115,7 @@
             this.admin_service_panel.Controls.Add(this.adminServiceAddbtn);
             this.admin_service_panel.Location = new System.Drawing.Point(0, 0);
             this.admin_service_panel.Name = "admin_service_panel";
-            this.admin_service_panel.Size = new System.Drawing.Size(544, 394);
+            this.admin_service_panel.Size = new System.Drawing.Size(544, 400);
             this.admin_service_panel.TabIndex = 6;
             // 
             // PartBtn

@@ -137,11 +137,11 @@ namespace GA_TestRun1.Admins
             return serviceDetails;
         }
 
-        public object[] Part_Details(string targetService)
+        public string[] Part_Details(string targetService)
         {
             string query = @"select part_ID, partQuantity, partPrice from Parts
                                 where partName = @partName";
-            object[] partDetails = new object[3];
+            string[] partDetails = new string[3];
             using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
