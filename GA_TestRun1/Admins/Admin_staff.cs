@@ -13,6 +13,8 @@ namespace GA_TestRun1.Admins
 {
     public partial class Admin_staff : UserControl
     {
+        private string selectedStaff;
+        private string selectedRole;
         public Admin_staff()
         {
             InitializeComponent();
@@ -45,5 +47,47 @@ namespace GA_TestRun1.Admins
 
         }
 
+        private void StaffListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            StaffDetailsLB.Items.Clear();
+
+            selectedStaff = StaffListBox.SelectedItem as string;
+            selectedRole = RoleComboBox.SelectedItem as string;
+
+            Admins_Source targetStaff = new Admins_Source();
+            string[] staffDetails = targetStaff.Staff_Details(selectedRole, selectedStaff);
+            foreach (string item in staffDetails)
+            {
+                StaffDetailsLB.Items.Add(item);
+            }
+        }
+
+        private void StaffDeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (selectedStaff != null)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    Admins_Source deleteService = new Admins_Source();
+                    bool deleteResult = deleteService.Delete_Service(selectedItem);
+                    if (deleteResult)
+                    {
+                        MessageBox.Show("Successfully deleted");
+                        LoadUserControl(new Admin_service());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Problem Occurs, please try again");
+                    }
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please f**king choose a service idiot");
+            }
+        }
     }
 }

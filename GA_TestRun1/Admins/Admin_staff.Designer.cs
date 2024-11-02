@@ -31,11 +31,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.StaffListBox = new System.Windows.Forms.ListBox();
             this.StaffDetailsGB = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.RoleComboBox = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.StaffAddBtn = new System.Windows.Forms.Button();
+            this.StaffDeleteBtn = new System.Windows.Forms.Button();
+            this.StaffDetailsLB = new System.Windows.Forms.ListBox();
             this.StaffDetailsGB.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +49,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(164, 36);
+            this.label1.Location = new System.Drawing.Point(152, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(378, 33);
             this.label1.TabIndex = 0;
@@ -53,41 +59,83 @@
             // 
             this.StaffListBox.FormattingEnabled = true;
             this.StaffListBox.ItemHeight = 16;
-            this.StaffListBox.Location = new System.Drawing.Point(78, 136);
+            this.StaffListBox.Location = new System.Drawing.Point(63, 136);
             this.StaffListBox.Margin = new System.Windows.Forms.Padding(4);
             this.StaffListBox.Name = "StaffListBox";
-            this.StaffListBox.Size = new System.Drawing.Size(195, 196);
+            this.StaffListBox.Size = new System.Drawing.Size(217, 132);
             this.StaffListBox.TabIndex = 5;
+            this.StaffListBox.SelectedIndexChanged += new System.EventHandler(this.StaffListBox_SelectedIndexChanged);
             // 
             // StaffDetailsGB
             // 
+            this.StaffDetailsGB.Controls.Add(this.label6);
+            this.StaffDetailsGB.Controls.Add(this.label4);
+            this.StaffDetailsGB.Controls.Add(this.label3);
+            this.StaffDetailsGB.Controls.Add(this.label2);
             this.StaffDetailsGB.Controls.Add(this.textBox3);
             this.StaffDetailsGB.Controls.Add(this.textBox2);
             this.StaffDetailsGB.Controls.Add(this.textBox1);
-            this.StaffDetailsGB.Location = new System.Drawing.Point(387, 114);
+            this.StaffDetailsGB.Location = new System.Drawing.Point(329, 114);
             this.StaffDetailsGB.Name = "StaffDetailsGB";
-            this.StaffDetailsGB.Size = new System.Drawing.Size(246, 218);
+            this.StaffDetailsGB.Size = new System.Drawing.Size(356, 253);
             this.StaffDetailsGB.TabIndex = 6;
             this.StaffDetailsGB.TabStop = false;
-            this.StaffDetailsGB.Text = "groupBox1";
+            this.StaffDetailsGB.Text = "NewStaffDetails";
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(24, 194);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(228, 40);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Notice!!! \r\nNew Staff Password will be set to 0000\r\nThey can change the password " +
+    "after first log in";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 150);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(165, 16);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Staff Contact Number    +60";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 100);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Staff Username";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Staff_ID";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(128, 134);
+            this.textBox3.Location = new System.Drawing.Point(234, 147);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 22);
             this.textBox3.TabIndex = 2;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(128, 93);
+            this.textBox2.Location = new System.Drawing.Point(234, 97);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 22);
             this.textBox2.TabIndex = 1;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(128, 50);
+            this.textBox1.Location = new System.Drawing.Point(234, 41);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 0;
@@ -98,28 +146,49 @@
             this.RoleComboBox.Items.AddRange(new object[] {
             "Receptionist",
             "Mechanic"});
-            this.RoleComboBox.Location = new System.Drawing.Point(78, 114);
+            this.RoleComboBox.Location = new System.Drawing.Point(63, 114);
             this.RoleComboBox.Name = "RoleComboBox";
-            this.RoleComboBox.Size = new System.Drawing.Size(195, 24);
+            this.RoleComboBox.Size = new System.Drawing.Size(217, 24);
             this.RoleComboBox.TabIndex = 7;
             this.RoleComboBox.Text = "Roles";
             this.RoleComboBox.SelectedIndexChanged += new System.EventHandler(this.RoleComboBox_SelectedIndexChanged);
             // 
-            // button1
+            // StaffAddBtn
             // 
-            this.button1.Location = new System.Drawing.Point(558, 419);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.StaffAddBtn.Location = new System.Drawing.Point(588, 407);
+            this.StaffAddBtn.Name = "StaffAddBtn";
+            this.StaffAddBtn.Size = new System.Drawing.Size(97, 23);
+            this.StaffAddBtn.TabIndex = 8;
+            this.StaffAddBtn.Text = "ADD";
+            this.StaffAddBtn.UseVisualStyleBackColor = true;
+            // 
+            // StaffDeleteBtn
+            // 
+            this.StaffDeleteBtn.Location = new System.Drawing.Point(205, 407);
+            this.StaffDeleteBtn.Name = "StaffDeleteBtn";
+            this.StaffDeleteBtn.Size = new System.Drawing.Size(75, 23);
+            this.StaffDeleteBtn.TabIndex = 9;
+            this.StaffDeleteBtn.Text = "DELETE";
+            this.StaffDeleteBtn.UseVisualStyleBackColor = true;
+            this.StaffDeleteBtn.Click += new System.EventHandler(this.StaffDeleteBtn_Click);
+            // 
+            // StaffDetailsLB
+            // 
+            this.StaffDetailsLB.FormattingEnabled = true;
+            this.StaffDetailsLB.ItemHeight = 16;
+            this.StaffDetailsLB.Location = new System.Drawing.Point(63, 283);
+            this.StaffDetailsLB.Name = "StaffDetailsLB";
+            this.StaffDetailsLB.Size = new System.Drawing.Size(217, 84);
+            this.StaffDetailsLB.TabIndex = 10;
             // 
             // Admin_staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.StaffDetailsLB);
+            this.Controls.Add(this.StaffDeleteBtn);
+            this.Controls.Add(this.StaffAddBtn);
             this.Controls.Add(this.RoleComboBox);
             this.Controls.Add(this.StaffDetailsGB);
             this.Controls.Add(this.StaffListBox);
@@ -142,6 +211,12 @@
         private System.Windows.Forms.ComboBox RoleComboBox;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button StaffAddBtn;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button StaffDeleteBtn;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox StaffDetailsLB;
     }
 }

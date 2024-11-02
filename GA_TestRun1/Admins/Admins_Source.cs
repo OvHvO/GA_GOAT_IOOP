@@ -511,5 +511,65 @@ namespace GA_TestRun1.Admins
             }
             return mechanicList;
         }
+
+        public string[] Staff_Details(string targetRole, string targetStaff)
+        {
+            if (targetRole == "Receptionist")
+            {
+                string query = @"select rcptionist_ID, rcptionistContactNum from Receptionists
+                                where rcptionistUsername = @RcpUsername";
+                string[] staffDetails = new string[3];
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@RcpUsername", targetStaff);
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                staffDetails[0] = "Receptionist ID:" + reader["rcptionist_ID"].ToString();
+                                staffDetails[1] = "Rcptionist Username :" + targetStaff;
+                                staffDetails[2] = "Contact Number:" + reader["rcptionistContactNum"].ToString();
+
+                            }
+
+                        }
+
+                    }
+                }
+                return staffDetails;
+            }
+            else
+            {
+                string query = @"select mechanic_ID, mechanicContactNum from Mechanics
+                                where mechanicUsername = @MechanicUsername";
+                string[] staffDetails = new string[3];
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@MechanicUsername", targetStaff);
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                staffDetails[0] = "Mechanic ID:" + reader["mechanic_ID"].ToString();
+                                staffDetails[1] = "Mechanic Username :" + targetStaff;
+                                staffDetails[2] = "Contact Number:" + reader["mechanicContactNum"].ToString();
+
+                            }
+
+                        }
+
+                    }
+                }
+                return staffDetails;
+            }
+        }
     }
 }
