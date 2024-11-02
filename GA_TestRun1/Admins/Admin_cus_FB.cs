@@ -34,7 +34,17 @@ namespace GA_TestRun1.Admins
             string fbContent = objCusFB.CusFB_Content(selectedFB_ID);
             string[] cusDetails = objCusFB.CusFB_Details(selectedFB_ID);
 
-            CusFBContentLB.Text = fbContent;
+            CusFBContentTB.Text = fbContent;
+
+            foreach(string item in cusDetails) 
+            {
+                 CusDetailsLB.Items.Add(item);
+            }
+        }
+
+        private void CusFB_NoticeBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Each customer feedback entry will only exist in the system for 30 days.\nAfter 30 days, it will be automatically deleted, so please check customer feedback regularly.\nThank you.");
         }
     }
 }

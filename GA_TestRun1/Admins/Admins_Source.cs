@@ -780,46 +780,62 @@ namespace GA_TestRun1.Admins
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.Read())
                         {
                             cusFB_content = reader["cusFeedBackContent"].ToString();
                         }
-
                     }
-
                 }
             }
             return cusFB_content;
         }
 
-        public string[] CusFB_Details(string targetRole, string targetStaff)
+        public string[] CusFB_Details(int target)
         {
+            //query for take out customer_ID later I will  use customerID go to Customers table to find out customer details
+            string queryFB = @"select customer_ID from CustomerFeedBack where cusFeedback_ID = @TargetID";
+            string[] cusDetails = new string[3];
+            int customerID = 0;
 
-            string query = @"select rcptionist_ID, rcptionistContactNum from Receptionists
-                                where rcptionistUsername = @RcpUsername";
-            string[] staffDetails = new string[3];
             using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand(queryFB, connection))
                 {
-                    command.Parameters.AddWithValue("@RcpUsername", targetStaff);
+                    command.Parameters.AddWithValue("@TargetID", target);
                     connection.Open();
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            staffDetails[0] = "Receptionist ID:" + reader["rcptionist_ID"].ToString();
-                            staffDetails[1] = "Rcptionist Username :" + targetStaff;
-                            staffDetails[2] = "Contact Number:" + reader["rcptionistContactNum"].ToString();
-
+                            customerID = Convert.ToInt32(reader["customer_ID"]);
                         }
-
                     }
-
                 }
             }
-            return staffDetails;
-        }   
+
+            //query for serching customer details
+            string queryCus = @"select customerUsername, customerContactNum from Customers where customer_ID = @cusID";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(queryCus, connection))
+                {
+                    command.Parameters.AddWithValue("@cusID", customerID);
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            cusDetails[0] = "Customer Username: " + reader["customerUsername"].ToString();
+                            cusDetails[1] = "Customer ID: " + customerID.ToString();
+                            cusDetails[2] = "Contact Number: " + reader["customerContactNum"].ToString();
+                        }
+                    }
+                }
+            }
+            return cusDetails;
+        }
     }
 }
