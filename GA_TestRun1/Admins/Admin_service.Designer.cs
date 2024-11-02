@@ -45,18 +45,20 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(118, 36);
+            this.textBox1.Location = new System.Drawing.Point(157, 44);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(291, 38);
+            this.textBox1.Size = new System.Drawing.Size(387, 38);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Services Management System";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // adminServiceAddbtn
             // 
-            this.adminServiceAddbtn.Location = new System.Drawing.Point(52, 346);
+            this.adminServiceAddbtn.Location = new System.Drawing.Point(69, 426);
+            this.adminServiceAddbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.adminServiceAddbtn.Name = "adminServiceAddbtn";
-            this.adminServiceAddbtn.Size = new System.Drawing.Size(75, 23);
+            this.adminServiceAddbtn.Size = new System.Drawing.Size(100, 28);
             this.adminServiceAddbtn.TabIndex = 1;
             this.adminServiceAddbtn.Text = "ADD";
             this.adminServiceAddbtn.UseVisualStyleBackColor = true;
@@ -64,9 +66,10 @@
             // 
             // adminServiceEditbtn
             // 
-            this.adminServiceEditbtn.Location = new System.Drawing.Point(221, 346);
+            this.adminServiceEditbtn.Location = new System.Drawing.Point(295, 426);
+            this.adminServiceEditbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.adminServiceEditbtn.Name = "adminServiceEditbtn";
-            this.adminServiceEditbtn.Size = new System.Drawing.Size(75, 23);
+            this.adminServiceEditbtn.Size = new System.Drawing.Size(100, 28);
             this.adminServiceEditbtn.TabIndex = 2;
             this.adminServiceEditbtn.Text = "EDIT";
             this.adminServiceEditbtn.UseVisualStyleBackColor = true;
@@ -74,9 +77,10 @@
             // 
             // adminServiceDeletebtn
             // 
-            this.adminServiceDeletebtn.Location = new System.Drawing.Point(414, 346);
+            this.adminServiceDeletebtn.Location = new System.Drawing.Point(552, 426);
+            this.adminServiceDeletebtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.adminServiceDeletebtn.Name = "adminServiceDeletebtn";
-            this.adminServiceDeletebtn.Size = new System.Drawing.Size(75, 23);
+            this.adminServiceDeletebtn.Size = new System.Drawing.Size(100, 28);
             this.adminServiceDeletebtn.TabIndex = 3;
             this.adminServiceDeletebtn.Text = "DELETE";
             this.adminServiceDeletebtn.UseVisualStyleBackColor = true;
@@ -85,9 +89,11 @@
             // ServiceListBox
             // 
             this.ServiceListBox.FormattingEnabled = true;
-            this.ServiceListBox.Location = new System.Drawing.Point(52, 129);
+            this.ServiceListBox.ItemHeight = 16;
+            this.ServiceListBox.Location = new System.Drawing.Point(69, 159);
+            this.ServiceListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ServiceListBox.Name = "ServiceListBox";
-            this.ServiceListBox.Size = new System.Drawing.Size(147, 134);
+            this.ServiceListBox.Size = new System.Drawing.Size(195, 164);
             this.ServiceListBox.TabIndex = 4;
             this.ServiceListBox.SelectedIndexChanged += new System.EventHandler(this.ServiceListBox_SelectedIndexChanged);
             // 
@@ -99,9 +105,11 @@
             // ServiceDetailslistB
             // 
             this.ServiceDetailslistB.FormattingEnabled = true;
-            this.ServiceDetailslistB.Location = new System.Drawing.Point(274, 129);
+            this.ServiceDetailslistB.ItemHeight = 16;
+            this.ServiceDetailslistB.Location = new System.Drawing.Point(365, 159);
+            this.ServiceDetailslistB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ServiceDetailslistB.Name = "ServiceDetailslistB";
-            this.ServiceDetailslistB.Size = new System.Drawing.Size(215, 134);
+            this.ServiceDetailslistB.Size = new System.Drawing.Size(285, 164);
             this.ServiceDetailslistB.TabIndex = 5;
             // 
             // admin_service_panel
@@ -114,15 +122,17 @@
             this.admin_service_panel.Controls.Add(this.adminServiceEditbtn);
             this.admin_service_panel.Controls.Add(this.adminServiceAddbtn);
             this.admin_service_panel.Location = new System.Drawing.Point(0, 0);
+            this.admin_service_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.admin_service_panel.Name = "admin_service_panel";
-            this.admin_service_panel.Size = new System.Drawing.Size(544, 400);
+            this.admin_service_panel.Size = new System.Drawing.Size(725, 492);
             this.admin_service_panel.TabIndex = 6;
             // 
             // PartBtn
             // 
-            this.PartBtn.Location = new System.Drawing.Point(52, 269);
+            this.PartBtn.Location = new System.Drawing.Point(69, 331);
+            this.PartBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PartBtn.Name = "PartBtn";
-            this.PartBtn.Size = new System.Drawing.Size(75, 23);
+            this.PartBtn.Size = new System.Drawing.Size(100, 28);
             this.PartBtn.TabIndex = 6;
             this.PartBtn.Text = "PART";
             this.PartBtn.UseVisualStyleBackColor = true;
@@ -130,9 +140,10 @@
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(414, 400);
+            this.cancelBtn.Location = new System.Drawing.Point(552, 492);
+            this.cancelBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(75, 23);
+            this.cancelBtn.Size = new System.Drawing.Size(100, 28);
             this.cancelBtn.TabIndex = 7;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
@@ -140,14 +151,14 @@
             // 
             // Admin_service
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.admin_service_panel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Admin_service";
-            this.Size = new System.Drawing.Size(544, 426);
+            this.Size = new System.Drawing.Size(725, 524);
             this.admin_service_panel.ResumeLayout(false);
             this.admin_service_panel.PerformLayout();
             this.ResumeLayout(false);

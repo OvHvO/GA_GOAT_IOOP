@@ -182,6 +182,12 @@
     <Compile Include="Admins\Admin_cus_FB.Designer.cs">
       <DependentUpon>Admin_cus_FB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admins\Admin_Interface.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Admins\Admin_Interface.Designer.cs">
+      <DependentUpon>Admin_Interface.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admins\Admin_part.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -282,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admins\Admin_cus_FB.resx">
       <DependentUpon>Admin_cus_FB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admins\Admin_Interface.resx">
+      <DependentUpon>Admin_Interface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admins\Admin_part.resx">
       <DependentUpon>Admin_part.cs</DependentUpon>

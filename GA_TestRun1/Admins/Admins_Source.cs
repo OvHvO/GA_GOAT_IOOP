@@ -461,5 +461,55 @@ namespace GA_TestRun1.Admins
                 return false;
             }
         }
+
+        public List<string> Rcp_Net()
+        {
+            string query = @"select rcptionistUsername from Receptionists";
+            List<string> rcpList = new List<string>();
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            rcpList.Add(reader["rcptionistUsername"].ToString());
+                        }
+
+                    }
+
+                }
+            }
+            return rcpList;
+        }
+
+        public List<string> Mechanic_Net()
+        {
+            string query = @"select mechanicUsername from Mechanics";
+            List<string> mechanicList = new List<string>();
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            mechanicList.Add(reader["mechanicUsername"].ToString());
+                        }
+
+                    }
+
+                }
+            }
+            return mechanicList;
+        }
     }
 }
