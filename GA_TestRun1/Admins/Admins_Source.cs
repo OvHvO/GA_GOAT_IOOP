@@ -376,6 +376,7 @@ namespace GA_TestRun1.Admins
                             command.Parameters.AddWithValue("@PartPrice", partPrice);
 
                             connection.Open();
+
                             int rowsAffected = command.ExecuteNonQuery();
                             if (rowsAffected > 0)
                             {
@@ -392,6 +393,8 @@ namespace GA_TestRun1.Admins
 
                 catch (SqlException ex)
                 {
+                    MessageBox.Show($"SQL 错误代码: {ex.Number}\n错误信息: {ex.Message}");
+
                     if (ex.Number == 547) //547 is the number when foreign key has problem in our database
                     {
                         MessageBox.Show("Error.....");
@@ -400,7 +403,7 @@ namespace GA_TestRun1.Admins
 
                     else
                     {
-                        MessageBox.Show("Okay gg I will lay off");
+                        
                         return false;
                     }
                 }
@@ -409,7 +412,7 @@ namespace GA_TestRun1.Admins
 
             else if (type == "EDIT")
             {
-                string query = "update Parts \r\n SET partQuantity = @PartQauntity, \r\npartPrice = @PartPrice \r\n where partName = @PartName;";
+                string query = "update Parts \r\n SET partQuantity = @PartQuantity, \r\n partPrice = @PartPrice \r\n where partName = @PartName;";
 
                 try
                 {
@@ -438,6 +441,8 @@ namespace GA_TestRun1.Admins
 
                 catch (SqlException ex)
                 {
+                    MessageBox.Show($"SQL 错误代码: {ex.Number}\n错误信息: {ex.Message}");
+
                     if (ex.Number == 547)  //547 is the number when foreign key has problem in our database
                     {
                         MessageBox.Show("The partName does not exist");
@@ -446,7 +451,6 @@ namespace GA_TestRun1.Admins
 
                     else
                     {
-                        MessageBox.Show("Okay gg I will lay off");
                         return false;
                     }
                 }

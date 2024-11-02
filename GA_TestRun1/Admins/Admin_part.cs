@@ -23,6 +23,7 @@ namespace GA_TestRun1.Admins
             {
                 PartListBox.Items.Add(service);
             }
+            
         }
 
         private void PartListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -34,6 +35,8 @@ namespace GA_TestRun1.Admins
             PartNameTB.Text = selected;
             PartQuantityTB.Text = partDetails[1];
             PartPriceTB.Text = partDetails[2];
+            PartNameTB.ReadOnly = true;
+            PartIDTB.ReadOnly = true;
         }
 
         private void PartDeleteBtn_Click(object sender, EventArgs e)
@@ -64,18 +67,33 @@ namespace GA_TestRun1.Admins
             string partName = PartNameTB.Text.ToString();
             int partQuantity = Convert.ToInt32(PartQuantityTB.Text);
             int partPrice = Convert.ToInt32(PartPriceTB.Text);
-            if (PartListBox.Text != null)
+            if (PartListBox.SelectedItem != null)
             {
-                PartNameTB.ReadOnly = true;
                 typeOfChange = "EDIT";
                 Admins_Source partEDIT = new Admins_Source();
                 bool result = partEDIT.Part_Change(typeOfChange, partName, partQuantity, partPrice);
+                if(result)
+                {
+                    MessageBox.Show("Part edited");
+                }
+                PartIDTB.Clear();
+                PartNameTB.Clear();
+                PartQuantityTB.Clear();
+                PartPriceTB.Clear();
             }
             else
             {
                 typeOfChange = "ADD";
                 Admins_Source partADD = new Admins_Source();
                 bool result = partADD.Part_Change(typeOfChange, partName, partQuantity, partPrice);
+                if (result) 
+                {
+                    MessageBox.Show("Part added");
+                }
+                PartIDTB.Clear();
+                PartNameTB.Clear();
+                PartQuantityTB.Clear();
+                PartPriceTB.Clear();
             }
 
         }
