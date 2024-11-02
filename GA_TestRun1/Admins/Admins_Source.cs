@@ -571,5 +571,154 @@ namespace GA_TestRun1.Admins
                 return staffDetails;
             }
         }
+
+        public bool Delete_Staff(string role, string selectedStaff)
+        {
+            //100% success no need to use try, catch :) 
+            if (role == "Receptionist")              
+            {
+                string query = @"delete from Receptionists where rcptionistUsername = @StaffName";
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@StaffName", selectedStaff);
+                        connection.Open();
+
+                        int rowsAffect = command.ExecuteNonQuery();
+
+                        return rowsAffect > 0; //logic if (rowsAffect > 0) = true, < 0 = false. It will also be a boolean data type 
+                    }
+                }
+            }
+
+            else if (role == "Mechanic")
+            {
+                string query = @"delete from Mechanics where mechanicUsername = @StaffName";
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@StaffName", selectedStaff);
+                        connection.Open();
+
+                        int rowsAffect = command.ExecuteNonQuery();
+
+                        return rowsAffect > 0; //logic if (rowsAffect > 0) = true, < 0 = false. It will also be a boolean data type 
+                    }
+                }
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool Staff_ADD(string role, string username, int contactnumber)
+        {
+            if (role == "Receptionist")
+            {
+                string query = "insert into Receptionists (rcptionistUsername, rcptionistPW, rcptionistContactNum) values (@Username, @PW, @ContactNum)";
+
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                    {
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@Username", username);
+                            command.Parameters.AddWithValue("@PW", 0000);
+                            command.Parameters.AddWithValue("@ContactNum", contactnumber);
+
+                            connection.Open();
+
+                            int rowsAffected = command.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                return true;
+                            }
+
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+
+                catch (SqlException ex)
+                {
+                    MessageBox.Show($"SQL 错误代码: {ex.Number}\n错误信息: {ex.Message}");
+
+                    if (ex.Number == 547) //547 is the number when foreign key has problem in our database
+                    {
+                        MessageBox.Show("Error.....");
+                        return false;
+                    }
+
+                    else
+                    {
+
+                        return false;
+                    }
+                }
+
+            }
+
+            else if (role == "Mechanic")
+            {
+                string query = "insert into Mechanics (mechanicUsername, mechanicPW, mechanicContactNum) values (@Username, @PW, @ContactNum)";
+
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                    {
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@Username", username);
+                            command.Parameters.AddWithValue("@PW", 0000);
+                            command.Parameters.AddWithValue("@ContactNum", contactnumber);
+
+                            connection.Open();
+
+                            int rowsAffected = command.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                return true;
+                            }
+
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+
+                catch (SqlException ex)
+                {
+                    MessageBox.Show($"SQL 错误代码: {ex.Number}\n错误信息: {ex.Message}");
+
+                    if (ex.Number == 547) //547 is the number when foreign key has problem in our database
+                    {
+                        MessageBox.Show("Error.....");
+                        return false;
+                    }
+
+                    else
+                    {
+
+                        return false;
+                    }
+                }
+
+            }
+
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -34,14 +34,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.NewStaffContactNumTB = new System.Windows.Forms.TextBox();
+            this.NewStaffNameTB = new System.Windows.Forms.TextBox();
             this.RoleComboBox = new System.Windows.Forms.ComboBox();
             this.StaffAddBtn = new System.Windows.Forms.Button();
             this.StaffDeleteBtn = new System.Windows.Forms.Button();
             this.StaffDetailsLB = new System.Windows.Forms.ListBox();
+            this.NewStaffRoleCB = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.StaffDetailsGB.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,13 +68,13 @@
             // 
             // StaffDetailsGB
             // 
+            this.StaffDetailsGB.Controls.Add(this.label5);
+            this.StaffDetailsGB.Controls.Add(this.NewStaffRoleCB);
             this.StaffDetailsGB.Controls.Add(this.label6);
             this.StaffDetailsGB.Controls.Add(this.label4);
             this.StaffDetailsGB.Controls.Add(this.label3);
-            this.StaffDetailsGB.Controls.Add(this.label2);
-            this.StaffDetailsGB.Controls.Add(this.textBox3);
-            this.StaffDetailsGB.Controls.Add(this.textBox2);
-            this.StaffDetailsGB.Controls.Add(this.textBox1);
+            this.StaffDetailsGB.Controls.Add(this.NewStaffContactNumTB);
+            this.StaffDetailsGB.Controls.Add(this.NewStaffNameTB);
             this.StaffDetailsGB.Location = new System.Drawing.Point(329, 114);
             this.StaffDetailsGB.Name = "StaffDetailsGB";
             this.StaffDetailsGB.Size = new System.Drawing.Size(356, 253);
@@ -85,7 +85,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(24, 194);
+            this.label6.Location = new System.Drawing.Point(27, 198);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(228, 40);
             this.label6.TabIndex = 7;
@@ -95,7 +95,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 150);
+            this.label4.Location = new System.Drawing.Point(23, 104);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(165, 16);
             this.label4.TabIndex = 5;
@@ -104,41 +104,25 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 100);
+            this.label3.Location = new System.Drawing.Point(23, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "Staff Username";
             // 
-            // label2
+            // NewStaffContactNumTB
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Staff_ID";
+            this.NewStaffContactNumTB.Location = new System.Drawing.Point(225, 101);
+            this.NewStaffContactNumTB.Name = "NewStaffContactNumTB";
+            this.NewStaffContactNumTB.Size = new System.Drawing.Size(109, 22);
+            this.NewStaffContactNumTB.TabIndex = 2;
             // 
-            // textBox3
+            // NewStaffNameTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(234, 147);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(234, 97);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(234, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 0;
+            this.NewStaffNameTB.Location = new System.Drawing.Point(225, 47);
+            this.NewStaffNameTB.Name = "NewStaffNameTB";
+            this.NewStaffNameTB.Size = new System.Drawing.Size(109, 22);
+            this.NewStaffNameTB.TabIndex = 1;
             // 
             // RoleComboBox
             // 
@@ -161,6 +145,7 @@
             this.StaffAddBtn.TabIndex = 8;
             this.StaffAddBtn.Text = "ADD";
             this.StaffAddBtn.UseVisualStyleBackColor = true;
+            this.StaffAddBtn.Click += new System.EventHandler(this.StaffAddBtn_Click);
             // 
             // StaffDeleteBtn
             // 
@@ -180,6 +165,26 @@
             this.StaffDetailsLB.Name = "StaffDetailsLB";
             this.StaffDetailsLB.Size = new System.Drawing.Size(217, 84);
             this.StaffDetailsLB.TabIndex = 10;
+            // 
+            // NewStaffRoleCB
+            // 
+            this.NewStaffRoleCB.FormattingEnabled = true;
+            this.NewStaffRoleCB.Items.AddRange(new object[] {
+            "Receptionist",
+            "Mechanic"});
+            this.NewStaffRoleCB.Location = new System.Drawing.Point(225, 154);
+            this.NewStaffRoleCB.Name = "NewStaffRoleCB";
+            this.NewStaffRoleCB.Size = new System.Drawing.Size(109, 24);
+            this.NewStaffRoleCB.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 157);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(95, 16);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "New Staff Role";
             // 
             // Admin_staff
             // 
@@ -207,16 +212,16 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox StaffListBox;
         private System.Windows.Forms.GroupBox StaffDetailsGB;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox RoleComboBox;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox NewStaffNameTB;
+        private System.Windows.Forms.TextBox NewStaffContactNumTB;
         private System.Windows.Forms.Button StaffAddBtn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button StaffDeleteBtn;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox StaffDetailsLB;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox NewStaffRoleCB;
     }
 }

@@ -45,8 +45,8 @@ namespace GA_TestRun1.Admins
             int serviceOffer = Convert.ToInt32(ServiceOfferTB.Text);
             int servicePartID = Convert.ToInt32(ServicePartIDTB.Text);
             Admins_Source serviceChange = new Admins_Source();
-
             bool resultChange = serviceChange.Service_Change(typeOfChange, serviceName, serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, Admin_Interface.adminID, servicePartID);
+
             if (resultChange && (typeOfChange == "ADD"))
             {
                 MessageBox.Show("Service added");

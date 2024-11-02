@@ -70,12 +70,12 @@ namespace GA_TestRun1.Admins
 
                 if (result == DialogResult.Yes)
                 {
-                    Admins_Source deleteService = new Admins_Source();
-                    bool deleteResult = deleteService.Delete_Service(selectedItem);
+                    Admins_Source deleteStaff = new Admins_Source();
+                    bool deleteResult = deleteStaff.Delete_Staff(selectedRole, selectedStaff);
                     if (deleteResult)
                     {
                         MessageBox.Show("Successfully deleted");
-                        LoadUserControl(new Admin_service());
+
                     }
                     else
                     {
@@ -87,6 +87,19 @@ namespace GA_TestRun1.Admins
             else
             {
                 MessageBox.Show("Please f**king choose a service idiot");
+            }
+        }
+
+        private void StaffAddBtn_Click(object sender, EventArgs e)
+        {
+            string username = NewStaffNameTB.Text;
+            int contactnum = Convert.ToInt32(NewStaffContactNumTB.Text);
+            string role = NewStaffRoleCB.SelectedItem as string;
+            Admins_Source newStaff = new Admins_Source();
+            bool newStaffResult = newStaff.Staff_ADD(role, username, contactnum);
+            if (newStaffResult)
+            {
+                MessageBox.Show("New staff created");
             }
         }
     }
