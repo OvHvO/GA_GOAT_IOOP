@@ -49,7 +49,7 @@ namespace GA_TestRun1.Admins
         private void adminServiceEditbtn_Click(object sender, EventArgs e)
         {
             if (selectedItem != null)
-            { 
+            {   
                 LoadUserControl(new Admin_service_data(selectedItem));
             }
 
@@ -72,15 +72,37 @@ namespace GA_TestRun1.Admins
             LoadUserControl(new Admin_service());
         }
 
-        private void Admin_service_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void adminServiceDeletebtn_Click(object sender, EventArgs e)
         {
+            if (selectedItem != null)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                if (result == DialogResult.Yes)
+                {
+                    Admins_Source deleteService = new Admins_Source();
+                    bool deleteResult = deleteService.Delete_Service(selectedItem);
+                    if (deleteResult)
+                    {
+                        MessageBox.Show("Successfully deleted");
+                        LoadUserControl(new Admin_service());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Problem Occurs, please try again");
+                    }
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please f**king choose a service idiot");
+            }
         }
 
+        private void PartBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

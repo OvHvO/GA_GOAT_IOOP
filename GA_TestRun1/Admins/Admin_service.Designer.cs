@@ -37,8 +37,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ServiceDetailslistB = new System.Windows.Forms.ListBox();
             this.admin_service_panel = new System.Windows.Forms.Panel();
-            this.cancelBtn = new System.Windows.Forms.Button();
             this.PartBtn = new System.Windows.Forms.Button();
+            this.cancelBtn = new System.Windows.Forms.Button();
             this.admin_service_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,6 +118,16 @@
             this.admin_service_panel.Size = new System.Drawing.Size(544, 394);
             this.admin_service_panel.TabIndex = 6;
             // 
+            // PartBtn
+            // 
+            this.PartBtn.Location = new System.Drawing.Point(52, 269);
+            this.PartBtn.Name = "PartBtn";
+            this.PartBtn.Size = new System.Drawing.Size(75, 23);
+            this.PartBtn.TabIndex = 6;
+            this.PartBtn.Text = "PART";
+            this.PartBtn.UseVisualStyleBackColor = true;
+            this.PartBtn.Click += new System.EventHandler(this.PartBtn_Click);
+            // 
             // cancelBtn
             // 
             this.cancelBtn.Location = new System.Drawing.Point(414, 400);
@@ -127,15 +137,6 @@
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
-            // 
-            // PartBtn
-            // 
-            this.PartBtn.Location = new System.Drawing.Point(52, 269);
-            this.PartBtn.Name = "PartBtn";
-            this.PartBtn.Size = new System.Drawing.Size(75, 23);
-            this.PartBtn.TabIndex = 6;
-            this.PartBtn.Text = "PART";
-            this.PartBtn.UseVisualStyleBackColor = true;
             // 
             // Admin_service
             // 

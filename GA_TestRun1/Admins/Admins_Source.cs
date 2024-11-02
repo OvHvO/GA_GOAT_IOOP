@@ -80,6 +80,31 @@ namespace GA_TestRun1.Admins
             return serviceList;
         }
 
+        public List<string> Part_Net()
+        {
+            string query = @"select partName from Parts";
+            List<string> partList = new List<string>();
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            partList.Add(reader["partName"].ToString());
+                        }
+
+                    }
+
+                }
+            }
+            return partList;
+        }
+
         public object[] Service_Details(string targetService)
         {
             string query = @"select serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, admin_ID, part_ID from Service
@@ -112,6 +137,34 @@ namespace GA_TestRun1.Admins
             return serviceDetails;
         }
 
+        public object[] Part_Details(string targetService)
+        {
+            string query = @"select part_ID, partQuantity, partPrice from Parts
+                                where partName = @partName";
+            object[] partDetails = new object[3];
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@partName", targetService);
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            partDetails[0] = "Part ID :" + reader["part_ID"].ToString();
+                            partDetails[1] = "Quantity :" + reader["partQuantity"].ToString();
+                            partDetails[2] = "Price :" + reader["partPrice"].ToString();
+
+                        }
+
+                    }
+
+                }
+            }
+            return partDetails;
+        }
         public string[] Edit_Service(string targetService)
         {
             string query = @"select serviceName, serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, part_ID from Service
@@ -169,7 +222,7 @@ namespace GA_TestRun1.Admins
         {
             if (type == "ADD")
             {
-                string query = "INSERT INTO Service (serviceName, serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, admin_ID, part_ID) VALUES (@ServiceName, @ServiceInfo, @ServiceTimeTaken, @ServicePrice, @ServiceOffer, @Admin_ID, @Part_ID)";
+                string query = "insert into Service (serviceName, serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, admin_ID, part_ID) values (@ServiceName, @ServiceInfo, @ServiceTimeTaken, @ServicePrice, @ServiceOffer, @Admin_ID, @Part_ID)";
 
                 try
                 {
@@ -219,12 +272,73 @@ namespace GA_TestRun1.Admins
 
             else if (type == "EDIT")
             {
-                return true;
+                string query = "update Service \r\n SET serviceInfo = @ServiceInfo, \r\nserviceTimeTaken = @ServiceTimeTaken, \r\nservicePrice = @ServicePrice, serviceOffer = @ServiceOffer, admin_ID = @Admin_ID, part_ID = @Part_ID \r\n WHERE serviceName = @ServiceName;";
+
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                    {
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@ServiceName", serviceName);
+                            command.Parameters.AddWithValue("@ServiceInfo", serviceInfo);
+                            command.Parameters.AddWithValue("@ServiceTimeTaken", serviceTimeTaken);
+                            command.Parameters.AddWithValue("@ServicePrice", servicePrice);
+                            command.Parameters.AddWithValue("@ServiceOffer", serviceOffer);
+                            command.Parameters.AddWithValue("@admin_ID", admin_ID);
+                            command.Parameters.AddWithValue("@part_ID", part_ID);
+
+                            connection.Open();
+                            int rowsAffected = command.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                return true;
+                            }
+
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+
+                catch (SqlException ex)
+                {
+                    if (ex.Number == 547)  //547 is the number when foreign key has problem in our database
+                    {
+                        MessageBox.Show("The ServiceName does not exist");
+                        return false;
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Okay gg I will lay off");
+                        return false;
+                    }
+                }
             }
 
             else
             {
                 return false;
+            }
+        }
+
+        public bool Delete_Service(string selectedName)
+        {
+            string query = @"delete from Service where serviceName = @ServiceName";
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ServiceName", selectedName);
+                    connection.Open();
+
+                    int rowsAffect = command.ExecuteNonQuery();
+
+                    return rowsAffect > 0; //logic if (rowsAffect > 0) = true, < 0 = false. It will also be a boolean data type 
+                }
             }
         }
     }

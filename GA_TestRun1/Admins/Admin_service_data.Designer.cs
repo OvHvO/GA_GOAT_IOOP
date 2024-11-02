@@ -42,6 +42,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.serviceChangeBtn = new System.Windows.Forms.Button();
             this.partCheckBtn = new System.Windows.Forms.Button();
+            this.noticeServiceName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ServiceNameTB
@@ -164,11 +165,23 @@
             this.partCheckBtn.UseVisualStyleBackColor = true;
             this.partCheckBtn.Click += new System.EventHandler(this.partCheckBtn_Click);
             // 
+            // noticeServiceName
+            // 
+            this.noticeServiceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noticeServiceName.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.noticeServiceName.Location = new System.Drawing.Point(22, 371);
+            this.noticeServiceName.Name = "noticeServiceName";
+            this.noticeServiceName.Size = new System.Drawing.Size(193, 12);
+            this.noticeServiceName.TabIndex = 15;
+            this.noticeServiceName.Text = "!!!For edition, service name is uchangeable";
+            this.noticeServiceName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Admin_service_data
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
+            this.Controls.Add(this.noticeServiceName);
             this.Controls.Add(this.partCheckBtn);
             this.Controls.Add(this.serviceChangeBtn);
             this.Controls.Add(this.label6);
@@ -206,5 +219,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button serviceChangeBtn;
         private System.Windows.Forms.Button partCheckBtn;
+        private System.Windows.Forms.Label noticeServiceName;
     }
 }
