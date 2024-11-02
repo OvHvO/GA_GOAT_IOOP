@@ -720,5 +720,106 @@ namespace GA_TestRun1.Admins
                 return false;
             }
         }
+
+        public void Delete_Overtime_FB()
+        {
+            DateTime dateMinus30 = DateTime.Now.AddDays(-30);
+
+            string checkDate = dateMinus30.ToString("yyyy-MM-dd");
+
+            string query = "delete from CustomerFeedBack where dateFeedBack < @DateThreshold";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@DateThreshold", checkDate);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                }
+            }
+        }
+
+        public List<string> CusFB_Net()
+        {
+            string query = @"select cusFeedback_ID from CustomerFeedBack";
+            List<string> feedBackList = new List<string>();
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            feedBackList.Add(reader["cusFeedback_ID"].ToString());
+                        }
+
+                    }
+
+                }
+            }
+            return feedBackList;
+        }
+
+        public string CusFB_Content(int targetID)
+        {
+            string query = @"select cusFeedBackContent from CustomerFeedBack where cusFeedback_ID = @TargetID";
+            string cusFB_content = null;
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TargetID", targetID);
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            cusFB_content = reader["cusFeedBackContent"].ToString();
+                        }
+
+                    }
+
+                }
+            }
+            return cusFB_content;
+        }
+
+        public string[] CusFB_Details(string targetRole, string targetStaff)
+        {
+
+            string query = @"select rcptionist_ID, rcptionistContactNum from Receptionists
+                                where rcptionistUsername = @RcpUsername";
+            string[] staffDetails = new string[3];
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@RcpUsername", targetStaff);
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            staffDetails[0] = "Receptionist ID:" + reader["rcptionist_ID"].ToString();
+                            staffDetails[1] = "Rcptionist Username :" + targetStaff;
+                            staffDetails[2] = "Contact Number:" + reader["rcptionistContactNum"].ToString();
+
+                        }
+
+                    }
+
+                }
+            }
+            return staffDetails;
+        }   
     }
 }
