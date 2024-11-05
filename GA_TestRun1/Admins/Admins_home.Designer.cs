@@ -42,73 +42,94 @@
             // 
             // FeatureBox
             // 
-            this.FeatureBox.BackColor = System.Drawing.Color.RosyBrown;
+            this.FeatureBox.BackColor = System.Drawing.Color.Firebrick;
             this.FeatureBox.Controls.Add(this.AdminInterfaceBtn);
             this.FeatureBox.Controls.Add(this.btn_cus_FB);
             this.FeatureBox.Controls.Add(this.btn_sales_Report);
             this.FeatureBox.Controls.Add(this.btn_service_MNG);
             this.FeatureBox.Controls.Add(this.btn_staff_MNG);
+            this.FeatureBox.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.FeatureBox.Location = new System.Drawing.Point(0, 2);
             this.FeatureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FeatureBox.Name = "FeatureBox";
             this.FeatureBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.FeatureBox.Size = new System.Drawing.Size(136, 522);
+            this.FeatureBox.Size = new System.Drawing.Size(143, 522);
             this.FeatureBox.TabIndex = 1;
             this.FeatureBox.TabStop = false;
             this.FeatureBox.Text = "Features Box";
             // 
             // AdminInterfaceBtn
             // 
-            this.AdminInterfaceBtn.Location = new System.Drawing.Point(12, 43);
+            this.AdminInterfaceBtn.BackColor = System.Drawing.Color.Firebrick;
+            this.AdminInterfaceBtn.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
+            this.AdminInterfaceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminInterfaceBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.AdminInterfaceBtn.Location = new System.Drawing.Point(12, 49);
             this.AdminInterfaceBtn.Name = "AdminInterfaceBtn";
             this.AdminInterfaceBtn.Size = new System.Drawing.Size(111, 43);
             this.AdminInterfaceBtn.TabIndex = 4;
             this.AdminInterfaceBtn.Text = "ADMIN";
-            this.AdminInterfaceBtn.UseVisualStyleBackColor = true;
+            this.AdminInterfaceBtn.UseVisualStyleBackColor = false;
             this.AdminInterfaceBtn.Click += new System.EventHandler(this.AdminInterfaceBtn_Click);
             // 
             // btn_cus_FB
             // 
+            this.btn_cus_FB.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_cus_FB.FlatAppearance.BorderSize = 0;
+            this.btn_cus_FB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cus_FB.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_cus_FB.Location = new System.Drawing.Point(12, 432);
             this.btn_cus_FB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_cus_FB.Name = "btn_cus_FB";
             this.btn_cus_FB.Size = new System.Drawing.Size(111, 43);
             this.btn_cus_FB.TabIndex = 3;
             this.btn_cus_FB.Text = "Customer Feedback";
-            this.btn_cus_FB.UseVisualStyleBackColor = true;
+            this.btn_cus_FB.UseVisualStyleBackColor = false;
             this.btn_cus_FB.Click += new System.EventHandler(this.btn_cus_FB_Click);
             // 
             // btn_sales_Report
             // 
+            this.btn_sales_Report.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_sales_Report.FlatAppearance.BorderSize = 0;
+            this.btn_sales_Report.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_sales_Report.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_sales_Report.Location = new System.Drawing.Point(12, 336);
             this.btn_sales_Report.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_sales_Report.Name = "btn_sales_Report";
             this.btn_sales_Report.Size = new System.Drawing.Size(111, 43);
             this.btn_sales_Report.TabIndex = 2;
             this.btn_sales_Report.Text = "Sales Report";
-            this.btn_sales_Report.UseVisualStyleBackColor = true;
+            this.btn_sales_Report.UseVisualStyleBackColor = false;
             this.btn_sales_Report.Click += new System.EventHandler(this.btn_sales_Report_Click);
             // 
             // btn_service_MNG
             // 
+            this.btn_service_MNG.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_service_MNG.FlatAppearance.BorderSize = 0;
+            this.btn_service_MNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_service_MNG.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_service_MNG.Location = new System.Drawing.Point(12, 236);
             this.btn_service_MNG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_service_MNG.Name = "btn_service_MNG";
             this.btn_service_MNG.Size = new System.Drawing.Size(111, 43);
             this.btn_service_MNG.TabIndex = 1;
             this.btn_service_MNG.Text = "Service Management";
-            this.btn_service_MNG.UseVisualStyleBackColor = true;
+            this.btn_service_MNG.UseVisualStyleBackColor = false;
             this.btn_service_MNG.Click += new System.EventHandler(this.service_MNG_Click);
             // 
             // btn_staff_MNG
             // 
-            this.btn_staff_MNG.Location = new System.Drawing.Point(12, 140);
+            this.btn_staff_MNG.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_staff_MNG.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
+            this.btn_staff_MNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_staff_MNG.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_staff_MNG.Location = new System.Drawing.Point(6, 138);
             this.btn_staff_MNG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_staff_MNG.Name = "btn_staff_MNG";
-            this.btn_staff_MNG.Size = new System.Drawing.Size(111, 43);
+            this.btn_staff_MNG.Size = new System.Drawing.Size(124, 48);
             this.btn_staff_MNG.TabIndex = 0;
             this.btn_staff_MNG.Text = "Staff Management";
-            this.btn_staff_MNG.UseVisualStyleBackColor = true;
+            this.btn_staff_MNG.UseVisualStyleBackColor = false;
             this.btn_staff_MNG.Click += new System.EventHandler(this.staff_MNG_Click);
             // 
             // panel1
@@ -123,7 +144,7 @@
             // 
             // admin_Panel
             // 
-            this.admin_Panel.BackColor = System.Drawing.Color.Salmon;
+            this.admin_Panel.BackColor = System.Drawing.Color.Snow;
             this.admin_Panel.Location = new System.Drawing.Point(143, 0);
             this.admin_Panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.admin_Panel.Name = "admin_Panel";
