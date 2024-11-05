@@ -35,9 +35,17 @@ namespace GA_TestRun1.Admins
 
             Admins_Source selected_S_Details = new Admins_Source();
             object[] serviceDetails = selected_S_Details.Service_Details(selectedItem);
-            foreach (object service in serviceDetails)
+            try
             {
-                ServiceDetailslistB.Items.Add(service);
+                foreach (object service in serviceDetails)
+                {
+                    ServiceDetailslistB.Items.Add(service);
+                }
+            }
+
+            catch (Exception)
+            {
+                ///Already show from the Admin_Source
             }
         }
 

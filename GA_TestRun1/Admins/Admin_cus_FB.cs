@@ -17,6 +17,7 @@ namespace GA_TestRun1.Admins
         {
             InitializeComponent();
             Admins_Source objCusFB = new Admins_Source();
+            ///The database will auto delete those feedback live longer than 30 days ^_^ 
             objCusFB.Delete_Overtime_FB();
             List<string> feedBackList = objCusFB.CusFB_Net();
             foreach (string feedBack in feedBackList)
@@ -35,10 +36,19 @@ namespace GA_TestRun1.Admins
             string[] cusDetails = objCusFB.CusFB_Details(selectedFB_ID);
 
             CusFBContentTB.Text = fbContent;
+            CusFBContentTB.ReadOnly = true;
 
-            foreach(string item in cusDetails) 
+            try
             {
-                 CusDetailsLB.Items.Add(item);
+                foreach (string item in cusDetails)
+                {
+                    CusDetailsLB.Items.Add(item);
+                }
+            }
+
+            catch (Exception)
+            {
+                ///Already show from the Admin_Source
             }
         }
 

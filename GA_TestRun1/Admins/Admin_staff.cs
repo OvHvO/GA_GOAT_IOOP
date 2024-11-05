@@ -27,18 +27,34 @@ namespace GA_TestRun1.Admins
             {
                 Admins_Source rcptionistStaff = new Admins_Source();
                 List<string> staffList = rcptionistStaff.Rcp_Net();
-                foreach (string item in staffList)
+                try
                 {
-                    StaffListBox.Items.Add(item);
+                    foreach (string item in staffList)
+                    {
+                        StaffListBox.Items.Add(item);
+                    }
+                }
+
+                catch (Exception)
+                {
+                    ///Already show from the Admin_Source
                 }
             }
             else if (RoleComboBox.SelectedItem.ToString() == "Mechanic")
             {
                 Admins_Source mechanicStaff = new Admins_Source();
                 List<string> staffList = mechanicStaff.Mechanic_Net();
-                foreach (string item in staffList)
+                try
                 {
-                    StaffListBox.Items.Add(item);
+                    foreach (string item in staffList)
+                    {
+                        StaffListBox.Items.Add(item);
+                    }
+                }
+
+                catch (Exception)
+                {
+                    ///Already show from the Admin_Source
                 }
             }
             else
@@ -56,9 +72,17 @@ namespace GA_TestRun1.Admins
 
             Admins_Source targetStaff = new Admins_Source();
             string[] staffDetails = targetStaff.Staff_Details(selectedRole, selectedStaff);
-            foreach (string item in staffDetails)
+            try
             {
-                StaffDetailsLB.Items.Add(item);
+                foreach (string item in staffDetails)
+                {
+                    StaffDetailsLB.Items.Add(item);
+                }
+            }
+
+            catch (Exception)
+            {
+                ///Already show from the Admin_Source
             }
         }
 

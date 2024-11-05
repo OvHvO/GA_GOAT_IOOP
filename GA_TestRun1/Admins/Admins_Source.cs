@@ -59,24 +59,33 @@ namespace GA_TestRun1.Admins
         {
             string query = @"select serviceName from Service";
             List<string> serviceList = new List<string>();
-            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
                 {
-
-                    connection.Open();
-
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        while (reader.Read())
+
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            serviceList.Add(reader["serviceName"].ToString());
+                            while (reader.Read())
+                            {
+                                serviceList.Add(reader["serviceName"].ToString());
+                            }
+
                         }
 
                     }
-
                 }
             }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Please dont click the empty space");
+            }
+
             return serviceList;
         }
 
@@ -84,23 +93,31 @@ namespace GA_TestRun1.Admins
         {
             string query = @"select partName from Parts";
             List<string> partList = new List<string>();
-            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
                 {
-
-                    connection.Open();
-
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        while (reader.Read())
+
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            partList.Add(reader["partName"].ToString());
+                            while (reader.Read())
+                            {
+                                partList.Add(reader["partName"].ToString());
+                            }
+
                         }
 
                     }
-
                 }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Please dont click the empty space");
             }
             return partList;
         }
@@ -110,29 +127,38 @@ namespace GA_TestRun1.Admins
             string query = @"select serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, admin_ID, part_ID from Service
                                 where serviceName = @serviceName";
             object[] serviceDetails = new object[6];
-            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@serviceName", targetService);
-                    connection.Open();
 
-                    using (SqlDataReader reader = command.ExecuteReader())
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        if (reader.Read())
+                        command.Parameters.AddWithValue("@serviceName", targetService);
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            serviceDetails[0] = "Service Info :" + reader["serviceInfo"].ToString();
-                            serviceDetails[1] = "Time taken :" + reader["serviceTimeTaken"].ToString();
-                            serviceDetails[2] = "Price :" + reader["servicePrice"].ToString();
-                            serviceDetails[3] = "Promotion :" + reader["serviceOffer"].ToString() + "%";
-                            serviceDetails[4] = "Admin_ID:" + reader["admin_ID"].ToString();
-                            serviceDetails[5] = "Part_ID:" + reader["part_ID"].ToString();
+                            if (reader.Read())
+                            {
+                                serviceDetails[0] = "Service Info :" + reader["serviceInfo"].ToString();
+                                serviceDetails[1] = "Time taken :" + reader["serviceTimeTaken"].ToString();
+                                serviceDetails[2] = "Price :" + reader["servicePrice"].ToString();
+                                serviceDetails[3] = "Promotion :" + reader["serviceOffer"].ToString() + "%";
+                                serviceDetails[4] = "Admin_ID:" + reader["admin_ID"].ToString();
+                                serviceDetails[5] = "Part_ID:" + reader["part_ID"].ToString();
+
+                            }
 
                         }
 
                     }
-
                 }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Please dont click the empty space");
             }
             return serviceDetails;
         }
@@ -142,27 +168,36 @@ namespace GA_TestRun1.Admins
             string query = @"select part_ID, partQuantity, partPrice from Parts
                                 where partName = @partName";
             string[] partDetails = new string[3];
-            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
                 {
-                    command.Parameters.AddWithValue("@partName", targetService);
-                    connection.Open();
-
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        if (reader.Read())
+                        command.Parameters.AddWithValue("@partName", targetService);
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            partDetails[0] = reader["part_ID"].ToString();
-                            partDetails[1] = reader["partQuantity"].ToString();
-                            partDetails[2] = reader["partPrice"].ToString();
+                            if (reader.Read())
+                            {
+                                partDetails[0] = reader["part_ID"].ToString();
+                                partDetails[1] = reader["partQuantity"].ToString();
+                                partDetails[2] = reader["partPrice"].ToString();
+
+                            }
 
                         }
 
                     }
-
                 }
             }
+
+            catch(Exception)
+            {
+                MessageBox.Show("Please dont click the empty space");
+            }
+
             return partDetails;
         }
         public string[] Edit_Service(string targetService)
@@ -170,29 +205,37 @@ namespace GA_TestRun1.Admins
             string query = @"select serviceName, serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, part_ID from Service
                                 where serviceName = @serviceName";
             string[] editServiceInfo = new string[6];
-            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
                 {
-                    command.Parameters.AddWithValue("@serviceName", targetService);
-                    connection.Open();
-
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        if (reader.Read())
+                        command.Parameters.AddWithValue("@serviceName", targetService);
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            editServiceInfo[0] = reader["serviceName"].ToString();
-                            editServiceInfo[1] = reader["serviceInfo"].ToString();
-                            editServiceInfo[2] = reader["serviceTimeTaken"].ToString();
-                            editServiceInfo[3] = reader["servicePrice"].ToString();
-                            editServiceInfo[4] = reader["serviceOffer"].ToString();
-                            editServiceInfo[5] = reader["part_ID"].ToString();
+                            if (reader.Read())
+                            {
+                                editServiceInfo[0] = reader["serviceName"].ToString();
+                                editServiceInfo[1] = reader["serviceInfo"].ToString();
+                                editServiceInfo[2] = reader["serviceTimeTaken"].ToString();
+                                editServiceInfo[3] = reader["servicePrice"].ToString();
+                                editServiceInfo[4] = reader["serviceOffer"].ToString();
+                                editServiceInfo[5] = reader["part_ID"].ToString();
+
+                            }
 
                         }
 
                     }
-
                 }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Please dont click the empty space");
             }
             return editServiceInfo;
         }
@@ -393,7 +436,7 @@ namespace GA_TestRun1.Admins
 
                 catch (SqlException ex)
                 {
-                    MessageBox.Show($"SQL 错误代码: {ex.Number}\n错误信息: {ex.Message}");
+                    MessageBox.Show($"SQL ERROR: {ex.Number}\nWRONG REASON: {ex.Message}");
 
                     if (ex.Number == 547) //547 is the number when foreign key has problem in our database
                     {
@@ -441,7 +484,7 @@ namespace GA_TestRun1.Admins
 
                 catch (SqlException ex)
                 {
-                    MessageBox.Show($"SQL 错误代码: {ex.Number}\n错误信息: {ex.Message}");
+                    MessageBox.Show($"SQL WRONG: {ex.Number}\nWRONG REASON: {ex.Message}");
 
                     if (ex.Number == 547)  //547 is the number when foreign key has problem in our database
                     {
@@ -466,23 +509,31 @@ namespace GA_TestRun1.Admins
         {
             string query = @"select rcptionistUsername from Receptionists";
             List<string> rcpList = new List<string>();
-            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
                 {
-
-                    connection.Open();
-
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        while (reader.Read())
+
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            rcpList.Add(reader["rcptionistUsername"].ToString());
+                            while (reader.Read())
+                            {
+                                rcpList.Add(reader["rcptionistUsername"].ToString());
+                            }
+
                         }
 
                     }
-
                 }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Please dont click the empty space");
             }
             return rcpList;
         }
@@ -491,23 +542,31 @@ namespace GA_TestRun1.Admins
         {
             string query = @"select mechanicUsername from Mechanics";
             List<string> mechanicList = new List<string>();
-            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
                 {
-
-                    connection.Open();
-
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        while (reader.Read())
+
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            mechanicList.Add(reader["mechanicUsername"].ToString());
+                            while (reader.Read())
+                            {
+                                mechanicList.Add(reader["mechanicUsername"].ToString());
+                            }
+
                         }
 
                     }
-
                 }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Please dont click the empty space");
             }
             return mechanicList;
         }
@@ -519,26 +578,34 @@ namespace GA_TestRun1.Admins
                 string query = @"select rcptionist_ID, rcptionistContactNum from Receptionists
                                 where rcptionistUsername = @RcpUsername";
                 string[] staffDetails = new string[3];
-                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                try
                 {
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
                     {
-                        command.Parameters.AddWithValue("@RcpUsername", targetStaff);
-                        connection.Open();
-
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        using (SqlCommand command = new SqlCommand(query, connection))
                         {
-                            if (reader.Read())
+                            command.Parameters.AddWithValue("@RcpUsername", targetStaff);
+                            connection.Open();
+
+                            using (SqlDataReader reader = command.ExecuteReader())
                             {
-                                staffDetails[0] = "Receptionist ID:" + reader["rcptionist_ID"].ToString();
-                                staffDetails[1] = "Rcptionist Username :" + targetStaff;
-                                staffDetails[2] = "Contact Number:" + reader["rcptionistContactNum"].ToString();
+                                if (reader.Read())
+                                {
+                                    staffDetails[0] = "Receptionist ID:" + reader["rcptionist_ID"].ToString();
+                                    staffDetails[1] = "Rcptionist Username :" + targetStaff;
+                                    staffDetails[2] = "Contact Number:" + reader["rcptionistContactNum"].ToString();
+
+                                }
 
                             }
 
                         }
-
                     }
+                }
+
+                catch (Exception)
+                {
+                    MessageBox.Show("Please dont click the empty space");
                 }
                 return staffDetails;
             }
@@ -547,26 +614,35 @@ namespace GA_TestRun1.Admins
                 string query = @"select mechanic_ID, mechanicContactNum from Mechanics
                                 where mechanicUsername = @MechanicUsername";
                 string[] staffDetails = new string[3];
-                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                try
                 {
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
                     {
-                        command.Parameters.AddWithValue("@MechanicUsername", targetStaff);
-                        connection.Open();
-
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        using (SqlCommand command = new SqlCommand(query, connection))
                         {
-                            if (reader.Read())
+                            command.Parameters.AddWithValue("@MechanicUsername", targetStaff);
+                            connection.Open();
+
+                            using (SqlDataReader reader = command.ExecuteReader())
                             {
-                                staffDetails[0] = "Mechanic ID:" + reader["mechanic_ID"].ToString();
-                                staffDetails[1] = "Mechanic Username :" + targetStaff;
-                                staffDetails[2] = "Contact Number:" + reader["mechanicContactNum"].ToString();
+                                if (reader.Read())
+                                {
+                                    staffDetails[0] = "Mechanic ID:" + reader["mechanic_ID"].ToString();
+                                    staffDetails[1] = "Mechanic Username :" + targetStaff;
+                                    staffDetails[2] = "Contact Number:" + reader["mechanicContactNum"].ToString();
+
+                                }
 
                             }
 
                         }
-
                     }
+                }
+
+
+                catch (Exception)
+                {
+                    MessageBox.Show("Please dont click the empty space");
                 }
                 return staffDetails;
             }
@@ -746,23 +822,31 @@ namespace GA_TestRun1.Admins
         {
             string query = @"select cusFeedback_ID from CustomerFeedBack";
             List<string> feedBackList = new List<string>();
-            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
                 {
-
-                    connection.Open();
-
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        while (reader.Read())
+
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            feedBackList.Add(reader["cusFeedback_ID"].ToString());
+                            while (reader.Read())
+                            {
+                                feedBackList.Add(reader["cusFeedback_ID"].ToString());
+                            }
+
                         }
 
                     }
-
                 }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Please dont click the empty space");
             }
             return feedBackList;
         }
@@ -771,21 +855,29 @@ namespace GA_TestRun1.Admins
         {
             string query = @"select cusFeedBackContent from CustomerFeedBack where cusFeedback_ID = @TargetID";
             string cusFB_content = null;
-            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
                 {
-                    command.Parameters.AddWithValue("@TargetID", targetID);
-                    connection.Open();
-
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        if (reader.Read())
+                        command.Parameters.AddWithValue("@TargetID", targetID);
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            cusFB_content = reader["cusFeedBackContent"].ToString();
+                            if (reader.Read())
+                            {
+                                cusFB_content = reader["cusFeedBackContent"].ToString();
+                            }
                         }
                     }
                 }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Please dont click the empty space");
             }
             return cusFB_content;
         }
@@ -797,43 +889,52 @@ namespace GA_TestRun1.Admins
             string[] cusDetails = new string[3];
             int customerID = 0;
 
-            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            try
             {
-                using (SqlCommand command = new SqlCommand(queryFB, connection))
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
                 {
-                    command.Parameters.AddWithValue("@TargetID", target);
-                    connection.Open();
-
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand(queryFB, connection))
                     {
-                        if (reader.Read())
+                        command.Parameters.AddWithValue("@TargetID", target);
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            customerID = Convert.ToInt32(reader["customer_ID"]);
+                            if (reader.Read())
+                            {
+                                customerID = Convert.ToInt32(reader["customer_ID"]);
+                            }
+                        }
+                    }
+                }
+
+
+                //query for serching customer details
+                string queryCus = @"select customerUsername, customerContactNum from Customers where customer_ID = @cusID";
+
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(queryCus, connection))
+                    {
+                        command.Parameters.AddWithValue("@cusID", customerID);
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                cusDetails[0] = "Customer Username: " + reader["customerUsername"].ToString();
+                                cusDetails[1] = "Customer ID: " + customerID.ToString();
+                                cusDetails[2] = "Contact Number: " + reader["customerContactNum"].ToString();
+                            }
                         }
                     }
                 }
             }
 
-            //query for serching customer details
-            string queryCus = @"select customerUsername, customerContactNum from Customers where customer_ID = @cusID";
-
-            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            catch (Exception)
             {
-                using (SqlCommand command = new SqlCommand(queryCus, connection))
-                {
-                    command.Parameters.AddWithValue("@cusID", customerID);
-                    connection.Open();
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            cusDetails[0] = "Customer Username: " + reader["customerUsername"].ToString();
-                            cusDetails[1] = "Customer ID: " + customerID.ToString();
-                            cusDetails[2] = "Contact Number: " + reader["customerContactNum"].ToString();
-                        }
-                    }
-                }
+                MessageBox.Show("Please dont click the empty space");
             }
             return cusDetails;
         }

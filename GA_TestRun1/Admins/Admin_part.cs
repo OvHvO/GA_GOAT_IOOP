@@ -31,12 +31,20 @@ namespace GA_TestRun1.Admins
             selected = PartListBox.SelectedItem as string;
             Admins_Source selectedPart = new Admins_Source();
             string[] partDetails = selectedPart.Part_Details(selected);
-            PartIDTB.Text = partDetails[0];
-            PartNameTB.Text = selected;
-            PartQuantityTB.Text = partDetails[1];
-            PartPriceTB.Text = partDetails[2];
-            PartNameTB.ReadOnly = true;
-            PartIDTB.ReadOnly = true;
+            try
+            {
+                PartIDTB.Text = partDetails[0];
+                PartNameTB.Text = selected;
+                PartQuantityTB.Text = partDetails[1];
+                PartPriceTB.Text = partDetails[2];
+                PartNameTB.ReadOnly = true;
+                PartIDTB.ReadOnly = true;
+            }
+
+            catch (Exception)
+            {
+                ///Already show from the Admin_Source
+            }
         }
 
         private void PartDeleteBtn_Click(object sender, EventArgs e)
