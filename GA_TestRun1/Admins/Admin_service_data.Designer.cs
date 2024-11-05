@@ -41,7 +41,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.serviceChangeBtn = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.partCheckBtn = new System.Windows.Forms.Button();
+            this.noticeServiceName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ServiceNameTB
@@ -144,30 +145,44 @@
             // 
             // serviceChangeBtn
             // 
-            this.serviceChangeBtn.Location = new System.Drawing.Point(380, 350);
+            this.serviceChangeBtn.Location = new System.Drawing.Point(380, 344);
             this.serviceChangeBtn.Name = "serviceChangeBtn";
             this.serviceChangeBtn.Size = new System.Drawing.Size(82, 23);
             this.serviceChangeBtn.TabIndex = 12;
             this.serviceChangeBtn.Text = "Confirm";
             this.serviceChangeBtn.UseVisualStyleBackColor = true;
+            this.serviceChangeBtn.Click += new System.EventHandler(this.serviceChangeBtn_Click);
             // 
-            // button3
+            // partCheckBtn
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(418, 293);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(44, 22);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "check";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.UseVisualStyleBackColor = true;
+            this.partCheckBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.partCheckBtn.Location = new System.Drawing.Point(418, 293);
+            this.partCheckBtn.Name = "partCheckBtn";
+            this.partCheckBtn.Size = new System.Drawing.Size(44, 22);
+            this.partCheckBtn.TabIndex = 14;
+            this.partCheckBtn.Text = "check";
+            this.partCheckBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.partCheckBtn.UseVisualStyleBackColor = true;
+            this.partCheckBtn.Click += new System.EventHandler(this.partCheckBtn_Click);
+            // 
+            // noticeServiceName
+            // 
+            this.noticeServiceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noticeServiceName.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.noticeServiceName.Location = new System.Drawing.Point(22, 371);
+            this.noticeServiceName.Name = "noticeServiceName";
+            this.noticeServiceName.Size = new System.Drawing.Size(193, 12);
+            this.noticeServiceName.TabIndex = 15;
+            this.noticeServiceName.Text = "!!!For edition, service name is uchangeable";
+            this.noticeServiceName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Admin_service_data
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Controls.Add(this.button3);
+            this.BackColor = System.Drawing.Color.Salmon;
+            this.Controls.Add(this.noticeServiceName);
+            this.Controls.Add(this.partCheckBtn);
             this.Controls.Add(this.serviceChangeBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -203,6 +218,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button serviceChangeBtn;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button partCheckBtn;
+        private System.Windows.Forms.Label noticeServiceName;
     }
 }

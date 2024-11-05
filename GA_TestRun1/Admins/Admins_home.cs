@@ -18,23 +18,13 @@ namespace GA_TestRun1.Admins
     public partial class Admins_home : Form
     {
         private string userN;
-        private int adminID;
-        public int adminID_P { get => adminID; set => adminID = value; }
+
 
         public Admins_home(string username, string connection)
         {
             InitializeComponent();
             userN = username;
-            Admins_Source admin = new Admins_Source();
-            object[] adminProfile = admin.Admin_Profile(userN);
-            for (int i = 0; i < adminProfile.Length; i++)
-            {
-                AdminProfilelistBox.Items.Add(adminProfile[i]);
-                if (i == 0)
-                {
-                    adminID = Convert.ToInt32(adminProfile[i]);
-                }
-            }
+            LoadUserControl(new Admin_Interface(userN));
         }
 
         private void staff_MNG_Click(object sender, EventArgs e)
@@ -60,19 +50,14 @@ namespace GA_TestRun1.Admins
         private void LoadUserControl(UserControl userControl)
         {
             admin_Panel.Controls.Clear();
-
             userControl.Dock = DockStyle.Fill;
             admin_Panel.Controls.Add(userControl);
         }
 
-        private void admin_Panel_Paint(object sender, PaintEventArgs e)
+
+        private void AdminInterfaceBtn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
+            LoadUserControl(new Admin_Interface(userN));
         }
     }
 }
