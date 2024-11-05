@@ -176,46 +176,46 @@
       <DependentUpon>Admins_home.cs</DependentUpon>
     </Compile>
     <Compile Include="Admins\Admins_Source.cs" />
-    <Compile Include="Admins\Admin_cus_FB.cs">
+    <Compile Include="Admins\usercontrol\Admin_cus_FB.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Admins\Admin_cus_FB.Designer.cs">
+    <Compile Include="Admins\usercontrol\Admin_cus_FB.Designer.cs">
       <DependentUpon>Admin_cus_FB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\Admin_Interface.cs">
+    <Compile Include="Admins\usercontrol\Admin_Interface.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Admins\Admin_Interface.Designer.cs">
+    <Compile Include="Admins\usercontrol\Admin_Interface.Designer.cs">
       <DependentUpon>Admin_Interface.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\Admin_part.cs">
+    <Compile Include="Admins\usercontrol\Admin_part.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Admins\Admin_part.Designer.cs">
+    <Compile Include="Admins\usercontrol\Admin_part.Designer.cs">
       <DependentUpon>Admin_part.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\Admin_salesreport.cs">
+    <Compile Include="Admins\usercontrol\Admin_salesreport.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Admins\Admin_salesreport.Designer.cs">
+    <Compile Include="Admins\usercontrol\Admin_salesreport.Designer.cs">
       <DependentUpon>Admin_salesreport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\Admin_service.cs">
+    <Compile Include="Admins\usercontrol\Admin_service.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Admins\Admin_service.Designer.cs">
+    <Compile Include="Admins\usercontrol\Admin_service.Designer.cs">
       <DependentUpon>Admin_service.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\Admin_service_data.cs">
+    <Compile Include="Admins\usercontrol\Admin_service_data.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Admins\Admin_service_data.Designer.cs">
+    <Compile Include="Admins\usercontrol\Admin_service_data.Designer.cs">
       <DependentUpon>Admin_service_data.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admins\Admin_staff.cs">
+    <Compile Include="Admins\usercontrol\Admin_staff.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Admins\Admin_staff.Designer.cs">
+    <Compile Include="Admins\usercontrol\Admin_staff.Designer.cs">
       <DependentUpon>Admin_staff.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\Customer_home.cs">
@@ -292,25 +292,25 @@
     <EmbeddedResource Include="Admins\Admins_home.resx">
       <DependentUpon>Admins_home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\Admin_cus_FB.resx">
+    <EmbeddedResource Include="Admins\usercontrol\Admin_cus_FB.resx">
       <DependentUpon>Admin_cus_FB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\Admin_Interface.resx">
+    <EmbeddedResource Include="Admins\usercontrol\Admin_Interface.resx">
       <DependentUpon>Admin_Interface.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\Admin_part.resx">
+    <EmbeddedResource Include="Admins\usercontrol\Admin_part.resx">
       <DependentUpon>Admin_part.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\Admin_salesreport.resx">
+    <EmbeddedResource Include="Admins\usercontrol\Admin_salesreport.resx">
       <DependentUpon>Admin_salesreport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\Admin_service.resx">
+    <EmbeddedResource Include="Admins\usercontrol\Admin_service.resx">
       <DependentUpon>Admin_service.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\Admin_service_data.resx">
+    <EmbeddedResource Include="Admins\usercontrol\Admin_service_data.resx">
       <DependentUpon>Admin_service_data.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admins\Admin_staff.resx">
+    <EmbeddedResource Include="Admins\usercontrol\Admin_staff.resx">
       <DependentUpon>Admin_staff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\Customer_home.resx">

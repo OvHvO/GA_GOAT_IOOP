@@ -23,7 +23,7 @@ namespace GA_TestRun1.Admins
             {
                 PartListBox.Items.Add(service);
             }
-            
+            PartIDTB.ReadOnly = true;
         }
 
         private void PartListBox_SelectedIndexChanged(object sender, EventArgs e)
