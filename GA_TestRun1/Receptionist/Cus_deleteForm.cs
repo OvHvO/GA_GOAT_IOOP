@@ -68,7 +68,7 @@ namespace GA_TestRun1.Receptionist
             try
             {
                 //MessageBox.Show(Selected);
-                string Selected = Cus_listBox.SelectedItem.ToString();
+                string Selected = Cus_listBox.SelectedItem as string;
                 ArrayList CusDetail = Receptionists.viewProfileCus(Selected);
                 //Receptionists recep = new Receptionists(Selected);
 
@@ -87,7 +87,7 @@ namespace GA_TestRun1.Receptionist
 
         private void Cus_del_Click(object sender, EventArgs e)
         {
-            string Selected = Cus_listBox.SelectedItem.ToString();
+            string Selected = Cus_listBox.SelectedItem as string;
             //Receptionists recep = new Receptionists(Selected);
             DialogResult delAcceptorNot = MessageBox.Show("Are you confirm want to delete this customer?", "Delete Customer", MessageBoxButtons.YesNo);
             if (delAcceptorNot == DialogResult.Yes)
@@ -113,7 +113,7 @@ namespace GA_TestRun1.Receptionist
 
         private void Cus_detail_listb_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+        
         }
     }
 }

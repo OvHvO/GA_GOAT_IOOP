@@ -78,17 +78,22 @@ namespace GA_TestRun1.Receptionist
         {
             ArrayList CusDetail = new ArrayList();
             SqlConnection conn = new SqlConnection(connectionS);
+            try { 
+                conn.Open();
+                string command = "Select customerUsername,CustomerContactNum from Customers where customerUsername=@username";
+                SqlCommand cmd = new SqlCommand(command, conn);
+                cmd.Parameters.AddWithValue("@username", Selected);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    CusDetail.Add(reader.GetString(0));
+                    CusDetail.Add(reader.GetInt32(1));
 
-            conn.Open();
-            string command = "Select customerUsername,CustomerContactNum from Customers where customerUsername=@username";
-            SqlCommand cmd = new SqlCommand(command, conn);
-            cmd.Parameters.AddWithValue("@username", Selected);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+                }
+            }
+            catch (Exception)
             {
-                CusDetail.Add(reader.GetString(0));
-                CusDetail.Add(reader.GetInt32(1));
-
+                MessageBox.Show("Please Choose Something! ");
             }
             conn.Close();
             return CusDetail;
@@ -101,17 +106,24 @@ namespace GA_TestRun1.Receptionist
             SqlConnection conn = new SqlConnection(connectionS);
 
             conn.Open();
-            string command = "Delete from Customers where customerUsername=@username";
-            SqlCommand cmd = new SqlCommand(command, conn);
-            cmd.Parameters.AddWithValue("@username", selected);
-            if (cmd.ExecuteNonQuery() > 0)
-            {
-                MessageBox.Show("Delete Sucessfully!", "Delete Customer");
-            }
-            else
-            {
-                MessageBox.Show("Something Went Wrong, Please try again", "Delete Failed");
+            try 
+            { 
+                string command = "Delete from Customers where customerUsername=@username";
+                SqlCommand cmd = new SqlCommand(command, conn);
+                cmd.Parameters.AddWithValue("@username", selected);
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    MessageBox.Show("Delete Sucessfully!", "Delete Customer");
+                }
+                else
+                {
+                    MessageBox.Show("Something Went Wrong, Please try again", "Delete Failed");
 
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please Choose Something! ");
             }
             conn.Close();
         }
@@ -164,7 +176,7 @@ namespace GA_TestRun1.Receptionist
                     cmd2.Parameters.AddWithValue("@password", password);
                     cmd2.Parameters.AddWithValue("@oldusername", oldusername);
                     
-                    //Enter into Temp Table
+                    //Enter into Temp Table (## is global temp table)
                     string query3 = "Update ##temptable set RcpUsername=@username, RcpPw=@password, OldName=@oldusername";
                     SqlCommand cmd3 = new SqlCommand(query3 , conn, transaction);
                     cmd3.Parameters.AddWithValue("@username",username);
@@ -277,28 +289,6 @@ namespace GA_TestRun1.Receptionist
 
 
         }
-       
-
-
-
-        //public void newProf(out string newUsername,out string contactNum)
-        //{
-        //    newUsername = usernames;
-        //    contactNum = "";
-        //    SqlConnection sp_con = new SqlConnection(connectionS);
-        //    sp_con.Open();
-        //    string query = "Select rcptionistUsername,rcptionistContactNum from Receptionists where rcptionistUsername=@username";
-        //   SqlCommand cmd=new SqlCommand(query,sp_con);
-        //    cmd.Parameters.AddWithValue ("@username",newUsername);
-        //    SqlDataReader read= cmd.ExecuteReader();
-        //    while (read.Read()) 
-        //    {
-        //        newUsername=read.GetString(0);
-        //        contactNum = read.GetString(1);
-        //    }
-        //    sp_con.Close();
-
-        //}
 
         public void errorMessage(string messages)
         {

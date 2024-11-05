@@ -100,13 +100,20 @@ namespace GA_TestRun1.Receptionist
                             { //cus rep mech
                                 case 0:
                                     {
-                                        signup.Customer_Sup(Sup_username_txt.Text, Sup_password_txt.Text, phoneNum);
+                                       DialogResult YesorNo= MessageBox.Show("Do you want to Add this customer?","Reminder",MessageBoxButtons.YesNo);
+                                        if (YesorNo == DialogResult.Yes)
+                                        {
 
-                                        Sup_password_txt.Clear();
-                                        Sup_username_txt.Clear();
-                                        Sup_contNum_txt.Clear();
-                                        Sup_Cpassword_txt.Clear();
+                                        
+                                            signup.Customer_Sup(Sup_username_txt.Text, Sup_password_txt.Text, phoneNum);
 
+                                            Sup_password_txt.Clear();
+                                            Sup_username_txt.Clear();
+                                            Sup_contNum_txt.Clear();
+                                            Sup_Cpassword_txt.Clear();
+
+                                            break;
+                                        }
                                         break;
                                     }
 

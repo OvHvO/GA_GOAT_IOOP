@@ -249,6 +249,12 @@
     <Compile Include="Receptionist\Cus_deleteForm.Designer.cs">
       <DependentUpon>Cus_deleteForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Receptionist\Manage_Appoinment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receptionist\Manage_Appoinment.Designer.cs">
+      <DependentUpon>Manage_Appoinment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Receptionist\Rcp_addCusForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -318,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Receptionist\Cus_deleteForm.resx">
       <DependentUpon>Cus_deleteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receptionist\Manage_Appoinment.resx">
+      <DependentUpon>Manage_Appoinment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Receptionist\Rcp_addCusForm.resx">
       <DependentUpon>Rcp_addCusForm.cs</DependentUpon>
