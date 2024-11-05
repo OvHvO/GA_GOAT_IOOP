@@ -53,12 +53,12 @@ namespace GA_TestRun1.Receptionist
         }
         
         private void LoadhomePage()
-        {   Rcp_profileBox.Items.Clear ();
+        {   
             string[] newprof = (string[])Receptionists.newprofile(name);
-            Rcp_home_lbl.Text = newprof[0];
-            Rcp_profileBox.Items.Add($"Username:                   {newprof[0]}\n");
-            Rcp_profileBox.Items.Add($"Contact Number:             {newprof[1]}");
-            Rcp_profileBox.Items.Add($"Roles                       Receptionist");
+            Rcp_home_lbl.Text = $"Welcome! {newprof[0]}";
+            Rcp_usernamelbl.Text = newprof[0];
+            Rcp_contactNumlbl.Text = newprof[1];
+            Rcp_rolelbl.Text = "Receptionist";
         }
 
         
@@ -205,6 +205,21 @@ namespace GA_TestRun1.Receptionist
         private void rcp_profieBox_btn_Click(object sender, EventArgs e)
         {
             LoadhomePage();
+        }
+
+        private void Rcp_usernamelbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Rcp_contactNumlbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Rcp_rolelbl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
