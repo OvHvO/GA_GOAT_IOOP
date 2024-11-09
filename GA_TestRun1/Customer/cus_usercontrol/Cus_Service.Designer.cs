@@ -31,18 +31,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Cus_Service_LB = new System.Windows.Forms.ListBox();
             this.Cus_ServiceDtls_LB = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.appointmentConfirmBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ServiceAppoinmentGB = new System.Windows.Forms.GroupBox();
             this.Cus_Service_cusID = new System.Windows.Forms.TextBox();
             this.Cus_Service_carNum = new System.Windows.Forms.TextBox();
-            this.Cus_Service_Date = new System.Windows.Forms.TextBox();
             this.Cus_Service_carVersion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.ServiceAppoinmentGB.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,18 +73,18 @@
             this.Cus_ServiceDtls_LB.Size = new System.Drawing.Size(181, 95);
             this.Cus_ServiceDtls_LB.TabIndex = 2;
             // 
-            // button1
+            // appointmentConfirmBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.LightCoral;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(319, 128);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "CONFIRM";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.appointmentConfirmBtn.BackColor = System.Drawing.Color.LightCoral;
+            this.appointmentConfirmBtn.FlatAppearance.BorderSize = 0;
+            this.appointmentConfirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.appointmentConfirmBtn.Location = new System.Drawing.Point(319, 128);
+            this.appointmentConfirmBtn.Name = "appointmentConfirmBtn";
+            this.appointmentConfirmBtn.Size = new System.Drawing.Size(75, 23);
+            this.appointmentConfirmBtn.TabIndex = 3;
+            this.appointmentConfirmBtn.Text = "CONFIRM";
+            this.appointmentConfirmBtn.UseVisualStyleBackColor = false;
+            this.appointmentConfirmBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -106,15 +106,15 @@
             // 
             // ServiceAppoinmentGB
             // 
+            this.ServiceAppoinmentGB.Controls.Add(this.comboBox1);
             this.ServiceAppoinmentGB.Controls.Add(this.label7);
             this.ServiceAppoinmentGB.Controls.Add(this.label6);
             this.ServiceAppoinmentGB.Controls.Add(this.label5);
             this.ServiceAppoinmentGB.Controls.Add(this.label4);
             this.ServiceAppoinmentGB.Controls.Add(this.Cus_Service_carVersion);
-            this.ServiceAppoinmentGB.Controls.Add(this.Cus_Service_Date);
             this.ServiceAppoinmentGB.Controls.Add(this.Cus_Service_carNum);
             this.ServiceAppoinmentGB.Controls.Add(this.Cus_Service_cusID);
-            this.ServiceAppoinmentGB.Controls.Add(this.button1);
+            this.ServiceAppoinmentGB.Controls.Add(this.appointmentConfirmBtn);
             this.ServiceAppoinmentGB.Location = new System.Drawing.Point(68, 233);
             this.ServiceAppoinmentGB.Name = "ServiceAppoinmentGB";
             this.ServiceAppoinmentGB.Size = new System.Drawing.Size(413, 157);
@@ -135,13 +135,6 @@
             this.Cus_Service_carNum.Name = "Cus_Service_carNum";
             this.Cus_Service_carNum.Size = new System.Drawing.Size(100, 20);
             this.Cus_Service_carNum.TabIndex = 5;
-            // 
-            // Cus_Service_Date
-            // 
-            this.Cus_Service_Date.Location = new System.Drawing.Point(294, 94);
-            this.Cus_Service_Date.Name = "Cus_Service_Date";
-            this.Cus_Service_Date.Size = new System.Drawing.Size(100, 20);
-            this.Cus_Service_Date.TabIndex = 6;
             // 
             // Cus_Service_carVersion
             // 
@@ -186,6 +179,14 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "Date";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(294, 94);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(100, 21);
+            this.comboBox1.TabIndex = 12;
+            // 
             // Cus_Service
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,17 +211,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox Cus_Service_LB;
         private System.Windows.Forms.ListBox Cus_ServiceDtls_LB;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button appointmentConfirmBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox ServiceAppoinmentGB;
         private System.Windows.Forms.TextBox Cus_Service_carVersion;
-        private System.Windows.Forms.TextBox Cus_Service_Date;
         private System.Windows.Forms.TextBox Cus_Service_carNum;
         private System.Windows.Forms.TextBox Cus_Service_cusID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

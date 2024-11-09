@@ -33,13 +33,19 @@ namespace GA_TestRun1.Customer.cus_usercontrol
         private void Cus_Service_LB_SelectedIndexChanged(object sender, EventArgs e)
         {   
             Cus_ServiceDtls_LB.Items.Clear();
+            Cus_Service_cusID.Clear();
             string targetservice = (Cus_Service_LB.SelectedItem).ToString();
-            Cus_Source cus_service_D = new Cus_Source();
-            object[] serviceDetails = cus_service_D.Service_Details(targetservice);
+            Cus_Source cus_service = new Cus_Source();
+            object[] serviceDetails = cus_service.Service_Details(targetservice);
             foreach(string serviceD in serviceDetails)
             {
                 Cus_ServiceDtls_LB.Items.Add(serviceD);
             }
+
+            Cus_Service_cusID.Text = cus_ID.ToString();
+            Cus_Service_cusID.ReadOnly = true;
+
+            List<string> appointmentDate = cus_service.MechanicTime();
         }
     }
 }

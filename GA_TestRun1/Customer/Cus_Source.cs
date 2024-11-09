@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using static GA_TestRun1.Users;
 using System.Windows.Forms;
+using GA_TestRun1.Mechanics;
 
 namespace GA_TestRun1.Customer
 {
@@ -97,7 +98,7 @@ namespace GA_TestRun1.Customer
         }
 
         public int ID_Checking(string userN)
-        {     
+        {
             string query = @"select customer_ID from Customers where customerUsername = @UserN";
             int cusID = 0;
             using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
@@ -223,6 +224,87 @@ namespace GA_TestRun1.Customer
             }
 
             return serviceList;
+        }
+
+        public List<string> MechanicTime()
+        {
+            string query = @"select mechanic_ID, mechanicUsername from Mechanics";
+            Dictionary<int, string> mechanicDic = new Dictionary<int, string>();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int mechanic_ID = Convert.ToInt32(reader["mechanic_ID"]);
+                                string mechanicName = reader["mechanicUsername"].ToString();
+
+                                if (!mechanicDic.ContainsKey(mechanic_ID))
+                                {
+                                    mechanicDic.Add(mechanic_ID, mechanicName);
+                                }
+                                else
+                                {
+                                    //nothing
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Please dont click the empty space");
+            }
+
+            string query1 = @"select mechanic_ID, mechanicUsername from Mechanics";
+            Dictionary<int, string> mechanicDic = new Dictionary<int, string>();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int mechanic_ID = Convert.ToInt32(reader["mechanic_ID"]);
+                                string mechanicName = reader["mechanicUsername"].ToString();
+
+                                if (!mechanicDic.ContainsKey(mechanic_ID))
+                                {
+                                    mechanicDic.Add(mechanic_ID, mechanicName);
+                                }
+                                else
+                                {
+                                    //nothing
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Please dont click the empty space");
+            }
+            return mechanicDic;
+
         }
     }
 }
