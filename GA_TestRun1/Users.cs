@@ -118,7 +118,7 @@ namespace GA_TestRun1
                             }
                         case 1:
                             {
-                                Customer_home customer = new Customer_home();
+                                Customer_home customer = new Customer_home(username);
                                 SigninP.Hide();
                                 customer.ShowDialog();
 
@@ -127,7 +127,7 @@ namespace GA_TestRun1
                             }
                         case 2:
                             {
-                                Admins_home admins = new Admins_home(username, connection);
+                                Admins_home admins = new Admins_home(username);
                                 SigninP.Hide();
                                 admins.ShowDialog();
 

@@ -224,6 +224,13 @@
     <Compile Include="Customer\Customer_home.Designer.cs">
       <DependentUpon>Customer_home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customer\Cus_Source.cs" />
+    <Compile Include="Customer\cus_usercontrol\Cus_UpdateProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer\cus_usercontrol\Cus_UpdateProfile.Designer.cs">
+      <DependentUpon>Cus_UpdateProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login_Pages.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\Customer_home.resx">
       <DependentUpon>Customer_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\cus_usercontrol\Cus_UpdateProfile.resx">
+      <DependentUpon>Cus_UpdateProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Pages.resx">
       <DependentUpon>Login_Pages.cs</DependentUpon>
