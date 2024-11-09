@@ -13,6 +13,7 @@ namespace GA_TestRun1.Customer.cus_usercontrol
     public partial class Cus_Service : UserControl
     {
         private int cus_ID;
+        private string targetservice;
         public Cus_Service(int CusID)
         {   
             cus_ID = CusID;
@@ -27,14 +28,30 @@ namespace GA_TestRun1.Customer.cus_usercontrol
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Just for testing");
+            string carNum = Cus_Service_carNum.Text;
+            string carVersion = Cus_Service_carVersion.Text;
+            DateTime currentDate = DateTime.Now;
+
+            //call method
+            Cus_Source cus_app = new Cus_Source();
+            bool book_R = cus_app.Cus_Book_App(cus_ID, carNum, carVersion, currentDate, targetservice);
+            if (book_R)
+            {
+                MessageBox.Show("Successfully Booked");
+            }
+            else
+            {
+                MessageBox.Show("GG");
+            }
+
         }
 
         private void Cus_Service_LB_SelectedIndexChanged(object sender, EventArgs e)
         {   
             Cus_ServiceDtls_LB.Items.Clear();
             Cus_Service_cusID.Clear();
-            string targetservice = (Cus_Service_LB.SelectedItem).ToString();
+            //start finding the service details
+            targetservice = (Cus_Service_LB.SelectedItem).ToString();
             Cus_Source cus_service = new Cus_Source();
             object[] serviceDetails = cus_service.Service_Details(targetservice);
             foreach(string serviceD in serviceDetails)
@@ -45,19 +62,20 @@ namespace GA_TestRun1.Customer.cus_usercontrol
             Cus_Service_cusID.Text = cus_ID.ToString();
             Cus_Service_cusID.ReadOnly = true;
 
-            Dictionary<int, string> appointmentDate = cus_service.MechanicTime();
-            foreach(KeyValuePair<int, string> entry in appointmentDate)
-            {
-                TimeSpan timeSpan = TimeSpan.Parse(entry.Value);
-                if (timeSpan.Hours == 8 && timeSpan.Minutes >30)
-                {
-                    appointmentDate.Remove(entry.Key);
-                }
-                else if(timeSpan.Hours <= 7) 
-                {
-                    MechanicCB.Items.Add(entry.Key);
-                }
-            }
+            //Find Mechanics who can handle this job
+            //Dictionary<int, string> appointmentDate = cus_service.MechanicTime();
+            //foreach(KeyValuePair<int, string> entry in appointmentDate)
+            //{
+            //    TimeSpan timeSpan = TimeSpan.Parse(entry.Value);
+            //    if (timeSpan.Hours == 8 && timeSpan.Minutes >30)
+            //    {
+            //        appointmentDate.Remove(entry.Key);
+            //    }
+            //    else if(timeSpan.Hours <= 7) 
+            //    {
+            //        MechanicCB.Items.Add(entry.Key);
+            //    }
+            //}
         }
     }
 }

@@ -225,6 +225,12 @@
       <DependentUpon>Customer_home.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\Cus_Source.cs" />
+    <Compile Include="Customer\cus_usercontrol\Cus_Feedback.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer\cus_usercontrol\Cus_Feedback.Designer.cs">
+      <DependentUpon>Cus_Feedback.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer\cus_usercontrol\Cus_Interface.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -328,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\Customer_home.resx">
       <DependentUpon>Customer_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\cus_usercontrol\Cus_Feedback.resx">
+      <DependentUpon>Cus_Feedback.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\cus_usercontrol\Cus_Interface.resx">
       <DependentUpon>Cus_Interface.cs</DependentUpon>

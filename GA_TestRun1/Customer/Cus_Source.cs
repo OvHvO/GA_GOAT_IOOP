@@ -252,6 +252,7 @@ namespace GA_TestRun1.Customer
                                     {
                                         mechanicDic.Add(mechanic_ID, workingTime);
                                     }
+                                    
                                 }
                                 else
                                 {
@@ -271,6 +272,117 @@ namespace GA_TestRun1.Customer
 
             return mechanicDic;
 
+        }
+
+        public bool Cus_Book_App(int cus_ID, string carNum, string carVersion, DateTime serviceTime, string targetservice)
+        {
+            int rowsAffectSP;
+            int rowsAffectSA;
+            string query = @"insert into ServiceAppoinments (serviceAPDate, carNum, carVersion, customer_ID)
+                             values (@ServiceDate, @CarNum, @CarVersion, @Cus_ID)";
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+
+                    command.Parameters.AddWithValue("@Cus_ID", cus_ID);
+                    command.Parameters.AddWithValue("@ServiceDate", serviceTime);
+                    command.Parameters.AddWithValue("@CarNum", carNum);
+                    command.Parameters.AddWithValue("@CarVersion", carVersion);
+
+                    connection.Open();
+
+                    rowsAffectSP = command.ExecuteNonQuery();
+
+                }
+            }
+
+            string query1 = @"select service_ID from Service
+                              where serviceName = @TargetService";
+            int service_ID = 0;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query1, connection))
+                    {
+                        command.Parameters.AddWithValue("@TargetService", targetservice);
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                service_ID = Convert.ToInt32(reader["service_ID"]);
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Please dont click the empty space {ex}");
+            }
+
+            string query2 = @"select serviceAP_ID from ServiceAppoinments
+                              where  serviceAPDate= @serviceTime and customer_ID = @Cus_ID";
+            int serviceAP_ID = 0;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query2, connection))
+                    {
+                        command.Parameters.AddWithValue("@serviceTime", serviceTime);
+                        command.Parameters.AddWithValue("@Cus_ID", cus_ID);
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                serviceAP_ID = Convert.ToInt32(reader["serviceAP_ID"]);
+                            }
+                        }
+                    }
+                }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Please dont click the empty space");
+            }
+
+            string query3 = @"insert into ServiceAdd (serviceAP_ID, service_ID)
+                             values (@ServiceAP_ID, @Service_ID)";
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query3, connection))
+                {
+
+                    command.Parameters.AddWithValue("@ServiceAP_ID", serviceAP_ID);
+                    command.Parameters.AddWithValue("@Service_ID", service_ID);
+
+
+                    connection.Open();
+
+                    rowsAffectSA = command.ExecuteNonQuery();
+
+
+                }
+            }
+
+            if (rowsAffectSA > 0 && rowsAffectSP > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
     }
 }
