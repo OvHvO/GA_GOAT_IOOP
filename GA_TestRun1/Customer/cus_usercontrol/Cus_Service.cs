@@ -45,7 +45,19 @@ namespace GA_TestRun1.Customer.cus_usercontrol
             Cus_Service_cusID.Text = cus_ID.ToString();
             Cus_Service_cusID.ReadOnly = true;
 
-            List<string> appointmentDate = cus_service.MechanicTime();
+            Dictionary<int, string> appointmentDate = cus_service.MechanicTime();
+            foreach(KeyValuePair<int, string> entry in appointmentDate)
+            {
+                TimeSpan timeSpan = TimeSpan.Parse(entry.Value);
+                if (timeSpan.Hours == 8 && timeSpan.Minutes >30)
+                {
+                    appointmentDate.Remove(entry.Key);
+                }
+                else if(timeSpan.Hours <= 7) 
+                {
+                    MechanicCB.Items.Add(entry.Key);
+                }
+            }
         }
     }
 }

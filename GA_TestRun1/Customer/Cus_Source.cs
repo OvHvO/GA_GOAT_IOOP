@@ -226,9 +226,9 @@ namespace GA_TestRun1.Customer
             return serviceList;
         }
 
-        public List<string> MechanicTime()
+        public Dictionary<int, string> MechanicTime()
         {
-            string query = @"select mechanic_ID, mechanicUsername from Mechanics";
+            string query = @"select mechanic_ID, serviceTime from Mechanics";
             Dictionary<int, string> mechanicDic = new Dictionary<int, string>();
             try
             {
@@ -244,11 +244,14 @@ namespace GA_TestRun1.Customer
                             while (reader.Read())
                             {
                                 int mechanic_ID = Convert.ToInt32(reader["mechanic_ID"]);
-                                string mechanicName = reader["mechanicUsername"].ToString();
+                                string workingTime = reader["serviceTime"].ToString();
 
                                 if (!mechanicDic.ContainsKey(mechanic_ID))
                                 {
-                                    mechanicDic.Add(mechanic_ID, mechanicName);
+                                    if (!string.IsNullOrEmpty(workingTime))
+                                    {
+                                        mechanicDic.Add(mechanic_ID, workingTime);
+                                    }
                                 }
                                 else
                                 {
@@ -261,48 +264,11 @@ namespace GA_TestRun1.Customer
                 }
             }
 
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Please dont click the empty space");
+                MessageBox.Show($"{ex}");
             }
 
-            string query1 = @"select mechanic_ID, mechanicUsername from Mechanics";
-            Dictionary<int, string> mechanicDic = new Dictionary<int, string>();
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
-                {
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-
-                        connection.Open();
-
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                int mechanic_ID = Convert.ToInt32(reader["mechanic_ID"]);
-                                string mechanicName = reader["mechanicUsername"].ToString();
-
-                                if (!mechanicDic.ContainsKey(mechanic_ID))
-                                {
-                                    mechanicDic.Add(mechanic_ID, mechanicName);
-                                }
-                                else
-                                {
-                                    //nothing
-                                }
-                            }
-                        }
-
-                    }
-                }
-            }
-
-            catch (Exception)
-            {
-                MessageBox.Show("Please dont click the empty space");
-            }
             return mechanicDic;
 
         }

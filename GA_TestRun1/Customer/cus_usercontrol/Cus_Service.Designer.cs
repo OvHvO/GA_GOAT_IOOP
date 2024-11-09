@@ -35,14 +35,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ServiceAppoinmentGB = new System.Windows.Forms.GroupBox();
-            this.Cus_Service_cusID = new System.Windows.Forms.TextBox();
-            this.Cus_Service_carNum = new System.Windows.Forms.TextBox();
-            this.Cus_Service_carVersion = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.MechanicCB = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Cus_Service_carVersion = new System.Windows.Forms.TextBox();
+            this.Cus_Service_carNum = new System.Windows.Forms.TextBox();
+            this.Cus_Service_cusID = new System.Windows.Forms.TextBox();
             this.ServiceAppoinmentGB.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,7 +106,7 @@
             // 
             // ServiceAppoinmentGB
             // 
-            this.ServiceAppoinmentGB.Controls.Add(this.comboBox1);
+            this.ServiceAppoinmentGB.Controls.Add(this.MechanicCB);
             this.ServiceAppoinmentGB.Controls.Add(this.label7);
             this.ServiceAppoinmentGB.Controls.Add(this.label6);
             this.ServiceAppoinmentGB.Controls.Add(this.label5);
@@ -122,44 +122,22 @@
             this.ServiceAppoinmentGB.TabStop = false;
             this.ServiceAppoinmentGB.Text = "Service Appoinment";
             // 
-            // Cus_Service_cusID
+            // MechanicCB
             // 
-            this.Cus_Service_cusID.Location = new System.Drawing.Point(96, 46);
-            this.Cus_Service_cusID.Name = "Cus_Service_cusID";
-            this.Cus_Service_cusID.Size = new System.Drawing.Size(100, 20);
-            this.Cus_Service_cusID.TabIndex = 4;
+            this.MechanicCB.FormattingEnabled = true;
+            this.MechanicCB.Location = new System.Drawing.Point(294, 94);
+            this.MechanicCB.Name = "MechanicCB";
+            this.MechanicCB.Size = new System.Drawing.Size(100, 21);
+            this.MechanicCB.TabIndex = 12;
             // 
-            // Cus_Service_carNum
+            // label7
             // 
-            this.Cus_Service_carNum.Location = new System.Drawing.Point(96, 94);
-            this.Cus_Service_carNum.Name = "Cus_Service_carNum";
-            this.Cus_Service_carNum.Size = new System.Drawing.Size(100, 20);
-            this.Cus_Service_carNum.TabIndex = 5;
-            // 
-            // Cus_Service_carVersion
-            // 
-            this.Cus_Service_carVersion.Location = new System.Drawing.Point(294, 46);
-            this.Cus_Service_carVersion.Name = "Cus_Service_carVersion";
-            this.Cus_Service_carVersion.Size = new System.Drawing.Size(100, 20);
-            this.Cus_Service_carVersion.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 49);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Cus_ID";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(227, 49);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Car Version";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(227, 97);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Mechanic";
             // 
             // label6
             // 
@@ -170,22 +148,44 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Car Number";
             // 
-            // label7
+            // label5
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(227, 97);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(30, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Date";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(227, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Car Version";
             // 
-            // comboBox1
+            // label4
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(294, 94);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 12;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(28, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Cus_ID";
+            // 
+            // Cus_Service_carVersion
+            // 
+            this.Cus_Service_carVersion.Location = new System.Drawing.Point(294, 46);
+            this.Cus_Service_carVersion.Name = "Cus_Service_carVersion";
+            this.Cus_Service_carVersion.Size = new System.Drawing.Size(100, 20);
+            this.Cus_Service_carVersion.TabIndex = 7;
+            // 
+            // Cus_Service_carNum
+            // 
+            this.Cus_Service_carNum.Location = new System.Drawing.Point(96, 94);
+            this.Cus_Service_carNum.Name = "Cus_Service_carNum";
+            this.Cus_Service_carNum.Size = new System.Drawing.Size(100, 20);
+            this.Cus_Service_carNum.TabIndex = 5;
+            // 
+            // Cus_Service_cusID
+            // 
+            this.Cus_Service_cusID.Location = new System.Drawing.Point(96, 46);
+            this.Cus_Service_cusID.Name = "Cus_Service_cusID";
+            this.Cus_Service_cusID.Size = new System.Drawing.Size(100, 20);
+            this.Cus_Service_cusID.TabIndex = 4;
             // 
             // Cus_Service
             // 
@@ -222,6 +222,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox MechanicCB;
     }
 }
