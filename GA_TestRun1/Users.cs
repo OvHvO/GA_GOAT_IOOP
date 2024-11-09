@@ -186,7 +186,6 @@ namespace GA_TestRun1
                         connection.Open();
 
                         string role = (string)command.ExecuteScalar();
-                        MessageBox.Show(role);
                         return role;
                     }
                 }
