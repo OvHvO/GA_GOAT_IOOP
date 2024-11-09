@@ -165,6 +165,8 @@ namespace GA_TestRun1
 
         public string AuthenticateUser(string connectionString, string username, string password)
         {
+            try
+            {
             string query = @"
             SELECT 'rcptionist' AS role FROM Receptionists WHERE rcptionistUsername = @username AND rcptionistPW = @password
             UNION
@@ -174,18 +176,25 @@ namespace GA_TestRun1
             UNION
             SELECT 'mechanic' AS role FROM Mechanics WHERE mechanicUsername = @username AND mechanicPW = @password";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
                 {
-                    command.Parameters.AddWithValue("@username", username);
-                    command.Parameters.AddWithValue("@password", password);
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@username", username);
+                        command.Parameters.AddWithValue("@password", password);
 
-                    connection.Open();
+                        connection.Open();
 
-                    string role = (string)command.ExecuteScalar();
-                    return role;
+                        string role = (string)command.ExecuteScalar();
+                        MessageBox.Show(role);
+                        return role;
+                    }
                 }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return "Error";
             }
         }
 
