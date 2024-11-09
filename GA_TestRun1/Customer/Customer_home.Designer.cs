@@ -30,12 +30,12 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.Cus_FeatureBox = new System.Windows.Forms.GroupBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.appManagementBtn = new System.Windows.Forms.Button();
+            this.feedbackBtn = new System.Windows.Forms.Button();
             this.updateProfileBtn = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.serviceViewBtn = new System.Windows.Forms.Button();
             this.cus_Panel = new System.Windows.Forms.Panel();
+            this.cusInterfaceBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.Cus_FeatureBox.SuspendLayout();
             this.SuspendLayout();
@@ -51,10 +51,10 @@
             // Cus_FeatureBox
             // 
             this.Cus_FeatureBox.BackColor = System.Drawing.Color.Firebrick;
-            this.Cus_FeatureBox.Controls.Add(this.button8);
-            this.Cus_FeatureBox.Controls.Add(this.button7);
+            this.Cus_FeatureBox.Controls.Add(this.appManagementBtn);
+            this.Cus_FeatureBox.Controls.Add(this.feedbackBtn);
             this.Cus_FeatureBox.Controls.Add(this.updateProfileBtn);
-            this.Cus_FeatureBox.Controls.Add(this.button5);
+            this.Cus_FeatureBox.Controls.Add(this.cusInterfaceBtn);
             this.Cus_FeatureBox.Controls.Add(this.serviceViewBtn);
             this.Cus_FeatureBox.ForeColor = System.Drawing.SystemColors.Control;
             this.Cus_FeatureBox.Location = new System.Drawing.Point(0, 0);
@@ -64,27 +64,27 @@
             this.Cus_FeatureBox.TabStop = false;
             this.Cus_FeatureBox.Text = "FeatureBox";
             // 
-            // button8
+            // appManagementBtn
             // 
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(16, 206);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
+            this.appManagementBtn.FlatAppearance.BorderSize = 0;
+            this.appManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.appManagementBtn.Location = new System.Drawing.Point(6, 177);
+            this.appManagementBtn.Name = "appManagementBtn";
+            this.appManagementBtn.Size = new System.Drawing.Size(94, 55);
+            this.appManagementBtn.TabIndex = 7;
+            this.appManagementBtn.Text = "APPOINMENT MANAGEMENT";
+            this.appManagementBtn.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // feedbackBtn
             // 
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(16, 131);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
+            this.feedbackBtn.FlatAppearance.BorderSize = 0;
+            this.feedbackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.feedbackBtn.Location = new System.Drawing.Point(16, 276);
+            this.feedbackBtn.Name = "feedbackBtn";
+            this.feedbackBtn.Size = new System.Drawing.Size(75, 23);
+            this.feedbackBtn.TabIndex = 6;
+            this.feedbackBtn.Text = "FEEDBACK";
+            this.feedbackBtn.UseVisualStyleBackColor = true;
             // 
             // updateProfileBtn
             // 
@@ -98,27 +98,17 @@
             this.updateProfileBtn.UseVisualStyleBackColor = true;
             this.updateProfileBtn.Click += new System.EventHandler(this.updateProfileBtn_Click);
             // 
-            // button5
-            // 
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(16, 54);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // serviceViewBtn
             // 
             this.serviceViewBtn.FlatAppearance.BorderSize = 0;
             this.serviceViewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.serviceViewBtn.Location = new System.Drawing.Point(16, 281);
+            this.serviceViewBtn.Location = new System.Drawing.Point(16, 117);
             this.serviceViewBtn.Name = "serviceViewBtn";
             this.serviceViewBtn.Size = new System.Drawing.Size(75, 23);
             this.serviceViewBtn.TabIndex = 9;
             this.serviceViewBtn.Text = "SERVICE";
             this.serviceViewBtn.UseVisualStyleBackColor = true;
+            this.serviceViewBtn.Click += new System.EventHandler(this.serviceViewBtn_Click);
             // 
             // cus_Panel
             // 
@@ -126,6 +116,18 @@
             this.cus_Panel.Name = "cus_Panel";
             this.cus_Panel.Size = new System.Drawing.Size(544, 426);
             this.cus_Panel.TabIndex = 1;
+            // 
+            // cusInterfaceBtn
+            // 
+            this.cusInterfaceBtn.FlatAppearance.BorderSize = 0;
+            this.cusInterfaceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cusInterfaceBtn.Location = new System.Drawing.Point(11, 47);
+            this.cusInterfaceBtn.Name = "cusInterfaceBtn";
+            this.cusInterfaceBtn.Size = new System.Drawing.Size(88, 23);
+            this.cusInterfaceBtn.TabIndex = 4;
+            this.cusInterfaceBtn.Text = "CUSTOMER";
+            this.cusInterfaceBtn.UseVisualStyleBackColor = true;
+            this.cusInterfaceBtn.Click += new System.EventHandler(this.cusInterfaceBtn_Click);
             // 
             // Customer_home
             // 
@@ -148,10 +150,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel cus_Panel;
         private System.Windows.Forms.GroupBox Cus_FeatureBox;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button appManagementBtn;
+        private System.Windows.Forms.Button feedbackBtn;
         private System.Windows.Forms.Button updateProfileBtn;
         private System.Windows.Forms.Button serviceViewBtn;
+        private System.Windows.Forms.Button cusInterfaceBtn;
     }
 }

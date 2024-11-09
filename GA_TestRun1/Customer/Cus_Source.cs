@@ -153,9 +153,9 @@ namespace GA_TestRun1.Customer
 
         public object[] Service_Details(string targetService)
         {
-            string query = @"select serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, admin_ID, part_ID from Service
+            string query = @"select serviceInfo, serviceTimeTaken, servicePrice, serviceOffer from Service
                                 where serviceName = @serviceName";
-            object[] serviceDetails = new object[6];
+            object[] serviceDetails = new object[4];
 
             try
             {
@@ -171,11 +171,9 @@ namespace GA_TestRun1.Customer
                             if (reader.Read())
                             {
                                 serviceDetails[0] = "Service Info :" + reader["serviceInfo"].ToString();
-                                serviceDetails[1] = "Time taken :" + reader["serviceTimeTaken"].ToString();
+                                serviceDetails[1] = "Time taken :" + reader["serviceTimeTaken"].ToString() + "H";
                                 serviceDetails[2] = "Price :" + reader["servicePrice"].ToString();
                                 serviceDetails[3] = "Promotion :" + reader["serviceOffer"].ToString() + "%";
-                                serviceDetails[4] = "Admin_ID:" + reader["admin_ID"].ToString();
-                                serviceDetails[5] = "Part_ID:" + reader["part_ID"].ToString();
 
                             }
 
@@ -190,6 +188,41 @@ namespace GA_TestRun1.Customer
                 MessageBox.Show("Please dont click the empty space");
             }
             return serviceDetails;
+        }
+
+        public List<string> Promotion_Service()
+        {
+            string query = @"select serviceName from Service
+                             where serviceOffer > 0";
+            List<string> serviceList = new List<string>();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                serviceList.Add(reader["serviceName"].ToString());
+                            }
+
+                        }
+
+                    }
+                }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Please dont click the empty space");
+            }
+
+            return serviceList;
         }
     }
 }
