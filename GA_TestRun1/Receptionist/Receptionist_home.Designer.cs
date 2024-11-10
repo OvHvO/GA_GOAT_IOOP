@@ -43,14 +43,14 @@ namespace GA_TestRun1.Receptionist
             this.panel1 = new System.Windows.Forms.Panel();
             this.rcp_calandar = new System.Windows.Forms.MonthCalendar();
             this.Rcp_Profpanel = new System.Windows.Forms.Panel();
-            this.Rcp_rolelbl = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Rcp_contactNumlbl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Rcp_usernamelbl = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.rcp_profieBox_btn = new System.Windows.Forms.Button();
             this.prof_lbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Rcp_usernamelbl = new System.Windows.Forms.Label();
+            this.Rcp_contactNumlbl = new System.Windows.Forms.Label();
+            this.Rcp_rolelbl = new System.Windows.Forms.Label();
             this.nav_Bar.SuspendLayout();
             this.Rcp_Profpanel.SuspendLayout();
             this.SuspendLayout();
@@ -111,7 +111,7 @@ namespace GA_TestRun1.Receptionist
             // 
             // nav_Bar
             // 
-            this.nav_Bar.BackColor = System.Drawing.Color.White;
+            this.nav_Bar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.nav_Bar.Controls.Add(this.Rcp_home_signOut);
             this.nav_Bar.Controls.Add(this.Rcp_home_delCus);
             this.nav_Bar.Controls.Add(this.Rcp_Add);
@@ -125,7 +125,6 @@ namespace GA_TestRun1.Receptionist
             this.nav_Bar.Name = "nav_Bar";
             this.nav_Bar.Size = new System.Drawing.Size(131, 504);
             this.nav_Bar.TabIndex = 5;
-            this.nav_Bar.Paint += new System.Windows.Forms.PaintEventHandler(this.nav_Bar_Paint);
             // 
             // rcp_homebtn
             // 
@@ -198,69 +197,6 @@ namespace GA_TestRun1.Receptionist
             this.Rcp_Profpanel.Size = new System.Drawing.Size(391, 498);
             this.Rcp_Profpanel.TabIndex = 3;
             // 
-            // Rcp_rolelbl
-            // 
-            this.Rcp_rolelbl.AutoSize = true;
-            this.Rcp_rolelbl.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Rcp_rolelbl.Location = new System.Drawing.Point(278, 253);
-            this.Rcp_rolelbl.Name = "Rcp_rolelbl";
-            this.Rcp_rolelbl.Size = new System.Drawing.Size(56, 23);
-            this.Rcp_rolelbl.TabIndex = 8;
-            this.Rcp_rolelbl.Text = "label1";
-            this.Rcp_rolelbl.Click += new System.EventHandler(this.Rcp_rolelbl_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(30, 253);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 23);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Current Role: ";
-            // 
-            // Rcp_contactNumlbl
-            // 
-            this.Rcp_contactNumlbl.AutoSize = true;
-            this.Rcp_contactNumlbl.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Rcp_contactNumlbl.Location = new System.Drawing.Point(278, 199);
-            this.Rcp_contactNumlbl.Name = "Rcp_contactNumlbl";
-            this.Rcp_contactNumlbl.Size = new System.Drawing.Size(56, 23);
-            this.Rcp_contactNumlbl.TabIndex = 8;
-            this.Rcp_contactNumlbl.Text = "label1";
-            this.Rcp_contactNumlbl.Click += new System.EventHandler(this.Rcp_contactNumlbl_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 199);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 23);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Contact Number: ";
-            // 
-            // Rcp_usernamelbl
-            // 
-            this.Rcp_usernamelbl.AutoSize = true;
-            this.Rcp_usernamelbl.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Rcp_usernamelbl.Location = new System.Drawing.Point(278, 140);
-            this.Rcp_usernamelbl.Name = "Rcp_usernamelbl";
-            this.Rcp_usernamelbl.Size = new System.Drawing.Size(56, 23);
-            this.Rcp_usernamelbl.TabIndex = 8;
-            this.Rcp_usernamelbl.Text = "label1";
-            this.Rcp_usernamelbl.Click += new System.EventHandler(this.Rcp_usernamelbl_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 140);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 23);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Username: ";
-            // 
             // rcp_profieBox_btn
             // 
             this.rcp_profieBox_btn.Location = new System.Drawing.Point(30, 440);
@@ -281,11 +217,73 @@ namespace GA_TestRun1.Receptionist
             this.prof_lbl.TabIndex = 2;
             this.prof_lbl.Text = "Your Profile";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(30, 140);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 23);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Username: ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(30, 199);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(146, 23);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Contact Number: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(30, 253);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(115, 23);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Current Role: ";
+            // 
+            // Rcp_usernamelbl
+            // 
+            this.Rcp_usernamelbl.AutoSize = true;
+            this.Rcp_usernamelbl.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rcp_usernamelbl.Location = new System.Drawing.Point(278, 140);
+            this.Rcp_usernamelbl.Name = "Rcp_usernamelbl";
+            this.Rcp_usernamelbl.Size = new System.Drawing.Size(56, 23);
+            this.Rcp_usernamelbl.TabIndex = 8;
+            this.Rcp_usernamelbl.Text = "label1";
+            this.Rcp_usernamelbl.Click += new System.EventHandler(this.Rcp_usernamelbl_Click);
+            // 
+            // Rcp_contactNumlbl
+            // 
+            this.Rcp_contactNumlbl.AutoSize = true;
+            this.Rcp_contactNumlbl.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rcp_contactNumlbl.Location = new System.Drawing.Point(278, 199);
+            this.Rcp_contactNumlbl.Name = "Rcp_contactNumlbl";
+            this.Rcp_contactNumlbl.Size = new System.Drawing.Size(56, 23);
+            this.Rcp_contactNumlbl.TabIndex = 8;
+            this.Rcp_contactNumlbl.Text = "label1";
+            this.Rcp_contactNumlbl.Click += new System.EventHandler(this.Rcp_contactNumlbl_Click);
+            // 
+            // Rcp_rolelbl
+            // 
+            this.Rcp_rolelbl.AutoSize = true;
+            this.Rcp_rolelbl.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rcp_rolelbl.Location = new System.Drawing.Point(278, 253);
+            this.Rcp_rolelbl.Name = "Rcp_rolelbl";
+            this.Rcp_rolelbl.Size = new System.Drawing.Size(56, 23);
+            this.Rcp_rolelbl.TabIndex = 8;
+            this.Rcp_rolelbl.Text = "label1";
+            this.Rcp_rolelbl.Click += new System.EventHandler(this.Rcp_rolelbl_Click);
+            // 
             // Receptionist_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(922, 504);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.rcp_calandar);

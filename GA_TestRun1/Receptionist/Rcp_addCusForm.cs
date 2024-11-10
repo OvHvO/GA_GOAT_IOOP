@@ -41,8 +41,6 @@ namespace GA_TestRun1.Receptionist
 
         private void Rcp_addCusForm_Load(object sender, EventArgs e)
         {
-            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
-
             Sup_Cbox_role.SelectedIndex = 0;
         }
 

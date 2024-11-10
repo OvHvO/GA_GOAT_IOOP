@@ -51,8 +51,6 @@ namespace GA_TestRun1.Receptionist
 
         private void Cus_deleteForm_Load(object sender, EventArgs e)
         {
-            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
-
             ArrayList CusName = new ArrayList();
             CusName = Receptionists.ViewCustomer();
             foreach (var items in CusName)
@@ -91,7 +89,7 @@ namespace GA_TestRun1.Receptionist
         {
             string Selected = Cus_listBox.SelectedItem as string;
             //Receptionists recep = new Receptionists(Selected);
-            DialogResult delAcceptorNot = MessageBox.Show("Are you confirm want to delete this customer?", "Delete Customer", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult delAcceptorNot = MessageBox.Show("Are you confirm want to delete this customer?", "Delete Customer", MessageBoxButtons.YesNo);
             if (delAcceptorNot == DialogResult.Yes)
             {
                 Receptionists.delCus(Selected);
