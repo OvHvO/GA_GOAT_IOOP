@@ -52,6 +52,7 @@
             // 
             this.R_Service_btn.FlatAppearance.BorderSize = 0;
             this.R_Service_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.R_Service_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.R_Service_btn.Location = new System.Drawing.Point(3, 185);
             this.R_Service_btn.Name = "R_Service_btn";
             this.R_Service_btn.Size = new System.Drawing.Size(101, 52);
@@ -64,6 +65,7 @@
             // 
             this.M_Inventory_btn.FlatAppearance.BorderSize = 0;
             this.M_Inventory_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.M_Inventory_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.M_Inventory_btn.Location = new System.Drawing.Point(3, 263);
             this.M_Inventory_btn.Name = "M_Inventory_btn";
             this.M_Inventory_btn.Size = new System.Drawing.Size(101, 52);
@@ -76,7 +78,8 @@
             // 
             this.V_ServiceTask_btn.FlatAppearance.BorderSize = 0;
             this.V_ServiceTask_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.V_ServiceTask_btn.Location = new System.Drawing.Point(3, 116);
+            this.V_ServiceTask_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.V_ServiceTask_btn.Location = new System.Drawing.Point(3, 103);
             this.V_ServiceTask_btn.Name = "V_ServiceTask_btn";
             this.V_ServiceTask_btn.Size = new System.Drawing.Size(101, 52);
             this.V_ServiceTask_btn.TabIndex = 2;
@@ -88,6 +91,7 @@
             // 
             this.U_Profile_btn.FlatAppearance.BorderSize = 0;
             this.U_Profile_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.U_Profile_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.U_Profile_btn.Location = new System.Drawing.Point(3, 338);
             this.U_Profile_btn.Name = "U_Profile_btn";
             this.U_Profile_btn.Size = new System.Drawing.Size(101, 52);

@@ -26,6 +26,11 @@ namespace GA_TestRun1.Mechanics
         private void OptionPanel_Paint(object sender, PaintEventArgs e)
         {
             OptionPanel.BackColor = ColorTranslator.FromHtml("#69764F");
+            //----------Change btn text colour----------//
+            R_Service_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
+            M_Inventory_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
+            M_Inventory_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
+            U_Profile_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
         }
 
 //------------------------------Navigation Option------------------------------
