@@ -350,6 +350,9 @@
     <EmbeddedResource Include="Login_Pages.resx">
       <DependentUpon>Login_Pages.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mechanics\Mechanic_home.resx">
+      <DependentUpon>Mechanic_home.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Receptionist\Cus_deleteForm.resx">
       <DependentUpon>Cus_deleteForm.cs</DependentUpon>
     </EmbeddedResource>

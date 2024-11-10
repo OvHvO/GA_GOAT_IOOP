@@ -19,6 +19,14 @@ namespace GA_TestRun1.Mechanics
         public Mechanic_home()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
         }
+
+
+        private void OptionPanel_Paint(object sender, PaintEventArgs e)
+        {
+            OptionPanel.BackColor = ColorTranslator.FromHtml("#69764F");
+        }
+
     }
 }
