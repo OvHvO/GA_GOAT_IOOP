@@ -17,6 +17,7 @@ namespace GA_TestRun1.Admins
         public Admin_part()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             Admins_Source admin = new Admins_Source();
             List<string> partList = admin.Part_Net();
             foreach (string service in partList)

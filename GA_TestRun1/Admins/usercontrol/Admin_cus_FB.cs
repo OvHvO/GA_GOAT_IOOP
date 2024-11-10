@@ -16,6 +16,7 @@ namespace GA_TestRun1.Admins
         public Admin_cus_FB()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             Admins_Source objCusFB = new Admins_Source();
             ///The database will auto delete those feedback live longer than 30 days ^_^ 
             objCusFB.Delete_Overtime_FB();

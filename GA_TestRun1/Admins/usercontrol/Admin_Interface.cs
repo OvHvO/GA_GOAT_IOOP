@@ -17,6 +17,7 @@ namespace GA_TestRun1.Admins
         public Admin_Interface(string userN)
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             textBox2.ReadOnly = true;
             textBox3.ReadOnly = true;
             Admins_Source admin = new Admins_Source();
