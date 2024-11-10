@@ -109,6 +109,7 @@
             this.Controls.Add(this.OptionPanel);
             this.Name = "Mechanic_home";
             this.Text = "Mechanic_home";
+            this.Load += new System.EventHandler(this.Mechanic_home_Load);
             this.OptionPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
