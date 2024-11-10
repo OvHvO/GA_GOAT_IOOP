@@ -50,5 +50,10 @@ namespace GA_TestRun1.Customer
         {
             LoadUserControl(new Cus_Interface());
         }
+
+        private void feedbackBtn_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new Cus_Feedback(cus_ID));
+        }
     }
 }
