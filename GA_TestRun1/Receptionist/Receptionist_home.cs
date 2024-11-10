@@ -16,44 +16,46 @@ using GA_TestRun1.Mechanics;
 
 namespace GA_TestRun1.Receptionist
 {
-    
+
     public partial class Receptionist_home : Form
     {
-       
-        private  string name;
-        private  string contact;
-        private  string connection;
-        
-        public Receptionist_home(string n,string connectionS, string contactnum)
-        {   
+
+        private string name;
+        private string contact;
+        private string connection;
+
+        public Receptionist_home(string n, string connectionS, string contactnum)
+        {
             InitializeComponent();
             name = n;
             Receptionists receptionists = new Receptionists(connectionS);
-            
+
             contact = contactnum;
             connection = connectionS;
             //Cus_deleteForm Cus_del = new Cus_deleteForm(connectionS);
-           
+
         }
 
-        public Receptionist_home(string newUsername) 
+        public Receptionist_home(string newUsername)
         {
             name = newUsername;
-        
+
         }
 
 
 
         private void Receptionist_home_Load(object sender, EventArgs e)
         {
+            nav_Bar.BackColor = ColorTranslator.FromHtml("#69764F");
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             LoadhomePage();
-            
-            
+
+
 
         }
-        
+
         private void LoadhomePage()
-        {   
+        {
             string[] newprof = (string[])Receptionists.newprofile(name);
             Rcp_home_lbl.Text = $"Welcome! {newprof[0]}";
             Rcp_usernamelbl.Text = newprof[0];
@@ -61,7 +63,7 @@ namespace GA_TestRun1.Receptionist
             Rcp_rolelbl.Text = "Receptionist";
         }
 
-        
+
 
         private void Rcp_home_lbl_Click(object sender, EventArgs e)
         {
@@ -71,7 +73,7 @@ namespace GA_TestRun1.Receptionist
         private void Rcp_home_signOut_Click(object sender, EventArgs e)
         {
             DialogResult AcceptorNot = MessageBox.Show("Do you want to Sign Out?", "Sign Out", MessageBoxButtons.YesNo);
-            if (AcceptorNot == DialogResult.Yes) 
+            if (AcceptorNot == DialogResult.Yes)
             {
                 var Signin = new Login_Pages();
                 this.Hide();
@@ -83,20 +85,20 @@ namespace GA_TestRun1.Receptionist
             }
         }
 
-       
+
 
         private void rcp_updateProf_btn_Click(object sender, EventArgs e)
         {
-            Users object01=new Users(name);
-            UpdateProfileF profile_form= new UpdateProfileF (name);
+            Users object01 = new Users(name);
+            UpdateProfileF profile_form = new UpdateProfileF(name);
             //profile_form.ShowDialog();
             Instance_loadControl(UpdateProfileF.Instance);
 
         }
-        
-        
-                        // -------- Delete Customer Form  --------//
-       
+
+
+        // -------- Delete Customer Form  --------//
+
         private void Rcp_home_delCus_Click(object sender, EventArgs e)
         {
             Instance_loadControl(Cus_deleteForm.Instance);
@@ -104,11 +106,11 @@ namespace GA_TestRun1.Receptionist
 
         private void Rcp_Add_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear ();
+            panel1.Controls.Clear();
             Loadcontrol(new Rcp_addCusForm());
 
 
-            
+
         }
 
         private void Cus_delF_Paint(object sender, PaintEventArgs e)
@@ -126,7 +128,7 @@ namespace GA_TestRun1.Receptionist
         {
             panel1.Visible = true;
             panel1.Controls.Clear();
-            controlp.Dock= DockStyle.Fill;
+            controlp.Dock = DockStyle.Fill;
             panel1.Controls.Add(controlp);
         }
 
@@ -136,9 +138,9 @@ namespace GA_TestRun1.Receptionist
             if (!panel1.Controls.Contains(controlPage))
             {
                 panel1.Visible = true;
-                panel1.Controls.Add (controlPage);
-                controlPage.Dock= DockStyle.Fill;
-                controlPage.BringToFront ();
+                panel1.Controls.Add(controlPage);
+                controlPage.Dock = DockStyle.Fill;
+                controlPage.BringToFront();
             }
             //假如 Cus_deleteForm存在 Panel1 中就将Panel1 移动到前方
 
@@ -165,12 +167,14 @@ namespace GA_TestRun1.Receptionist
 
         private void rcp_manageAppbtn_btn_Click(object sender, EventArgs e)
         {
-            
+            Manage_Appoinment manageform = new Manage_Appoinment(name);
+            manageform.ShowDialog();
         }
 
         private void rcp_homebtn_btn_Click(object sender, EventArgs e)
-        {   panel1.Controls.Clear ();
-            panel1 .Visible = false;
+        {
+            panel1.Controls.Clear();
+            panel1.Visible = false;
             //Rcp_profileBox.Items.Clear ();
             //string[] newprof = (string[])Receptionists.newprofile(name);
             //foreach (var items in newprof)
@@ -185,11 +189,11 @@ namespace GA_TestRun1.Receptionist
 
         private void rcp_CheckinOutbtn_btn_Click(object sender, EventArgs e)
         {
-            
+
         }
         private void rcp_srcInvbtn_btn_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -218,6 +222,11 @@ namespace GA_TestRun1.Receptionist
         }
 
         private void Rcp_rolelbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nav_Bar_Paint(object sender, PaintEventArgs e)
         {
 
         }
