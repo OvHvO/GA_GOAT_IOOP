@@ -27,13 +27,20 @@ namespace GA_TestRun1.Mechanics
         {
             OptionPanel.BackColor = ColorTranslator.FromHtml("#69764F");
             //----------Change btn text colour----------//
+            V_ServiceTask_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
             R_Service_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
-            M_Inventory_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
             M_Inventory_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
             U_Profile_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
         }
 
 //------------------------------Navigation Option------------------------------
+        private void V_ServiceTask_btn_Click(object sender, EventArgs e)
+        {
+            //----------Change border size----------//
+            this.V_ServiceTask_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.V_ServiceTask_btn.FlatAppearance.BorderSize = 0;
+        }
+
 
         private void R_Service_btn_Click(object sender, EventArgs e)
         {
@@ -42,6 +49,7 @@ namespace GA_TestRun1.Mechanics
             this.R_Service_btn.FlatAppearance.BorderSize = 0;
         }
 
+
         private void M_Inventory_btn_Click(object sender, EventArgs e)
         {
             //----------Change border size----------//
@@ -49,12 +57,6 @@ namespace GA_TestRun1.Mechanics
             this.M_Inventory_btn.FlatAppearance.BorderSize = 0;
         }
 
-        private void V_ServiceTask_btn_Click(object sender, EventArgs e)
-        {
-            //----------Change border size----------//
-            this.V_ServiceTask_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.V_ServiceTask_btn.FlatAppearance.BorderSize = 0;
-        }
 
         private void U_Profile_btn_Click(object sender, EventArgs e)
         {
