@@ -46,6 +46,8 @@ namespace GA_TestRun1.Receptionist
 
         private void Receptionist_home_Load(object sender, EventArgs e)
         {
+            nav_Bar.BackColor = ColorTranslator.FromHtml("#69764F");
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             LoadhomePage();
             
             
@@ -165,7 +167,8 @@ namespace GA_TestRun1.Receptionist
 
         private void rcp_manageAppbtn_btn_Click(object sender, EventArgs e)
         {
-            
+            Manage_Appoinment manageform= new Manage_Appoinment(name);
+            manageform.ShowDialog();
         }
 
         private void rcp_homebtn_btn_Click(object sender, EventArgs e)
@@ -220,6 +223,11 @@ namespace GA_TestRun1.Receptionist
         private void Rcp_rolelbl_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void nav_Bar_Paint(object sender, PaintEventArgs e)
+        {
+            
         }
     }
 }
