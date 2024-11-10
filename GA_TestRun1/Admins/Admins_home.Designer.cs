@@ -42,21 +42,21 @@
             // 
             // FeatureBox
             // 
-            this.FeatureBox.BackColor = System.Drawing.Color.White;
+            this.FeatureBox.BackColor = System.Drawing.Color.DimGray;
             this.FeatureBox.Controls.Add(this.btn_AdminInterface);
             this.FeatureBox.Controls.Add(this.btn_cus_FB);
             this.FeatureBox.Controls.Add(this.btn_sales_Report);
             this.FeatureBox.Controls.Add(this.btn_service_MNG);
             this.FeatureBox.Controls.Add(this.btn_staff_MNG);
+            this.FeatureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FeatureBox.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.FeatureBox.Location = new System.Drawing.Point(0, 2);
-            this.FeatureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FeatureBox.Location = new System.Drawing.Point(0, -11);
+            this.FeatureBox.Margin = new System.Windows.Forms.Padding(2);
             this.FeatureBox.Name = "FeatureBox";
-            this.FeatureBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.FeatureBox.Size = new System.Drawing.Size(107, 424);
+            this.FeatureBox.Padding = new System.Windows.Forms.Padding(2);
+            this.FeatureBox.Size = new System.Drawing.Size(107, 438);
             this.FeatureBox.TabIndex = 1;
             this.FeatureBox.TabStop = false;
-            this.FeatureBox.Text = "Features Box";
             // 
             // btn_AdminInterface
             // 
@@ -66,7 +66,7 @@
             this.btn_AdminInterface.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AdminInterface.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btn_AdminInterface.Location = new System.Drawing.Point(9, 40);
-            this.btn_AdminInterface.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_AdminInterface.Margin = new System.Windows.Forms.Padding(2);
             this.btn_AdminInterface.Name = "btn_AdminInterface";
             this.btn_AdminInterface.Size = new System.Drawing.Size(83, 35);
             this.btn_AdminInterface.TabIndex = 4;
@@ -81,7 +81,7 @@
             this.btn_cus_FB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cus_FB.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_cus_FB.Location = new System.Drawing.Point(9, 351);
-            this.btn_cus_FB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_cus_FB.Margin = new System.Windows.Forms.Padding(2);
             this.btn_cus_FB.Name = "btn_cus_FB";
             this.btn_cus_FB.Size = new System.Drawing.Size(83, 35);
             this.btn_cus_FB.TabIndex = 3;
@@ -96,7 +96,7 @@
             this.btn_sales_Report.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_sales_Report.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_sales_Report.Location = new System.Drawing.Point(9, 273);
-            this.btn_sales_Report.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_sales_Report.Margin = new System.Windows.Forms.Padding(2);
             this.btn_sales_Report.Name = "btn_sales_Report";
             this.btn_sales_Report.Size = new System.Drawing.Size(83, 35);
             this.btn_sales_Report.TabIndex = 2;
@@ -111,7 +111,7 @@
             this.btn_service_MNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_service_MNG.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_service_MNG.Location = new System.Drawing.Point(9, 192);
-            this.btn_service_MNG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_service_MNG.Margin = new System.Windows.Forms.Padding(2);
             this.btn_service_MNG.Name = "btn_service_MNG";
             this.btn_service_MNG.Size = new System.Drawing.Size(83, 35);
             this.btn_service_MNG.TabIndex = 1;
@@ -127,7 +127,7 @@
             this.btn_staff_MNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_staff_MNG.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_staff_MNG.Location = new System.Drawing.Point(4, 112);
-            this.btn_staff_MNG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_staff_MNG.Margin = new System.Windows.Forms.Padding(2);
             this.btn_staff_MNG.Name = "btn_staff_MNG";
             this.btn_staff_MNG.Size = new System.Drawing.Size(93, 39);
             this.btn_staff_MNG.TabIndex = 0;
@@ -140,7 +140,7 @@
             this.panel1.BackColor = System.Drawing.Color.RosyBrown;
             this.panel1.Controls.Add(this.FeatureBox);
             this.panel1.Location = new System.Drawing.Point(1, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(107, 427);
             this.panel1.TabIndex = 5;
@@ -149,7 +149,7 @@
             // 
             this.admin_Panel.BackColor = System.Drawing.Color.Snow;
             this.admin_Panel.Location = new System.Drawing.Point(107, 0);
-            this.admin_Panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.admin_Panel.Margin = new System.Windows.Forms.Padding(2);
             this.admin_Panel.Name = "admin_Panel";
             this.admin_Panel.Size = new System.Drawing.Size(544, 426);
             this.admin_Panel.TabIndex = 5;
@@ -161,7 +161,7 @@
             this.ClientSize = new System.Drawing.Size(650, 426);
             this.Controls.Add(this.admin_Panel);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Admins_home";
             this.Text = "Admins_home";
             this.FeatureBox.ResumeLayout(false);

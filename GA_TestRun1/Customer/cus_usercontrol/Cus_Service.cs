@@ -30,7 +30,8 @@ namespace GA_TestRun1.Customer.cus_usercontrol
         {
             string carNum = Cus_Service_carNum.Text;
             string carVersion = Cus_Service_carVersion.Text;
-            DateTime currentDate = DateTime.Now;
+            string currentDateText = Cus_SA_timepicker.Text;
+            DateTime currentDate = Cus_SA_timepicker.Value;
 
             //call method
             Cus_Source cus_app = new Cus_Source();
