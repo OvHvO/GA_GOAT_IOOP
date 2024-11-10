@@ -20,7 +20,7 @@ namespace GA_TestRun1.Admins
         private string userN;
 
 
-        public Admins_home(string username, string connection)
+        public Admins_home(string username)
         {
             InitializeComponent();
             userN = username;

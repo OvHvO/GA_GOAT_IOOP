@@ -20,7 +20,7 @@ namespace GA_TestRun1
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
 
-        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA-Backup003\\GA_GOAT_IOOP\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
+        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\IOOP_GA2\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
         private string Username;
         private string Password;
         private string ContactNum;
@@ -118,7 +118,7 @@ namespace GA_TestRun1
                             }
                         case 1:
                             {
-                                Customer_home customer = new Customer_home();
+                                Customer_home customer = new Customer_home(username);
                                 SigninP.Hide();
                                 customer.ShowDialog();
 
@@ -127,7 +127,7 @@ namespace GA_TestRun1
                             }
                         case 2:
                             {
-                                Admins_home admins = new Admins_home(username, connection);
+                                Admins_home admins = new Admins_home(username);
                                 SigninP.Hide();
                                 admins.ShowDialog();
 
@@ -165,6 +165,8 @@ namespace GA_TestRun1
 
         public string AuthenticateUser(string connectionString, string username, string password)
         {
+            try
+            {
             string query = @"
             SELECT 'rcptionist' AS role FROM Receptionists WHERE rcptionistUsername = @username AND rcptionistPW = @password
             UNION
@@ -174,18 +176,24 @@ namespace GA_TestRun1
             UNION
             SELECT 'mechanic' AS role FROM Mechanics WHERE mechanicUsername = @username AND mechanicPW = @password";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
                 {
-                    command.Parameters.AddWithValue("@username", username);
-                    command.Parameters.AddWithValue("@password", password);
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@username", username);
+                        command.Parameters.AddWithValue("@password", password);
 
-                    connection.Open();
+                        connection.Open();
 
-                    string role = (string)command.ExecuteScalar();
-                    return role;
+                        string role = (string)command.ExecuteScalar();
+                        return role;
+                    }
                 }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return "Error";
             }
         }
 
@@ -400,7 +408,7 @@ namespace GA_TestRun1
 
         public static class ConnectionS_admin
         {
-            public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LAB_IOOP\\TEST_RUN_GIT\\GA-Backup003\\GA_GOAT_IOOP\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
+            public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\IOOP_GA2\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
         }
 
     }
