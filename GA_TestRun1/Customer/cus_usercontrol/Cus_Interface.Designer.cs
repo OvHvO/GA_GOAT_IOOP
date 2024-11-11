@@ -95,7 +95,7 @@
             this.Controls.Add(this.promotionServiceLB);
             this.Controls.Add(this.label1);
             this.Name = "Cus_Interface";
-            this.Size = new System.Drawing.Size(544, 426);
+            this.Size = new System.Drawing.Size(587, 429);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

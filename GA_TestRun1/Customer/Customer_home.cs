@@ -24,7 +24,6 @@ namespace GA_TestRun1.Customer
         {   
             InitializeComponent();
             Cus_FeatureBox.BackColor = ColorTranslator.FromHtml("#69764F");
-            cusInterfaceBtn.BackColor = ColorTranslator.FromHtml("#69764F");
             serviceViewBtn.BackColor = ColorTranslator.FromHtml("#69764F");
             appManagementBtn.BackColor = ColorTranslator.FromHtml("#69764F");
             feedbackBtn.BackColor = ColorTranslator.FromHtml("#69764F");
@@ -52,14 +51,14 @@ namespace GA_TestRun1.Customer
             LoadUserControl(new Cus_Service(cus_ID));
         }
 
-        private void cusInterfaceBtn_Click(object sender, EventArgs e)
-        {
-            LoadUserControl(new Cus_Interface());
-        }
-
         private void feedbackBtn_Click(object sender, EventArgs e)
         {
             LoadUserControl(new Cus_Feedback());
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new Cus_Interface());
         }
     }
 }
