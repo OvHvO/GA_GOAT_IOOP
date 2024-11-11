@@ -55,7 +55,7 @@
             // 
             // ServicePriceTB
             // 
-            this.ServicePriceTB.Location = new System.Drawing.Point(362, 53);
+            this.ServicePriceTB.Location = new System.Drawing.Point(418, 53);
             this.ServicePriceTB.Name = "ServicePriceTB";
             this.ServicePriceTB.Size = new System.Drawing.Size(100, 20);
             this.ServicePriceTB.TabIndex = 1;
@@ -69,7 +69,7 @@
             // 
             // ServiceOfferTB
             // 
-            this.ServiceOfferTB.Location = new System.Drawing.Point(362, 161);
+            this.ServiceOfferTB.Location = new System.Drawing.Point(418, 164);
             this.ServiceOfferTB.Name = "ServiceOfferTB";
             this.ServiceOfferTB.Size = new System.Drawing.Size(100, 20);
             this.ServiceOfferTB.TabIndex = 3;
@@ -84,7 +84,7 @@
             // 
             // ServicePartIDTB
             // 
-            this.ServicePartIDTB.Location = new System.Drawing.Point(362, 267);
+            this.ServicePartIDTB.Location = new System.Drawing.Point(418, 267);
             this.ServicePartIDTB.Name = "ServicePartIDTB";
             this.ServicePartIDTB.Size = new System.Drawing.Size(100, 20);
             this.ServicePartIDTB.TabIndex = 5;
@@ -119,7 +119,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(282, 56);
+            this.label4.Location = new System.Drawing.Point(320, 56);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 9;
@@ -128,7 +128,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(282, 164);
+            this.label5.Location = new System.Drawing.Point(320, 167);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 13);
             this.label5.TabIndex = 10;
@@ -137,7 +137,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(282, 270);
+            this.label6.Location = new System.Drawing.Point(320, 270);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 11;
@@ -145,7 +145,7 @@
             // 
             // serviceChangeBtn
             // 
-            this.serviceChangeBtn.Location = new System.Drawing.Point(380, 344);
+            this.serviceChangeBtn.Location = new System.Drawing.Point(436, 342);
             this.serviceChangeBtn.Name = "serviceChangeBtn";
             this.serviceChangeBtn.Size = new System.Drawing.Size(82, 23);
             this.serviceChangeBtn.TabIndex = 12;
@@ -156,7 +156,7 @@
             // partCheckBtn
             // 
             this.partCheckBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.partCheckBtn.Location = new System.Drawing.Point(418, 293);
+            this.partCheckBtn.Location = new System.Drawing.Point(474, 293);
             this.partCheckBtn.Name = "partCheckBtn";
             this.partCheckBtn.Size = new System.Drawing.Size(44, 22);
             this.partCheckBtn.TabIndex = 14;
@@ -169,7 +169,7 @@
             // 
             this.noticeServiceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.noticeServiceName.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.noticeServiceName.Location = new System.Drawing.Point(22, 371);
+            this.noticeServiceName.Location = new System.Drawing.Point(41, 353);
             this.noticeServiceName.Name = "noticeServiceName";
             this.noticeServiceName.Size = new System.Drawing.Size(193, 12);
             this.noticeServiceName.TabIndex = 15;
@@ -197,7 +197,7 @@
             this.Controls.Add(this.ServicePriceTB);
             this.Controls.Add(this.ServiceNameTB);
             this.Name = "Admin_service_data";
-            this.Size = new System.Drawing.Size(544, 400);
+            this.Size = new System.Drawing.Size(587, 429);
             this.ResumeLayout(false);
             this.PerformLayout();
 

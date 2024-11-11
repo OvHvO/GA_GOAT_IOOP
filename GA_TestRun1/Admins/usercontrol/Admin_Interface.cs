@@ -19,7 +19,6 @@ namespace GA_TestRun1.Admins
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             textBox2.ReadOnly = true;
-            textBox3.ReadOnly = true;
             Admins_Source admin = new Admins_Source();
             object[] adminProfile = admin.Admin_Profile(userN);
             for (int i = 0; i < adminProfile.Length; i++)

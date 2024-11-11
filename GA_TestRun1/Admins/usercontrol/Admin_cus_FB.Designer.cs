@@ -40,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(106, 45);
+            this.label1.Location = new System.Drawing.Point(95, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(386, 33);
@@ -50,8 +50,8 @@
             // CusDetailsLB
             // 
             this.CusDetailsLB.FormattingEnabled = true;
-            this.CusDetailsLB.Location = new System.Drawing.Point(262, 116);
-            this.CusDetailsLB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CusDetailsLB.Location = new System.Drawing.Point(341, 116);
+            this.CusDetailsLB.Margin = new System.Windows.Forms.Padding(2);
             this.CusDetailsLB.Name = "CusDetailsLB";
             this.CusDetailsLB.Size = new System.Drawing.Size(198, 69);
             this.CusDetailsLB.TabIndex = 1;
@@ -59,8 +59,8 @@
             // CusFBlistBox
             // 
             this.CusFBlistBox.FormattingEnabled = true;
-            this.CusFBlistBox.Location = new System.Drawing.Point(55, 129);
-            this.CusFBlistBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CusFBlistBox.Location = new System.Drawing.Point(91, 129);
+            this.CusFBlistBox.Margin = new System.Windows.Forms.Padding(2);
             this.CusFBlistBox.Name = "CusFBlistBox";
             this.CusFBlistBox.Size = new System.Drawing.Size(172, 199);
             this.CusFBlistBox.TabIndex = 2;
@@ -68,8 +68,8 @@
             // 
             // CusFBContentTB
             // 
-            this.CusFBContentTB.Location = new System.Drawing.Point(262, 202);
-            this.CusFBContentTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CusFBContentTB.Location = new System.Drawing.Point(341, 202);
+            this.CusFBContentTB.Margin = new System.Windows.Forms.Padding(2);
             this.CusFBContentTB.Multiline = true;
             this.CusFBContentTB.Name = "CusFBContentTB";
             this.CusFBContentTB.Size = new System.Drawing.Size(198, 126);
@@ -77,8 +77,8 @@
             // 
             // CusFB_NoticeBtn
             // 
-            this.CusFB_NoticeBtn.Location = new System.Drawing.Point(218, 366);
-            this.CusFB_NoticeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CusFB_NoticeBtn.Location = new System.Drawing.Point(267, 369);
+            this.CusFB_NoticeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.CusFB_NoticeBtn.Name = "CusFB_NoticeBtn";
             this.CusFB_NoticeBtn.Size = new System.Drawing.Size(80, 27);
             this.CusFB_NoticeBtn.TabIndex = 6;
@@ -89,7 +89,7 @@
             // SelectNotice
             // 
             this.SelectNotice.AutoSize = true;
-            this.SelectNotice.Location = new System.Drawing.Point(52, 116);
+            this.SelectNotice.Location = new System.Drawing.Point(88, 116);
             this.SelectNotice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SelectNotice.Name = "SelectNotice";
             this.SelectNotice.Size = new System.Drawing.Size(138, 13);
@@ -107,9 +107,9 @@
             this.Controls.Add(this.CusFBlistBox);
             this.Controls.Add(this.CusDetailsLB);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Admin_cus_FB";
-            this.Size = new System.Drawing.Size(544, 426);
+            this.Size = new System.Drawing.Size(587, 429);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -151,14 +151,14 @@
             this.admin_Panel.Location = new System.Drawing.Point(107, 0);
             this.admin_Panel.Margin = new System.Windows.Forms.Padding(2);
             this.admin_Panel.Name = "admin_Panel";
-            this.admin_Panel.Size = new System.Drawing.Size(544, 426);
+            this.admin_Panel.Size = new System.Drawing.Size(587, 429);
             this.admin_Panel.TabIndex = 5;
             // 
             // Admins_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 426);
+            this.ClientSize = new System.Drawing.Size(694, 421);
             this.Controls.Add(this.admin_Panel);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
