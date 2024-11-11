@@ -356,6 +356,9 @@
     <EmbeddedResource Include="Login_Pages.resx">
       <DependentUpon>Login_Pages.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mechanics\Mechanic_home.resx">
+      <DependentUpon>Mechanic_home.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Receptionist\Assign_.resx">
       <DependentUpon>Assign_.cs</DependentUpon>
     </EmbeddedResource>
@@ -412,6 +415,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database_GA.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\logo.png" />
     <None Include="Resources\OIP %282%29.jpg" />
     <None Include="Resources\OIP %283%29.jpg" />
   </ItemGroup>
