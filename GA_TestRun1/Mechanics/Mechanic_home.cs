@@ -33,6 +33,11 @@ namespace GA_TestRun1.Mechanics
             U_Profile_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
         }
 
+
+        private void Detailpanel_Paint(object sender, PaintEventArgs e)
+        {
+            Detailpanel.BackColor = ColorTranslator.FromHtml("#EEEBE3");
+        }
 //------------------------------Navigation Option------------------------------
         private void V_ServiceTask_btn_Click(object sender, EventArgs e)
         {
@@ -69,6 +74,20 @@ namespace GA_TestRun1.Mechanics
         {
 
         }
+
+        private void Logo_img_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new Mechanic_UI());
+        }
+
+
+        private void LoadUserControl(UserControl userControl)
+        {
+            Detailpanel.Controls.Clear();
+            userControl.Dock = DockStyle.Fill;
+            Detailpanel.Controls.Add(userControl);
+        }
+
 
 
         //------------------------------   ------------------------------

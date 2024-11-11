@@ -262,6 +262,12 @@
     <Compile Include="Mechanics\Mechanic_home.Designer.cs">
       <DependentUpon>Mechanic_home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mechanics\Mechanic_UI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mechanics\Mechanic_UI.Designer.cs">
+      <DependentUpon>Mechanic_UI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Receptionist\Assign_.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mechanics\Mechanic_home.resx">
       <DependentUpon>Mechanic_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mechanics\Mechanic_UI.resx">
+      <DependentUpon>Mechanic_UI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Receptionist\Assign_.resx">
       <DependentUpon>Assign_.cs</DependentUpon>
