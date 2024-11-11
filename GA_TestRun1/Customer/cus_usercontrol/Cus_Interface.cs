@@ -15,6 +15,7 @@ namespace GA_TestRun1.Customer.cus_usercontrol
         public Cus_Interface()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             Cus_Source cus = new Cus_Source();
             List<string> promotionservice = cus.Promotion_Service();
             foreach (string promotionserviceitem in promotionservice)

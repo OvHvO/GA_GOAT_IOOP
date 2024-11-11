@@ -17,6 +17,7 @@ namespace GA_TestRun1.Customer.cus_usercontrol
         public Cus_UpdateProfile(int CusID)
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             cus_ID = CusID;
             Cus_Source cus = new Cus_Source();
             object[] cus_Details = cus.Cus_Profile(cus_ID);

@@ -20,7 +20,7 @@ namespace GA_TestRun1
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
 
-        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# Learning\\GA_IOOP\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
+        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\IOOP_GA2\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
         private string Password;
         private string ContactNum;
         private string Username;
@@ -408,7 +408,7 @@ namespace GA_TestRun1
 
         public static class ConnectionS_admin
         {
-            public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# Learning\\GA_IOOP\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
+            public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\IOOP_GA2\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
         }
 
     }

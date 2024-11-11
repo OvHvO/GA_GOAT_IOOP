@@ -18,6 +18,7 @@ namespace GA_TestRun1.Customer.cus_usercontrol
         {   
             cus_ID = CusID;
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             Cus_SA_tooltip.SetToolTip(Cus_SA_timepicker, "Please choose your service appoinment time");
             Cus_Source cus = new Cus_Source();
             List<string> serviceNameList = cus.Service_Net();

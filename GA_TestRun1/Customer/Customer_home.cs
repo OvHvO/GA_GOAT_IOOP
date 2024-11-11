@@ -23,6 +23,12 @@ namespace GA_TestRun1.Customer
         public Customer_home(string userN)
         {   
             InitializeComponent();
+            Cus_FeatureBox.BackColor = ColorTranslator.FromHtml("#69764F");
+            cusInterfaceBtn.BackColor = ColorTranslator.FromHtml("#69764F");
+            serviceViewBtn.BackColor = ColorTranslator.FromHtml("#69764F");
+            appManagementBtn.BackColor = ColorTranslator.FromHtml("#69764F");
+            feedbackBtn.BackColor = ColorTranslator.FromHtml("#69764F");
+            updateProfileBtn.BackColor = ColorTranslator.FromHtml("#69764F");
             LoadUserControl(new Cus_Interface());
             Cus_Source cus = new Cus_Source();
             cus_ID = cus.ID_Checking(userN);
