@@ -29,21 +29,22 @@
         private void InitializeComponent()
         {
             this.FeatureBox = new System.Windows.Forms.GroupBox();
-            this.btn_AdminInterface = new System.Windows.Forms.Button();
             this.btn_cus_FB = new System.Windows.Forms.Button();
             this.btn_sales_Report = new System.Windows.Forms.Button();
             this.btn_service_MNG = new System.Windows.Forms.Button();
             this.btn_staff_MNG = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.admin_Panel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FeatureBox.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // FeatureBox
             // 
             this.FeatureBox.BackColor = System.Drawing.Color.DimGray;
-            this.FeatureBox.Controls.Add(this.btn_AdminInterface);
+            this.FeatureBox.Controls.Add(this.pictureBox1);
             this.FeatureBox.Controls.Add(this.btn_cus_FB);
             this.FeatureBox.Controls.Add(this.btn_sales_Report);
             this.FeatureBox.Controls.Add(this.btn_service_MNG);
@@ -57,22 +58,6 @@
             this.FeatureBox.Size = new System.Drawing.Size(107, 438);
             this.FeatureBox.TabIndex = 1;
             this.FeatureBox.TabStop = false;
-            // 
-            // btn_AdminInterface
-            // 
-            this.btn_AdminInterface.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_AdminInterface.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
-            this.btn_AdminInterface.FlatAppearance.BorderSize = 0;
-            this.btn_AdminInterface.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_AdminInterface.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_AdminInterface.Location = new System.Drawing.Point(9, 40);
-            this.btn_AdminInterface.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_AdminInterface.Name = "btn_AdminInterface";
-            this.btn_AdminInterface.Size = new System.Drawing.Size(83, 35);
-            this.btn_AdminInterface.TabIndex = 4;
-            this.btn_AdminInterface.Text = "ADMIN";
-            this.btn_AdminInterface.UseVisualStyleBackColor = false;
-            this.btn_AdminInterface.Click += new System.EventHandler(this.AdminInterfaceBtn_Click);
             // 
             // btn_cus_FB
             // 
@@ -110,7 +95,7 @@
             this.btn_service_MNG.FlatAppearance.BorderSize = 0;
             this.btn_service_MNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_service_MNG.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_service_MNG.Location = new System.Drawing.Point(9, 192);
+            this.btn_service_MNG.Location = new System.Drawing.Point(10, 206);
             this.btn_service_MNG.Margin = new System.Windows.Forms.Padding(2);
             this.btn_service_MNG.Name = "btn_service_MNG";
             this.btn_service_MNG.Size = new System.Drawing.Size(83, 35);
@@ -126,7 +111,7 @@
             this.btn_staff_MNG.FlatAppearance.BorderSize = 0;
             this.btn_staff_MNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_staff_MNG.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_staff_MNG.Location = new System.Drawing.Point(4, 112);
+            this.btn_staff_MNG.Location = new System.Drawing.Point(7, 134);
             this.btn_staff_MNG.Margin = new System.Windows.Forms.Padding(2);
             this.btn_staff_MNG.Name = "btn_staff_MNG";
             this.btn_staff_MNG.Size = new System.Drawing.Size(93, 39);
@@ -154,6 +139,17 @@
             this.admin_Panel.Size = new System.Drawing.Size(587, 429);
             this.admin_Panel.TabIndex = 5;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GA_TestRun1.Properties.Resources.logo__4_;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 18);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(90, 90);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // Admins_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,6 +162,7 @@
             this.Text = "Admins_home";
             this.FeatureBox.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,6 +175,6 @@
         private System.Windows.Forms.Button btn_service_MNG;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel admin_Panel;
-        private System.Windows.Forms.Button btn_AdminInterface;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

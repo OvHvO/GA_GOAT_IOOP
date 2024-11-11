@@ -424,6 +424,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database_GA.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\logo %284%29.png" />
     <None Include="Resources\logo.png" />
     <None Include="Resources\OIP %282%29.jpg" />
     <None Include="Resources\OIP %283%29.jpg" />
