@@ -15,6 +15,7 @@ namespace GA_TestRun1.Admins
         public Admin_salesreport()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
         }
     }
 }

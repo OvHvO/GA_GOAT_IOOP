@@ -24,6 +24,12 @@ namespace GA_TestRun1.Admins
         {
             InitializeComponent();
             userN = username;
+            FeatureBox.BackColor = ColorTranslator.FromHtml("#69764F");
+            btn_AdminInterface.BackColor = ColorTranslator.FromHtml("#69764F");
+            btn_cus_FB.BackColor = ColorTranslator.FromHtml("#69764F");
+            btn_sales_Report.BackColor = ColorTranslator.FromHtml("#69764F");
+            btn_service_MNG.BackColor = ColorTranslator.FromHtml("#69764F");
+            btn_staff_MNG.BackColor = ColorTranslator.FromHtml("#69764F");
             LoadUserControl(new Admin_Interface(userN));
         }
 

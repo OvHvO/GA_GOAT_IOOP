@@ -17,6 +17,7 @@ namespace GA_TestRun1.Admins
         public Admin_service_data()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             Admins_Source addService = new Admins_Source();
             typeOfChange = "ADD";
         }

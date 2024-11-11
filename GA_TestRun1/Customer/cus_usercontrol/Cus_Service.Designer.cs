@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.Cus_Service_LB = new System.Windows.Forms.ListBox();
             this.Cus_ServiceDtls_LB = new System.Windows.Forms.ListBox();
@@ -35,14 +36,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ServiceAppoinmentGB = new System.Windows.Forms.GroupBox();
-            this.MechanicCB = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.Cus_SA_timepicker = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Cus_Service_carVersion = new System.Windows.Forms.TextBox();
             this.Cus_Service_carNum = new System.Windows.Forms.TextBox();
             this.Cus_Service_cusID = new System.Windows.Forms.TextBox();
+            this.Cus_SA_tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.ServiceAppoinmentGB.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,8 +51,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(258, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(183, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(162, 37);
             this.label1.TabIndex = 0;
@@ -60,22 +60,18 @@
             // Cus_Service_LB
             // 
             this.Cus_Service_LB.FormattingEnabled = true;
-            this.Cus_Service_LB.ItemHeight = 16;
-            this.Cus_Service_LB.Location = new System.Drawing.Point(91, 138);
-            this.Cus_Service_LB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Cus_Service_LB.Location = new System.Drawing.Point(41, 112);
             this.Cus_Service_LB.Name = "Cus_Service_LB";
-            this.Cus_Service_LB.Size = new System.Drawing.Size(235, 116);
+            this.Cus_Service_LB.Size = new System.Drawing.Size(204, 95);
             this.Cus_Service_LB.TabIndex = 1;
             this.Cus_Service_LB.SelectedIndexChanged += new System.EventHandler(this.Cus_Service_LB_SelectedIndexChanged);
             // 
             // Cus_ServiceDtls_LB
             // 
             this.Cus_ServiceDtls_LB.FormattingEnabled = true;
-            this.Cus_ServiceDtls_LB.ItemHeight = 16;
-            this.Cus_ServiceDtls_LB.Location = new System.Drawing.Point(400, 138);
-            this.Cus_ServiceDtls_LB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Cus_ServiceDtls_LB.Location = new System.Drawing.Point(300, 112);
             this.Cus_ServiceDtls_LB.Name = "Cus_ServiceDtls_LB";
-            this.Cus_ServiceDtls_LB.Size = new System.Drawing.Size(240, 116);
+            this.Cus_ServiceDtls_LB.Size = new System.Drawing.Size(220, 95);
             this.Cus_ServiceDtls_LB.TabIndex = 2;
             // 
             // appointmentConfirmBtn
@@ -83,10 +79,9 @@
             this.appointmentConfirmBtn.BackColor = System.Drawing.Color.LightCoral;
             this.appointmentConfirmBtn.FlatAppearance.BorderSize = 0;
             this.appointmentConfirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.appointmentConfirmBtn.Location = new System.Drawing.Point(425, 158);
-            this.appointmentConfirmBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.appointmentConfirmBtn.Location = new System.Drawing.Point(367, 131);
             this.appointmentConfirmBtn.Name = "appointmentConfirmBtn";
-            this.appointmentConfirmBtn.Size = new System.Drawing.Size(100, 28);
+            this.appointmentConfirmBtn.Size = new System.Drawing.Size(75, 23);
             this.appointmentConfirmBtn.TabIndex = 3;
             this.appointmentConfirmBtn.Text = "CONFIRM";
             this.appointmentConfirmBtn.UseVisualStyleBackColor = false;
@@ -95,27 +90,24 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(87, 102);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(38, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 16);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Service";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(419, 102);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(297, 83);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 16);
+            this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Service Details";
             // 
             // ServiceAppoinmentGB
             // 
-            this.ServiceAppoinmentGB.Controls.Add(this.MechanicCB);
-            this.ServiceAppoinmentGB.Controls.Add(this.label7);
+            this.ServiceAppoinmentGB.Controls.Add(this.Cus_SA_timepicker);
             this.ServiceAppoinmentGB.Controls.Add(this.label6);
             this.ServiceAppoinmentGB.Controls.Add(this.label5);
             this.ServiceAppoinmentGB.Controls.Add(this.label4);
@@ -123,91 +115,71 @@
             this.ServiceAppoinmentGB.Controls.Add(this.Cus_Service_carNum);
             this.ServiceAppoinmentGB.Controls.Add(this.Cus_Service_cusID);
             this.ServiceAppoinmentGB.Controls.Add(this.appointmentConfirmBtn);
-            this.ServiceAppoinmentGB.Location = new System.Drawing.Point(91, 287);
-            this.ServiceAppoinmentGB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ServiceAppoinmentGB.Location = new System.Drawing.Point(41, 233);
             this.ServiceAppoinmentGB.Name = "ServiceAppoinmentGB";
-            this.ServiceAppoinmentGB.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ServiceAppoinmentGB.Size = new System.Drawing.Size(551, 193);
+            this.ServiceAppoinmentGB.Size = new System.Drawing.Size(479, 165);
             this.ServiceAppoinmentGB.TabIndex = 6;
             this.ServiceAppoinmentGB.TabStop = false;
             this.ServiceAppoinmentGB.Text = "Service Appoinment";
             // 
-            // MechanicCB
+            // Cus_SA_timepicker
             // 
-            this.MechanicCB.FormattingEnabled = true;
-            this.MechanicCB.Location = new System.Drawing.Point(392, 116);
-            this.MechanicCB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MechanicCB.Name = "MechanicCB";
-            this.MechanicCB.Size = new System.Drawing.Size(132, 24);
-            this.MechanicCB.TabIndex = 12;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(303, 119);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 16);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Mechanic";
+            this.Cus_SA_timepicker.Location = new System.Drawing.Point(23, 91);
+            this.Cus_SA_timepicker.Name = "Cus_SA_timepicker";
+            this.Cus_SA_timepicker.Size = new System.Drawing.Size(197, 20);
+            this.Cus_SA_timepicker.TabIndex = 13;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(37, 119);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(256, 97);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 16);
+            this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Car Number";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(303, 60);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(256, 45);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 16);
+            this.label5.Size = new System.Drawing.Size(61, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Car Version";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(37, 60);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(20, 49);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 16);
+            this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Cus_ID";
             // 
             // Cus_Service_carVersion
             // 
-            this.Cus_Service_carVersion.Location = new System.Drawing.Point(392, 57);
-            this.Cus_Service_carVersion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Cus_Service_carVersion.Location = new System.Drawing.Point(342, 42);
             this.Cus_Service_carVersion.Name = "Cus_Service_carVersion";
-            this.Cus_Service_carVersion.Size = new System.Drawing.Size(132, 22);
+            this.Cus_Service_carVersion.Size = new System.Drawing.Size(100, 20);
             this.Cus_Service_carVersion.TabIndex = 7;
             // 
             // Cus_Service_carNum
             // 
-            this.Cus_Service_carNum.Location = new System.Drawing.Point(128, 116);
-            this.Cus_Service_carNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Cus_Service_carNum.Location = new System.Drawing.Point(342, 94);
             this.Cus_Service_carNum.Name = "Cus_Service_carNum";
-            this.Cus_Service_carNum.Size = new System.Drawing.Size(132, 22);
+            this.Cus_Service_carNum.Size = new System.Drawing.Size(100, 20);
             this.Cus_Service_carNum.TabIndex = 5;
             // 
             // Cus_Service_cusID
             // 
-            this.Cus_Service_cusID.Location = new System.Drawing.Point(128, 57);
-            this.Cus_Service_cusID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Cus_Service_cusID.Location = new System.Drawing.Point(101, 49);
             this.Cus_Service_cusID.Name = "Cus_Service_cusID";
-            this.Cus_Service_cusID.Size = new System.Drawing.Size(132, 22);
+            this.Cus_Service_cusID.Size = new System.Drawing.Size(100, 20);
             this.Cus_Service_cusID.TabIndex = 4;
             // 
             // Cus_Service
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ServiceAppoinmentGB);
             this.Controls.Add(this.label3);
@@ -215,9 +187,8 @@
             this.Controls.Add(this.Cus_ServiceDtls_LB);
             this.Controls.Add(this.Cus_Service_LB);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Cus_Service";
-            this.Size = new System.Drawing.Size(725, 524);
+            this.Size = new System.Drawing.Size(544, 426);
             this.ServiceAppoinmentGB.ResumeLayout(false);
             this.ServiceAppoinmentGB.PerformLayout();
             this.ResumeLayout(false);
@@ -237,10 +208,10 @@
         private System.Windows.Forms.TextBox Cus_Service_carVersion;
         private System.Windows.Forms.TextBox Cus_Service_carNum;
         private System.Windows.Forms.TextBox Cus_Service_cusID;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox MechanicCB;
+        private System.Windows.Forms.DateTimePicker Cus_SA_timepicker;
+        private System.Windows.Forms.ToolTip Cus_SA_tooltip;
     }
 }

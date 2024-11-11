@@ -20,6 +20,7 @@ namespace GA_TestRun1.Admins
         {
             InitializeComponent();
             Admins_Source admin = new Admins_Source();
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             List<string> serviceList = admin.Service_Net();
             foreach (string service in serviceList)
             {

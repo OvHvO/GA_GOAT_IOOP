@@ -18,6 +18,7 @@ namespace GA_TestRun1.Admins
         public Admin_staff()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
         }
 
         private void RoleComboBox_SelectedIndexChanged(object sender, EventArgs e)

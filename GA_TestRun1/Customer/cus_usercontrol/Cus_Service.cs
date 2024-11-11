@@ -18,6 +18,7 @@ namespace GA_TestRun1.Customer.cus_usercontrol
         {   
             cus_ID = CusID;
             InitializeComponent();
+            Cus_SA_tooltip.SetToolTip(Cus_SA_timepicker, "Please choose your service appoinment time");
             Cus_Source cus = new Cus_Source();
             List<string> serviceNameList = cus.Service_Net();
             foreach (string serviceName in serviceNameList)
@@ -30,7 +31,8 @@ namespace GA_TestRun1.Customer.cus_usercontrol
         {
             string carNum = Cus_Service_carNum.Text;
             string carVersion = Cus_Service_carVersion.Text;
-            DateTime currentDate = DateTime.Now;
+            string currentDateText = Cus_SA_timepicker.Text;
+            DateTime currentDate = Cus_SA_timepicker.Value;
 
             //call method
             Cus_Source cus_app = new Cus_Source();
@@ -77,5 +79,7 @@ namespace GA_TestRun1.Customer.cus_usercontrol
             //    }
             //}
         }
+
+
     }
 }
