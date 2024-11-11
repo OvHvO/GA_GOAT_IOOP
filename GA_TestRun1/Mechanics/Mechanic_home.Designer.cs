@@ -34,6 +34,7 @@
             this.M_Inventory_btn = new System.Windows.Forms.Button();
             this.R_Service_btn = new System.Windows.Forms.Button();
             this.Logo_img = new System.Windows.Forms.PictureBox();
+            this.Detailpanel = new System.Windows.Forms.Panel();
             this.OptionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_img)).BeginInit();
             this.SuspendLayout();
@@ -113,12 +114,21 @@
             this.Logo_img.TabIndex = 4;
             this.Logo_img.TabStop = false;
             // 
+            // Detailpanel
+            // 
+            this.Detailpanel.Location = new System.Drawing.Point(108, -5);
+            this.Detailpanel.Name = "Detailpanel";
+            this.Detailpanel.Size = new System.Drawing.Size(587, 429);
+            this.Detailpanel.TabIndex = 1;
+            this.Detailpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Detailpanel_Paint);
+            // 
             // Mechanic_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(694, 421);
+            this.Controls.Add(this.Detailpanel);
             this.Controls.Add(this.OptionPanel);
             this.Name = "Mechanic_home";
             this.Text = "Mechanic_home";
@@ -137,5 +147,6 @@
         private System.Windows.Forms.Button V_ServiceTask_btn;
         private System.Windows.Forms.Button U_Profile_btn;
         private System.Windows.Forms.PictureBox Logo_img;
+        private System.Windows.Forms.Panel Detailpanel;
     }
 }
