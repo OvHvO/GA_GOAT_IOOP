@@ -63,7 +63,7 @@ namespace GA_TestRun1.Customer
 
         private void appManagementBtn_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new Cus_AP_Management());
+            LoadUserControl(new Cus_AP_Management(cus_ID));
         }
     }
 }

@@ -20,7 +20,7 @@ namespace GA_TestRun1.Customer.cus_usercontrol
             cus_ID = cus_id;
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             Cus_Source cus = new Cus_Source();
-            List<string> cusFeedback = cus.FeedbackChecking(cus_ID);
+            List<string> cusFeedback = cus.CusNetChecking(cus_ID, "COMPLETE");
             foreach (string s in cusFeedback)
             {
                 ServiceAP_LB.Items.Add(s);

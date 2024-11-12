@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace GA_TestRun1.Mechanics
@@ -41,10 +44,12 @@ namespace GA_TestRun1.Mechanics
             Passwords = Password;
         }
 
+//============================== Update Mechanic Profile ==============================//
         public void mcnUpdateProf(string oldUserName, string UserName, string Password)
         {
             UserNames = UserName;
             Passwords = Password;
+
             using (SqlConnection connection = new SqlConnection(connect))
             {
                 connection.Open();
@@ -74,16 +79,12 @@ namespace GA_TestRun1.Mechanics
                         {
                             transaction.Commit(); //transaction done (when all database change sucess, it will commit change)
                             MessageBox.Show("Update Sucessfull");
-
                         }
                         else
                         {
-
                             transaction.Rollback(); //Rollback transactions (at least one failed to change, it will cancel the change)
                             string messages = "Update failed";
                             errorMessage(messages);
-
-
                         }
                     }
                     else
@@ -91,7 +92,6 @@ namespace GA_TestRun1.Mechanics
                         transaction.Rollback(); //Rollback transactions (at least one failed to change, it will cancel the change)
                         string messages = "The Username seems has been used or the update failed, Please Try again later";
                         errorMessage(messages);
-
                     }
                 }
 
@@ -106,6 +106,59 @@ namespace GA_TestRun1.Mechanics
         {
             MessageBox.Show(messages, "Error");
         }
+
+
+
+//============================== View Service List ==============================//
+        public object ViewProfList(string UserName, string newUserName)
+        {
+            UserNames = UserName;
+
+            using (SqlConnection conn = new SqlConnection(Connection))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlTransaction transaction = conn.BeginTransaction();
+                    string query = $@"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum, T.mechanic_ID
+                             from Customers AS C
+                             INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
+                             LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
+                             WHERE T.mechanicUsername = {UserName}
+                            ";
+
+                    string query1 = "Select McnUsername, McnNewUsername from ##temptable";
+                    SqlCommand cmd1 = new SqlCommand(query1, conn, transaction);
+                    cmd1.Parameters.AddWithValue("@username", UserName);
+                    cmd1.Parameters.AddWithValue("@newusername", newUserName);
+
+
+                    if (cmd1.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("Successful");
+                        transaction.Commit();
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Unsuccessful");
+                        transaction.Rollback();
+                    }
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                    DataTable data = new DataTable();
+                    adapter.Fill(data);
+                    conn.Close();
+                    return data;
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Error");
+                    return null;
+                }
+            }
+        }
     }
+
     
 }
