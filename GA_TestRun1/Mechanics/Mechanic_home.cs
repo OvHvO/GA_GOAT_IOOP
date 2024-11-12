@@ -11,6 +11,7 @@ using GA_TestRun1.Admins;
 using GA_TestRun1;
 using GA_TestRun1.Customer;
 using GA_TestRun1.Receptionist;
+using GA_TestRun1.Mechanics.Mecha_Option;
 
 namespace GA_TestRun1.Mechanics
 {
@@ -22,7 +23,6 @@ namespace GA_TestRun1.Mechanics
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
         }
 
-
         private void OptionPanel_Paint(object sender, PaintEventArgs e)
         {
             OptionPanel.BackColor = ColorTranslator.FromHtml("#69764F");
@@ -33,17 +33,19 @@ namespace GA_TestRun1.Mechanics
             U_Profile_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
         }
 
-
         private void Detailpanel_Paint(object sender, PaintEventArgs e)
         {
             Detailpanel.BackColor = ColorTranslator.FromHtml("#EEEBE3");
         }
-//------------------------------Navigation Option------------------------------
+
+
+//==============================Navigation Option==============================//
         private void V_ServiceTask_btn_Click(object sender, EventArgs e)
         {
             //----------Change border size----------//
             this.V_ServiceTask_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.V_ServiceTask_btn.FlatAppearance.BorderSize = 0;
+            LoadUserControl(new Mechanic_View());
         }
 
 
@@ -52,6 +54,7 @@ namespace GA_TestRun1.Mechanics
             //----------Change border size----------//
             this.R_Service_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.R_Service_btn.FlatAppearance.BorderSize = 0;
+            LoadUserControl(new Mechanic_Record());
         }
 
 
@@ -60,6 +63,7 @@ namespace GA_TestRun1.Mechanics
             //----------Change border size----------//
             this.M_Inventory_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.M_Inventory_btn.FlatAppearance.BorderSize = 0;
+            LoadUserControl(new Mechanic_Manage());
         }
 
 
@@ -68,19 +72,23 @@ namespace GA_TestRun1.Mechanics
             //----------Change border size----------//
             this.U_Profile_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.U_Profile_btn.FlatAppearance.BorderSize = 0;
-        }
-
-        private void Mechanic_home_Load(object sender, EventArgs e)
-        {
-
+            LoadUserControl(new Mechanic_Update());
         }
 
         private void Logo_img_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new Mechanic_UI());
+            LoadUserControl(Detailpanel, new Mechanic_Main());
         }
 
+        //----------For 2 arguments to show main panel----------//
+        private void LoadUserControl(Panel targetpanel, UserControl userControl)
+        {
+            targetpanel.Controls.Clear();
+            userControl.Dock = DockStyle.Fill;
+            targetpanel.Controls.Add(userControl);
+        }
 
+        //----------For 1 argument to show other panels----------//
         private void LoadUserControl(UserControl userControl)
         {
             Detailpanel.Controls.Clear();
@@ -88,7 +96,10 @@ namespace GA_TestRun1.Mechanics
             Detailpanel.Controls.Add(userControl);
         }
 
+        private void Mechanic_home_Load(object sender, EventArgs e)
+        {
 
+        }
 
         //------------------------------   ------------------------------
     }

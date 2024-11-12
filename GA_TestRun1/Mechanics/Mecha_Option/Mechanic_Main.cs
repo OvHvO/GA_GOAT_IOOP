@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GA_TestRun1.Mechanics
+namespace GA_TestRun1.Mechanics.Mecha_Option
 {
-    public partial class Mechanic_UI : UserControl
+    public partial class Mechanic_Main : UserControl
     {
-        public Mechanic_UI()
+        public Mechanic_Main()
         {
             InitializeComponent();
         }

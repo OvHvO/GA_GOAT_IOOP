@@ -262,11 +262,35 @@
     <Compile Include="Mechanics\Mechanic_home.Designer.cs">
       <DependentUpon>Mechanic_home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mechanics\Mechanic_UI.cs">
+    <Compile Include="Mechanics\Mecha_Option\Mechanic_Main.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Mechanics\Mechanic_UI.Designer.cs">
-      <DependentUpon>Mechanic_UI.cs</DependentUpon>
+    <Compile Include="Mechanics\Mecha_Option\Mechanic_Main.Designer.cs">
+      <DependentUpon>Mechanic_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mechanics\Mecha_Option\Mechanic_Manage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mechanics\Mecha_Option\Mechanic_Manage.Designer.cs">
+      <DependentUpon>Mechanic_Manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mechanics\Mecha_Option\Mechanic_Record.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mechanics\Mecha_Option\Mechanic_Record.Designer.cs">
+      <DependentUpon>Mechanic_Record.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mechanics\Mecha_Option\Mechanic_Update.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mechanics\Mecha_Option\Mechanic_Update.Designer.cs">
+      <DependentUpon>Mechanic_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mechanics\Mecha_Option\Mechanic_View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mechanics\Mecha_Option\Mechanic_View.Designer.cs">
+      <DependentUpon>Mechanic_View.cs</DependentUpon>
     </Compile>
     <Compile Include="Receptionist\Assign_.cs">
       <SubType>Form</SubType>
@@ -365,8 +389,20 @@
     <EmbeddedResource Include="Mechanics\Mechanic_home.resx">
       <DependentUpon>Mechanic_home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mechanics\Mechanic_UI.resx">
-      <DependentUpon>Mechanic_UI.cs</DependentUpon>
+    <EmbeddedResource Include="Mechanics\Mecha_Option\Mechanic_Main.resx">
+      <DependentUpon>Mechanic_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mechanics\Mecha_Option\Mechanic_Manage.resx">
+      <DependentUpon>Mechanic_Manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mechanics\Mecha_Option\Mechanic_Record.resx">
+      <DependentUpon>Mechanic_Record.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mechanics\Mecha_Option\Mechanic_Update.resx">
+      <DependentUpon>Mechanic_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mechanics\Mecha_Option\Mechanic_View.resx">
+      <DependentUpon>Mechanic_View.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Receptionist\Assign_.resx">
       <DependentUpon>Assign_.cs</DependentUpon>
