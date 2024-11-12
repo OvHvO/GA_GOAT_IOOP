@@ -51,6 +51,7 @@ namespace GA_TestRun1.Receptionist
 
         private void Cus_deleteForm_Load(object sender, EventArgs e)
         {
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             ArrayList CusName = new ArrayList();
             CusName = Receptionists.ViewCustomer();
             foreach (var items in CusName)

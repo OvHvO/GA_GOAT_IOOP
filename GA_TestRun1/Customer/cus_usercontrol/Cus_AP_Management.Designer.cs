@@ -53,6 +53,7 @@
             this.CusAP_LB.Name = "CusAP_LB";
             this.CusAP_LB.Size = new System.Drawing.Size(265, 264);
             this.CusAP_LB.TabIndex = 1;
+            this.CusAP_LB.SelectedIndexChanged += new System.EventHandler(this.CusAP_LB_SelectedIndexChanged);
             // 
             // cus_RshAP_Btn
             // 
@@ -72,6 +73,7 @@
             this.cus_CancelAP_Btn.TabIndex = 3;
             this.cus_CancelAP_Btn.Text = "CANCEL";
             this.cus_CancelAP_Btn.UseVisualStyleBackColor = true;
+            this.cus_CancelAP_Btn.Click += new System.EventHandler(this.cus_CancelAP_Btn_Click);
             // 
             // CusAPDtls_LB
             // 

@@ -149,7 +149,7 @@ namespace GA_TestRun1.Receptionist
             return cusName;
         }
 
-        public void rcpUpdateProf(string oldusername, string username, string password)
+        public void rcpUpdateProf(string oldusername, string username, string password, string contactNum)
         {
 
 
@@ -173,11 +173,13 @@ namespace GA_TestRun1.Receptionist
                     SqlCommand cmd = new SqlCommand(query1, conn, transaction);
                     cmd.Parameters.AddWithValue("@username", username);
 
-                    string query2 = "Update Receptionists set rcptionistUsername=@username,rcptionistPW=@password where rcptionistUsername=@oldusername";
+                    string query2 = "Update Receptionists set rcptionistUsername=@username,rcptionistPW=@password,rcptionistContactNum=@contactNum where rcptionistUsername=@oldusername";
                     SqlCommand cmd2 = new SqlCommand(query2, conn, transaction);
                     cmd2.Parameters.AddWithValue("@username", username);
                     cmd2.Parameters.AddWithValue("@password", password);
+                    cmd2.Parameters.AddWithValue("@contactNum",contactNum);
                     cmd2.Parameters.AddWithValue("@oldusername", oldusername);
+                    
 
                     //Enter into Temp Table (## is global temp table)
                     string query3 = "Update ##temptable set RcpUsername=@username, RcpPw=@password, OldName=@oldusername";
@@ -358,21 +360,63 @@ namespace GA_TestRun1.Receptionist
 
         }
 
-        public static void TaskStatus(int requestid, string status)
+        public static void TaskStatus(int requestid, string status, int quantity,string partName)
         {
-            SqlConnection conn = new SqlConnection(connectionS);
-            conn.Open();
-            string query = @"Update Requests set rrequestStatus='Completed' where request_ID=@requestid";
-            SqlCommand command = new SqlCommand(query,conn);
-            command.Parameters.AddWithValue("@requestid",requestid);
-            if (command.ExecuteNonQuery()==1)
-            {
-                MessageBox.Show("Assigned !");
+            using (SqlConnection conn = new SqlConnection(connectionS)) 
+            {   
+                conn.Open();
+                try
+                {
+                    SqlTransaction transaction = conn.BeginTransaction();
+                    string query = @"Update Requests set rrequestStatus='Completed' where request_ID=@requestid";
+                    SqlCommand command = new SqlCommand(query, conn, transaction);
+                    command.Parameters.AddWithValue("@requestid", requestid);
 
-            }
-            else
-            {
-                MessageBox.Show("Please click on the Request ID cell to assign the Parts","Error",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    string query3 = @"Select partQuantity from Parts where partName=@partname";
+                    SqlCommand cmd3 = new SqlCommand(query3, conn, transaction);
+                    cmd3.Parameters.AddWithValue("@partname", partName);
+                    int.TryParse(cmd3.ExecuteScalar().ToString(), out int partQty);
+                    partQty -= quantity;
+                    if (partQty >= 0)
+                    {
+
+
+                        string query2 = @"Update Parts set partQuantity=@quantity where partName=@partname";
+                        SqlCommand cmd2 = new SqlCommand(query2, conn, transaction);
+
+                        cmd2.Parameters.AddWithValue("@quantity", partQty);
+                        cmd2.Parameters.AddWithValue("@partname", partName);
+                        cmd2.ExecuteNonQuery();
+
+                        if (command.ExecuteNonQuery() == 1)
+                        {
+                            transaction.Commit();
+                            MessageBox.Show($"Assigned !, The Stock of the {partName} is {partQty}");
+
+
+                        }
+
+                        else
+                        {
+                            transaction.Rollback();
+                            MessageBox.Show("Please click on the Request ID cell to assign the Parts", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                        }
+                    }
+                    else
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show($"The Stock of the {partName} is not enough");
+
+                    }
+                }
+
+                catch (SqlException) 
+                {
+                    MessageBox.Show("Please Click On A Content !","Reminder");
+                }
+
+            
             }
         }
 
@@ -519,7 +563,7 @@ namespace GA_TestRun1.Receptionist
 
 
                 }
-                catch (SqlException ex)
+                catch (SqlException )
                 {
 
                     MessageBox.Show("Error, Please try again");
@@ -531,7 +575,44 @@ namespace GA_TestRun1.Receptionist
                 conn.Close();
             }
 
-        } 
+        }
+        
+        public static object cus_CheckInOut()
+        {
+            SqlConnection conn = new SqlConnection(connectionS);
+            conn.Open();
+            string query = @"Select Distinct C.customer_ID, C.customerUsername,SA.carNum,SA.carVersion,SA.serviceAP_ID
+                           from Customers as C
+                           Inner Join ServiceAppoinments as SA on SA.customer_ID= C.customer_ID";
+            SqlCommand cmd= new SqlCommand(query, conn);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable data =new DataTable();
+            adapter.Fill(data);
+            conn.Close();
+            return data;
+        }
+
+
+        public static void cus_UpdateCheckInOut(string cus_Name, string carNum,string carver, int serviceid)
+        {
+            SqlConnection conn = new SqlConnection( connectionS);
+            conn.Open();
+            string query = "Update ServiceAppoinments set carNum=@carnum, carVersion=@carver where serviceAP_ID=@serviceid";
+            SqlCommand cmd= new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@carnum",carNum);
+            cmd.Parameters.AddWithValue("@carver",carver);
+            cmd.Parameters.AddWithValue("@serviceid",serviceid);
+            if (cmd.ExecuteNonQuery()==1)
+            {
+                MessageBox.Show("Update Sucessfully");
+            }
+            else
+            {
+                MessageBox.Show("Update Failed");
+            }
+            conn.Close();
+        }
     }
 }
 
