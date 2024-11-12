@@ -329,6 +329,12 @@
     <Compile Include="Receptionist\Receptionist_home.Designer.cs">
       <DependentUpon>Receptionist_home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Receptionist\searchInv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receptionist\searchInv.Designer.cs">
+      <DependentUpon>searchInv.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sign_Up_form.cs">
       <SubType>Form</SubType>
     </Compile>

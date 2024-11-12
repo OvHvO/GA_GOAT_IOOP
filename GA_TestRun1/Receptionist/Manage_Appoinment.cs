@@ -100,5 +100,10 @@ namespace GA_TestRun1.Receptionist
 
             //Rcp_dataview.DataSource = Receptionists.searchFunc(Search_txtb.Text,selectedItems);
         }
+
+        private void reload_pict_Click(object sender, EventArgs e)
+        {
+            Rcp_dataview.DataSource=Receptionists.getProfList();
+        }
     }
 }

@@ -462,8 +462,8 @@ namespace GA_TestRun1.Receptionist
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show(ex.ToString());
-                    //MessageBox.Show("Error, Please try again");
+                    
+                    MessageBox.Show("Error, Please try again");
                     transaction.Rollback();
 
                 }
