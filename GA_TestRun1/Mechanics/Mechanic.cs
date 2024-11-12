@@ -58,19 +58,19 @@ namespace GA_TestRun1.Mechanics
                     cmd2.Parameters.AddWithValue("@username", UserName);
                     cmd2.Parameters.AddWithValue("@password", Password);
                     cmd2.Parameters.AddWithValue("@oldusername", oldUserName);
-
-
-
                 }
 
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("User not found or System Wrong! Error Message: Error");
                 }
+
+
+
+
+
             }
         }
-
-        public Dictionary<int, int> MechanicWorkingTime;
 
     }
     

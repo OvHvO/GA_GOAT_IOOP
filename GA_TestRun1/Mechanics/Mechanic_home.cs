@@ -31,6 +31,7 @@ namespace GA_TestRun1.Mechanics
             R_Service_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
             M_Inventory_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
             U_Profile_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
+            SignOut_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
         }
 
         private void Detailpanel_Paint(object sender, PaintEventArgs e)
@@ -75,6 +76,15 @@ namespace GA_TestRun1.Mechanics
             LoadUserControl(new Mechanic_Update());
         }
 
+
+        private void SignOut_btn_Click(object sender, EventArgs e)
+        {
+            //----------Change border size----------//
+            this.U_Profile_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.U_Profile_btn.FlatAppearance.BorderSize = 0;
+        }
+
+
         private void Mechanic_home_Load(object sender, EventArgs e)
         {
             LoadUserControl(new Mechanic_Main());
@@ -94,6 +104,8 @@ namespace GA_TestRun1.Mechanics
             Detailpanel.Controls.Add(userControl);
         }
 
-//============================== ==============================//
+
+
+        //============================== ==============================//
     }
 }
