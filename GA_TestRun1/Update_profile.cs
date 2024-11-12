@@ -65,7 +65,7 @@ namespace GA_TestRun1
                     {
 
                         Users updatePro = new Users(currentName);
-                        updatePro.updateProf(updateProf_usern_txt.Text, updateProf_pw_txt.Text);
+                        //updatePro.updateProf(updateProf_usern_txt.Text, updateProf_pw_txt.Text);
                         updateProf_usern_txt.Clear();
                         updateProf_pw_txt.Clear();
                         updateProf_cpw_txt.Clear();

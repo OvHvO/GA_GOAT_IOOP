@@ -28,6 +28,7 @@ namespace GA_TestRun1.Receptionist
 
         private void Assign_task_Load(object sender, EventArgs e)
         {
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             serviceDateTimepick.Format = DateTimePickerFormat.Custom;
             serviceDateTimepick.CustomFormat = "dd / MM / yyyy hh: mm tt";
             serviceDateTimepick.ShowUpDown = true;

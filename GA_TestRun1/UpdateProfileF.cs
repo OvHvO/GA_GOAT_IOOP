@@ -73,7 +73,7 @@ namespace GA_TestRun1
 
 
             }
-            else if (!checkIsNullorNot(updateProf_usern_txt.Text, updateProf_pw_txt.Text, updateProf_cpw_txt.Text))
+            else if (!checkIsNullorNot(updateProf_usern_txt.Text, updateProf_pw_txt.Text, updateProf_cpw_txt.Text, update_contactNumtxt.Text))
             {
                 MessageBox.Show("Please fill all the blanks!!", "Update Profile");
 
@@ -85,11 +85,11 @@ namespace GA_TestRun1
                 {
 
                     Users updatePro = new Users(currentName);
-                    updatePro.updateProf(updateProf_usern_txt.Text, updateProf_pw_txt.Text);
+                    updatePro.updateProf(updateProf_usern_txt.Text, updateProf_pw_txt.Text, update_contactNumtxt.Text);
                     updateProf_usern_txt.Clear();
                     updateProf_pw_txt.Clear();
                     updateProf_cpw_txt.Clear();
-
+                    update_contactNumtxt.Clear();
                 }
 
             }
@@ -125,6 +125,9 @@ namespace GA_TestRun1
             }
         }
 
+        private void update_contactNumtxt_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

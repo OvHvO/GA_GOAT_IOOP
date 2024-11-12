@@ -178,7 +178,8 @@ namespace GA_TestRun1.Receptionist
 
         private void rcp_CheckinOutbtn_btn_Click(object sender, EventArgs e)
         {
-
+            CheckInOutF checkinout=new CheckInOutF();
+            checkinout.ShowDialog();
         }
         private void rcp_srcInvbtn_btn_Click(object sender, EventArgs e)
         {

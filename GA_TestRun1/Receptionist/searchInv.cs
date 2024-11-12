@@ -14,6 +14,9 @@ namespace GA_TestRun1.Receptionist
     {
         int partid;
         string status;
+        int quantity;
+        string partname;
+        
         public searchInv()
         {
             InitializeComponent();
@@ -50,24 +53,44 @@ namespace GA_TestRun1.Receptionist
      
 
         private void InvDataView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {       
-              string p = InvDataView.Rows[e.RowIndex].Cells["Request_id"].Value.ToString();
-              int.TryParse(p, out int spartid);
-              partid=spartid;
-              status = InvDataView.Rows[e.RowIndex].Cells["request_status"].Value.ToString();
+        {
+            try
+            {
 
+             
+              string p = InvDataView.Rows[e.RowIndex].Cells["Request_id"].Value.ToString();
+              string qty = InvDataView.Rows[e.RowIndex].Cells["Request_Qty"].Value.ToString();
+              string partNamee= InvDataView.Rows[e.RowIndex].Cells["Part_Name"].Value.ToString();
+              int.TryParse(p, out int spartid);
+              int.TryParse(qty, out int squantity);
+              partid=spartid;
+              quantity=squantity;
+              partname = partNamee;
+              status = InvDataView.Rows[e.RowIndex].Cells["request_status"].Value.ToString();
+            } 
+            catch(Exception) 
+            {
+                MessageBox.Show("Please Click On the Content! Not Header.");
+            }
         }
 
         private void Request_combtn_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Do you confirm want to assign this Parts to Mechanics?","Assign Part",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (dialog == DialogResult.Yes)
+            if ( status=="Completed")
             {
-                Receptionists.TaskStatus(partid,status);
+                MessageBox.Show("This Request Is Mark As Completed, Cannot Assign Again","Assign Reminder",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-            else
+            else 
             {
-                MessageBox.Show("Operation Cancelled","Assign Parts");
+                if (dialog == DialogResult.Yes)
+                {
+                    Receptionists.TaskStatus(partid, status, quantity, partname);
+                }
+                else
+                {
+                    MessageBox.Show("Operation Cancelled", "Assign Parts");
+                } 
             }
            
 

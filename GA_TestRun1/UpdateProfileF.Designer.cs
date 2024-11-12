@@ -37,6 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.updateProf_lbl = new System.Windows.Forms.Label();
+            this.update_contactNumtxt = new System.Windows.Forms.TextBox();
+            this.update_contactNumlbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // updateProf_showpw_checkb
@@ -65,7 +67,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 309);
+            this.label3.Location = new System.Drawing.Point(17, 260);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 18);
             this.label3.TabIndex = 15;
@@ -73,7 +75,7 @@
             // 
             // updateProf_cpw_txt
             // 
-            this.updateProf_cpw_txt.Location = new System.Drawing.Point(215, 305);
+            this.updateProf_cpw_txt.Location = new System.Drawing.Point(215, 259);
             this.updateProf_cpw_txt.Name = "updateProf_cpw_txt";
             this.updateProf_cpw_txt.PasswordChar = '*';
             this.updateProf_cpw_txt.Size = new System.Drawing.Size(211, 22);
@@ -82,7 +84,7 @@
             // 
             // updateProf_pw_txt
             // 
-            this.updateProf_pw_txt.Location = new System.Drawing.Point(215, 221);
+            this.updateProf_pw_txt.Location = new System.Drawing.Point(215, 191);
             this.updateProf_pw_txt.Name = "updateProf_pw_txt";
             this.updateProf_pw_txt.PasswordChar = '*';
             this.updateProf_pw_txt.Size = new System.Drawing.Size(211, 22);
@@ -101,7 +103,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 221);
+            this.label2.Location = new System.Drawing.Point(17, 195);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 18);
             this.label2.TabIndex = 11;
@@ -127,13 +129,33 @@
             this.updateProf_lbl.TabIndex = 9;
             this.updateProf_lbl.Text = "Update Profile";
             // 
+            // update_contactNumtxt
+            // 
+            this.update_contactNumtxt.Location = new System.Drawing.Point(215, 323);
+            this.update_contactNumtxt.Name = "update_contactNumtxt";
+            this.update_contactNumtxt.Size = new System.Drawing.Size(211, 22);
+            this.update_contactNumtxt.TabIndex = 18;
+            this.update_contactNumtxt.TextChanged += new System.EventHandler(this.update_contactNumtxt_TextChanged);
+            // 
+            // update_contactNumlbl
+            // 
+            this.update_contactNumlbl.AutoSize = true;
+            this.update_contactNumlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.update_contactNumlbl.Location = new System.Drawing.Point(17, 323);
+            this.update_contactNumlbl.Name = "update_contactNumlbl";
+            this.update_contactNumlbl.Size = new System.Drawing.Size(159, 18);
+            this.update_contactNumlbl.TabIndex = 15;
+            this.update_contactNumlbl.Text = "New Contact Number: ";
+            // 
             // UpdateProfileF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
+            this.Controls.Add(this.update_contactNumtxt);
             this.Controls.Add(this.updateProf_showpw_checkb);
             this.Controls.Add(this.updateProf_btn);
+            this.Controls.Add(this.update_contactNumlbl);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.updateProf_cpw_txt);
             this.Controls.Add(this.updateProf_pw_txt);
@@ -160,5 +182,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label updateProf_lbl;
+        private System.Windows.Forms.TextBox update_contactNumtxt;
+        private System.Windows.Forms.Label update_contactNumlbl;
     }
 }
