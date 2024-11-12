@@ -17,10 +17,27 @@ namespace GA_TestRun1.Mechanics
 {
     public partial class Mechanic_home : Form
     {
-        public Mechanic_home()
+        private string Name;
+        private string Contact;
+        private string Connection;
+
+        public Mechanic_home(string N, string ConnectionS, string ContactNum)
+        {
+            InitializeComponent();
+            Name = N;
+            Mechanic mechanics = new Mechanic(Connection);
+
+            Contact = ContactNum;
+            Connection = ConnectionS;
+        }
+
+
+//============================== Change panel colour ==============================//
+        public Mechanic_home(string newUsername)
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
+            Name = newUsername;
         }
 
         private void OptionPanel_Paint(object sender, PaintEventArgs e)
@@ -40,7 +57,7 @@ namespace GA_TestRun1.Mechanics
         }
 
 
-//==============================Navigation Option==============================//
+//============================== Navigation Option ==============================//
         private void V_ServiceTask_btn_Click(object sender, EventArgs e)
         {
             //----------Change border size----------//
@@ -73,7 +90,11 @@ namespace GA_TestRun1.Mechanics
             //----------Change border size----------//
             this.U_Profile_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.U_Profile_btn.FlatAppearance.BorderSize = 0;
-            LoadUserControl(new Mechanic_Update());
+
+            //----------Set Name to latest name----------//
+            Users object01 = new Users(Name);
+            UpdateProfileF profile_form = new UpdateProfileF(Name);
+            LoadUserControl(UpdateProfileF.Instance);
         }
 
 
@@ -87,12 +108,12 @@ namespace GA_TestRun1.Mechanics
 
         private void Mechanic_home_Load(object sender, EventArgs e)
         {
-            LoadUserControl(new Mechanic_Main());
+            //LoadUserControl(new Mechanic_Main());
         }
 
         private void Logo_img_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new Mechanic_Main());
+            LoadUserControl(new Mechanic_Main(Name));
         }
 
 

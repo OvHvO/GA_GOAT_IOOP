@@ -15,13 +15,17 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
     {
         private string Name;
         private string Contact;
+        private string Connection;
 
-        public Mechanic_Main(string N,  string Contactnum)
+        public Mechanic_Main(string N, string Connections, string Contactnum)
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
+
+            Mechanic mechanic = new Mechanic(Connections);
             Name = N;
             Contact = Contactnum;
+            Connection = Connections;
         }
 
         public Mechanic_Main(string newUsername)
@@ -39,6 +43,11 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             string[] newprof = (string[])Receptionists.newprofile(Name);
             Name_lbl.Text = newprof[0];
             PNum_lbl.Text = newprof[1];
+        }
+
+        private void Welcome_txt_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
