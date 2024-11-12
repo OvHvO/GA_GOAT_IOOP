@@ -10,6 +10,7 @@ using static GA_TestRun1.Users;
 using System.Windows.Forms;
 using GA_TestRun1.Mechanics;
 using System.Xml.Schema;
+using System.Data;
 
 namespace GA_TestRun1.Customer
 {
@@ -390,16 +391,21 @@ namespace GA_TestRun1.Customer
         {
             List<string> serviceAP_List = new List<string>();
             List<string> serviceAP_CheckList = new List<string>();
+            List<string> serviceAP_FinalList = new List<string>();
 
             string query1 = @"select serviceAP_ID 
-                     from ServiceAppoinments 
-                     where customer_ID = @Target_ID";
+                                from ServiceAppoinments 
+                                where customer_ID = @Target_ID";
 
             string query2 = @"select serviceAP_ID 
-                     from Tasks 
-                     where taskStatus = 'COMPLETE' 
-                     and serviceAP_ID = @ServiceAP_ID";
+                                 from Tasks 
+                                 where taskStatus = 'COMPLETE' 
+                                 and serviceAP_ID = @ServiceAP_ID";
 
+            string query3 = @"select serviceAP_ID 
+                                  from ServiceAppoinments
+                                  where feedbackStatus = 0
+                                  and serviceAP_ID = @SERVICEAP_ID";
             try
             {
                 // First query - get initial service appointments
@@ -428,12 +434,32 @@ namespace GA_TestRun1.Customer
                         foreach (string serviceAP_ID in serviceAP_List)
                         {
                             command.Parameters.Clear();
-                            command.Parameters.AddWithValue("@ServiceAP_ID", serviceAP_ID);
+                            command.Parameters.AddWithValue("@SERVICEAP_ID", serviceAP_ID);
                             using (SqlDataReader reader = command.ExecuteReader())
                             {
                                 while (reader.Read())
                                 {
                                     serviceAP_CheckList.Add(reader["serviceAP_ID"].ToString());
+                                }
+                            }
+                        }
+                    }
+                }
+
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query3, connection))
+                    {
+                        foreach (string serviceAP_ID in serviceAP_CheckList)
+                        {
+                            command.Parameters.Clear();
+                            command.Parameters.AddWithValue("@ServiceAP_ID", serviceAP_ID);
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    serviceAP_FinalList.Add(reader["serviceAP_ID"].ToString());
                                 }
                             }
                         }
@@ -445,7 +471,103 @@ namespace GA_TestRun1.Customer
                 MessageBox.Show($"An error occurred while processing feedback: {ex.Message}");
             }
 
-            return serviceAP_CheckList;
+            return serviceAP_FinalList;
+        }
+
+        public List<string> AppoinmentDtls(string target)
+        { 
+            string query = @"select serviceAP_ID, carNum, carVersion from ServiceAppoinments
+                             where serviceAP_ID = @TargetID";
+            List<string> dtlsList = new List<string>();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@TargetID", target);
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                dtlsList.Add("Appoinment ID : " + reader["serviceAP_ID"].ToString());
+                                dtlsList.Add("Car number : " + reader["carNum"].ToString());
+                                dtlsList.Add("Car version : " + reader["carVersion"].ToString());
+                            }
+
+                        }
+
+                    }
+                }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Please dont click the empty space");
+            }
+
+            return dtlsList;
+        }
+
+        public bool SubmitFeedback(string content, string ServiceAP_ID, int Cus_ID, DateTime timenow)
+        {
+            string query = @"insert into CustomerFeedBack (dateFeedback, cusFeedBackContent, customer_ID, serviceAP_ID)
+                     values (@TIMENOW, @CONTENT, @CUS_ID, @SERVICEAP_ID)";
+
+            string query1 = @"update ServiceAppoinments 
+                      set feedbackStatus = 1
+                      where serviceAP_ID = @SERVICEAP_ID";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@TIMENOW", timenow);
+                        command.Parameters.AddWithValue("@CONTENT",content);
+                        command.Parameters.AddWithValue("@CUS_ID", Cus_ID);
+                        command.Parameters.AddWithValue("@SERVICEAP_ID", ServiceAP_ID);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected == 0)
+                        {
+                            return false;
+                        }
+                    }
+
+                    using (SqlCommand command = new SqlCommand(query1, connection))
+                    {
+                        command.Parameters.AddWithValue("@SERVICEAP_ID", ServiceAP_ID);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected == 0)
+                        {
+                            return false;
+                        }
+                    }
+
+                    return true;
+                }
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 547)
+                {
+                    MessageBox.Show("You does not exist");
+                    return false;
+                }
+                else
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                    return false;
+                }
+            }
         }
     }
 }
+
