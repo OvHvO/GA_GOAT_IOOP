@@ -1,0 +1,96 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace GA_TestRun1.Receptionist
+{
+    public partial class CheckInOutF : Form
+    {
+        int serviceId;
+        public CheckInOutF()
+        {
+            InitializeComponent();
+        }
+
+        private void CheckInOutF_Load(object sender, EventArgs e)
+        {
+            checkin_dataView.DataSource = Receptionists.cus_CheckInOut();
+
+        }
+
+        private void checkin_dataView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void checkin_dataView_SelectionChanged(object sender, EventArgs e)
+        {   //check the row when change
+            if (checkin_dataView.SelectedRows.Count>0)
+            {   //[0] represent a selection colection
+                 DataGridViewRow selectedRows= checkin_dataView.SelectedRows[0];
+                 checkin_Cusnametxt.Text = selectedRows.Cells["CusName"].Value.ToString();
+                 checkin_carVertxt.Text = selectedRows.Cells["carVer"].Value.ToString();
+                 string id =selectedRows.Cells["serviceid"].Value.ToString();
+                 int.TryParse(id, out int serid);
+                 serviceId = serid;
+                 checkin_Carnumtxt.Text  = selectedRows.Cells["carNum"].Value.ToString();
+                 
+            }
+        }
+
+        private void checkin_Upbtn_Click(object sender, EventArgs e)
+        {
+            if (!IsNullCheck(checkin_Carnumtxt.Text, checkin_carVertxt.Text, checkin_cbo.Text))
+            {
+                MessageBox.Show("Please Fill All the blanks");
+            }
+            else 
+            { 
+                if (checkin_cbo.SelectedIndex == 1)
+                {   
+                    //Problem- Cannot Specify which customer check Out
+
+                    DialogResult checkout = MessageBox.Show("Do You Want to check-out this Customer, this operation cannot be restored","Alert",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+                    if (checkout == DialogResult.OK)
+                    {   
+                        checkin_cbo.Enabled = false;
+                        checkin_Upbtn.Enabled = false;
+                        checkin_Carnumtxt.Enabled = false;
+                        checkin_carVertxt.Enabled = false;
+                        checkin_Billbtn.Enabled = true;
+                        Receptionists.cus_UpdateCheckInOut(checkin_Cusnametxt.Text, checkin_Carnumtxt.Text, checkin_carVertxt.Text, serviceId);
+
+                    }
+
+                }
+                else
+                {
+                        Receptionists.cus_UpdateCheckInOut(checkin_Cusnametxt.Text, checkin_Carnumtxt.Text, checkin_carVertxt.Text, serviceId);
+                
+                }
+            }
+        }
+
+        private void checkin_Billbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool IsNullCheck(params string[] values)
+        {
+            foreach (string value in values) 
+            {
+                if(string.IsNullOrEmpty(value))  
+                    return false;
+             
+            }
+            return true;
+        }
+    }
+}
