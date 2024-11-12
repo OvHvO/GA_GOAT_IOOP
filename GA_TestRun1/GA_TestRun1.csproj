@@ -329,6 +329,12 @@
     <Compile Include="Receptionist\Receptionist_home.Designer.cs">
       <DependentUpon>Receptionist_home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Receptionist\request_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receptionist\request_form.Designer.cs">
+      <DependentUpon>request_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Receptionist\searchInv.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -433,6 +439,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Receptionist\Receptionist_home.resx">
       <DependentUpon>Receptionist_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receptionist\request_form.resx">
+      <DependentUpon>request_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receptionist\searchInv.resx">
+      <DependentUpon>searchInv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sign_Up_form.resx">
       <DependentUpon>Sign_Up_form.cs</DependentUpon>
