@@ -16,6 +16,8 @@ namespace GA_TestRun1.Customer.cus_usercontrol
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
+            Cus_Source cus = new Cus_Source();
+            
         }
     }
 }
