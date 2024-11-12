@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using GA_TestRun1.Mechanics;
 using System.Xml.Schema;
 using System.Data;
+using System.Collections;
 
 namespace GA_TestRun1.Customer
 {
@@ -254,7 +255,7 @@ namespace GA_TestRun1.Customer
                                     {
                                         mechanicDic.Add(mechanic_ID, workingTime);
                                     }
-                                    
+
                                 }
                                 else
                                 {
@@ -372,7 +373,7 @@ namespace GA_TestRun1.Customer
 
                     rowsAffectSA = command.ExecuteNonQuery();
 
-                    
+
                 }
             }
 
@@ -387,7 +388,7 @@ namespace GA_TestRun1.Customer
             }
         }
 
-        public List<string> FeedbackChecking(int target_ID)
+        public List<string> CusNetChecking(int target_ID, string status)
         {
             List<string> serviceAP_List = new List<string>();
             List<string> serviceAP_CheckList = new List<string>();
@@ -475,7 +476,7 @@ namespace GA_TestRun1.Customer
         }
 
         public List<string> AppoinmentDtls(string target)
-        { 
+        {
             string query = @"select serviceAP_ID, carNum, carVersion from ServiceAppoinments
                              where serviceAP_ID = @TargetID";
             List<string> dtlsList = new List<string>();
@@ -529,7 +530,7 @@ namespace GA_TestRun1.Customer
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@TIMENOW", timenow);
-                        command.Parameters.AddWithValue("@CONTENT",content);
+                        command.Parameters.AddWithValue("@CONTENT", content);
                         command.Parameters.AddWithValue("@CUS_ID", Cus_ID);
                         command.Parameters.AddWithValue("@SERVICEAP_ID", ServiceAP_ID);
 
@@ -568,6 +569,54 @@ namespace GA_TestRun1.Customer
                 }
             }
         }
+
+        public bool Reschedule_AP(string selected)
+        {
+            string query1 = @"update ServiceAppoinments 
+                      set rescheduleStatus = 1
+                      where serviceAP_ID = @SERVICEAP_ID";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(query1, connection))
+                {
+                    command.Parameters.AddWithValue("@SERVICEAP_ID", selected);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected == 0)
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+        }
+        public bool Cancel_AP(string selected)
+        {
+            string query = @"delete from ServiceAppoinments where serviceAP_ID = @TARGET";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TARGET", selected);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected == 0)
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+        }
     }
+
 }
 
