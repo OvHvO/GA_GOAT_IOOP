@@ -30,11 +30,12 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.searchInv_panel = new System.Windows.Forms.Panel();
+            this.Request_combtn = new System.Windows.Forms.Button();
             this.Src_Invbtn = new System.Windows.Forms.Button();
             this.Invsrc_txt = new System.Windows.Forms.TextBox();
             this.SearchInvcb = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.InvsearchCb_lbl = new System.Windows.Forms.Label();
+            this.Invsearch_lbl = new System.Windows.Forms.Label();
             this.InvDataView = new System.Windows.Forms.DataGridView();
             this.Request_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Part_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,19 +43,17 @@
             this.Part_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Request_Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.request_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Request_combtn = new System.Windows.Forms.Button();
             this.searchInv_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InvDataView)).BeginInit();
             this.SuspendLayout();
             // 
             // searchInv_panel
             // 
-            this.searchInv_panel.Controls.Add(this.Request_combtn);
             this.searchInv_panel.Controls.Add(this.Src_Invbtn);
             this.searchInv_panel.Controls.Add(this.Invsrc_txt);
             this.searchInv_panel.Controls.Add(this.SearchInvcb);
-            this.searchInv_panel.Controls.Add(this.label2);
-            this.searchInv_panel.Controls.Add(this.label1);
+            this.searchInv_panel.Controls.Add(this.InvsearchCb_lbl);
+            this.searchInv_panel.Controls.Add(this.Invsearch_lbl);
             this.searchInv_panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchInv_panel.Location = new System.Drawing.Point(0, 0);
             this.searchInv_panel.Name = "searchInv_panel";
@@ -62,11 +61,21 @@
             this.searchInv_panel.TabIndex = 0;
             this.searchInv_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchInv_panel_Paint);
             // 
+            // Request_combtn
+            // 
+            this.Request_combtn.Location = new System.Drawing.Point(456, 441);
+            this.Request_combtn.Name = "Request_combtn";
+            this.Request_combtn.Size = new System.Drawing.Size(82, 33);
+            this.Request_combtn.TabIndex = 5;
+            this.Request_combtn.Text = "Confirm";
+            this.Request_combtn.UseVisualStyleBackColor = true;
+            this.Request_combtn.Click += new System.EventHandler(this.Request_combtn_Click);
+            // 
             // Src_Invbtn
             // 
-            this.Src_Invbtn.Location = new System.Drawing.Point(889, 28);
+            this.Src_Invbtn.Location = new System.Drawing.Point(889, 26);
             this.Src_Invbtn.Name = "Src_Invbtn";
-            this.Src_Invbtn.Size = new System.Drawing.Size(75, 23);
+            this.Src_Invbtn.Size = new System.Drawing.Size(79, 30);
             this.Src_Invbtn.TabIndex = 4;
             this.Src_Invbtn.Text = "Search";
             this.Src_Invbtn.UseVisualStyleBackColor = true;
@@ -85,28 +94,30 @@
             this.SearchInvcb.Items.AddRange(new object[] {
             "Request ID",
             "Status"});
-            this.SearchInvcb.Location = new System.Drawing.Point(92, 27);
+            this.SearchInvcb.Location = new System.Drawing.Point(136, 28);
             this.SearchInvcb.Name = "SearchInvcb";
-            this.SearchInvcb.Size = new System.Drawing.Size(121, 24);
+            this.SearchInvcb.Size = new System.Drawing.Size(142, 24);
             this.SearchInvcb.TabIndex = 2;
             // 
-            // label2
+            // InvsearchCb_lbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.InvsearchCb_lbl.AutoSize = true;
+            this.InvsearchCb_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InvsearchCb_lbl.Location = new System.Drawing.Point(22, 30);
+            this.InvsearchCb_lbl.Name = "InvsearchCb_lbl";
+            this.InvsearchCb_lbl.Size = new System.Drawing.Size(108, 20);
+            this.InvsearchCb_lbl.TabIndex = 1;
+            this.InvsearchCb_lbl.Text = "Search By: ";
             // 
-            // label1
+            // Invsearch_lbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(643, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.Invsearch_lbl.AutoSize = true;
+            this.Invsearch_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Invsearch_lbl.Location = new System.Drawing.Point(598, 31);
+            this.Invsearch_lbl.Name = "Invsearch_lbl";
+            this.Invsearch_lbl.Size = new System.Drawing.Size(80, 20);
+            this.Invsearch_lbl.TabIndex = 0;
+            this.Invsearch_lbl.Text = "Search: ";
             // 
             // InvDataView
             // 
@@ -132,7 +143,6 @@
             this.Part_Name,
             this.Request_Qty,
             this.request_status});
-            this.InvDataView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InvDataView.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.InvDataView.Location = new System.Drawing.Point(0, 77);
             this.InvDataView.Name = "InvDataView";
@@ -142,7 +152,7 @@
             this.InvDataView.RowHeadersWidth = 51;
             this.InvDataView.RowTemplate.Height = 24;
             this.InvDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.InvDataView.Size = new System.Drawing.Size(1007, 409);
+            this.InvDataView.Size = new System.Drawing.Size(1014, 346);
             this.InvDataView.TabIndex = 1;
             this.InvDataView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InvDataView_CellContentClick);
             // 
@@ -154,7 +164,7 @@
             this.Request_id.MinimumWidth = 6;
             this.Request_id.Name = "Request_id";
             this.Request_id.ReadOnly = true;
-            this.Request_id.Width = 103;
+            this.Request_id.Width = 95;
             // 
             // Part_ID
             // 
@@ -164,7 +174,7 @@
             this.Part_ID.MinimumWidth = 6;
             this.Part_ID.Name = "Part_ID";
             this.Part_ID.ReadOnly = true;
-            this.Part_ID.Width = 76;
+            this.Part_ID.Width = 71;
             // 
             // Mechanic_ID
             // 
@@ -174,7 +184,7 @@
             this.Mechanic_ID.MinimumWidth = 6;
             this.Mechanic_ID.Name = "Mechanic_ID";
             this.Mechanic_ID.ReadOnly = true;
-            this.Mechanic_ID.Width = 110;
+            this.Mechanic_ID.Width = 101;
             // 
             // Part_Name
             // 
@@ -205,21 +215,12 @@
             this.request_status.ReadOnly = true;
             this.request_status.Width = 73;
             // 
-            // Request_combtn
-            // 
-            this.Request_combtn.Location = new System.Drawing.Point(284, 38);
-            this.Request_combtn.Name = "Request_combtn";
-            this.Request_combtn.Size = new System.Drawing.Size(82, 33);
-            this.Request_combtn.TabIndex = 5;
-            this.Request_combtn.Text = "Confirm";
-            this.Request_combtn.UseVisualStyleBackColor = true;
-            this.Request_combtn.Click += new System.EventHandler(this.Request_combtn_Click);
-            // 
             // searchInv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 486);
+            this.Controls.Add(this.Request_combtn);
             this.Controls.Add(this.InvDataView);
             this.Controls.Add(this.searchInv_panel);
             this.Name = "searchInv";
@@ -238,8 +239,8 @@
         private System.Windows.Forms.DataGridView InvDataView;
         private System.Windows.Forms.TextBox Invsrc_txt;
         private System.Windows.Forms.ComboBox SearchInvcb;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label InvsearchCb_lbl;
+        private System.Windows.Forms.Label Invsearch_lbl;
         private System.Windows.Forms.Button Src_Invbtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Request_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Part_ID;
