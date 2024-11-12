@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.OptionPanel = new System.Windows.Forms.Panel();
+            this.Logo_img = new System.Windows.Forms.PictureBox();
             this.U_Profile_btn = new System.Windows.Forms.Button();
             this.V_ServiceTask_btn = new System.Windows.Forms.Button();
             this.M_Inventory_btn = new System.Windows.Forms.Button();
             this.R_Service_btn = new System.Windows.Forms.Button();
-            this.Logo_img = new System.Windows.Forms.PictureBox();
             this.Detailpanel = new System.Windows.Forms.Panel();
             this.OptionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_img)).BeginInit();
@@ -41,6 +41,7 @@
             // 
             // OptionPanel
             // 
+            this.OptionPanel.BackColor = System.Drawing.Color.Gray;
             this.OptionPanel.Controls.Add(this.Logo_img);
             this.OptionPanel.Controls.Add(this.U_Profile_btn);
             this.OptionPanel.Controls.Add(this.V_ServiceTask_btn);
@@ -51,6 +52,17 @@
             this.OptionPanel.Size = new System.Drawing.Size(107, 429);
             this.OptionPanel.TabIndex = 0;
             this.OptionPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.OptionPanel_Paint);
+            // 
+            // Logo_img
+            // 
+            this.Logo_img.Image = global::GA_TestRun1.Properties.Resources.logo__4_;
+            this.Logo_img.Location = new System.Drawing.Point(4, 3);
+            this.Logo_img.Name = "Logo_img";
+            this.Logo_img.Size = new System.Drawing.Size(100, 100);
+            this.Logo_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Logo_img.TabIndex = 4;
+            this.Logo_img.TabStop = false;
+            this.Logo_img.Click += new System.EventHandler(this.Logo_img_Click);
             // 
             // U_Profile_btn
             // 
@@ -103,17 +115,6 @@
             this.R_Service_btn.Text = "Record Service";
             this.R_Service_btn.UseVisualStyleBackColor = true;
             this.R_Service_btn.Click += new System.EventHandler(this.R_Service_btn_Click);
-            // 
-            // Logo_img
-            // 
-            this.Logo_img.Image = global::GA_TestRun1.Properties.Resources.logo;
-            this.Logo_img.Location = new System.Drawing.Point(12, 17);
-            this.Logo_img.Name = "Logo_img";
-            this.Logo_img.Size = new System.Drawing.Size(80, 80);
-            this.Logo_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Logo_img.TabIndex = 4;
-            this.Logo_img.TabStop = false;
-            this.Logo_img.Click += new System.EventHandler(this.Logo_img_Click);
             // 
             // Detailpanel
             // 

@@ -1,6 +1,6 @@
-﻿namespace GA_TestRun1.Mechanics
+﻿namespace GA_TestRun1.Mechanics.Mecha_Option
 {
-    partial class Mechanic_UI
+    partial class Mechanic_Record
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,12 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Mechanic_UI
+            // Mechanic_Record
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "Mechanic_UI";
+            this.Name = "Mechanic_Record";
             this.Size = new System.Drawing.Size(587, 429);
+            this.Load += new System.EventHandler(this.Mechanic_Record_Load);
             this.ResumeLayout(false);
 
         }
