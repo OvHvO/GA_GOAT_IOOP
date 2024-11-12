@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using static GA_TestRun1.Users;
 using System.Windows.Forms;
 using GA_TestRun1.Mechanics;
+using System.Xml.Schema;
 
 namespace GA_TestRun1.Customer
 {
@@ -370,7 +371,7 @@ namespace GA_TestRun1.Customer
 
                     rowsAffectSA = command.ExecuteNonQuery();
 
-
+                    
                 }
             }
 
@@ -383,6 +384,68 @@ namespace GA_TestRun1.Customer
             {
                 return false;
             }
+        }
+
+        public List<string> FeedbackChecking(int target_ID)
+        {
+            List<string> serviceAP_List = new List<string>();
+            List<string> serviceAP_CheckList = new List<string>();
+
+            string query1 = @"select serviceAP_ID 
+                     from ServiceAppoinments 
+                     where customer_ID = @Target_ID";
+
+            string query2 = @"select serviceAP_ID 
+                     from Tasks 
+                     where taskStatus = 'COMPLETE' 
+                     and serviceAP_ID = @ServiceAP_ID";
+
+            try
+            {
+                // First query - get initial service appointments
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query1, connection))
+                    {
+                        command.Parameters.AddWithValue("@Target_ID", target_ID);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                serviceAP_List.Add(reader["serviceAP_ID"].ToString());
+                            }
+                        }
+                    }
+                }
+
+                // Second query - check completed tasks
+                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query2, connection))
+                    {
+                        foreach (string serviceAP_ID in serviceAP_List)
+                        {
+                            command.Parameters.Clear();
+                            command.Parameters.AddWithValue("@ServiceAP_ID", serviceAP_ID);
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    serviceAP_CheckList.Add(reader["serviceAP_ID"].ToString());
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while processing feedback: {ex.Message}");
+            }
+
+            return serviceAP_CheckList;
         }
     }
 }
