@@ -75,18 +75,16 @@ namespace GA_TestRun1.Mechanics
             LoadUserControl(new Mechanic_Update());
         }
 
-        private void Logo_img_Click(object sender, EventArgs e)
+        private void Mechanic_home_Load(object sender, EventArgs e)
         {
-            LoadUserControl(Detailpanel, new Mechanic_Main());
+            LoadUserControl(new Mechanic_Main());
         }
 
-        //----------For 2 arguments to show main panel----------//
-        private void LoadUserControl(Panel targetpanel, UserControl userControl)
+        private void Logo_img_Click(object sender, EventArgs e)
         {
-            targetpanel.Controls.Clear();
-            userControl.Dock = DockStyle.Fill;
-            targetpanel.Controls.Add(userControl);
+            LoadUserControl(new Mechanic_Main());
         }
+
 
         //----------For 1 argument to show other panels----------//
         private void LoadUserControl(UserControl userControl)
@@ -96,11 +94,6 @@ namespace GA_TestRun1.Mechanics
             Detailpanel.Controls.Add(userControl);
         }
 
-        private void Mechanic_home_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        //------------------------------   ------------------------------
+//============================== ==============================//
     }
 }

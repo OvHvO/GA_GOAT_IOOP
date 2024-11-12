@@ -15,6 +15,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
         public Mechanic_Main()
         {
             InitializeComponent();
+            
         }
 
     }
