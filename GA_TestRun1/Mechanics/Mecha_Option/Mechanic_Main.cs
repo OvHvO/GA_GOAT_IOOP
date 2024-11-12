@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GA_TestRun1.Receptionist;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,32 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
 {
     public partial class Mechanic_Main : UserControl
     {
-        public Mechanic_Main()
+        private string Name;
+        private string Contact;
+
+        public Mechanic_Main(string N,  string Contactnum)
         {
             InitializeComponent();
-            
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
+            Name = N;
+            Contact = Contactnum;
         }
 
+        public Mechanic_Main(string newUsername)
+        {
+            Name = newUsername;
+        }
+
+        private void Refresh_btn_Click(object sender, EventArgs e)
+        {
+            RefreshProfile();
+        }
+
+        private void RefreshProfile()
+        {
+            string[] newprof = (string[])Receptionists.newprofile(Name);
+            Name_lbl.Text = newprof[0];
+            PNum_lbl.Text = newprof[1];
+        }
     }
 }
