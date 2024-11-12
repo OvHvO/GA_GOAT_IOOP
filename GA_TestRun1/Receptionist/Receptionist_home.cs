@@ -48,6 +48,17 @@ namespace GA_TestRun1.Receptionist
         {
             nav_Bar.BackColor = ColorTranslator.FromHtml("#69764F");
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
+            Rcp_home_delCus.BackColor = ColorTranslator.FromHtml("#69764F");
+            Rcp_home_signOut.BackColor = ColorTranslator.FromHtml("#69764F");
+            Rcp_Add.BackColor = ColorTranslator.FromHtml("#69764F");
+            rcp_updateProf_btn.BackColor = ColorTranslator.FromHtml("#69764F");
+            rcp_manageAppbtn.BackColor = ColorTranslator.FromHtml("#69764F");
+            rcp_srcInvbtn.BackColor = ColorTranslator.FromHtml("#69764F");
+            rcp_CheckinOutbtn.BackColor = ColorTranslator.FromHtml("#69764F");
+
+
+
+
             LoadhomePage();
 
 
@@ -61,6 +72,8 @@ namespace GA_TestRun1.Receptionist
             Rcp_usernamelbl.Text = newprof[0];
             Rcp_contactNumlbl.Text = newprof[1];
             Rcp_rolelbl.Text = "Receptionist";
+
+
         }
 
 
@@ -155,37 +168,13 @@ namespace GA_TestRun1.Receptionist
 
         }
 
-        private void ContactNumtxt_lbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Roletxt_lbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void rcp_manageAppbtn_btn_Click(object sender, EventArgs e)
         {
             Manage_Appoinment manageform = new Manage_Appoinment(name);
             manageform.ShowDialog();
         }
 
-        private void rcp_homebtn_btn_Click(object sender, EventArgs e)
-        {
-            panel1.Controls.Clear();
-            panel1.Visible = false;
-            //Rcp_profileBox.Items.Clear ();
-            //string[] newprof = (string[])Receptionists.newprofile(name);
-            //foreach (var items in newprof)
-            //{
-            //    Rcp_profileBox.Items.Add($"Username:           {items[0]}");
-            //    Rcp_profileBox.Items.Add($"Contact Number:     {items[1]}");
-            //    Rcp_profileBox.Items.Add($"Roles               Receptionist");
-
-            //}
-
-        }
+        
 
         private void rcp_CheckinOutbtn_btn_Click(object sender, EventArgs e)
         {
@@ -229,6 +218,19 @@ namespace GA_TestRun1.Receptionist
         private void nav_Bar_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Rcp_home_delCus_BackColorChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void logobox_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Visible = false;
         }
     }
 }
