@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manage_Appoinment));
             this.Rcp_dataview = new System.Windows.Forms.DataGridView();
             this.CusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.App_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,8 +44,10 @@
             this.Rcp_searchbtn = new System.Windows.Forms.Button();
             this.Search_txtb = new System.Windows.Forms.TextBox();
             this.Search_cbo = new System.Windows.Forms.ComboBox();
+            this.reload_pict = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Rcp_dataview)).BeginInit();
             this.rcp_appoimentBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).BeginInit();
             this.SuspendLayout();
             // 
             // Rcp_dataview
@@ -154,6 +157,7 @@
             // 
             // rcp_appoimentBar
             // 
+            this.rcp_appoimentBar.Controls.Add(this.reload_pict);
             this.rcp_appoimentBar.Controls.Add(this.scr_lbl);
             this.rcp_appoimentBar.Controls.Add(this.SearchCBO_lbl);
             this.rcp_appoimentBar.Controls.Add(this.Rcp_searchbtn);
@@ -216,6 +220,18 @@
             this.Search_cbo.TabIndex = 0;
             this.Search_cbo.SelectedIndexChanged += new System.EventHandler(this.Search_cbo_SelectedIndexChanged);
             // 
+            // reload_pict
+            // 
+            this.reload_pict.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reload_pict.Image = ((System.Drawing.Image)(resources.GetObject("reload_pict.Image")));
+            this.reload_pict.Location = new System.Drawing.Point(927, 24);
+            this.reload_pict.Name = "reload_pict";
+            this.reload_pict.Size = new System.Drawing.Size(33, 33);
+            this.reload_pict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.reload_pict.TabIndex = 5;
+            this.reload_pict.TabStop = false;
+            this.reload_pict.Click += new System.EventHandler(this.reload_pict_Click);
+            // 
             // Manage_Appoinment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -229,6 +245,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Rcp_dataview)).EndInit();
             this.rcp_appoimentBar.ResumeLayout(false);
             this.rcp_appoimentBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -248,5 +265,6 @@
         private System.Windows.Forms.Button Rcp_searchbtn;
         private System.Windows.Forms.TextBox Search_txtb;
         private System.Windows.Forms.ComboBox Search_cbo;
+        private System.Windows.Forms.PictureBox reload_pict;
     }
 }

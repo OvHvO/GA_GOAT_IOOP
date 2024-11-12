@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.tasknamelbl = new System.Windows.Forms.Label();
             this.lbl_ContactN = new System.Windows.Forms.Label();
             this.lbl_Vehicle = new System.Windows.Forms.Label();
             this.lbl_Name = new System.Windows.Forms.Label();
@@ -42,52 +42,52 @@
             this.ServiceTimelbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // tasknamelbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 452);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "label1";
+            this.tasknamelbl.AutoSize = true;
+            this.tasknamelbl.Location = new System.Drawing.Point(12, 452);
+            this.tasknamelbl.Name = "tasknamelbl";
+            this.tasknamelbl.Size = new System.Drawing.Size(84, 16);
+            this.tasknamelbl.TabIndex = 10;
+            this.tasknamelbl.Text = "Task Name: ";
             // 
             // lbl_ContactN
             // 
             this.lbl_ContactN.AutoSize = true;
-            this.lbl_ContactN.Location = new System.Drawing.Point(17, 379);
+            this.lbl_ContactN.Location = new System.Drawing.Point(12, 379);
             this.lbl_ContactN.Name = "lbl_ContactN";
-            this.lbl_ContactN.Size = new System.Drawing.Size(44, 16);
+            this.lbl_ContactN.Size = new System.Drawing.Size(109, 16);
             this.lbl_ContactN.TabIndex = 11;
-            this.lbl_ContactN.Text = "label1";
+            this.lbl_ContactN.Text = "Contact Number: ";
             // 
             // lbl_Vehicle
             // 
             this.lbl_Vehicle.AutoSize = true;
-            this.lbl_Vehicle.Location = new System.Drawing.Point(17, 316);
+            this.lbl_Vehicle.Location = new System.Drawing.Point(12, 319);
             this.lbl_Vehicle.Name = "lbl_Vehicle";
-            this.lbl_Vehicle.Size = new System.Drawing.Size(44, 16);
+            this.lbl_Vehicle.Size = new System.Drawing.Size(86, 16);
             this.lbl_Vehicle.TabIndex = 12;
-            this.lbl_Vehicle.Text = "label1";
+            this.lbl_Vehicle.Text = "Vehicle Num:";
             // 
             // lbl_Name
             // 
             this.lbl_Name.AutoSize = true;
-            this.lbl_Name.Location = new System.Drawing.Point(17, 257);
+            this.lbl_Name.Location = new System.Drawing.Point(12, 257);
             this.lbl_Name.Name = "lbl_Name";
-            this.lbl_Name.Size = new System.Drawing.Size(44, 16);
+            this.lbl_Name.Size = new System.Drawing.Size(110, 16);
             this.lbl_Name.TabIndex = 13;
-            this.lbl_Name.Text = "label1";
+            this.lbl_Name.Text = "Cusotmer Name: ";
             // 
             // task_nametxtb
             // 
-            this.task_nametxtb.Location = new System.Drawing.Point(114, 446);
+            this.task_nametxtb.Location = new System.Drawing.Point(151, 446);
             this.task_nametxtb.Name = "task_nametxtb";
             this.task_nametxtb.Size = new System.Drawing.Size(268, 22);
             this.task_nametxtb.TabIndex = 6;
             // 
             // ContactNum_txtb
             // 
-            this.ContactNum_txtb.Location = new System.Drawing.Point(114, 376);
+            this.ContactNum_txtb.Location = new System.Drawing.Point(151, 376);
             this.ContactNum_txtb.Name = "ContactNum_txtb";
             this.ContactNum_txtb.ReadOnly = true;
             this.ContactNum_txtb.Size = new System.Drawing.Size(268, 22);
@@ -95,7 +95,7 @@
             // 
             // Vehicle_txtb
             // 
-            this.Vehicle_txtb.Location = new System.Drawing.Point(114, 316);
+            this.Vehicle_txtb.Location = new System.Drawing.Point(151, 316);
             this.Vehicle_txtb.Name = "Vehicle_txtb";
             this.Vehicle_txtb.ReadOnly = true;
             this.Vehicle_txtb.Size = new System.Drawing.Size(268, 22);
@@ -103,7 +103,7 @@
             // 
             // Name_txtb
             // 
-            this.Name_txtb.Location = new System.Drawing.Point(114, 257);
+            this.Name_txtb.Location = new System.Drawing.Point(151, 257);
             this.Name_txtb.Name = "Name_txtb";
             this.Name_txtb.ReadOnly = true;
             this.Name_txtb.Size = new System.Drawing.Size(268, 22);
@@ -115,7 +115,7 @@
             this.task_btn.Name = "task_btn";
             this.task_btn.Size = new System.Drawing.Size(108, 53);
             this.task_btn.TabIndex = 5;
-            this.task_btn.Text = "button1";
+            this.task_btn.Text = "Assign";
             this.task_btn.UseVisualStyleBackColor = true;
             this.task_btn.Click += new System.EventHandler(this.task_btn_Click_1);
             // 
@@ -132,7 +132,7 @@
             // serviceDateTimepick
             // 
             this.serviceDateTimepick.CustomFormat = "";
-            this.serviceDateTimepick.Location = new System.Drawing.Point(114, 501);
+            this.serviceDateTimepick.Location = new System.Drawing.Point(151, 501);
             this.serviceDateTimepick.Name = "serviceDateTimepick";
             this.serviceDateTimepick.Size = new System.Drawing.Size(268, 22);
             this.serviceDateTimepick.TabIndex = 14;
@@ -141,11 +141,11 @@
             // ServiceTimelbl
             // 
             this.ServiceTimelbl.AutoSize = true;
-            this.ServiceTimelbl.Location = new System.Drawing.Point(20, 506);
+            this.ServiceTimelbl.Location = new System.Drawing.Point(12, 507);
             this.ServiceTimelbl.Name = "ServiceTimelbl";
-            this.ServiceTimelbl.Size = new System.Drawing.Size(44, 16);
+            this.ServiceTimelbl.Size = new System.Drawing.Size(93, 16);
             this.ServiceTimelbl.TabIndex = 15;
-            this.ServiceTimelbl.Text = "label2";
+            this.ServiceTimelbl.Text = "Service Time: ";
             // 
             // Assign_task
             // 
@@ -155,7 +155,7 @@
             this.ClientSize = new System.Drawing.Size(463, 616);
             this.Controls.Add(this.ServiceTimelbl);
             this.Controls.Add(this.serviceDateTimepick);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tasknamelbl);
             this.Controls.Add(this.lbl_ContactN);
             this.Controls.Add(this.lbl_Vehicle);
             this.Controls.Add(this.lbl_Name);
@@ -175,7 +175,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label tasknamelbl;
         private System.Windows.Forms.Label lbl_ContactN;
         private System.Windows.Forms.Label lbl_Vehicle;
         private System.Windows.Forms.Label lbl_Name;
