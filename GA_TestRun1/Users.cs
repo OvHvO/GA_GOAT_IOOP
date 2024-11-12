@@ -20,7 +20,7 @@ namespace GA_TestRun1
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
 
-        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# Learning\\GA_IOOP\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
+        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test2\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         private string Password;
         private string ContactNum;
         private string Username;
@@ -135,7 +135,7 @@ namespace GA_TestRun1
                             }
                         case 3:
                             {
-                                Mechanic_home mechanic = new Mechanic_home();
+                                Mechanic_home mechanic = new Mechanic_home(username);
                                 SigninP.Hide();
                                 mechanic.ShowDialog();
 
@@ -378,27 +378,34 @@ namespace GA_TestRun1
 
 
                 string[] Roles = { "rcptionist", "customer", "admin", "mechanic" };
-                string Positions = (cmd.ExecuteScalar().ToString());
-                for (int i = 0; i < Roles.Length; i++)
-                {
-                    if (Roles[i] == Positions)
-                    {
-                        switch (i)
-                        {
-                            case 0:
-                                {
-                                    Receptionists recep = new Receptionists(username,password);
-                                    recep.rcpUpdateProf(oldusername, username, password);
-                                    
-                                    break;
-                                }
 
-                            
+                    string Positions = (cmd.ExecuteScalar().ToString());
+                    for (int i = 0; i < Roles.Length; i++)
+                    {
+                        if (Roles[i] == Positions)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    {
+                                        Receptionists recep = new Receptionists(username, password);
+                                        recep.rcpUpdateProf(oldusername, username, password);
+
+                                        break;
+                                    }
+
+                                case 3:
+                                    {
+                                        Mechanic mechanic = new Mechanic(username, password);
+                                        mechanic.mcnUpdateProf(oldusername, username, password);
+                                        break;
+                                    }
+                            }
+
                         }
 
+
                     }
-
-
                 }
 
 
@@ -408,12 +415,12 @@ namespace GA_TestRun1
 
         public static class ConnectionS_admin
         {
-            public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# Learning\\GA_IOOP\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
+            public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test2\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         }
 
     }
 
-}
+
 
 
 

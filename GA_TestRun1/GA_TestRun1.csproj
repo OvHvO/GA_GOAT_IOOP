@@ -286,12 +286,6 @@
     <Compile Include="Mechanics\Mecha_Option\Mechanic_Record.Designer.cs">
       <DependentUpon>Mechanic_Record.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mechanics\Mecha_Option\Mechanic_Update.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Mechanics\Mecha_Option\Mechanic_Update.Designer.cs">
-      <DependentUpon>Mechanic_Update.cs</DependentUpon>
-    </Compile>
     <Compile Include="Mechanics\Mecha_Option\Mechanic_View.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -418,9 +412,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mechanics\Mecha_Option\Mechanic_Record.resx">
       <DependentUpon>Mechanic_Record.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Mechanics\Mecha_Option\Mechanic_Update.resx">
-      <DependentUpon>Mechanic_Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mechanics\Mecha_Option\Mechanic_View.resx">
       <DependentUpon>Mechanic_View.cs</DependentUpon>
