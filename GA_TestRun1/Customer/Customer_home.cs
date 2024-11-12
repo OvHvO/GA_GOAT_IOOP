@@ -53,7 +53,7 @@ namespace GA_TestRun1.Customer
 
         private void feedbackBtn_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new Cus_Feedback());
+            LoadUserControl(new Cus_Feedback(cus_ID));
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
