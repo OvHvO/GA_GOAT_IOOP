@@ -29,7 +29,7 @@ namespace GA_TestRun1.Receptionist
         private void Assign_task_Load(object sender, EventArgs e)
         {
             serviceDateTimepick.Format = DateTimePickerFormat.Custom;
-            serviceDateTimepick.CustomFormat = "MM / dd / yyyy hh: mm tt";
+            serviceDateTimepick.CustomFormat = "dd / MM / yyyy hh: mm tt";
             serviceDateTimepick.ShowUpDown = true;
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             List<string> mecName = new List<string>();
@@ -52,17 +52,23 @@ namespace GA_TestRun1.Receptionist
         private void task_btn_Click_1(object sender, EventArgs e)
         {
             
-            string selectedItems = Mec_namelistb.SelectedItem.ToString();
-            if (string.IsNullOrEmpty(task_nametxtb.Text) == false)
-            {  
-                Receptionists recep = new Receptionists();
-                recep.assignMec(selectedItems, task_nametxtb.Text, Appoid, Rcpname,serviceDateTimepick.Value);
+            string selectedItems = Mec_namelistb.SelectedItem as string;
+            
+                if (string.IsNullOrEmpty(task_nametxtb.Text) == false)
+                {
+                    Receptionists recep = new Receptionists();
+                    recep.assignMec(selectedItems, task_nametxtb.Text, Appoid, Rcpname, serviceDateTimepick.Value);
+                    this.Close();
+
+                }
+           
+                else
+                {
+                    MessageBox.Show("Please fill all the blanks");
+                }
             }
-            else
-            {
-                MessageBox.Show("Please fill all the blanks");
-            }
-        }
+            
+        
 
         private void serviceDateTimepick_ValueChanged(object sender, EventArgs e)
         {

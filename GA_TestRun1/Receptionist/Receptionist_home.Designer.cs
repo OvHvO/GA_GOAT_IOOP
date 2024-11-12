@@ -36,7 +36,6 @@ namespace GA_TestRun1.Receptionist
             this.Rcp_home_signOut = new System.Windows.Forms.Button();
             this.rcp_updateProf_btn = new System.Windows.Forms.Button();
             this.nav_Bar = new System.Windows.Forms.Panel();
-            this.rcp_homebtn = new System.Windows.Forms.Button();
             this.rcp_srcInvbtn = new System.Windows.Forms.Button();
             this.rcp_CheckinOutbtn = new System.Windows.Forms.Button();
             this.rcp_manageAppbtn = new System.Windows.Forms.Button();
@@ -51,13 +50,17 @@ namespace GA_TestRun1.Receptionist
             this.label1 = new System.Windows.Forms.Label();
             this.rcp_profieBox_btn = new System.Windows.Forms.Button();
             this.prof_lbl = new System.Windows.Forms.Label();
+            this.logobox = new System.Windows.Forms.PictureBox();
             this.nav_Bar.SuspendLayout();
             this.Rcp_Profpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logobox)).BeginInit();
             this.SuspendLayout();
             // 
             // Rcp_Add
             // 
-            this.Rcp_Add.Location = new System.Drawing.Point(12, 81);
+            this.Rcp_Add.FlatAppearance.BorderSize = 0;
+            this.Rcp_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Rcp_Add.Location = new System.Drawing.Point(12, 162);
             this.Rcp_Add.Name = "Rcp_Add";
             this.Rcp_Add.Size = new System.Drawing.Size(96, 50);
             this.Rcp_Add.TabIndex = 0;
@@ -79,7 +82,9 @@ namespace GA_TestRun1.Receptionist
             // 
             // Rcp_home_delCus
             // 
-            this.Rcp_home_delCus.Location = new System.Drawing.Point(12, 22);
+            this.Rcp_home_delCus.FlatAppearance.BorderSize = 0;
+            this.Rcp_home_delCus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Rcp_home_delCus.Location = new System.Drawing.Point(12, 106);
             this.Rcp_home_delCus.Name = "Rcp_home_delCus";
             this.Rcp_home_delCus.Size = new System.Drawing.Size(96, 50);
             this.Rcp_home_delCus.TabIndex = 2;
@@ -89,9 +94,11 @@ namespace GA_TestRun1.Receptionist
             // 
             // Rcp_home_signOut
             // 
+            this.Rcp_home_signOut.FlatAppearance.BorderSize = 0;
+            this.Rcp_home_signOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Rcp_home_signOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rcp_home_signOut.ForeColor = System.Drawing.Color.Red;
-            this.Rcp_home_signOut.Location = new System.Drawing.Point(12, 435);
+            this.Rcp_home_signOut.Location = new System.Drawing.Point(12, 442);
             this.Rcp_home_signOut.Name = "Rcp_home_signOut";
             this.Rcp_home_signOut.Size = new System.Drawing.Size(96, 50);
             this.Rcp_home_signOut.TabIndex = 3;
@@ -101,7 +108,9 @@ namespace GA_TestRun1.Receptionist
             // 
             // rcp_updateProf_btn
             // 
-            this.rcp_updateProf_btn.Location = new System.Drawing.Point(12, 140);
+            this.rcp_updateProf_btn.FlatAppearance.BorderSize = 0;
+            this.rcp_updateProf_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rcp_updateProf_btn.Location = new System.Drawing.Point(12, 218);
             this.rcp_updateProf_btn.Name = "rcp_updateProf_btn";
             this.rcp_updateProf_btn.Size = new System.Drawing.Size(96, 50);
             this.rcp_updateProf_btn.TabIndex = 4;
@@ -112,10 +121,10 @@ namespace GA_TestRun1.Receptionist
             // nav_Bar
             // 
             this.nav_Bar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.nav_Bar.Controls.Add(this.logobox);
             this.nav_Bar.Controls.Add(this.Rcp_home_signOut);
             this.nav_Bar.Controls.Add(this.Rcp_home_delCus);
             this.nav_Bar.Controls.Add(this.Rcp_Add);
-            this.nav_Bar.Controls.Add(this.rcp_homebtn);
             this.nav_Bar.Controls.Add(this.rcp_srcInvbtn);
             this.nav_Bar.Controls.Add(this.rcp_CheckinOutbtn);
             this.nav_Bar.Controls.Add(this.rcp_manageAppbtn);
@@ -126,19 +135,11 @@ namespace GA_TestRun1.Receptionist
             this.nav_Bar.Size = new System.Drawing.Size(131, 504);
             this.nav_Bar.TabIndex = 5;
             // 
-            // rcp_homebtn
-            // 
-            this.rcp_homebtn.Location = new System.Drawing.Point(12, 376);
-            this.rcp_homebtn.Name = "rcp_homebtn";
-            this.rcp_homebtn.Size = new System.Drawing.Size(96, 50);
-            this.rcp_homebtn.TabIndex = 4;
-            this.rcp_homebtn.Text = "Main Menu";
-            this.rcp_homebtn.UseVisualStyleBackColor = true;
-            this.rcp_homebtn.Click += new System.EventHandler(this.rcp_homebtn_btn_Click);
-            // 
             // rcp_srcInvbtn
             // 
-            this.rcp_srcInvbtn.Location = new System.Drawing.Point(12, 317);
+            this.rcp_srcInvbtn.FlatAppearance.BorderSize = 0;
+            this.rcp_srcInvbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rcp_srcInvbtn.Location = new System.Drawing.Point(12, 386);
             this.rcp_srcInvbtn.Name = "rcp_srcInvbtn";
             this.rcp_srcInvbtn.Size = new System.Drawing.Size(96, 50);
             this.rcp_srcInvbtn.TabIndex = 4;
@@ -148,7 +149,9 @@ namespace GA_TestRun1.Receptionist
             // 
             // rcp_CheckinOutbtn
             // 
-            this.rcp_CheckinOutbtn.Location = new System.Drawing.Point(12, 258);
+            this.rcp_CheckinOutbtn.FlatAppearance.BorderSize = 0;
+            this.rcp_CheckinOutbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rcp_CheckinOutbtn.Location = new System.Drawing.Point(12, 330);
             this.rcp_CheckinOutbtn.Name = "rcp_CheckinOutbtn";
             this.rcp_CheckinOutbtn.Size = new System.Drawing.Size(96, 50);
             this.rcp_CheckinOutbtn.TabIndex = 4;
@@ -158,7 +161,9 @@ namespace GA_TestRun1.Receptionist
             // 
             // rcp_manageAppbtn
             // 
-            this.rcp_manageAppbtn.Location = new System.Drawing.Point(12, 199);
+            this.rcp_manageAppbtn.FlatAppearance.BorderSize = 0;
+            this.rcp_manageAppbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rcp_manageAppbtn.Location = new System.Drawing.Point(12, 274);
             this.rcp_manageAppbtn.Name = "rcp_manageAppbtn";
             this.rcp_manageAppbtn.Size = new System.Drawing.Size(96, 50);
             this.rcp_manageAppbtn.TabIndex = 4;
@@ -280,6 +285,18 @@ namespace GA_TestRun1.Receptionist
             this.prof_lbl.TabIndex = 2;
             this.prof_lbl.Text = "Your Profile";
             // 
+            // logobox
+            // 
+            this.logobox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logobox.Image = global::GA_TestRun1.Properties.Resources.logo__4_;
+            this.logobox.Location = new System.Drawing.Point(12, 3);
+            this.logobox.Name = "logobox";
+            this.logobox.Size = new System.Drawing.Size(100, 97);
+            this.logobox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logobox.TabIndex = 5;
+            this.logobox.TabStop = false;
+            this.logobox.Click += new System.EventHandler(this.logobox_Click);
+            // 
             // Receptionist_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -296,6 +313,7 @@ namespace GA_TestRun1.Receptionist
             this.nav_Bar.ResumeLayout(false);
             this.Rcp_Profpanel.ResumeLayout(false);
             this.Rcp_Profpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logobox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,7 +337,6 @@ namespace GA_TestRun1.Receptionist
         private System.Windows.Forms.Panel Rcp_Profpanel;
         private System.Windows.Forms.Label prof_lbl;
         private System.Windows.Forms.MonthCalendar rcp_calandar;
-        private System.Windows.Forms.Button rcp_homebtn;
         private System.Windows.Forms.Button rcp_srcInvbtn;
         private System.Windows.Forms.Button rcp_CheckinOutbtn;
         private System.Windows.Forms.Button rcp_manageAppbtn;
@@ -330,5 +347,6 @@ namespace GA_TestRun1.Receptionist
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label Rcp_usernamelbl;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox logobox;
     }
 }
