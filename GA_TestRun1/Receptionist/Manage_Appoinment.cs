@@ -45,10 +45,10 @@ namespace GA_TestRun1.Receptionist
                 assign.ShowDialog();
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                MessageBox.Show(ex.ToString());
-                //MessageBox.Show("Please Double Click On the Content Not header!","Assigning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                //MessageBox.Show(ex.ToString());
+                MessageBox.Show("Please Double Click On the Content Not header!","Assigning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
 
 

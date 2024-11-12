@@ -182,7 +182,8 @@ namespace GA_TestRun1.Receptionist
         }
         private void rcp_srcInvbtn_btn_Click(object sender, EventArgs e)
         {
-
+            searchInv search= new searchInv();
+            search.ShowDialog();
         }
 
         private void label1_Click(object sender, EventArgs e)
