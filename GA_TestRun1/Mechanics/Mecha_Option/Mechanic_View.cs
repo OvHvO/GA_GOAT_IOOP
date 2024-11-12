@@ -44,7 +44,10 @@ namespace GA_TestRun1.Mechanics
 
         private void Mcn_GridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Mcn_GridView.DataSource = Mechanic.ViewProfList(NewName);
+            Mechanic mechanic = new Mechanic(Name);
+            string userName = "SomeUser";  // Replace with actual UserName value
+            string newName = "SomeNewUser";
+            Mcn_GridView.DataSource = mechanic.ViewProfList(userName, newName);
             Search_list.SelectedIndex = 0;
         }
     }

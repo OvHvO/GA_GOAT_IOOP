@@ -120,14 +120,13 @@ namespace GA_TestRun1.Mechanics
                 {
                     conn.Open();
                     SqlTransaction transaction = conn.BeginTransaction();
-                    string query = $@"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum, T.mechanic_ID
-                             from Customers AS C
+                    string query = @"SELECT DISTINCT C.customer_ID, C.customerUsername, C.customerContactNum, SA.serviceAP_ID, SA.carNum, T.mechanic_ID
+                             FROM Customers AS C
                              INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
-                             LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
-                             WHERE T.mechanicUsername = {UserName}
-                            ";
+                             LEFT JOIN Tasks AS T ON T.serviceAP_ID = SA.serviceAP_ID
+                             WHERE T.mechanicUsername = @UserName";
 
-                    string query1 = "Select McnUsername, McnNewUsername from ##temptable";
+                    string query1 = "SELECT McnUsername, McnNewUsername FROM ##temptable";
                     SqlCommand cmd1 = new SqlCommand(query1, conn, transaction);
                     cmd1.Parameters.AddWithValue("@username", UserName);
                     cmd1.Parameters.AddWithValue("@newusername", newUserName);
@@ -138,16 +137,20 @@ namespace GA_TestRun1.Mechanics
                         MessageBox.Show("Successful");
                         transaction.Commit();
                     }
-
                     else
                     {
                         MessageBox.Show("Unsuccessful");
                         transaction.Rollback();
                     }
 
-                    SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                    // Execute main query with parameters
+                    SqlCommand cmd = new SqlCommand(query, conn, transaction);
+                    cmd.Parameters.AddWithValue("@UserName", UserName);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable data = new DataTable();
                     adapter.Fill(data);
+
                     conn.Close();
                     return data;
                 }
