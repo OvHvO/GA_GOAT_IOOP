@@ -50,20 +50,28 @@ namespace GA_TestRun1.Customer.cus_usercontrol
         }
 
         private void Cus_Service_LB_SelectedIndexChanged(object sender, EventArgs e)
-        {   
-            Cus_ServiceDtls_LB.Items.Clear();
-            Cus_Service_cusID.Clear();
-            //start finding the service details
-            targetservice = (Cus_Service_LB.SelectedItem).ToString();
-            Cus_Source cus_service = new Cus_Source();
-            object[] serviceDetails = cus_service.Service_Details(targetservice);
-            foreach(string serviceD in serviceDetails)
+        {
+            try
             {
-                Cus_ServiceDtls_LB.Items.Add(serviceD);
+                Cus_ServiceDtls_LB.Items.Clear();
+                Cus_Service_cusID.Clear();
+                //start finding the service details
+                targetservice = (Cus_Service_LB.SelectedItem).ToString();
+                Cus_Source cus_service = new Cus_Source();
+                object[] serviceDetails = cus_service.Service_Details(targetservice);
+                foreach (string serviceD in serviceDetails)
+                {
+                    Cus_ServiceDtls_LB.Items.Add(serviceD);
+                }
+
+                Cus_Service_cusID.Text = cus_ID.ToString();
+                Cus_Service_cusID.ReadOnly = true;
             }
 
-            Cus_Service_cusID.Text = cus_ID.ToString();
-            Cus_Service_cusID.ReadOnly = true;
+            catch(Exception)
+            {
+
+            }
 
             //Find Mechanics who can handle this job
             //Dictionary<int, string> appointmentDate = cus_service.MechanicTime();

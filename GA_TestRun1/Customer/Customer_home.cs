@@ -60,5 +60,10 @@ namespace GA_TestRun1.Customer
         {
             LoadUserControl(new Cus_Interface());
         }
+
+        private void appManagementBtn_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new Cus_AP_Management());
+        }
     }
 }
