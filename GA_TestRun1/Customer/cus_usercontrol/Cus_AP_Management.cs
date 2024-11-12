@@ -63,7 +63,7 @@ namespace GA_TestRun1.Customer.cus_usercontrol
             }
             else
             {
-                MessageBox.Show("There are some problems");Wi
+                MessageBox.Show("There are some problems");
             }
         }
     }
