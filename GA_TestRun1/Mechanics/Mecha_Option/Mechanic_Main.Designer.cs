@@ -50,6 +50,7 @@
             this.Welcome_txt.Size = new System.Drawing.Size(426, 30);
             this.Welcome_txt.TabIndex = 0;
             this.Welcome_txt.Text = "Welcome to Mechanic Home Page";
+            this.Welcome_txt.Click += new System.EventHandler(this.Welcome_txt_Click);
             // 
             // panel1
             // 

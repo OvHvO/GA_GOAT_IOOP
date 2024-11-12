@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GA_TestRun1.Mechanics.Mecha_Option
+namespace GA_TestRun1.Receptionist
 {
-    public partial class Mechanic_Update : UserControl
+    public partial class request_form : Form
     {
-        public Mechanic_Update()
+        public request_form()
         {
             InitializeComponent();
         }

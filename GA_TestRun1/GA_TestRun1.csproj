@@ -286,12 +286,6 @@
     <Compile Include="Mechanics\Mecha_Option\Mechanic_Record.Designer.cs">
       <DependentUpon>Mechanic_Record.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mechanics\Mecha_Option\Mechanic_Update.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Mechanics\Mecha_Option\Mechanic_Update.Designer.cs">
-      <DependentUpon>Mechanic_Update.cs</DependentUpon>
-    </Compile>
     <Compile Include="Mechanics\Mecha_Option\Mechanic_View.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -328,6 +322,12 @@
     </Compile>
     <Compile Include="Receptionist\Receptionist_home.Designer.cs">
       <DependentUpon>Receptionist_home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\request_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receptionist\request_form.Designer.cs">
+      <DependentUpon>request_form.cs</DependentUpon>
     </Compile>
     <Compile Include="Receptionist\searchInv.cs">
       <SubType>Form</SubType>
@@ -413,9 +413,6 @@
     <EmbeddedResource Include="Mechanics\Mecha_Option\Mechanic_Record.resx">
       <DependentUpon>Mechanic_Record.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mechanics\Mecha_Option\Mechanic_Update.resx">
-      <DependentUpon>Mechanic_Update.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Mechanics\Mecha_Option\Mechanic_View.resx">
       <DependentUpon>Mechanic_View.cs</DependentUpon>
     </EmbeddedResource>
@@ -433,6 +430,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Receptionist\Receptionist_home.resx">
       <DependentUpon>Receptionist_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receptionist\request_form.resx">
+      <DependentUpon>request_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receptionist\searchInv.resx">
+      <DependentUpon>searchInv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sign_Up_form.resx">
       <DependentUpon>Sign_Up_form.cs</DependentUpon>
