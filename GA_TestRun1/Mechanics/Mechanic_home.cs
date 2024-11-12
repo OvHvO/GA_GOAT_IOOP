@@ -63,7 +63,7 @@ namespace GA_TestRun1.Mechanics
             //----------Change border size----------//
             this.V_ServiceTask_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.V_ServiceTask_btn.FlatAppearance.BorderSize = 0;
-            LoadUserControl(new Mechanic_View());
+            LoadUserControl(new Mechanic_View(Name));
         }
 
 
