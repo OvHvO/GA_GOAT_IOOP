@@ -12,6 +12,7 @@ using Azure.Identity;
 using GA_TestRun1;
 using GA_TestRun1.Customer;
 
+
 namespace GA_TestRun1.Receptionist
 {
     internal class Receptionists
@@ -320,6 +321,64 @@ namespace GA_TestRun1.Receptionist
         }
 
 
+        public static object RequestF()
+        {
+            SqlConnection con = new SqlConnection(connectionS);
+            con.Open();
+            string query = "Select distinct R.request_ID,R.requestPartQuantity, R.rrequestStatus,R.part_ID,P.partName,T.mechanic_ID\r\nfrom Requests as R\r\nInner Join Parts as P on P.part_ID=R.part_ID\r\nLeft Join Tasks as T on T.task_ID =R.task_ID";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            DataTable data = new DataTable();
+            adapter.Fill(data);
+            con.Close();
+            return data;
+        }
+
+        public static object invSearchFunc(string selectedItems, string searchkey)
+        {
+            try 
+            { 
+                SqlConnection connection = new SqlConnection(connectionS);
+                connection.Open();
+                string query = $@"Select distinct R.request_ID,R.requestPartQuantity, R.rrequestStatus,R.part_ID,P.partName,T.mechanic_ID from Requests as R Inner Join Parts as P on P.part_ID=R.part_ID Left Join Tasks as T on T.task_ID =R.task_ID
+                                   where R.{selectedItems} LIKE '%'+@search+'%' ";
+                SqlCommand cmd = new SqlCommand(query,connection);
+                cmd.Parameters.AddWithValue("@search",searchkey);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable data= new DataTable();
+                adapter.Fill(data);
+                connection.Close();
+                return data;
+            }
+            catch (SqlException)
+            {
+                return MessageBox.Show("Error");
+               
+            }
+
+        }
+
+        public static void TaskStatus(int requestid, string status)
+        {
+            SqlConnection conn = new SqlConnection(connectionS);
+            conn.Open();
+            string query = @"Update Requests set rrequestStatus='Completed' where request_ID=@requestid";
+            SqlCommand command = new SqlCommand(query,conn);
+            command.Parameters.AddWithValue("@requestid",requestid);
+            if (command.ExecuteNonQuery()==1)
+            {
+                MessageBox.Show("Assigned !");
+
+            }
+            else
+            {
+                MessageBox.Show("Please click on the Request ID cell to assign the Parts","Error",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
+        }
+
+
+
+
         public static object searchFunc(string searchKey, string selectedItems)
         {
             using (SqlConnection conn = new SqlConnection(connectionS))
@@ -433,18 +492,18 @@ namespace GA_TestRun1.Receptionist
                     cmd.Parameters.AddWithValue("@rcptionist_ID", rcpid);
 
                     string query6 = "Update ServiceAppoinments set serviceAPDate=@servicedate where serviceAP_ID=@serviceid";
-                    SqlCommand cmd6= new SqlCommand(query6, conn, transaction);
-                    cmd6.Parameters.AddWithValue("@servicedate",date);
-                    cmd6.Parameters.AddWithValue("@serviceid",serviceID);
+                    SqlCommand cmd6 = new SqlCommand(query6, conn, transaction);
+                    cmd6.Parameters.AddWithValue("@servicedate", date);
+                    cmd6.Parameters.AddWithValue("@serviceid", serviceID);
 
                     string query7 = "Insert into Timetable(serviceAP_ID,mechanic_ID) values(@serviceid,@mechanicid)";
-                    SqlCommand cmd7= new SqlCommand(query7, conn, transaction);
-                    cmd7.Parameters.AddWithValue("@serviceid",serviceID);
-                    cmd7.Parameters.AddWithValue("@mechanicid",mechanicID);
+                    SqlCommand cmd7 = new SqlCommand(query7, conn, transaction);
+                    cmd7.Parameters.AddWithValue("@serviceid", serviceID);
+                    cmd7.Parameters.AddWithValue("@mechanicid", mechanicID);
 
 
 
-                    if (cmd.ExecuteNonQuery() == 1 && cmd6.ExecuteNonQuery()==1 && cmd7.ExecuteNonQuery()==1)
+                    if (cmd.ExecuteNonQuery() == 1 && cmd6.ExecuteNonQuery() == 1 && cmd7.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("Sucessfull Assign Mechanic");
                         transaction.Commit();
@@ -462,7 +521,7 @@ namespace GA_TestRun1.Receptionist
                 }
                 catch (SqlException ex)
                 {
-                    
+
                     MessageBox.Show("Error, Please try again");
                     transaction.Rollback();
 
@@ -472,7 +531,7 @@ namespace GA_TestRun1.Receptionist
                 conn.Close();
             }
 
-        }
+        } 
     }
 }
 
