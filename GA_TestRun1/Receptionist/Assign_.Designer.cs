@@ -38,6 +38,8 @@
             this.Name_txtb = new System.Windows.Forms.TextBox();
             this.task_btn = new System.Windows.Forms.Button();
             this.Mec_namelistb = new System.Windows.Forms.ListBox();
+            this.serviceDateTimepick = new System.Windows.Forms.DateTimePicker();
+            this.ServiceTimelbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -109,7 +111,7 @@
             // 
             // task_btn
             // 
-            this.task_btn.Location = new System.Drawing.Point(171, 525);
+            this.task_btn.Location = new System.Drawing.Point(161, 551);
             this.task_btn.Name = "task_btn";
             this.task_btn.Size = new System.Drawing.Size(108, 53);
             this.task_btn.TabIndex = 5;
@@ -127,11 +129,32 @@
             this.Mec_namelistb.TabIndex = 4;
             this.Mec_namelistb.SelectedIndexChanged += new System.EventHandler(this.Mec_namelistb_SelectedIndexChanged);
             // 
+            // serviceDateTimepick
+            // 
+            this.serviceDateTimepick.CustomFormat = "";
+            this.serviceDateTimepick.Location = new System.Drawing.Point(114, 501);
+            this.serviceDateTimepick.Name = "serviceDateTimepick";
+            this.serviceDateTimepick.Size = new System.Drawing.Size(268, 22);
+            this.serviceDateTimepick.TabIndex = 14;
+            this.serviceDateTimepick.ValueChanged += new System.EventHandler(this.serviceDateTimepick_ValueChanged);
+            // 
+            // ServiceTimelbl
+            // 
+            this.ServiceTimelbl.AutoSize = true;
+            this.ServiceTimelbl.Location = new System.Drawing.Point(20, 506);
+            this.ServiceTimelbl.Name = "ServiceTimelbl";
+            this.ServiceTimelbl.Size = new System.Drawing.Size(44, 16);
+            this.ServiceTimelbl.TabIndex = 15;
+            this.ServiceTimelbl.Text = "label2";
+            // 
             // Assign_task
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(463, 616);
+            this.Controls.Add(this.ServiceTimelbl);
+            this.Controls.Add(this.serviceDateTimepick);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_ContactN);
             this.Controls.Add(this.lbl_Vehicle);
@@ -162,5 +185,7 @@
         private System.Windows.Forms.TextBox Name_txtb;
         private System.Windows.Forms.Button task_btn;
         private System.Windows.Forms.ListBox Mec_namelistb;
+        private System.Windows.Forms.DateTimePicker serviceDateTimepick;
+        private System.Windows.Forms.Label ServiceTimelbl;
     }
 }
