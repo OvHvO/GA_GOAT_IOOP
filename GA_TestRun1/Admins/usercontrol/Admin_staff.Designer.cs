@@ -59,7 +59,7 @@
             // StaffListBox
             // 
             this.StaffListBox.FormattingEnabled = true;
-            this.StaffListBox.Location = new System.Drawing.Point(47, 110);
+            this.StaffListBox.Location = new System.Drawing.Point(60, 138);
             this.StaffListBox.Name = "StaffListBox";
             this.StaffListBox.Size = new System.Drawing.Size(164, 108);
             this.StaffListBox.TabIndex = 5;
@@ -74,7 +74,7 @@
             this.StaffDetailsGB.Controls.Add(this.label3);
             this.StaffDetailsGB.Controls.Add(this.NewStaffContactNumTB);
             this.StaffDetailsGB.Controls.Add(this.NewStaffNameTB);
-            this.StaffDetailsGB.Location = new System.Drawing.Point(247, 93);
+            this.StaffDetailsGB.Location = new System.Drawing.Point(280, 121);
             this.StaffDetailsGB.Margin = new System.Windows.Forms.Padding(2);
             this.StaffDetailsGB.Name = "StaffDetailsGB";
             this.StaffDetailsGB.Padding = new System.Windows.Forms.Padding(2);
@@ -158,7 +158,7 @@
             this.RoleComboBox.Items.AddRange(new object[] {
             "Receptionist",
             "Mechanic"});
-            this.RoleComboBox.Location = new System.Drawing.Point(47, 93);
+            this.RoleComboBox.Location = new System.Drawing.Point(60, 121);
             this.RoleComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.RoleComboBox.Name = "RoleComboBox";
             this.RoleComboBox.Size = new System.Drawing.Size(164, 21);
@@ -168,7 +168,7 @@
             // 
             // StaffAddBtn
             // 
-            this.StaffAddBtn.Location = new System.Drawing.Point(441, 331);
+            this.StaffAddBtn.Location = new System.Drawing.Point(474, 359);
             this.StaffAddBtn.Margin = new System.Windows.Forms.Padding(2);
             this.StaffAddBtn.Name = "StaffAddBtn";
             this.StaffAddBtn.Size = new System.Drawing.Size(73, 19);
@@ -179,7 +179,7 @@
             // 
             // StaffDeleteBtn
             // 
-            this.StaffDeleteBtn.Location = new System.Drawing.Point(154, 331);
+            this.StaffDeleteBtn.Location = new System.Drawing.Point(168, 359);
             this.StaffDeleteBtn.Margin = new System.Windows.Forms.Padding(2);
             this.StaffDeleteBtn.Name = "StaffDeleteBtn";
             this.StaffDeleteBtn.Size = new System.Drawing.Size(56, 19);
@@ -191,7 +191,7 @@
             // StaffDetailsLB
             // 
             this.StaffDetailsLB.FormattingEnabled = true;
-            this.StaffDetailsLB.Location = new System.Drawing.Point(47, 230);
+            this.StaffDetailsLB.Location = new System.Drawing.Point(60, 258);
             this.StaffDetailsLB.Margin = new System.Windows.Forms.Padding(2);
             this.StaffDetailsLB.Name = "StaffDetailsLB";
             this.StaffDetailsLB.Size = new System.Drawing.Size(164, 69);
@@ -211,7 +211,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Admin_staff";
-            this.Size = new System.Drawing.Size(544, 400);
+            this.Size = new System.Drawing.Size(587, 429);
             this.StaffDetailsGB.ResumeLayout(false);
             this.StaffDetailsGB.PerformLayout();
             this.ResumeLayout(false);

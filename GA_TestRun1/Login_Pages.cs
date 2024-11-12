@@ -17,6 +17,7 @@ namespace GA_TestRun1
         public Login_Pages()
         {   
             InitializeComponent();
+            this.AcceptButton = L_sigin_btn;
         }
 
         private void Login_Pages_Load(object sender, EventArgs e)

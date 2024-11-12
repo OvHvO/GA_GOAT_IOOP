@@ -33,11 +33,12 @@
             this.appManagementBtn = new System.Windows.Forms.Button();
             this.feedbackBtn = new System.Windows.Forms.Button();
             this.updateProfileBtn = new System.Windows.Forms.Button();
-            this.cusInterfaceBtn = new System.Windows.Forms.Button();
             this.serviceViewBtn = new System.Windows.Forms.Button();
             this.cus_Panel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.Cus_FeatureBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -50,25 +51,24 @@
             // 
             // Cus_FeatureBox
             // 
-            this.Cus_FeatureBox.BackColor = System.Drawing.Color.Firebrick;
+            this.Cus_FeatureBox.BackColor = System.Drawing.Color.Gray;
+            this.Cus_FeatureBox.Controls.Add(this.pictureBox1);
             this.Cus_FeatureBox.Controls.Add(this.appManagementBtn);
             this.Cus_FeatureBox.Controls.Add(this.feedbackBtn);
             this.Cus_FeatureBox.Controls.Add(this.updateProfileBtn);
-            this.Cus_FeatureBox.Controls.Add(this.cusInterfaceBtn);
             this.Cus_FeatureBox.Controls.Add(this.serviceViewBtn);
             this.Cus_FeatureBox.ForeColor = System.Drawing.SystemColors.Control;
-            this.Cus_FeatureBox.Location = new System.Drawing.Point(0, 0);
+            this.Cus_FeatureBox.Location = new System.Drawing.Point(0, -8);
             this.Cus_FeatureBox.Name = "Cus_FeatureBox";
-            this.Cus_FeatureBox.Size = new System.Drawing.Size(107, 424);
+            this.Cus_FeatureBox.Size = new System.Drawing.Size(107, 437);
             this.Cus_FeatureBox.TabIndex = 0;
             this.Cus_FeatureBox.TabStop = false;
-            this.Cus_FeatureBox.Text = "FeatureBox";
             // 
             // appManagementBtn
             // 
             this.appManagementBtn.FlatAppearance.BorderSize = 0;
             this.appManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.appManagementBtn.Location = new System.Drawing.Point(6, 177);
+            this.appManagementBtn.Location = new System.Drawing.Point(6, 179);
             this.appManagementBtn.Name = "appManagementBtn";
             this.appManagementBtn.Size = new System.Drawing.Size(94, 55);
             this.appManagementBtn.TabIndex = 7;
@@ -79,7 +79,7 @@
             // 
             this.feedbackBtn.FlatAppearance.BorderSize = 0;
             this.feedbackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.feedbackBtn.Location = new System.Drawing.Point(16, 276);
+            this.feedbackBtn.Location = new System.Drawing.Point(16, 267);
             this.feedbackBtn.Name = "feedbackBtn";
             this.feedbackBtn.Size = new System.Drawing.Size(75, 23);
             this.feedbackBtn.TabIndex = 6;
@@ -91,7 +91,7 @@
             // 
             this.updateProfileBtn.FlatAppearance.BorderSize = 0;
             this.updateProfileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateProfileBtn.Location = new System.Drawing.Point(16, 344);
+            this.updateProfileBtn.Location = new System.Drawing.Point(16, 323);
             this.updateProfileBtn.Name = "updateProfileBtn";
             this.updateProfileBtn.Size = new System.Drawing.Size(75, 47);
             this.updateProfileBtn.TabIndex = 8;
@@ -99,23 +99,11 @@
             this.updateProfileBtn.UseVisualStyleBackColor = true;
             this.updateProfileBtn.Click += new System.EventHandler(this.updateProfileBtn_Click);
             // 
-            // cusInterfaceBtn
-            // 
-            this.cusInterfaceBtn.FlatAppearance.BorderSize = 0;
-            this.cusInterfaceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cusInterfaceBtn.Location = new System.Drawing.Point(11, 47);
-            this.cusInterfaceBtn.Name = "cusInterfaceBtn";
-            this.cusInterfaceBtn.Size = new System.Drawing.Size(88, 23);
-            this.cusInterfaceBtn.TabIndex = 4;
-            this.cusInterfaceBtn.Text = "CUSTOMER";
-            this.cusInterfaceBtn.UseVisualStyleBackColor = true;
-            this.cusInterfaceBtn.Click += new System.EventHandler(this.cusInterfaceBtn_Click);
-            // 
             // serviceViewBtn
             // 
             this.serviceViewBtn.FlatAppearance.BorderSize = 0;
             this.serviceViewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.serviceViewBtn.Location = new System.Drawing.Point(16, 117);
+            this.serviceViewBtn.Location = new System.Drawing.Point(16, 139);
             this.serviceViewBtn.Name = "serviceViewBtn";
             this.serviceViewBtn.Size = new System.Drawing.Size(75, 23);
             this.serviceViewBtn.TabIndex = 9;
@@ -127,14 +115,25 @@
             // 
             this.cus_Panel.Location = new System.Drawing.Point(107, 1);
             this.cus_Panel.Name = "cus_Panel";
-            this.cus_Panel.Size = new System.Drawing.Size(544, 426);
+            this.cus_Panel.Size = new System.Drawing.Size(587, 429);
             this.cus_Panel.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GA_TestRun1.Properties.Resources.logo__4_;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(90, 90);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Customer_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 426);
+            this.ClientSize = new System.Drawing.Size(694, 421);
             this.Controls.Add(this.cus_Panel);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -142,6 +141,7 @@
             this.Text = "Customer_home";
             this.panel1.ResumeLayout(false);
             this.Cus_FeatureBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -155,6 +155,6 @@
         private System.Windows.Forms.Button feedbackBtn;
         private System.Windows.Forms.Button updateProfileBtn;
         private System.Windows.Forms.Button serviceViewBtn;
-        private System.Windows.Forms.Button cusInterfaceBtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

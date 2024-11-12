@@ -51,7 +51,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(183, 29);
+            this.label1.Location = new System.Drawing.Point(207, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(162, 37);
             this.label1.TabIndex = 0;
@@ -60,7 +60,7 @@
             // Cus_Service_LB
             // 
             this.Cus_Service_LB.FormattingEnabled = true;
-            this.Cus_Service_LB.Location = new System.Drawing.Point(41, 112);
+            this.Cus_Service_LB.Location = new System.Drawing.Point(64, 112);
             this.Cus_Service_LB.Name = "Cus_Service_LB";
             this.Cus_Service_LB.Size = new System.Drawing.Size(204, 95);
             this.Cus_Service_LB.TabIndex = 1;
@@ -69,16 +69,17 @@
             // Cus_ServiceDtls_LB
             // 
             this.Cus_ServiceDtls_LB.FormattingEnabled = true;
-            this.Cus_ServiceDtls_LB.Location = new System.Drawing.Point(300, 112);
+            this.Cus_ServiceDtls_LB.Location = new System.Drawing.Point(324, 112);
             this.Cus_ServiceDtls_LB.Name = "Cus_ServiceDtls_LB";
             this.Cus_ServiceDtls_LB.Size = new System.Drawing.Size(220, 95);
             this.Cus_ServiceDtls_LB.TabIndex = 2;
             // 
             // appointmentConfirmBtn
             // 
-            this.appointmentConfirmBtn.BackColor = System.Drawing.Color.LightCoral;
+            this.appointmentConfirmBtn.BackColor = System.Drawing.Color.DarkKhaki;
             this.appointmentConfirmBtn.FlatAppearance.BorderSize = 0;
             this.appointmentConfirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.appointmentConfirmBtn.ForeColor = System.Drawing.Color.White;
             this.appointmentConfirmBtn.Location = new System.Drawing.Point(367, 131);
             this.appointmentConfirmBtn.Name = "appointmentConfirmBtn";
             this.appointmentConfirmBtn.Size = new System.Drawing.Size(75, 23);
@@ -90,7 +91,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 83);
+            this.label2.Location = new System.Drawing.Point(61, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 4;
@@ -99,7 +100,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(297, 83);
+            this.label3.Location = new System.Drawing.Point(321, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 5;
@@ -115,7 +116,7 @@
             this.ServiceAppoinmentGB.Controls.Add(this.Cus_Service_carNum);
             this.ServiceAppoinmentGB.Controls.Add(this.Cus_Service_cusID);
             this.ServiceAppoinmentGB.Controls.Add(this.appointmentConfirmBtn);
-            this.ServiceAppoinmentGB.Location = new System.Drawing.Point(41, 233);
+            this.ServiceAppoinmentGB.Location = new System.Drawing.Point(64, 230);
             this.ServiceAppoinmentGB.Name = "ServiceAppoinmentGB";
             this.ServiceAppoinmentGB.Size = new System.Drawing.Size(479, 165);
             this.ServiceAppoinmentGB.TabIndex = 6;
@@ -188,7 +189,7 @@
             this.Controls.Add(this.Cus_Service_LB);
             this.Controls.Add(this.label1);
             this.Name = "Cus_Service";
-            this.Size = new System.Drawing.Size(544, 426);
+            this.Size = new System.Drawing.Size(587, 429);
             this.ServiceAppoinmentGB.ResumeLayout(false);
             this.ServiceAppoinmentGB.PerformLayout();
             this.ResumeLayout(false);
