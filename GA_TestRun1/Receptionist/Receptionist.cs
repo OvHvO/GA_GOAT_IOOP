@@ -386,7 +386,7 @@ namespace GA_TestRun1.Receptionist
             }
         }
 
-        public void assignMec(string selectedItems, string taskname, string serviceID, string rcpname)
+        public void assignMec(string selectedItems, string taskname, string serviceID, string rcpname, DateTime date)
         {
             using (SqlConnection conn = new SqlConnection(connectionS))
             {
@@ -431,10 +431,20 @@ namespace GA_TestRun1.Receptionist
                     cmd.Parameters.AddWithValue("@mechanicID", mechanicID);
                     cmd.Parameters.AddWithValue("@serviceAP_ID", serviceID);
                     cmd.Parameters.AddWithValue("@rcptionist_ID", rcpid);
-                    cmd.ExecuteNonQuery();
+
+                    string query6 = "Update ServiceAppoinments set serviceAPDate=@servicedate where serviceAP_ID=@serviceid";
+                    SqlCommand cmd6= new SqlCommand(query6, conn, transaction);
+                    cmd6.Parameters.AddWithValue("@servicedate",date);
+                    cmd6.Parameters.AddWithValue("@serviceid",serviceID);
+
+                    string query7 = "Insert into Timetable(serviceAP_ID,mechanic_ID) values(@serviceid,@mechanicid)";
+                    SqlCommand cmd7= new SqlCommand(query7, conn, transaction);
+                    cmd7.Parameters.AddWithValue("@serviceid",serviceID);
+                    cmd7.Parameters.AddWithValue("@mechanicid",mechanicID);
 
 
-                    if (cmd.ExecuteNonQuery() == 1)
+
+                    if (cmd.ExecuteNonQuery() == 1 && cmd6.ExecuteNonQuery()==1 && cmd7.ExecuteNonQuery()==1)
                     {
                         MessageBox.Show("Sucessfull Assign Mechanic");
                         transaction.Commit();
