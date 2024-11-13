@@ -352,7 +352,7 @@ namespace GA_TestRun1
 
 
 
-        public void updateProf(string username, string password)
+        public void updateProf(string username, string password, string contactnum)
         { //string status;
             string oldusername = usernames; //save the old username into new variable
             usernames = username;           // retrive the new username and password
@@ -389,7 +389,7 @@ namespace GA_TestRun1
                                 case 0:
                                     {
                                         Receptionists recep = new Receptionists(username, password);
-                                        recep.rcpUpdateProf(oldusername, username, password);
+                                        recep.rcpUpdateProf(oldusername, username, password,contactnum);
 
                                         break;
                                     }
