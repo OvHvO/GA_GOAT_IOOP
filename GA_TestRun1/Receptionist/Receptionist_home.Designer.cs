@@ -36,6 +36,7 @@ namespace GA_TestRun1.Receptionist
             this.Rcp_home_signOut = new System.Windows.Forms.Button();
             this.rcp_updateProf_btn = new System.Windows.Forms.Button();
             this.nav_Bar = new System.Windows.Forms.Panel();
+            this.logobox = new System.Windows.Forms.PictureBox();
             this.rcp_srcInvbtn = new System.Windows.Forms.Button();
             this.rcp_CheckinOutbtn = new System.Windows.Forms.Button();
             this.rcp_manageAppbtn = new System.Windows.Forms.Button();
@@ -50,10 +51,9 @@ namespace GA_TestRun1.Receptionist
             this.label1 = new System.Windows.Forms.Label();
             this.rcp_profieBox_btn = new System.Windows.Forms.Button();
             this.prof_lbl = new System.Windows.Forms.Label();
-            this.logobox = new System.Windows.Forms.PictureBox();
             this.nav_Bar.SuspendLayout();
-            this.Rcp_Profpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logobox)).BeginInit();
+            this.Rcp_Profpanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Rcp_Add
@@ -91,6 +91,8 @@ namespace GA_TestRun1.Receptionist
             this.Rcp_home_delCus.Text = "Delete Customer";
             this.Rcp_home_delCus.UseVisualStyleBackColor = true;
             this.Rcp_home_delCus.Click += new System.EventHandler(this.Rcp_home_delCus_Click);
+            this.Rcp_home_delCus.MouseLeave += new System.EventHandler(this.buttonmove);
+            this.Rcp_home_delCus.MouseHover += new System.EventHandler(this.buttonhover);
             // 
             // Rcp_home_signOut
             // 
@@ -134,6 +136,18 @@ namespace GA_TestRun1.Receptionist
             this.nav_Bar.Name = "nav_Bar";
             this.nav_Bar.Size = new System.Drawing.Size(131, 504);
             this.nav_Bar.TabIndex = 5;
+            // 
+            // logobox
+            // 
+            this.logobox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logobox.Image = global::GA_TestRun1.Properties.Resources.logo__4_;
+            this.logobox.Location = new System.Drawing.Point(12, 3);
+            this.logobox.Name = "logobox";
+            this.logobox.Size = new System.Drawing.Size(100, 97);
+            this.logobox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logobox.TabIndex = 5;
+            this.logobox.TabStop = false;
+            this.logobox.Click += new System.EventHandler(this.logobox_Click);
             // 
             // rcp_srcInvbtn
             // 
@@ -285,18 +299,6 @@ namespace GA_TestRun1.Receptionist
             this.prof_lbl.TabIndex = 2;
             this.prof_lbl.Text = "Your Profile";
             // 
-            // logobox
-            // 
-            this.logobox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logobox.Image = global::GA_TestRun1.Properties.Resources.logo__4_;
-            this.logobox.Location = new System.Drawing.Point(12, 3);
-            this.logobox.Name = "logobox";
-            this.logobox.Size = new System.Drawing.Size(100, 97);
-            this.logobox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logobox.TabIndex = 5;
-            this.logobox.TabStop = false;
-            this.logobox.Click += new System.EventHandler(this.logobox_Click);
-            // 
             // Receptionist_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -311,9 +313,9 @@ namespace GA_TestRun1.Receptionist
             this.Text = "Receptionist Home";
             this.Load += new System.EventHandler(this.Receptionist_home_Load);
             this.nav_Bar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logobox)).EndInit();
             this.Rcp_Profpanel.ResumeLayout(false);
             this.Rcp_Profpanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logobox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
