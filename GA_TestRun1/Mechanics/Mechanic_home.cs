@@ -60,10 +60,28 @@ namespace GA_TestRun1.Mechanics
 //============================== Navigation Option ==============================//
         private void V_ServiceTask_btn_Click(object sender, EventArgs e)
         {
-            //----------Change border size----------//
-            this.V_ServiceTask_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.V_ServiceTask_btn.FlatAppearance.BorderSize = 0;
-            LoadUserControl(new Mechanic_View(Name));
+            try
+            {
+                // Check if the Name is not null, empty or whitespace
+                if (string.IsNullOrWhiteSpace(Name))
+                {
+                    // If Name doesn't exist or is invalid, show an error message
+                    MessageBox.Show("Name is not valid or not provided. Please check the input.",
+                                    "Invalid Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Exit the method early if Name is invalid
+                }
+                //----------Change border size----------//
+                this.V_ServiceTask_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                this.V_ServiceTask_btn.FlatAppearance.BorderSize = 0;
+                Mechanic_View mechanicViewForm = new Mechanic_View(Name, " ");
+                mechanicViewForm.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while trying to load the service task view: {ex.Message}",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
