@@ -28,7 +28,7 @@ namespace GA_TestRun1.Customer.cus_usercontrol
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void appoinmentConfirmBtn_Click(object sender, EventArgs e)
         {
             string carNum = Cus_Service_carNum.Text;
             string carVersion = Cus_Service_carVersion.Text;

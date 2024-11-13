@@ -28,19 +28,107 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.SP_label = new System.Windows.Forms.Label();
+            this.SR_Month_CB = new System.Windows.Forms.ComboBox();
+            this.SR_GrossProfit_LB = new System.Windows.Forms.ListBox();
+            this.SR_TotalExpenses_LB = new System.Windows.Forms.ListBox();
+            this.SR_NetProfit_TB = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // SP_label
+            // 
+            this.SP_label.AutoSize = true;
+            this.SP_label.Font = new System.Drawing.Font("Monotype Corsiva", 22F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SP_label.Location = new System.Drawing.Point(239, 65);
+            this.SP_label.Name = "SP_label";
+            this.SP_label.Size = new System.Drawing.Size(316, 53);
+            this.SP_label.TabIndex = 0;
+            this.SP_label.Text = "SALES REPORT";
+            // 
+            // SR_Month_CB
+            // 
+            this.SR_Month_CB.FormattingEnabled = true;
+            this.SR_Month_CB.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.SR_Month_CB.Location = new System.Drawing.Point(248, 180);
+            this.SR_Month_CB.Name = "SR_Month_CB";
+            this.SR_Month_CB.Size = new System.Drawing.Size(307, 28);
+            this.SR_Month_CB.TabIndex = 1;
+            this.SR_Month_CB.Text = "Month";
+            this.SR_Month_CB.SelectedIndexChanged += new System.EventHandler(this.SR_Month_CB_SelectedIndexChanged);
+            // 
+            // SR_GrossProfit_LB
+            // 
+            this.SR_GrossProfit_LB.FormattingEnabled = true;
+            this.SR_GrossProfit_LB.ItemHeight = 20;
+            this.SR_GrossProfit_LB.Location = new System.Drawing.Point(248, 204);
+            this.SR_GrossProfit_LB.Name = "SR_GrossProfit_LB";
+            this.SR_GrossProfit_LB.Size = new System.Drawing.Size(307, 144);
+            this.SR_GrossProfit_LB.TabIndex = 2;
+            // 
+            // SR_TotalExpenses_LB
+            // 
+            this.SR_TotalExpenses_LB.FormattingEnabled = true;
+            this.SR_TotalExpenses_LB.ItemHeight = 20;
+            this.SR_TotalExpenses_LB.Location = new System.Drawing.Point(248, 345);
+            this.SR_TotalExpenses_LB.Name = "SR_TotalExpenses_LB";
+            this.SR_TotalExpenses_LB.Size = new System.Drawing.Size(307, 144);
+            this.SR_TotalExpenses_LB.TabIndex = 3;
+            // 
+            // SR_NetProfit_TB
+            // 
+            this.SR_NetProfit_TB.Location = new System.Drawing.Point(248, 486);
+            this.SR_NetProfit_TB.Name = "SR_NetProfit_TB";
+            this.SR_NetProfit_TB.Size = new System.Drawing.Size(307, 26);
+            this.SR_NetProfit_TB.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(348, 563);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 44);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "!!!NOTICE!!!";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Admin_salesreport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SR_NetProfit_TB);
+            this.Controls.Add(this.SR_TotalExpenses_LB);
+            this.Controls.Add(this.SR_GrossProfit_LB);
+            this.Controls.Add(this.SR_Month_CB);
+            this.Controls.Add(this.SP_label);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Admin_salesreport";
-            this.Size = new System.Drawing.Size(726, 524);
+            this.Size = new System.Drawing.Size(817, 655);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label SP_label;
+        private System.Windows.Forms.ComboBox SR_Month_CB;
+        private System.Windows.Forms.ListBox SR_GrossProfit_LB;
+        private System.Windows.Forms.ListBox SR_TotalExpenses_LB;
+        private System.Windows.Forms.TextBox SR_NetProfit_TB;
+        private System.Windows.Forms.Button button1;
     }
 }
