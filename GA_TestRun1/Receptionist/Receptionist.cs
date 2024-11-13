@@ -581,9 +581,10 @@ namespace GA_TestRun1.Receptionist
         {
             SqlConnection conn = new SqlConnection(connectionS);
             conn.Open();
-            string query = @"Select Distinct C.customer_ID, C.customerUsername,SA.carNum,SA.carVersion,SA.serviceAP_ID
+            string query = @"Select Distinct C.customer_ID, C.customerUsername,SA.carNum,SA.carVersion,SA.serviceAP_ID,T.vehicleStatus
                            from Customers as C
-                           Inner Join ServiceAppoinments as SA on SA.customer_ID= C.customer_ID";
+                           Inner Join ServiceAppoinments as SA on SA.customer_ID= C.customer_ID
+                           Left Join Tasks as T on SA.serviceAP_ID=T.serviceAP_ID";
             SqlCommand cmd= new SqlCommand(query, conn);
 
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -594,7 +595,7 @@ namespace GA_TestRun1.Receptionist
         }
 
 
-        public static void cus_UpdateCheckInOut(string cus_Name, string carNum,string carver, int serviceid)
+        public static void cus_UpdateCheckInOut(string cus_Name, string carNum,string carver, int serviceid,string status)
         {
             SqlConnection conn = new SqlConnection( connectionS);
             conn.Open();
@@ -603,14 +604,40 @@ namespace GA_TestRun1.Receptionist
             cmd.Parameters.AddWithValue("@carnum",carNum);
             cmd.Parameters.AddWithValue("@carver",carver);
             cmd.Parameters.AddWithValue("@serviceid",serviceid);
-            if (cmd.ExecuteNonQuery()==1)
-            {
-                MessageBox.Show("Update Sucessfully");
+            int serviceAppoiRowAffect= cmd.ExecuteNonQuery();
+
+            if (status=="Check-In") 
+            { 
+                string query2 = "Update Tasks set vehicleStatus='True' where serviceAP_ID=@serviceid";
+                SqlCommand cmd2 = new SqlCommand(query2, conn);
+                cmd2.Parameters.AddWithValue("@serviceid",serviceid);
+                int taskRowAffected= cmd2.ExecuteNonQuery();
+                 if (serviceAppoiRowAffect>0 && taskRowAffected>0)
+                {
+                    MessageBox.Show("Update Sucessfully");
+                }
+                else
+                {
+                    MessageBox.Show("Update Failed");
+                }
             }
             else
             {
-                MessageBox.Show("Update Failed");
+                string query2 = "Update Tasks set vehicleStatus='False' where serviceAP_ID=@serviceid";
+                SqlCommand cmd2 = new SqlCommand(query2, conn);
+                cmd2.Parameters.AddWithValue("@serviceid", serviceid);
+                int secondtaskRowAffected= cmd2.ExecuteNonQuery();
+                if (serviceAppoiRowAffect>0&& secondtaskRowAffected>0)
+                {
+                    MessageBox.Show("Update Sucessfully");
+                }
+                else
+                {
+                    MessageBox.Show("Update Failed");
+                }
             }
+
+           
             conn.Close();
         }
     }
