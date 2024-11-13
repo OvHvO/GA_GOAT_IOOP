@@ -20,7 +20,7 @@ namespace GA_TestRun1
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
 
-        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# Learning\\GA_IOOP\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
+        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test1\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         private string Password;
         private string ContactNum;
         private string Username;
@@ -135,12 +135,36 @@ namespace GA_TestRun1
                             }
                         case 3:
                             {
-                                Mechanic_home mechanic = new Mechanic_home(username);
-                                SigninP.Hide();
-                                mechanic.ShowDialog();
+                                conn.Open();
+                                string query3 = "Create Table ##Mcntemptable(McnUsername varchar(50), McnPw nchar(50), McnNewUsername varchar(50))";
+                                SqlCommand cmd1 = new SqlCommand(query3, conn);
 
+                                try
+                                {
+                                    cmd1.ExecuteNonQuery();
+                                    string query4 = "Insert Into ##Mcntemptable(McnUsername,McnPw) values (@username,@password)";
+                                    SqlCommand cmd4 = new SqlCommand(query4, conn);
+                                    cmd4.Parameters.AddWithValue("@username", username);
+                                    cmd4.Parameters.AddWithValue("@password", password);
+                                    cmd4.ExecuteNonQuery();
+                                    Mechanic_home Form = new Mechanic_home(username, connection, contactnum);
+                                    Mechanic recep = new Mechanic(username, password);
+                                    Form.ShowDialog();
+                                }
+                                catch (SqlException)
+                                {
+                                    string query4 = "Insert Into ##Mcntemptable(McnUsername,McnPw) values (@username,@password)";
+                                    SqlCommand cmd4 = new SqlCommand(query4, conn);
+                                    cmd4.Parameters.AddWithValue("@username", username);
+                                    cmd4.Parameters.AddWithValue("@password", password);
+                                    cmd4.ExecuteNonQuery();
+                                    Mechanic_home Form = new Mechanic_home(username, connection, contactnum);
+                                    Mechanic_home mechanic = new Mechanic_home(username);
+                                    Form.ShowDialog();
+                                }
                                 return status = "Login Sucessfull";
                             }
+                            
                         default:
                             {
                                 status = "Error";
@@ -415,7 +439,7 @@ namespace GA_TestRun1
 
         public static class ConnectionS_admin
         {
-        public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# Learning\\GA_IOOP\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
+        public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test1\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         }
 
     }
