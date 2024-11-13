@@ -32,19 +32,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manage_Appoinment));
             this.Rcp_dataview = new System.Windows.Forms.DataGridView();
-            this.CusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.App_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cus_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cus_contactNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Vechi_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MecName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rcp_appoimentBar = new System.Windows.Forms.Panel();
             this.scr_lbl = new System.Windows.Forms.Label();
             this.SearchCBO_lbl = new System.Windows.Forms.Label();
             this.Rcp_searchbtn = new System.Windows.Forms.Button();
             this.Search_txtb = new System.Windows.Forms.TextBox();
             this.Search_cbo = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.reload_pict = new System.Windows.Forms.PictureBox();
+            this.CusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.App_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cus_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cus_contactNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vechi_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MecName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reshedule_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Rcp_dataview)).BeginInit();
             this.rcp_appoimentBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).BeginInit();
@@ -71,7 +73,8 @@
             this.Cus_name,
             this.Cus_contactNum,
             this.Vechi_num,
-            this.MecName});
+            this.MecName,
+            this.Reshedule_Status});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -96,67 +99,9 @@
             this.Rcp_dataview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rcp_dataview_CellContentClick_1);
             this.Rcp_dataview.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rcp_dataview_CellContentDoubleClick);
             // 
-            // CusID
-            // 
-            this.CusID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CusID.DataPropertyName = "customer_ID";
-            this.CusID.HeaderText = "Customer ID";
-            this.CusID.MinimumWidth = 6;
-            this.CusID.Name = "CusID";
-            this.CusID.ReadOnly = true;
-            this.CusID.Width = 101;
-            // 
-            // App_id
-            // 
-            this.App_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.App_id.DataPropertyName = "serviceAP_ID";
-            this.App_id.HeaderText = "Appoiment ID";
-            this.App_id.MinimumWidth = 6;
-            this.App_id.Name = "App_id";
-            this.App_id.ReadOnly = true;
-            this.App_id.Width = 108;
-            // 
-            // Cus_name
-            // 
-            this.Cus_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Cus_name.DataPropertyName = "customerUsername";
-            this.Cus_name.HeaderText = "Customer Name";
-            this.Cus_name.MinimumWidth = 6;
-            this.Cus_name.Name = "Cus_name";
-            this.Cus_name.ReadOnly = true;
-            // 
-            // Cus_contactNum
-            // 
-            this.Cus_contactNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Cus_contactNum.DataPropertyName = "customerContactNum";
-            this.Cus_contactNum.HeaderText = "Contact Number";
-            this.Cus_contactNum.MinimumWidth = 6;
-            this.Cus_contactNum.Name = "Cus_contactNum";
-            this.Cus_contactNum.ReadOnly = true;
-            this.Cus_contactNum.Width = 121;
-            // 
-            // Vechi_num
-            // 
-            this.Vechi_num.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Vechi_num.DataPropertyName = "carNum";
-            this.Vechi_num.HeaderText = "Vehicle Number";
-            this.Vechi_num.MinimumWidth = 6;
-            this.Vechi_num.Name = "Vechi_num";
-            this.Vechi_num.ReadOnly = true;
-            this.Vechi_num.Width = 121;
-            // 
-            // MecName
-            // 
-            this.MecName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.MecName.DataPropertyName = "mechanic_ID";
-            this.MecName.HeaderText = "Mechanic ID";
-            this.MecName.MinimumWidth = 6;
-            this.MecName.Name = "MecName";
-            this.MecName.ReadOnly = true;
-            this.MecName.Width = 101;
-            // 
             // rcp_appoimentBar
             // 
+            this.rcp_appoimentBar.Controls.Add(this.label1);
             this.rcp_appoimentBar.Controls.Add(this.reload_pict);
             this.rcp_appoimentBar.Controls.Add(this.scr_lbl);
             this.rcp_appoimentBar.Controls.Add(this.SearchCBO_lbl);
@@ -220,6 +165,17 @@
             this.Search_cbo.TabIndex = 0;
             this.Search_cbo.SelectedIndexChanged += new System.EventHandler(this.Search_cbo_SelectedIndexChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(4, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(346, 17);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Hint: Please Double Click a detail to Assign Mechanic ";
+            // 
             // reload_pict
             // 
             this.reload_pict.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -231,6 +187,75 @@
             this.reload_pict.TabIndex = 5;
             this.reload_pict.TabStop = false;
             this.reload_pict.Click += new System.EventHandler(this.reload_pict_Click);
+            // 
+            // CusID
+            // 
+            this.CusID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CusID.DataPropertyName = "customer_ID";
+            this.CusID.HeaderText = "Customer ID";
+            this.CusID.MinimumWidth = 6;
+            this.CusID.Name = "CusID";
+            this.CusID.ReadOnly = true;
+            this.CusID.Width = 109;
+            // 
+            // App_id
+            // 
+            this.App_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.App_id.DataPropertyName = "serviceAP_ID";
+            this.App_id.HeaderText = "Appoiment ID";
+            this.App_id.MinimumWidth = 6;
+            this.App_id.Name = "App_id";
+            this.App_id.ReadOnly = true;
+            this.App_id.Width = 117;
+            // 
+            // Cus_name
+            // 
+            this.Cus_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Cus_name.DataPropertyName = "customerUsername";
+            this.Cus_name.HeaderText = "Customer Name";
+            this.Cus_name.MinimumWidth = 6;
+            this.Cus_name.Name = "Cus_name";
+            this.Cus_name.ReadOnly = true;
+            // 
+            // Cus_contactNum
+            // 
+            this.Cus_contactNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Cus_contactNum.DataPropertyName = "customerContactNum";
+            this.Cus_contactNum.HeaderText = "Contact Number";
+            this.Cus_contactNum.MinimumWidth = 6;
+            this.Cus_contactNum.Name = "Cus_contactNum";
+            this.Cus_contactNum.ReadOnly = true;
+            this.Cus_contactNum.Width = 121;
+            // 
+            // Vechi_num
+            // 
+            this.Vechi_num.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Vechi_num.DataPropertyName = "carNum";
+            this.Vechi_num.HeaderText = "Vehicle Number";
+            this.Vechi_num.MinimumWidth = 6;
+            this.Vechi_num.Name = "Vechi_num";
+            this.Vechi_num.ReadOnly = true;
+            this.Vechi_num.Width = 121;
+            // 
+            // MecName
+            // 
+            this.MecName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.MecName.DataPropertyName = "mechanic_ID";
+            this.MecName.HeaderText = "Mechanic ID";
+            this.MecName.MinimumWidth = 6;
+            this.MecName.Name = "MecName";
+            this.MecName.ReadOnly = true;
+            this.MecName.Width = 101;
+            // 
+            // Reshedule_Status
+            // 
+            this.Reshedule_Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Reshedule_Status.DataPropertyName = "rescheduleStatus";
+            this.Reshedule_Status.HeaderText = "Rschedule Status ";
+            this.Reshedule_Status.MinimumWidth = 6;
+            this.Reshedule_Status.Name = "Reshedule_Status";
+            this.Reshedule_Status.ReadOnly = true;
+            this.Reshedule_Status.Width = 132;
             // 
             // Manage_Appoinment
             // 
@@ -253,12 +278,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView Rcp_dataview;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CusID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn App_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cus_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cus_contactNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Vechi_num;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MecName;
         private System.Windows.Forms.Panel rcp_appoimentBar;
         private System.Windows.Forms.Label scr_lbl;
         private System.Windows.Forms.Label SearchCBO_lbl;
@@ -266,5 +285,13 @@
         private System.Windows.Forms.TextBox Search_txtb;
         private System.Windows.Forms.ComboBox Search_cbo;
         private System.Windows.Forms.PictureBox reload_pict;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CusID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn App_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cus_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cus_contactNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vechi_num;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MecName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Reshedule_Status;
     }
 }
