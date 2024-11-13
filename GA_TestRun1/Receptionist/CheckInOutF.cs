@@ -14,6 +14,7 @@ namespace GA_TestRun1.Receptionist
     {
         int serviceId;
         string serviceStatus;
+       
         public CheckInOutF()
         {
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace GA_TestRun1.Receptionist
                  int.TryParse(id, out int serid);
                  serviceStatus = currentStatus;
                  serviceId = serid;
+               
                  checkin_cbo.SelectedIndex = -1;
                  checkin_Carnumtxt.Text  = selectedRows.Cells["carNum"].Value.ToString();
                 if (serviceStatus == "False")
@@ -98,7 +100,7 @@ namespace GA_TestRun1.Receptionist
 
         private void checkin_Billbtn_Click(object sender, EventArgs e)
         {
-            Bill_Generate bill = new Bill_Generate();
+            Bill_Generate bill = new Bill_Generate(serviceId);
             bill.ShowDialog();
         }
 

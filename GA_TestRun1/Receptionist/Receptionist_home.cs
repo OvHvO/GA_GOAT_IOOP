@@ -234,5 +234,19 @@ namespace GA_TestRun1.Receptionist
             panel1.Controls.Clear();
             panel1.Visible = false;
         }
+
+       
+
+        private void buttonhover(object sender, EventArgs e)
+        {
+            Rcp_home_delCus.BackColor=Color.Blue;
+            Rcp_home_delCus.ForeColor = Color.White;
+        }
+
+        private void buttonmove(object sender, EventArgs e)
+        {
+            Rcp_home_delCus.BackColor = ColorTranslator.FromHtml("#69764F");
+            Rcp_home_delCus.ForeColor = Color.Black;
+        }
     }
 }

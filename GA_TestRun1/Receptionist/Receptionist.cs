@@ -368,7 +368,7 @@ namespace GA_TestRun1.Receptionist
                 try
                 {
                     SqlTransaction transaction = conn.BeginTransaction();
-                    string query = @"Update Requests set rrequestStatus='Completed' where request_ID=@requestid";
+                    string query = @"Update Requests set rrequestStatus='COMPLETE' where request_ID=@requestid";
                     SqlCommand command = new SqlCommand(query, conn, transaction);
                     command.Parameters.AddWithValue("@requestid", requestid);
 
@@ -639,6 +639,27 @@ namespace GA_TestRun1.Receptionist
 
            
             conn.Close();
+        }
+
+
+        public static object billdetails(int serviceid)
+        {
+            SqlConnection conn = new SqlConnection(connectionS);
+            conn.Open();
+            string query = @"Select P.part_ID, P.partName, R.requestPartQuantity, P.partPrice,R.task_ID, T.serviceAP_ID  
+                           from Parts as P
+                           Inner Join Requests as R on R.part_ID=P.part_ID
+                           Left Join Tasks as T on T.task_ID=R.task_ID
+                           Where T.serviceAP_ID =@serviceid;"
+                           ;
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@serviceid",serviceid);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table= new DataTable();
+            adapter.Fill(table);
+            conn.Close();
+            return table;
+
         }
     }
 }
