@@ -57,9 +57,7 @@ namespace GA_TestRun1.Mechanics
 
         private void reload_pict_Click(object sender, EventArgs e)
         {
-            Mechanic mechanic = new Mechanic(Name);
-            string userName = "SomeUser";  // Replace with actual UserName value
-            Mcn_GridView.DataSource = mechanic.ViewProfList(userName);
+            
         }
     }
 }
