@@ -19,7 +19,36 @@ namespace GA_TestRun1.Admins
         }
 
         private void SR_Month_CB_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {   
+            string target = SR_Month_CB.SelectedItem.ToString();
+
+            List<string> months = new List<string>
+            {
+            "Use to make the index correct", "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+            };
+
+            int index = months.IndexOf(target);
+            string currentYear = (DateTime.Now.Year).ToString();
+            string monthForm = (index).ToString("D2");
+
+            Admins_Source admin = new Admins_Source();
+
+            //For GrossProfit
+            int totalGrossProfit = admin.grossProfitCal(monthForm, currentYear);
+            string totalGrossProfitString = totalGrossProfit.ToString();
+            SR_totalGrossProfit_TB.Text = totalGrossProfitString;
+            List<string> grossProfitList = admin.grossProfitList(monthForm, currentYear);
+            foreach(string item in grossProfitList)
+            {
+                SR_GrossProfit_LB.Items.Add(item);
+            }
+
+            //For Total Expenses
+            int totalExpenses = admin.ExpensesCal(monthForm, currentYear);
+
+            List<string> totalExpensesList = admin.
+
 
         }
     }

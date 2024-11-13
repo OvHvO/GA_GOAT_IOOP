@@ -10,6 +10,7 @@ using static GA_TestRun1.Users;
 using Microsoft.Identity.Client;
 using System.Threading;
 using System.ServiceProcess;
+using System.Drawing;
 
 namespace GA_TestRun1.Admins
 {
@@ -936,6 +937,78 @@ namespace GA_TestRun1.Admins
                 MessageBox.Show("Please dont click the empty space");
             }
             return cusDetails;
+        }
+
+        public int grossProfitCal(string month, string year)
+        {
+            string query = @"SELECT paymentValue FROM Payments
+                             WHERE MONTH(paymentDate) = @MONTH
+                             AND YEAR(paymentDate) = @YEAR
+                             AND paymentStatus = 'COMPLETE'";
+
+            int totalGrossProfit = 0;
+            List<int> grossProfit = new List<int>();
+
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@MONTH", month);
+                    command.Parameters.AddWithValue("@YEAR", year);
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            grossProfit.Add(Convert.ToInt32(reader["paymentValue"]));
+                        }
+                    }
+                }
+            }
+
+            foreach(int item in grossProfit)
+            {
+                totalGrossProfit += item;
+            }
+
+            return totalGrossProfit;
+        }
+
+        public List<string> grossProfitList(string month, string year)
+        {
+            string query = @"SELECT payment_ID, paymentValue FROM Payments
+                             WHERE MONTH(paymentDate) = @MONTH
+                             AND YEAR(paymentDate) = @YEAR
+                             AND paymentStatus = 'COMPLETE'";
+
+            Dictionary<string, string> grossProfitDic = new Dictionary<string, string>();
+            List<string> grossProfitList = new List<string>();
+
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@MONTH", month);
+                    command.Parameters.AddWithValue("@YEAR", year);
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            grossProfitDic.Add(reader["payment_ID"].ToString(), reader["paymentValue"].ToString());
+                        }
+                    }
+                }
+            }
+
+            foreach (KeyValuePair<string, string> item in grossProfitDic)
+            {
+                grossProfitList.Add($"PaymentID:{item.Key}-----Paymentt Value: {item.Value}");
+            }
+
+            return grossProfitList;
         }
     }
 }
