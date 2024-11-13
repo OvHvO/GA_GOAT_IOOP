@@ -19,6 +19,21 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
 
         private void Mechanic_Record_Load(object sender, EventArgs e)
         {
+            Col_Time.Format = DateTimePickerFormat.Custom;
+            Col_Time.CustomFormat = "dd / MM / yyyy hh: mm tt";
+            Col_Time.ShowUpDown = true;
+        }
+
+        private void Status_Cbo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Status_Cbo.Items.Add("COMPLETE");
+            Status_Cbo.Items.Add("PENDING");
+            Status_Cbo.Items.Add("NOT COMPLETE");
+            Status_Cbo.SelectedIndex = 0;
+        }
+
+        private void CarNum_Cbo_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
