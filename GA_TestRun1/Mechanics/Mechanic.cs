@@ -44,7 +44,7 @@ namespace GA_TestRun1.Mechanics
             Passwords = Password;
         }
 
-//============================== Update Mechanic Profile ==============================//
+        //============================== Update Mechanic Profile ==============================//
         public void mcnUpdateProf(string oldUserName, string UserName, string Password)
         {
             UserNames = UserName;
@@ -109,7 +109,7 @@ namespace GA_TestRun1.Mechanics
 
 
 
-//============================== View Service List ==============================//
+        //============================== View Service List ==============================//
         public object ViewProfList(string UName)
         {
             using (SqlConnection conn = new SqlConnection(connect))
@@ -119,25 +119,19 @@ namespace GA_TestRun1.Mechanics
                     conn.Open();
                     SqlTransaction transaction = conn.BeginTransaction();
 
-                    //// Ensure ##Mcntemptable exists
-                    //string createTempTableQuery = @"IF OBJECT_ID('tempdb..##Mcntemptable') IS NULL
-                    //                                BEGIN
-                    //                                    CREATE TABLE ##Mcntemptable (
-                    //                                    McnUsername NVARCHAR(50),
-                    //                                    McnPw NCHAR(50),
-                    //                                    McnNewUsername NVARCHAR(50)
-                    //                                                                );
-                    //                                END";
-                    //SqlCommand createTempTableCmd = new SqlCommand(createTempTableQuery, conn, transaction);
-                    //createTempTableCmd.ExecuteNonQuery();
+                    string query = @"SELECT DISTINCT C.customer_ID, C.customerUsername, C.customerContactNum, SA.serviceAP_ID, SA.serviceAPDate, SA.carNum, T.mechanic_ID, M.mechanicUsername
+                                    FROM Customers AS C
+                                    INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
+                                    LEFT JOIN Tasks AS T ON T.serviceAP_ID = SA.serviceAP_ID
+                                    LEFT JOIN Mechanics AS M ON T.mechanic_ID = M.mechanic_ID
+                                    WHERE M.mechanicUsername = @username";
 
-                    //// Check for user in ##Mcntemptable
-                    string query2 = "SELECT McnUsername FROM ##Mcntemptable WHERE McnUsername = @username";
-                    SqlCommand cmd2 = new SqlCommand(query2, conn, transaction);
-                    cmd2.Parameters.AddWithValue("@username", UName);
+                    string query1 = "SELECT McnUsername FROM ##Mcntemptable WHERE McnUsername = @username";
+                    SqlCommand cmd1 = new SqlCommand(query1, conn, transaction);
+                    cmd1.Parameters.AddWithValue("@username", UName);
 
-                    //object result = cmd2.ExecuteScalar();
-                    //if (result != null)  // Record found in ##Mcntemptable
+                    //---------- For testing ----------//
+                    //if (cmd1.ExecuteNonQuery() == 1)
                     //{
                     //    MessageBox.Show("Successful");
                     //    transaction.Commit();
@@ -148,30 +142,6 @@ namespace GA_TestRun1.Mechanics
                     //    transaction.Rollback();
                     //}
 
-                    string query = @"SELECT DISTINCT C.customer_ID, C.customerUsername, C.customerContactNum, SA.serviceAP_ID, SA.serviceAPDate, SA.carNum, T.mechanic_ID, M.mechanicUsername
-                                    FROM Customers AS C
-                                    INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
-                                    LEFT JOIN Tasks AS T ON T.serviceAP_ID = SA.serviceAP_ID
-                                    LEFT JOIN Mechanics AS M ON T.mechanic_ID = M.mechanic_ID
-                                    WHERE M.mechanicUsername = @username";
-
-                    string query1 = "SELECT McnUsername FROM ##Mcntemptable WHERE McnUsername = @username";
-                    SqlCommand cmd1 = new SqlCommand(query2, conn, transaction);
-                    cmd1.Parameters.AddWithValue("@username", UName);
-
-
-
-                    if (cmd1.ExecuteNonQuery() == 1)
-                    {
-                        MessageBox.Show("Successful");
-                        transaction.Commit();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Unsuccessful");
-                        transaction.Rollback();
-                    }
-
                     // Execute main query with parameters to fetch the desired data //
                     SqlCommand cmd = new SqlCommand(query, conn, transaction);
                     cmd.Parameters.AddWithValue("@UserName", UName);
@@ -181,9 +151,8 @@ namespace GA_TestRun1.Mechanics
                     adapter.Fill(data);
 
                     conn.Close();
-                    MessageBox.Show("Rows Retrieved: " + data.Rows.Count);
                     return data;  // Returns DataTable to be displayed in GridView //
-                    
+
                 }
                 catch (SqlException ex)
                 {
@@ -194,21 +163,66 @@ namespace GA_TestRun1.Mechanics
         }
 
 
-        //============================== Testing ==============================//
-        public bool IsUserNameInMechanics(string userName)
+        //============================== Search Function ==============================//
+        public static object SearchFunc(string searchKey, string selectedItems)
         {
-            using (SqlConnection conn = new SqlConnection(connect))
+            using (SqlConnection conn = new SqlConnection(Connection))
             {
-                conn.Open();
-                string query = "SELECT COUNT(1) FROM Mechanics WHERE mechanicUsername = @username";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@UserName", userName);
-                int result = (int)cmd.ExecuteScalar();
-                conn.Close();
-                return result > 0;
+                try
+                {
+                    conn.Open();
+                    string query = $@"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum,T.mechanic_ID,SA.rescheduleStatus
+                                 from Customers AS C
+                                 INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
+                                 LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
+                                 WHERE SA.{selectedItems} LIKE '%'+@searchkey+'%' 
+                                ";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@searchkey", searchKey);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    conn.Close();
+                    return table;
+
+                }
+                catch (SqlException)
+                {
+
+                    string query = $@"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum, T.mechanic_ID, SA.rescheduleStatus
+                             from Customers AS C
+                             INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
+                             LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
+                             WHERE C.{selectedItems} LIKE '%'+@searchkey+'%' 
+                            ";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@searchkey", searchKey);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    conn.Close();
+                    return table;
+                }
+
             }
+
+            //============================== Testing ==============================//
+            //public bool IsUserNameInMechanics(string userName)
+            //{
+            //    using (SqlConnection conn = new SqlConnection(connect))
+            //    {
+            //        conn.Open();
+            //        string query = "SELECT COUNT(1) FROM Mechanics WHERE mechanicUsername = @username";
+            //        SqlCommand cmd = new SqlCommand(query, conn);
+            //        cmd.Parameters.AddWithValue("@UserName", userName);
+            //        int result = (int)cmd.ExecuteScalar();
+            //        conn.Close();
+            //        return result > 0;
+            //    }
+            //}
         }
     }
-
 
 }

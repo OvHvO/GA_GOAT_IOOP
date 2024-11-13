@@ -1,5 +1,4 @@
-﻿using Azure.Identity;
-using GA_TestRun1.Receptionist;
+﻿using GA_TestRun1.Receptionist;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GA_TestRun1.Mechanics
+namespace GA_TestRun1.Mechanics.Mecha_Option
 {
-    public partial class Mechanic_View : UserControl
+    public partial class Mechanic_View : Form
     {
         string NewName;
 
@@ -33,31 +32,72 @@ namespace GA_TestRun1.Mechanics
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
         }
 
-        private void Search_cbo_SelectedIndexChanged(object sender, EventArgs e)
+        private void Mcn_searchbtn_Click(object sender, EventArgs e)
         {
+            string selectedItems = "serviceAP_ID";
+            if (Search_Cbo.SelectedIndex == 0)
+            {
+                selectedItems = "serviceAP_ID";
+                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, selectedItems);
+            }
 
-        }
+            else if (Search_Cbo.SelectedIndex == 1)
+            {
+                selectedItems = "customerUsername";
+                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, selectedItems);
+            }
 
-        private void Rcp_searchbtn_Click(object sender, EventArgs e)
-        {
-
+            else if (Search_Cbo.SelectedIndex == 2)
+            {
+                selectedItems = "carNum";
+                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, selectedItems);
+            }
         }
 
         private void Mcn_GridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
+//============================== Data Grid View ==============================//
         private void LoadGridView(string Uname)
         {
             Mechanic mechanic = new Mechanic(Uname);
             Mcn_GridView.DataSource = mechanic.ViewProfList(Uname);
-            Search_list.SelectedIndex = 0;
+            Search_Cbo.SelectedIndex = 0;
         }
 
-        private void reload_pict_Click(object sender, EventArgs e)
+        private void Mcn_GridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            
+            try
+            {
+                //e.RowIndex is to check now user selected which Row and the index
+                //.Cells is to check the Cells of the datagrid view
+                //Value is to return a value of selected cell and rows by user
+
+                string name = Mcn_GridView.Rows[e.RowIndex].Cells["Cus_name"].Value.ToString();
+                string vehicle = Mcn_GridView.Rows[e.RowIndex].Cells["Vechi_num"].Value.ToString();
+                string contact = Mcn_GridView.Rows[e.RowIndex].Cells["Cus_contactNum"].Value.ToString();
+                string cusID = Mcn_GridView.Rows[e.RowIndex].Cells["CusID"].Value.ToString();
+                string serviceID = Mcn_GridView.Rows[e.RowIndex].Cells["App_id"].Value.ToString();
+                string mechanicID = Mcn_GridView.Rows[e.RowIndex].Cells["MecName"].Value.ToString();
+                string rescheduleStatus = Mcn_GridView.Rows[e.RowIndex].Cells["Reshedule_Status"].Value.ToString();
+                if (string.IsNullOrEmpty(mechanicID) || rescheduleStatus == "True")
+                {
+                    Assign_task assign = new Assign_task(name, vehicle, contact, cusID, serviceID, NewName);
+                    assign.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("This Task Has Already Been Assigned !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show(ex.ToString());
+                MessageBox.Show("Please Double Click On the Content Not header!", "Assigning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
     }
 }
