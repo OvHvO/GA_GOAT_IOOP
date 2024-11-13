@@ -14,7 +14,8 @@ namespace GA_TestRun1.Receptionist
     {
         int serviceId;
         string serviceStatus;
-       
+        string CusID;
+        string customername;
         public CheckInOutF()
         {
             InitializeComponent();
@@ -36,13 +37,16 @@ namespace GA_TestRun1.Receptionist
             if (checkin_dataView.SelectedRows.Count>0)
             {   //[0] represent a selection colection
                  DataGridViewRow selectedRows= checkin_dataView.SelectedRows[0];
-                 checkin_Cusnametxt.Text = selectedRows.Cells["CusName"].Value.ToString();
+                 string cusname=checkin_Cusnametxt.Text = selectedRows.Cells["CusName"].Value.ToString();
+                 string cusID= selectedRows.Cells["Cus_ID"].Value.ToString();
                  checkin_carVertxt.Text = selectedRows.Cells["carVer"].Value.ToString();
                  string id =selectedRows.Cells["Service_ID"].Value.ToString();
                  string currentStatus= selectedRows.Cells["Service_status"].Value.ToString();
                  int.TryParse(id, out int serid);
                  serviceStatus = currentStatus;
                  serviceId = serid;
+                 CusID=cusID;
+                 customername=cusname;
                
                  checkin_cbo.SelectedIndex = -1;
                  checkin_Carnumtxt.Text  = selectedRows.Cells["carNum"].Value.ToString();
@@ -86,6 +90,7 @@ namespace GA_TestRun1.Receptionist
                     {
                        
                       Receptionists.cus_UpdateCheckInOut(checkin_Cusnametxt.Text, checkin_Carnumtxt.Text, checkin_carVertxt.Text, serviceId, checkin_cbo.SelectedItem.ToString());
+                      
 
                     }
  
@@ -100,7 +105,7 @@ namespace GA_TestRun1.Receptionist
 
         private void checkin_Billbtn_Click(object sender, EventArgs e)
         {
-            Bill_Generate bill = new Bill_Generate(serviceId);
+            Bill_Generate bill = new Bill_Generate(serviceId,CusID,customername, checkin_Carnumtxt.Text);
             bill.ShowDialog();
         }
 
