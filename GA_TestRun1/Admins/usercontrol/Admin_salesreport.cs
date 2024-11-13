@@ -17,5 +17,10 @@ namespace GA_TestRun1.Admins
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
         }
+
+        private void SR_Month_CB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

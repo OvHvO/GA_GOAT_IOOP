@@ -86,7 +86,7 @@
             this.appointmentConfirmBtn.TabIndex = 3;
             this.appointmentConfirmBtn.Text = "CONFIRM";
             this.appointmentConfirmBtn.UseVisualStyleBackColor = false;
-            this.appointmentConfirmBtn.Click += new System.EventHandler(this.button1_Click);
+            this.appointmentConfirmBtn.Click += new System.EventHandler(this.appoinmentConfirmBtn_Click);
             // 
             // label2
             // 

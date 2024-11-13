@@ -20,7 +20,7 @@ namespace GA_TestRun1
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
 
-        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test2\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
+        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# Learning\\GA_IOOP\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
         private string Password;
         private string ContactNum;
         private string Username;
@@ -352,7 +352,7 @@ namespace GA_TestRun1
 
 
 
-        public void updateProf(string username, string password)
+        public void updateProf(string username, string password, string contactnum)
         { //string status;
             string oldusername = usernames; //save the old username into new variable
             usernames = username;           // retrive the new username and password
@@ -389,7 +389,7 @@ namespace GA_TestRun1
                                 case 0:
                                     {
                                         Receptionists recep = new Receptionists(username, password);
-                                        recep.rcpUpdateProf(oldusername, username, password);
+                                        recep.rcpUpdateProf(oldusername, username, password,contactnum);
 
                                         break;
                                     }
@@ -415,7 +415,7 @@ namespace GA_TestRun1
 
         public static class ConnectionS_admin
         {
-            public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test2\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
+        public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# Learning\\GA_IOOP\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
         }
 
     }
