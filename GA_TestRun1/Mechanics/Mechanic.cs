@@ -16,7 +16,7 @@ namespace GA_TestRun1.Mechanics
         static string Connection;
         private string UserName;
         private string Password;
-        static string connect = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test2\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
+        static string connect = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test1\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         SqlConnection connection = new SqlConnection(connect);
 
 
@@ -114,20 +114,21 @@ namespace GA_TestRun1.Mechanics
         {
             UserNames = UserName;
 
-            using (SqlConnection conn = new SqlConnection(Connection))
+            using (SqlConnection conn = new SqlConnection(connect))
             {
                 try
                 {
                     conn.Open();
                     SqlTransaction transaction = conn.BeginTransaction();
-                    string query = $@"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum, T.mechanic_ID
-                             from Customers AS C
-                             INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
-                             LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
-                             WHERE T.mechanicUsername = {UserName}
-                            ";
 
-                    string query1 = "Select McnUsername, McnNewUsername from ##temptable";
+                    string query = @"SELECT DISTINCT C.customer_ID, C.customerUsername, C.customerContactNum, SA.serviceAP_ID, SA.serviceAPDate, SA.carNum, T.mechanic_ID, M.mechanicUsername
+                                    FROM Customers AS C
+                                    INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
+                                    LEFT JOIN Tasks AS T ON T.serviceAP_ID = SA.serviceAP_ID
+                                    LEFT JOIN Mechanics AS M ON T.mechanic_ID = M.mechanic_ID
+                                    WHERE M.mechanicUsername = @UserName";
+
+                    string query1 = "SELECT McnUsername, McnNewUsername FROM ##Mcntemptable WHERE McnUsername = @username";
                     SqlCommand cmd1 = new SqlCommand(query1, conn, transaction);
                     cmd1.Parameters.AddWithValue("@username", UserName);
                     cmd1.Parameters.AddWithValue("@newusername", newUserName);
@@ -138,22 +139,28 @@ namespace GA_TestRun1.Mechanics
                         MessageBox.Show("Successful");
                         transaction.Commit();
                     }
-
                     else
                     {
                         MessageBox.Show("Unsuccessful");
                         transaction.Rollback();
                     }
 
-                    SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                    // Execute main query with parameters to fetch the desired data //
+                    SqlCommand cmd = new SqlCommand(query, conn, transaction);
+                    cmd.Parameters.AddWithValue("@UserName", UserName);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable data = new DataTable();
                     adapter.Fill(data);
+
                     conn.Close();
-                    return data;
+                    MessageBox.Show("Rows Retrieved: " + data.Rows.Count);
+                    return data;  // Returns DataTable to be displayed in GridView //
+                    
                 }
-                catch (SqlException)
+                catch (SqlException ex)
                 {
-                    MessageBox.Show("Error");
+                    MessageBox.Show("Error: " + ex.Message);
                     return null;
                 }
             }

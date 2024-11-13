@@ -37,6 +37,12 @@
             this.Search_txt = new System.Windows.Forms.TextBox();
             this.Search_list = new System.Windows.Forms.ComboBox();
             this.Mcn_GridView = new System.Windows.Forms.DataGridView();
+            this.Mechanic_ViewList = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mechanic_ListView3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mechanic_ViewList6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mechanic_ViewList4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mechanic_ViewList5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mechanic_ViewList2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rcp_appoimentBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mcn_GridView)).BeginInit();
@@ -69,6 +75,7 @@
             this.reload_pict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.reload_pict.TabIndex = 5;
             this.reload_pict.TabStop = false;
+            this.reload_pict.Click += new System.EventHandler(this.reload_pict_Click);
             // 
             // scr_lbl
             // 
@@ -94,7 +101,7 @@
             // 
             // Rcp_searchbtn
             // 
-            this.Rcp_searchbtn.Location = new System.Drawing.Point(487, 29);
+            this.Rcp_searchbtn.Location = new System.Drawing.Point(476, 29);
             this.Rcp_searchbtn.Margin = new System.Windows.Forms.Padding(2);
             this.Rcp_searchbtn.Name = "Rcp_searchbtn";
             this.Rcp_searchbtn.Size = new System.Drawing.Size(61, 19);
@@ -127,11 +134,54 @@
             // Mcn_GridView
             // 
             this.Mcn_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Mcn_GridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Mechanic_ViewList,
+            this.Mechanic_ListView3,
+            this.Mechanic_ViewList6,
+            this.Mechanic_ViewList4,
+            this.Mechanic_ViewList5,
+            this.Mechanic_ViewList2});
             this.Mcn_GridView.Location = new System.Drawing.Point(0, 53);
             this.Mcn_GridView.Name = "Mcn_GridView";
             this.Mcn_GridView.Size = new System.Drawing.Size(587, 376);
             this.Mcn_GridView.TabIndex = 4;
             this.Mcn_GridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Mcn_GridView_CellContentClick);
+            // 
+            // Mechanic_ViewList
+            // 
+            this.Mechanic_ViewList.DataPropertyName = "mechanic_ID";
+            this.Mechanic_ViewList.HeaderText = "Mechanic_ID";
+            this.Mechanic_ViewList.Name = "Mechanic_ViewList";
+            // 
+            // Mechanic_ListView3
+            // 
+            this.Mechanic_ListView3.DataPropertyName = "customer_ID";
+            this.Mechanic_ListView3.HeaderText = "Customer_ID";
+            this.Mechanic_ListView3.Name = "Mechanic_ListView3";
+            // 
+            // Mechanic_ViewList6
+            // 
+            this.Mechanic_ViewList6.DataPropertyName = "customerUserName";
+            this.Mechanic_ViewList6.HeaderText = "Customer Name";
+            this.Mechanic_ViewList6.Name = "Mechanic_ViewList6";
+            // 
+            // Mechanic_ViewList4
+            // 
+            this.Mechanic_ViewList4.DataPropertyName = "customerContactNum";
+            this.Mechanic_ViewList4.HeaderText = "Customer Contact";
+            this.Mechanic_ViewList4.Name = "Mechanic_ViewList4";
+            // 
+            // Mechanic_ViewList5
+            // 
+            this.Mechanic_ViewList5.DataPropertyName = "carNum";
+            this.Mechanic_ViewList5.HeaderText = "Vehicle Number";
+            this.Mechanic_ViewList5.Name = "Mechanic_ViewList5";
+            // 
+            // Mechanic_ViewList2
+            // 
+            this.Mechanic_ViewList2.DataPropertyName = "serviceAPDate";
+            this.Mechanic_ViewList2.HeaderText = "Service Date";
+            this.Mechanic_ViewList2.Name = "Mechanic_ViewList2";
             // 
             // Mechanic_View
             // 
@@ -160,5 +210,11 @@
         private System.Windows.Forms.TextBox Search_txt;
         private System.Windows.Forms.ComboBox Search_list;
         private System.Windows.Forms.DataGridView Mcn_GridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mechanic_ViewList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mechanic_ListView3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mechanic_ViewList6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mechanic_ViewList4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mechanic_ViewList5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mechanic_ViewList2;
     }
 }
