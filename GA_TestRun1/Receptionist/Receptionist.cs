@@ -17,12 +17,14 @@ namespace GA_TestRun1.Receptionist
 {
     internal class Receptionists
     {
-
+        int ServiceAmt;
+        int PartAmt;
         static string connectionS;
         private string Username;
         private string Password;
         private string SelectedItems;
         private string ContactNum;
+        
         //private Cus_deleteForm cus = new Cus_deleteForm(connectionS);
         public string usernames
         {
@@ -597,7 +599,7 @@ namespace GA_TestRun1.Receptionist
 
         public static void cus_UpdateCheckInOut(string cus_Name, string carNum,string carver, int serviceid,string status)
         {
-            SqlConnection conn = new SqlConnection( connectionS);
+            SqlConnection conn = new SqlConnection(connectionS);
             conn.Open();
             string query = "Update ServiceAppoinments set carNum=@carnum, carVersion=@carver where serviceAP_ID=@serviceid";
             SqlCommand cmd= new SqlCommand(query, conn);
@@ -627,9 +629,11 @@ namespace GA_TestRun1.Receptionist
                 SqlCommand cmd2 = new SqlCommand(query2, conn);
                 cmd2.Parameters.AddWithValue("@serviceid", serviceid);
                 int secondtaskRowAffected= cmd2.ExecuteNonQuery();
+
                 if (serviceAppoiRowAffect>0&& secondtaskRowAffected>0)
                 {
                     MessageBox.Show("Update Sucessfully");
+
                 }
                 else
                 {
@@ -642,11 +646,14 @@ namespace GA_TestRun1.Receptionist
         }
 
 
-        public static object billdetails(int serviceid)
-        {
+        public object billdetails(int serviceid)
+        {   List<int> price = new List<int>();
+            List<int> quantity = new List<int>();
+            int TotalAmt;
+            int Allmt = 0;
             SqlConnection conn = new SqlConnection(connectionS);
             conn.Open();
-            string query = @"Select P.part_ID, P.partName, R.requestPartQuantity, P.partPrice,R.task_ID, T.serviceAP_ID  
+            string query = @"Select P.part_ID, P.partName, R.requestPartQuantity, P.partPrice,R.task_ID, T.serviceAP_ID 
                            from Parts as P
                            Inner Join Requests as R on R.part_ID=P.part_ID
                            Left Join Tasks as T on T.task_ID=R.task_ID
@@ -657,10 +664,108 @@ namespace GA_TestRun1.Receptionist
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable table= new DataTable();
             adapter.Fill(table);
+            
+            //add column
+            table.Columns.Add("Total Price", Type.GetType("System.Int32"));
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                quantity.Add(Convert.ToInt32(reader[2]));
+                price.Add(Convert.ToInt32(reader[3]));
+
+            }
+
+            for (int i = 0; i < price.Count; i++)
+            {
+                TotalAmt = price[i] * quantity[i];
+
+                // first[i] is indicate the row number,second [""] is refer to column name 
+                table.Rows[i]["Total Price"]=TotalAmt;
+                Allmt += TotalAmt;
+            }
+            PartAmt = Allmt;
+            
             conn.Close();
             return table;
 
         }
+
+
+        public object billServiceDetail(int serviceid)
+        {
+            SqlConnection con = new SqlConnection(connectionS);
+            List<int> price = new List<int>();
+            List<int>  offer = new List<int>();
+            int Tprice;
+            int Allamt=0;
+            con.Open();
+            string query = @"Select S.service_ID, S.serviceName, S.servicePrice, S.serviceOffer, R.part_ID, T.serviceAP_ID
+                            from Service as S
+                            Inner Join Requests as R on R.part_ID=S.part_ID
+                            Left Join Tasks as T on T.task_ID =R.task_ID
+                            Where T.serviceAP_ID=@serviceid";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@serviceid",serviceid);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table= new DataTable();
+            adapter.Fill(table);
+            table.Columns.Add("Total",Type.GetType("System.String"));
+            
+
+            SqlDataReader reader= cmd.ExecuteReader();
+            while (reader.Read()) 
+            {
+                
+                    price.Add(Convert.ToInt32(reader[2]));
+                    offer.Add(Convert.ToInt32(reader[3]));
+                
+
+                
+            }
+            for (int index=0; index<price.Count;index++)
+            {
+               Tprice= price[index]-offer[index];
+               table.Rows[index]["Total"]=Tprice;
+               Allamt += Tprice;
+               
+            } 
+            ServiceAmt=Allamt;
+
+            con.Close();
+            return table;
+
+        }
+
+        public string GetBillTotalAmt()
+        {
+            string totalamt = (ServiceAmt + PartAmt).ToString("C");
+            return totalamt;
+            
+        }
+
+        /*public string updatePaymentStatus(int serviceId)
+        {
+            string taskid;
+            string rcpid;
+            string sId=serviceId.ToString();
+            SqlConnection con = new SqlConnection(connectionS);
+            con.Open();
+            string query = "Select rcptionist_ID,task_id from Tasks where serviceAP_ID=@serviceid";
+            SqlCommand cmd= new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@serviceid",sId);
+            SqlDataReader reader= cmd.ExecuteReader();
+            while (reader.Read()) 
+            { 
+                
+            }
+            
+
+            string query2 = "Insert into Payments(payment_ID,paymentStatus,paymentValue,customer_ID,rcptionist_id,task_ID)";
+        }*/
+
+       
+      
     }
 }
 
