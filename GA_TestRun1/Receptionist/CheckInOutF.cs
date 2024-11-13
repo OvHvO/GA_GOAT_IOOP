@@ -13,6 +13,7 @@ namespace GA_TestRun1.Receptionist
     public partial class CheckInOutF : Form
     {
         int serviceId;
+        string serviceStatus;
         public CheckInOutF()
         {
             InitializeComponent();
@@ -36,11 +37,30 @@ namespace GA_TestRun1.Receptionist
                  DataGridViewRow selectedRows= checkin_dataView.SelectedRows[0];
                  checkin_Cusnametxt.Text = selectedRows.Cells["CusName"].Value.ToString();
                  checkin_carVertxt.Text = selectedRows.Cells["carVer"].Value.ToString();
-                 string id =selectedRows.Cells["serviceid"].Value.ToString();
+                 string id =selectedRows.Cells["Service_ID"].Value.ToString();
+                 string currentStatus= selectedRows.Cells["Service_status"].Value.ToString();
                  int.TryParse(id, out int serid);
+                 serviceStatus = currentStatus;
                  serviceId = serid;
                  checkin_Carnumtxt.Text  = selectedRows.Cells["carNum"].Value.ToString();
-                 
+                if (serviceStatus == "False")
+                {
+                    checkin_cbo.Enabled = false;
+                    checkin_Upbtn.Enabled = false;
+                    checkin_Carnumtxt.Enabled = false;
+                    checkin_carVertxt.Enabled = false;
+                    checkin_Billbtn.Enabled = true;
+
+                }
+                else
+                {
+                    checkin_cbo.Enabled = true;
+                    checkin_Upbtn.Enabled = true;
+                    checkin_Carnumtxt.Enabled = true;
+                    checkin_carVertxt.Enabled = true;
+                    checkin_Billbtn.Enabled = false;
+                }
+
             }
         }
 
@@ -52,26 +72,24 @@ namespace GA_TestRun1.Receptionist
             }
             else 
             { 
+
                 if (checkin_cbo.SelectedIndex == 1)
                 {   
                     //Problem- Cannot Specify which customer check Out
 
                     DialogResult checkout = MessageBox.Show("Do You Want to check-out this Customer, this operation cannot be restored","Alert",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
-                    if (checkout == DialogResult.OK)
-                    {   
-                        checkin_cbo.Enabled = false;
-                        checkin_Upbtn.Enabled = false;
-                        checkin_Carnumtxt.Enabled = false;
-                        checkin_carVertxt.Enabled = false;
-                        checkin_Billbtn.Enabled = true;
-                        Receptionists.cus_UpdateCheckInOut(checkin_Cusnametxt.Text, checkin_Carnumtxt.Text, checkin_carVertxt.Text, serviceId);
+                    
+                    if (checkout == DialogResult.OK )
+                    {
+                       
+                      Receptionists.cus_UpdateCheckInOut(checkin_Cusnametxt.Text, checkin_Carnumtxt.Text, checkin_carVertxt.Text, serviceId, checkin_cbo.SelectedItem.ToString());
 
                     }
-
+ 
                 }
                 else
                 {
-                        Receptionists.cus_UpdateCheckInOut(checkin_Cusnametxt.Text, checkin_Carnumtxt.Text, checkin_carVertxt.Text, serviceId);
+                        Receptionists.cus_UpdateCheckInOut(checkin_Cusnametxt.Text, checkin_Carnumtxt.Text, checkin_carVertxt.Text, serviceId, checkin_cbo.SelectedItem.ToString());
                 
                 }
             }
