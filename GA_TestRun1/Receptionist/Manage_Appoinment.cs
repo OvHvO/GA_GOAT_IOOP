@@ -36,20 +36,30 @@ namespace GA_TestRun1.Receptionist
                 // e.RowIndex is to check now user selected which Row and the index is what
                 //.Cells is to check the Cells of the datagrid view
                 //Value is to return a value of now user selected which cell and which rows
+
                 string name = Rcp_dataview.Rows[e.RowIndex].Cells["Cus_name"].Value.ToString();
                 string vehicle = Rcp_dataview.Rows[e.RowIndex].Cells["Vechi_num"].Value.ToString();
                 string contact = Rcp_dataview.Rows[e.RowIndex].Cells["Cus_contactNum"].Value.ToString();
                 string cusID = Rcp_dataview.Rows[e.RowIndex].Cells["CusID"].Value.ToString();
                 string serviceID = Rcp_dataview.Rows[e.RowIndex].Cells["App_id"].Value.ToString();
-                Assign_task assign = new Assign_task(name, vehicle, contact, cusID, serviceID, username);
-                assign.ShowDialog();
-
+                string mechanicID = Rcp_dataview.Rows[e.RowIndex].Cells["MecName"].Value.ToString();
+                string rescheduleStatus= Rcp_dataview.Rows[e.RowIndex].Cells["Reshedule_Status"].Value.ToString();
+                if (string.IsNullOrEmpty(mechanicID)|| rescheduleStatus == "True")
+                {
+                    Assign_task assign = new Assign_task(name, vehicle, contact, cusID, serviceID, username);
+                    assign.ShowDialog(); 
+                }
+                else
+                {
+                    MessageBox.Show("This Task Has Already Been Assigned !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception )
             {
                 //MessageBox.Show(ex.ToString());
                 MessageBox.Show("Please Double Click On the Content Not header!","Assigning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
+
 
 
         }

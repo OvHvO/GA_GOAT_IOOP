@@ -42,6 +42,7 @@ namespace GA_TestRun1.Receptionist
                  int.TryParse(id, out int serid);
                  serviceStatus = currentStatus;
                  serviceId = serid;
+                 checkin_cbo.SelectedIndex = -1;
                  checkin_Carnumtxt.Text  = selectedRows.Cells["carNum"].Value.ToString();
                 if (serviceStatus == "False")
                 {
@@ -97,7 +98,8 @@ namespace GA_TestRun1.Receptionist
 
         private void checkin_Billbtn_Click(object sender, EventArgs e)
         {
-
+            Bill_Generate bill = new Bill_Generate();
+            bill.ShowDialog();
         }
 
         private bool IsNullCheck(params string[] values)
@@ -109,6 +111,11 @@ namespace GA_TestRun1.Receptionist
              
             }
             return true;
+        }
+
+        private void reload_pict_Click(object sender, EventArgs e)
+        {
+            checkin_dataView.DataSource=Receptionists.cus_CheckInOut();
         }
     }
 }
