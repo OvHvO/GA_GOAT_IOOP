@@ -37,7 +37,7 @@ namespace GA_TestRun1.Admins
             //For GrossProfit
             int totalGrossProfit = admin.grossProfitCal(monthForm, currentYear);
             string totalGrossProfitString = totalGrossProfit.ToString();
-            SR_totalGrossProfit_TB.Text = totalGrossProfitString;
+            SR_totalGrossProfit_TB.Text = "Total Gross Profit : " + totalGrossProfitString;
             List<string> grossProfitList = admin.grossProfitList(monthForm, currentYear);
             foreach(string item in grossProfitList)
             {
@@ -45,10 +45,25 @@ namespace GA_TestRun1.Admins
             }
 
             //For Total Expenses
-            int totalExpenses = admin.ExpensesCal(monthForm, currentYear);
+            int totalExpenses = 0;
+            List<string> finalExpenses_List = new List<string>;
+            Dictionary<string, int> totalExpensesDic = admin.ExpensesCal(monthForm,currentYear);
 
-            List<string> totalExpensesList = admin.
+            foreach (KeyValuePair<string, int> item in totalExpensesDic)
+            {
+                finalExpenses_List.Add($"PartID : {item.Key}---------Sales : {item.Value}");
+            }
 
+            foreach (int value in totalExpensesDic.Values)
+            {
+                totalExpenses += value;
+            }
+
+            foreach (string item in finalExpenses_List)
+            {
+                SR_TotalExpenses_LB.Items.Add(item);
+                
+            }
 
         }
     }
