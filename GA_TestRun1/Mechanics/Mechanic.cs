@@ -110,21 +110,8 @@ namespace GA_TestRun1.Mechanics
 
 
 //============================== View Service List ==============================//
-        public object ViewProfList(string UserName, string newUserName)
+        public object ViewProfList(string UName)
         {
-            string testUserName = "Mecha";  
-            bool exists = IsUserNameInMechanics(testUserName);
-            MessageBox.Show("Does Mecha exist? " + exists);
-
-            if (!IsUserNameInMechanics(testUserName))
-            {
-                MessageBox.Show("The username does not exist in Mechanics.");
-                return null;
-            }
-
-
-            UserNames = UserName;
-
             using (SqlConnection conn = new SqlConnection(connect))
             {
                 try
@@ -132,50 +119,25 @@ namespace GA_TestRun1.Mechanics
                     conn.Open();
                     SqlTransaction transaction = conn.BeginTransaction();
 
-                    // Ensure ##Mcntemptable exists
-                    string createTempTableQuery = @"IF OBJECT_ID('tempdb..##Mcntemptable') IS NULL
-                                                    BEGIN
-                                                        CREATE TABLE ##Mcntemptable (
-                                                        McnUsername NVARCHAR(50),
-                                                        McnPw NCHAR(50),
-                                                        McnNewUsername NVARCHAR(50)
-                                                                                    );
-                                                    END";
-                    SqlCommand createTempTableCmd = new SqlCommand(createTempTableQuery, conn, transaction);
-                    createTempTableCmd.ExecuteNonQuery();
+                    //// Ensure ##Mcntemptable exists
+                    //string createTempTableQuery = @"IF OBJECT_ID('tempdb..##Mcntemptable') IS NULL
+                    //                                BEGIN
+                    //                                    CREATE TABLE ##Mcntemptable (
+                    //                                    McnUsername NVARCHAR(50),
+                    //                                    McnPw NCHAR(50),
+                    //                                    McnNewUsername NVARCHAR(50)
+                    //                                                                );
+                    //                                END";
+                    //SqlCommand createTempTableCmd = new SqlCommand(createTempTableQuery, conn, transaction);
+                    //createTempTableCmd.ExecuteNonQuery();
 
-                    // Check for user in ##Mcntemptable
-                    string query2 = "SELECT McnUsername, McnNewUsername FROM ##Mcntemptable WHERE McnUsername = @username";
+                    //// Check for user in ##Mcntemptable
+                    string query2 = "SELECT McnUsername FROM ##Mcntemptable WHERE McnUsername = @username";
                     SqlCommand cmd2 = new SqlCommand(query2, conn, transaction);
-                    cmd2.Parameters.AddWithValue("@username", UserName);
-                    cmd2.Parameters.AddWithValue("@newusername", newUserName);
+                    cmd2.Parameters.AddWithValue("@username", UName);
 
-                    object result = cmd2.ExecuteScalar();
-                    if (result != null)  // Record found in ##Mcntemptable
-                    {
-                        MessageBox.Show("Successful");
-                        transaction.Commit();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Unsuccessful");
-                        transaction.Rollback();
-                    }
-
-                    string query = @"SELECT DISTINCT C.customer_ID, C.customerUsername, C.customerContactNum, SA.serviceAP_ID, SA.serviceAPDate, SA.carNum, T.mechanic_ID, M.mechanicUsername
-                                    FROM Customers AS C
-                                    INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
-                                    LEFT JOIN Tasks AS T ON T.serviceAP_ID = SA.serviceAP_ID
-                                    LEFT JOIN Mechanics AS M ON T.mechanic_ID = M.mechanic_ID
-                                    WHERE M.mechanicUsername = @username";
-
-                    //string query1 = "SELECT McnUsername, McnNewUsername FROM ##Mcntemptable WHERE McnUsername = @username";
-                    //SqlCommand cmd1 = new SqlCommand(query1, conn, transaction);
-                    //cmd1.Parameters.AddWithValue("@username", UserName);
-                    //cmd1.Parameters.AddWithValue("@newusername", newUserName);
-
-
-                    //if (cmd1.ExecuteNonQuery() == 1)
+                    //object result = cmd2.ExecuteScalar();
+                    //if (result != null)  // Record found in ##Mcntemptable
                     //{
                     //    MessageBox.Show("Successful");
                     //    transaction.Commit();
@@ -186,9 +148,33 @@ namespace GA_TestRun1.Mechanics
                     //    transaction.Rollback();
                     //}
 
+                    string query = @"SELECT DISTINCT C.customer_ID, C.customerUsername, C.customerContactNum, SA.serviceAP_ID, SA.serviceAPDate, SA.carNum, T.mechanic_ID, M.mechanicUsername
+                                    FROM Customers AS C
+                                    INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
+                                    LEFT JOIN Tasks AS T ON T.serviceAP_ID = SA.serviceAP_ID
+                                    LEFT JOIN Mechanics AS M ON T.mechanic_ID = M.mechanic_ID
+                                    WHERE M.mechanicUsername = @username";
+
+                    string query1 = "SELECT McnUsername FROM ##Mcntemptable WHERE McnUsername = @username";
+                    SqlCommand cmd1 = new SqlCommand(query2, conn, transaction);
+                    cmd1.Parameters.AddWithValue("@username", UName);
+
+
+
+                    if (cmd1.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("Successful");
+                        transaction.Commit();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unsuccessful");
+                        transaction.Rollback();
+                    }
+
                     // Execute main query with parameters to fetch the desired data //
                     SqlCommand cmd = new SqlCommand(query, conn, transaction);
-                    cmd.Parameters.AddWithValue("@UserName", UserName);
+                    cmd.Parameters.AddWithValue("@UserName", UName);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable data = new DataTable();

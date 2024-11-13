@@ -16,7 +16,7 @@ namespace GA_TestRun1.Mechanics
     {
         string NewName;
 
-        public Mechanic_View(string Name)
+        public Mechanic_View(string Name, string Newname)
         {
             InitializeComponent();
             NewName = Name;
@@ -25,7 +25,7 @@ namespace GA_TestRun1.Mechanics
         private void Mechanic_View_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
-            LoadGridView();
+            LoadGridView(NewName);
         }
 
         private void rcp_appoimentBar_Paint(object sender, PaintEventArgs e)
@@ -48,38 +48,18 @@ namespace GA_TestRun1.Mechanics
             
         }
 
-        private void LoadGridView()
+        private void LoadGridView(string Uname)
         {
-        string userName = "OriUserName";
-        string newName = "OriNewUserName";
-
-        Mechanic mechanic = new Mechanic(Name);
-
-        var data = mechanic.ViewProfList(userName, newName);
-
-            if (data != null)
-            {
-                Mcn_GridView.DataSource = data;  // Show the DataTable to the GridView
-
-                // Set the selected index of Search_list, ensuring it has items
-                if (Search_list.Items.Count > 0)
-                {
-                    Mcn_GridView.AutoGenerateColumns = true;
-                    Search_list.SelectedIndex = 0;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Failed to retrieve profile list. Please check for errors.");
-            }
+            Mechanic mechanic = new Mechanic(Uname);
+            Mcn_GridView.DataSource = mechanic.ViewProfList(Uname);
+            Search_list.SelectedIndex = 0;
         }
 
         private void reload_pict_Click(object sender, EventArgs e)
         {
             Mechanic mechanic = new Mechanic(Name);
             string userName = "SomeUser";  // Replace with actual UserName value
-            string newName = "SomeNewUser";
-            Mcn_GridView.DataSource = mechanic.ViewProfList(userName, newName);
+            Mcn_GridView.DataSource = mechanic.ViewProfList(userName);
         }
     }
 }

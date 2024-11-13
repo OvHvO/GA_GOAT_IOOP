@@ -136,7 +136,7 @@ namespace GA_TestRun1
                         case 3:
                             {
                                 conn.Open();
-                                string query3 = "Create Table ##Mcntemptable(McnUsername varchar(50), McnPw nchar(50), McnNewUsername varchar(50))";
+                                string query3 = "Create Table ##Mcntemptable(McnUsername varchar(50), McnPw nchar(50))";
                                 SqlCommand cmd1 = new SqlCommand(query3, conn);
 
                                 try
