@@ -305,7 +305,7 @@ namespace GA_TestRun1.Receptionist
         {
             SqlConnection conn = new SqlConnection(connectionS);
             conn.Open();
-            string query = @"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum, T.mechanic_ID
+            string query = @"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum, T.mechanic_ID, SA.rescheduleStatus
                              from Customers AS C
                              INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
                              LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
@@ -430,7 +430,7 @@ namespace GA_TestRun1.Receptionist
                 try
                 {
                     conn.Open();
-                    string query = $@"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum,T.mechanic_ID
+                    string query = $@"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum,T.mechanic_ID,SA.rescheduleStatus
                                  from Customers AS C
                                  INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
                                  LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
@@ -449,7 +449,7 @@ namespace GA_TestRun1.Receptionist
                 catch (SqlException)
                 {
 
-                    string query = $@"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum, T.mechanic_ID
+                    string query = $@"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum, T.mechanic_ID, SA.rescheduleStatus
                              from Customers AS C
                              INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
                              LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
@@ -535,7 +535,7 @@ namespace GA_TestRun1.Receptionist
                     cmd.Parameters.AddWithValue("@serviceAP_ID", serviceID);
                     cmd.Parameters.AddWithValue("@rcptionist_ID", rcpid);
 
-                    string query6 = "Update ServiceAppoinments set serviceAPDate=@servicedate where serviceAP_ID=@serviceid";
+                    string query6 = "Update ServiceAppoinments set serviceAPDate=@servicedate,rescheduleStatus='False' where serviceAP_ID=@serviceid";
                     SqlCommand cmd6 = new SqlCommand(query6, conn, transaction);
                     cmd6.Parameters.AddWithValue("@servicedate", date);
                     cmd6.Parameters.AddWithValue("@serviceid", serviceID);
@@ -613,13 +613,13 @@ namespace GA_TestRun1.Receptionist
                 cmd2.Parameters.AddWithValue("@serviceid",serviceid);
                 int taskRowAffected= cmd2.ExecuteNonQuery();
                  if (serviceAppoiRowAffect>0 && taskRowAffected>0)
-                {
+                 {
                     MessageBox.Show("Update Sucessfully");
-                }
-                else
-                {
-                    MessageBox.Show("Update Failed");
-                }
+                 }
+                 else
+                 {
+                    MessageBox.Show("Update Failed Or Customer Task Haven't Assign");
+                 }
             }
             else
             {
@@ -633,7 +633,7 @@ namespace GA_TestRun1.Receptionist
                 }
                 else
                 {
-                    MessageBox.Show("Update Failed");
+                    MessageBox.Show("Update Failed or Customer Task Haven't Assign");
                 }
             }
 

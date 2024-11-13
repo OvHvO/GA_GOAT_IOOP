@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.searchInv_panel = new System.Windows.Forms.Panel();
-            this.Request_combtn = new System.Windows.Forms.Button();
             this.Src_Invbtn = new System.Windows.Forms.Button();
             this.Invsrc_txt = new System.Windows.Forms.TextBox();
             this.SearchInvcb = new System.Windows.Forms.ComboBox();
             this.InvsearchCb_lbl = new System.Windows.Forms.Label();
             this.Invsearch_lbl = new System.Windows.Forms.Label();
+            this.Request_combtn = new System.Windows.Forms.Button();
             this.InvDataView = new System.Windows.Forms.DataGridView();
             this.Request_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Part_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +43,7 @@
             this.Part_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Request_Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.request_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.searchInv_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InvDataView)).BeginInit();
             this.SuspendLayout();
@@ -60,16 +61,6 @@
             this.searchInv_panel.Size = new System.Drawing.Size(1007, 77);
             this.searchInv_panel.TabIndex = 0;
             this.searchInv_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchInv_panel_Paint);
-            // 
-            // Request_combtn
-            // 
-            this.Request_combtn.Location = new System.Drawing.Point(456, 441);
-            this.Request_combtn.Name = "Request_combtn";
-            this.Request_combtn.Size = new System.Drawing.Size(82, 33);
-            this.Request_combtn.TabIndex = 5;
-            this.Request_combtn.Text = "Confirm";
-            this.Request_combtn.UseVisualStyleBackColor = true;
-            this.Request_combtn.Click += new System.EventHandler(this.Request_combtn_Click);
             // 
             // Src_Invbtn
             // 
@@ -119,6 +110,16 @@
             this.Invsearch_lbl.TabIndex = 0;
             this.Invsearch_lbl.Text = "Search: ";
             // 
+            // Request_combtn
+            // 
+            this.Request_combtn.Location = new System.Drawing.Point(489, 446);
+            this.Request_combtn.Name = "Request_combtn";
+            this.Request_combtn.Size = new System.Drawing.Size(82, 33);
+            this.Request_combtn.TabIndex = 5;
+            this.Request_combtn.Text = "Confirm";
+            this.Request_combtn.UseVisualStyleBackColor = true;
+            this.Request_combtn.Click += new System.EventHandler(this.Request_combtn_Click);
+            // 
             // InvDataView
             // 
             this.InvDataView.AllowUserToAddRows = false;
@@ -127,14 +128,14 @@
             this.InvDataView.AllowUserToResizeRows = false;
             this.InvDataView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.InvDataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.InvDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.InvDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.InvDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.InvDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Request_id,
@@ -215,11 +216,23 @@
             this.request_status.ReadOnly = true;
             this.request_status.Width = 73;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(12, 426);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(498, 17);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Hint: Please Select a detail Then Press the Confirm Button to Assign Request ";
+            // 
             // searchInv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 486);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Request_combtn);
             this.Controls.Add(this.InvDataView);
             this.Controls.Add(this.searchInv_panel);
@@ -230,6 +243,7 @@
             this.searchInv_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InvDataView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -249,5 +263,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Request_Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn request_status;
         private System.Windows.Forms.Button Request_combtn;
+        private System.Windows.Forms.Label label1;
     }
 }

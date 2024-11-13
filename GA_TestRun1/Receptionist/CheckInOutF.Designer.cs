@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckInOutF));
             this.checkin_rightPanel = new System.Windows.Forms.Panel();
             this.checkin_Billbtn = new System.Windows.Forms.Button();
             this.checkin_Upbtn = new System.Windows.Forms.Button();
@@ -47,13 +48,16 @@
             this.carVer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Service_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Service_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reload_pict = new System.Windows.Forms.PictureBox();
             this.checkin_rightPanel.SuspendLayout();
             this.checkin_leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkin_dataView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).BeginInit();
             this.SuspendLayout();
             // 
             // checkin_rightPanel
             // 
+            this.checkin_rightPanel.Controls.Add(this.reload_pict);
             this.checkin_rightPanel.Controls.Add(this.checkin_Billbtn);
             this.checkin_rightPanel.Controls.Add(this.checkin_Upbtn);
             this.checkin_rightPanel.Controls.Add(this.checkin_Statuslbl);
@@ -204,7 +208,7 @@
             this.Cus_ID.MinimumWidth = 6;
             this.Cus_ID.Name = "Cus_ID";
             this.Cus_ID.ReadOnly = true;
-            this.Cus_ID.Width = 109;
+            this.Cus_ID.Width = 101;
             // 
             // CusName
             // 
@@ -255,6 +259,18 @@
             this.Service_status.ReadOnly = true;
             this.Service_status.Width = 112;
             // 
+            // reload_pict
+            // 
+            this.reload_pict.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reload_pict.Image = ((System.Drawing.Image)(resources.GetObject("reload_pict.Image")));
+            this.reload_pict.Location = new System.Drawing.Point(12, 12);
+            this.reload_pict.Name = "reload_pict";
+            this.reload_pict.Size = new System.Drawing.Size(33, 33);
+            this.reload_pict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.reload_pict.TabIndex = 6;
+            this.reload_pict.TabStop = false;
+            this.reload_pict.Click += new System.EventHandler(this.reload_pict_Click);
+            // 
             // CheckInOutF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -269,6 +285,7 @@
             this.checkin_rightPanel.PerformLayout();
             this.checkin_leftPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkin_dataView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -294,5 +311,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn carVer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service_status;
+        private System.Windows.Forms.PictureBox reload_pict;
     }
 }
