@@ -13,7 +13,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
 {
     public partial class Mechanic_Main : UserControl
     {
-        private string Name;
+        private string Names;
         private string Contact;
         private string Connection;
 
@@ -23,14 +23,14 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
 
             Mechanic mechanic = new Mechanic(Connections);
-            Name = N;
+            Names = N;
             Contact = Contactnum;
             Connection = Connections;
         }
 
         public Mechanic_Main(string newUsername)
         {
-            Name = newUsername;
+            Names = newUsername;
         }
 
         private void Refresh_btn_Click(object sender, EventArgs e)
