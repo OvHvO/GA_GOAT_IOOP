@@ -42,75 +42,84 @@
             // 
             // Cus_Update_UN_TB
             // 
-            this.Cus_Update_UN_TB.Location = new System.Drawing.Point(262, 181);
+            this.Cus_Update_UN_TB.Location = new System.Drawing.Point(393, 278);
+            this.Cus_Update_UN_TB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Cus_Update_UN_TB.Name = "Cus_Update_UN_TB";
-            this.Cus_Update_UN_TB.Size = new System.Drawing.Size(224, 20);
+            this.Cus_Update_UN_TB.Size = new System.Drawing.Size(334, 26);
             this.Cus_Update_UN_TB.TabIndex = 0;
             // 
             // Cus_Update_PW_TB
             // 
-            this.Cus_Update_PW_TB.Location = new System.Drawing.Point(262, 240);
+            this.Cus_Update_PW_TB.Location = new System.Drawing.Point(393, 369);
+            this.Cus_Update_PW_TB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Cus_Update_PW_TB.Name = "Cus_Update_PW_TB";
-            this.Cus_Update_PW_TB.Size = new System.Drawing.Size(224, 20);
+            this.Cus_Update_PW_TB.Size = new System.Drawing.Size(334, 26);
             this.Cus_Update_PW_TB.TabIndex = 1;
             // 
             // Cus_Update_CN_TB
             // 
-            this.Cus_Update_CN_TB.Location = new System.Drawing.Point(262, 296);
+            this.Cus_Update_CN_TB.Location = new System.Drawing.Point(393, 455);
+            this.Cus_Update_CN_TB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Cus_Update_CN_TB.Name = "Cus_Update_CN_TB";
-            this.Cus_Update_CN_TB.Size = new System.Drawing.Size(224, 20);
+            this.Cus_Update_CN_TB.Size = new System.Drawing.Size(334, 26);
             this.Cus_Update_CN_TB.TabIndex = 2;
             // 
             // Username
             // 
             this.Username.AutoSize = true;
-            this.Username.Location = new System.Drawing.Point(128, 184);
+            this.Username.Location = new System.Drawing.Point(192, 283);
+            this.Username.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(55, 13);
+            this.Username.Size = new System.Drawing.Size(83, 20);
             this.Username.TabIndex = 3;
             this.Username.Text = "Username";
             // 
             // Cus_Update_Btn
             // 
-            this.Cus_Update_Btn.Location = new System.Drawing.Point(262, 362);
+            this.Cus_Update_Btn.Location = new System.Drawing.Point(393, 557);
+            this.Cus_Update_Btn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Cus_Update_Btn.Name = "Cus_Update_Btn";
-            this.Cus_Update_Btn.Size = new System.Drawing.Size(75, 23);
+            this.Cus_Update_Btn.Size = new System.Drawing.Size(112, 35);
             this.Cus_Update_Btn.TabIndex = 4;
-            this.Cus_Update_Btn.Text = "button1";
+            this.Cus_Update_Btn.Text = "UPDATE";
             this.Cus_Update_Btn.UseVisualStyleBackColor = true;
             this.Cus_Update_Btn.Click += new System.EventHandler(this.Cus_Update_Btn_Click);
             // 
             // Cus_ID_TB
             // 
-            this.Cus_ID_TB.Location = new System.Drawing.Point(262, 124);
+            this.Cus_ID_TB.Location = new System.Drawing.Point(393, 191);
+            this.Cus_ID_TB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Cus_ID_TB.Name = "Cus_ID_TB";
-            this.Cus_ID_TB.Size = new System.Drawing.Size(224, 20);
+            this.Cus_ID_TB.Size = new System.Drawing.Size(334, 26);
             this.Cus_ID_TB.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(128, 127);
+            this.label2.Location = new System.Drawing.Point(192, 195);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "Cus_ID";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(128, 243);
+            this.label3.Location = new System.Drawing.Point(192, 374);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.Size = new System.Drawing.Size(78, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "Password";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(128, 299);
+            this.label4.Location = new System.Drawing.Point(192, 460);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 13);
+            this.label4.Size = new System.Drawing.Size(156, 20);
             this.label4.TabIndex = 8;
             this.label4.Text = "Contact Number +60";
             // 
@@ -118,15 +127,16 @@
             // 
             this.UpdateProfileTitle.AutoSize = true;
             this.UpdateProfileTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateProfileTitle.Location = new System.Drawing.Point(139, 37);
+            this.UpdateProfileTitle.Location = new System.Drawing.Point(208, 57);
+            this.UpdateProfileTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.UpdateProfileTitle.Name = "UpdateProfileTitle";
-            this.UpdateProfileTitle.Size = new System.Drawing.Size(305, 37);
+            this.UpdateProfileTitle.Size = new System.Drawing.Size(451, 55);
             this.UpdateProfileTitle.TabIndex = 9;
             this.UpdateProfileTitle.Text = "UPDATE PROFILE";
             // 
             // Cus_UpdateProfile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.UpdateProfileTitle);
             this.Controls.Add(this.label4);
@@ -138,8 +148,9 @@
             this.Controls.Add(this.Cus_Update_CN_TB);
             this.Controls.Add(this.Cus_Update_PW_TB);
             this.Controls.Add(this.Cus_Update_UN_TB);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Cus_UpdateProfile";
-            this.Size = new System.Drawing.Size(587, 429);
+            this.Size = new System.Drawing.Size(880, 660);
             this.ResumeLayout(false);
             this.PerformLayout();
 
