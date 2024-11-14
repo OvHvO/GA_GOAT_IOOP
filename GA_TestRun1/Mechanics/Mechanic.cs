@@ -119,7 +119,7 @@ namespace GA_TestRun1.Mechanics
                     conn.Open();
                     SqlTransaction transaction = conn.BeginTransaction();
 
-                    string query = @"SELECT DISTINCT C.customer_ID, C.customerUsername, C.customerContactNum, SA.serviceAP_ID, SA.serviceAPDate, SA.carNum, T.mechanic_ID, M.mechanicUsername
+                    string query = @"SELECT DISTINCT C.customer_ID, SA.serviceAP_ID, C.customerUsername, C.customerContactNum, SA.carNum, T.mechanic_ID, T.taskStatus
                                     FROM Customers AS C
                                     INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
                                     LEFT JOIN Tasks AS T ON T.serviceAP_ID = SA.serviceAP_ID
@@ -164,21 +164,21 @@ namespace GA_TestRun1.Mechanics
 
 
         //============================== Search Function ==============================//
-        public static object SearchFunc(string searchKey, string selectedItems)
+        public static object SearchFunc(string SearchKey, string SelectedItems)
         {
             using (SqlConnection conn = new SqlConnection(Connection))
             {
                 try
                 {
                     conn.Open();
-                    string query = $@"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum,T.mechanic_ID,SA.rescheduleStatus
+                    string query = $@"SELECT DISTINCT C.customer_ID, SA.serviceAP_ID, C.customerUsername, C.customerContactNum, SA.carNum, T.mechanic_ID, T.taskStatus
                                  from Customers AS C
                                  INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
                                  LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
-                                 WHERE SA.{selectedItems} LIKE '%'+@searchkey+'%' 
+                                 WHERE SA.{SelectedItems} LIKE '%'+@searchkey+'%' 
                                 ";
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@searchkey", searchKey);
+                    cmd.Parameters.AddWithValue("@searchkey", SearchKey);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable table = new DataTable();
@@ -189,15 +189,14 @@ namespace GA_TestRun1.Mechanics
                 }
                 catch (SqlException)
                 {
-
-                    string query = $@"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum, T.mechanic_ID, SA.rescheduleStatus
+                    string query = $@"SELECT DISTINCT C.customer_ID, SA.serviceAP_ID, C.customerUsername, C.customerContactNum, SA.carNum, T.mechanic_ID, T.taskStatus
                              from Customers AS C
                              INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
                              LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
-                             WHERE C.{selectedItems} LIKE '%'+@searchkey+'%' 
+                             WHERE C.{SelectedItems} LIKE '%'+@searchkey+'%' 
                             ";
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@searchkey", searchKey);
+                    cmd.Parameters.AddWithValue("@searchkey", SearchKey);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable table = new DataTable();
@@ -252,7 +251,7 @@ namespace GA_TestRun1.Mechanics
                     while (read.Read())
                     {
                         newProf[0] = read.GetString(0);
-                        newProf[1] = read.GetString(1);
+                        newProf[1] = read.GetInt32(1).ToString();
 
                     }
                     conn.Close();
@@ -278,5 +277,9 @@ namespace GA_TestRun1.Mechanics
                 return newProf;
             }
         }
+
+        //============================== Refresh Button Function ==============================//
+
+
     }
 }
