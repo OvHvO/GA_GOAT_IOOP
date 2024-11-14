@@ -22,15 +22,17 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
 
-            Mechanic mechanic = new Mechanic(Connections);
+            Mechanic mechanic = new Mechanic(Connection);
             Names = N;
             Contact = Contactnum;
             Connection = Connections;
         }
 
-        public Mechanic_Main(string newUsername)
+
+        public Mechanic_Main()
         {
-            Names = newUsername;
+            InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
         }
 
         private void Refresh_btn_Click(object sender, EventArgs e)
@@ -40,7 +42,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
 
         private void RefreshProfile()
         {
-            string[] newprof = (string[])Receptionists.newprofile(Name);
+            string[] newprof = (string[])Mechanic.RefreshProfile(Names);
             Name_lbl.Text = newprof[0];
             PNum_lbl.Text = newprof[1];
         }
