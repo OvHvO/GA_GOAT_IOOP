@@ -218,6 +218,12 @@
     <Compile Include="Admins\usercontrol\Admin_staff.Designer.cs">
       <DependentUpon>Admin_staff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admins\usercontrol\Sales_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admins\usercontrol\Sales_Report.Designer.cs">
+      <DependentUpon>Sales_Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer\Customer_home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -391,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admins\usercontrol\Admin_staff.resx">
       <DependentUpon>Admin_staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admins\usercontrol\Sales_Report.resx">
+      <DependentUpon>Sales_Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\Customer_home.resx">
       <DependentUpon>Customer_home.cs</DependentUpon>
