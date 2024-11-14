@@ -42,22 +42,32 @@
             this.bill_name = new System.Windows.Forms.Label();
             this.bill_dataview = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
-            this.discount_lbl = new System.Windows.Forms.Label();
             this.subtotal_lbl = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.totaldue_lbl = new System.Windows.Forms.Label();
             this.bill_datelbl = new System.Windows.Forms.Label();
             this.bill_invoiceNo = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.bill_serviceData = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.bill_Notestxt = new System.Windows.Forms.RichTextBox();
+            this.BService_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Service_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Service_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount_Given = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bill_part = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bill_partName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.billpartPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.billTotal_P = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ServiceAp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.task_ids = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bill_carPlatenumlbl = new System.Windows.Forms.Label();
+            this.carPlateNum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bill_logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bill_dataview)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bill_serviceData)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // bill_headlbl
@@ -84,7 +94,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(696, 28);
+            this.label1.Location = new System.Drawing.Point(673, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(196, 39);
             this.label1.TabIndex = 2;
@@ -95,7 +105,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.HotTrack;
             this.panel1.Location = new System.Drawing.Point(12, 165);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(880, 10);
+            this.panel1.Size = new System.Drawing.Size(1001, 10);
             this.panel1.TabIndex = 3;
             // 
             // label2
@@ -122,7 +132,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(15, 203);
+            this.label4.Location = new System.Drawing.Point(12, 199);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 20);
             this.label4.TabIndex = 6;
@@ -133,7 +143,7 @@
             this.panel2.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel2.Location = new System.Drawing.Point(12, 222);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(880, 10);
+            this.panel2.Size = new System.Drawing.Size(1001, 10);
             this.panel2.TabIndex = 7;
             // 
             // label5
@@ -150,7 +160,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 290);
+            this.label6.Location = new System.Drawing.Point(15, 283);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 20);
             this.label6.TabIndex = 9;
@@ -159,20 +169,20 @@
             // bill_id
             // 
             this.bill_id.AutoSize = true;
-            this.bill_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bill_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bill_id.Location = new System.Drawing.Point(163, 249);
             this.bill_id.Name = "bill_id";
-            this.bill_id.Size = new System.Drawing.Size(53, 20);
+            this.bill_id.Size = new System.Drawing.Size(59, 20);
             this.bill_id.TabIndex = 10;
             this.bill_id.Text = "label7";
             // 
             // bill_name
             // 
             this.bill_name.AutoSize = true;
-            this.bill_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bill_name.Location = new System.Drawing.Point(163, 293);
+            this.bill_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bill_name.Location = new System.Drawing.Point(163, 283);
             this.bill_name.Name = "bill_name";
-            this.bill_name.Size = new System.Drawing.Size(53, 20);
+            this.bill_name.Size = new System.Drawing.Size(59, 20);
             this.bill_name.TabIndex = 11;
             this.bill_name.Text = "label8";
             // 
@@ -189,79 +199,41 @@
             this.bill_partName,
             this.partQty,
             this.billpartPrice,
-            this.billTotal_P,
             this.ServiceAp,
             this.task_ids});
+            this.bill_dataview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bill_dataview.EnableHeadersVisualStyles = false;
-            this.bill_dataview.Location = new System.Drawing.Point(12, 336);
+            this.bill_dataview.Location = new System.Drawing.Point(0, 0);
             this.bill_dataview.Name = "bill_dataview";
             this.bill_dataview.ReadOnly = true;
             this.bill_dataview.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.bill_dataview.RowHeadersVisible = false;
             this.bill_dataview.RowHeadersWidth = 51;
             this.bill_dataview.RowTemplate.Height = 24;
-            this.bill_dataview.Size = new System.Drawing.Size(933, 602);
+            this.bill_dataview.Size = new System.Drawing.Size(1001, 441);
             this.bill_dataview.TabIndex = 12;
+            this.bill_dataview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bill_dataview_CellContentClick);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(704, 941);
+            this.label9.Location = new System.Drawing.Point(552, 1406);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 29);
+            this.label9.Size = new System.Drawing.Size(192, 29);
             this.label9.TabIndex = 13;
-            this.label9.Text = "Subtotal: ";
-            // 
-            // discount_lbl
-            // 
-            this.discount_lbl.AutoSize = true;
-            this.discount_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discount_lbl.Location = new System.Drawing.Point(854, 1014);
-            this.discount_lbl.Name = "discount_lbl";
-            this.discount_lbl.Size = new System.Drawing.Size(102, 29);
-            this.discount_lbl.TabIndex = 14;
-            this.discount_lbl.Text = "label10";
+            this.label9.Text = "Total Amount: ";
             // 
             // subtotal_lbl
             // 
             this.subtotal_lbl.AutoSize = true;
             this.subtotal_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subtotal_lbl.Location = new System.Drawing.Point(854, 941);
+            this.subtotal_lbl.Location = new System.Drawing.Point(815, 1406);
             this.subtotal_lbl.Name = "subtotal_lbl";
             this.subtotal_lbl.Size = new System.Drawing.Size(102, 29);
             this.subtotal_lbl.TabIndex = 15;
             this.subtotal_lbl.Text = "label11";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(704, 1014);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(136, 29);
-            this.label12.TabIndex = 16;
-            this.label12.Text = "Discount: ";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(704, 1083);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(147, 29);
-            this.label13.TabIndex = 17;
-            this.label13.Text = "Total Due: ";
-            // 
-            // totaldue_lbl
-            // 
-            this.totaldue_lbl.AutoSize = true;
-            this.totaldue_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totaldue_lbl.Location = new System.Drawing.Point(854, 1083);
-            this.totaldue_lbl.Name = "totaldue_lbl";
-            this.totaldue_lbl.Size = new System.Drawing.Size(102, 29);
-            this.totaldue_lbl.TabIndex = 18;
-            this.totaldue_lbl.Text = "label14";
+            this.subtotal_lbl.Click += new System.EventHandler(this.subtotal_lbl_Click);
             // 
             // bill_datelbl
             // 
@@ -282,6 +254,113 @@
             this.bill_invoiceNo.Size = new System.Drawing.Size(53, 20);
             this.bill_invoiceNo.TabIndex = 10;
             this.bill_invoiceNo.Text = "label7";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.bill_dataview);
+            this.panel3.Location = new System.Drawing.Point(12, 394);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1001, 441);
+            this.panel3.TabIndex = 19;
+            // 
+            // bill_serviceData
+            // 
+            this.bill_serviceData.AllowUserToAddRows = false;
+            this.bill_serviceData.AllowUserToDeleteRows = false;
+            this.bill_serviceData.AllowUserToResizeColumns = false;
+            this.bill_serviceData.AllowUserToResizeRows = false;
+            this.bill_serviceData.ColumnHeadersHeight = 48;
+            this.bill_serviceData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BService_ID,
+            this.Service_Name,
+            this.Service_Price,
+            this.Discount_Given});
+            this.bill_serviceData.Location = new System.Drawing.Point(12, 893);
+            this.bill_serviceData.Name = "bill_serviceData";
+            this.bill_serviceData.ReadOnly = true;
+            this.bill_serviceData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.bill_serviceData.RowHeadersVisible = false;
+            this.bill_serviceData.RowHeadersWidth = 51;
+            this.bill_serviceData.RowTemplate.Height = 24;
+            this.bill_serviceData.Size = new System.Drawing.Size(1001, 491);
+            this.bill_serviceData.TabIndex = 20;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(15, 861);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 20);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Service :";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(12, 371);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(105, 20);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Part Used: ";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.bill_Notestxt);
+            this.panel4.Location = new System.Drawing.Point(12, 1390);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(515, 234);
+            this.panel4.TabIndex = 21;
+            // 
+            // bill_Notestxt
+            // 
+            this.bill_Notestxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bill_Notestxt.Location = new System.Drawing.Point(0, 0);
+            this.bill_Notestxt.Name = "bill_Notestxt";
+            this.bill_Notestxt.Size = new System.Drawing.Size(515, 234);
+            this.bill_Notestxt.TabIndex = 0;
+            this.bill_Notestxt.Text = "";
+            this.bill_Notestxt.TextChanged += new System.EventHandler(this.bill_Notetxt_TextChanged);
+            // 
+            // BService_ID
+            // 
+            this.BService_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.BService_ID.DataPropertyName = "service_ID";
+            this.BService_ID.HeaderText = "Service ID";
+            this.BService_ID.MinimumWidth = 6;
+            this.BService_ID.Name = "BService_ID";
+            this.BService_ID.ReadOnly = true;
+            this.BService_ID.Width = 91;
+            // 
+            // Service_Name
+            // 
+            this.Service_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Service_Name.DataPropertyName = "serviceName";
+            this.Service_Name.HeaderText = "Service Name";
+            this.Service_Name.MinimumWidth = 6;
+            this.Service_Name.Name = "Service_Name";
+            this.Service_Name.ReadOnly = true;
+            // 
+            // Service_Price
+            // 
+            this.Service_Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Service_Price.DataPropertyName = "servicePrice";
+            this.Service_Price.HeaderText = "Price";
+            this.Service_Price.MinimumWidth = 6;
+            this.Service_Price.Name = "Service_Price";
+            this.Service_Price.ReadOnly = true;
+            this.Service_Price.Width = 67;
+            // 
+            // Discount_Given
+            // 
+            this.Discount_Given.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Discount_Given.DataPropertyName = "serviceOffer";
+            this.Discount_Given.HeaderText = "Discount ";
+            this.Discount_Given.MinimumWidth = 6;
+            this.Discount_Given.Name = "Discount_Given";
+            this.Discount_Given.ReadOnly = true;
+            this.Discount_Given.Width = 91;
             // 
             // bill_part
             // 
@@ -323,15 +402,6 @@
             this.billpartPrice.ReadOnly = true;
             this.billpartPrice.Width = 96;
             // 
-            // billTotal_P
-            // 
-            this.billTotal_P.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.billTotal_P.HeaderText = "Total Price ";
-            this.billTotal_P.MinimumWidth = 6;
-            this.billTotal_P.Name = "billTotal_P";
-            this.billTotal_P.ReadOnly = true;
-            this.billTotal_P.Width = 95;
-            // 
             // ServiceAp
             // 
             this.ServiceAp.DataPropertyName = "serviceAP_ID";
@@ -352,24 +422,47 @@
             this.task_ids.Visible = false;
             this.task_ids.Width = 125;
             // 
+            // bill_carPlatenumlbl
+            // 
+            this.bill_carPlatenumlbl.AutoSize = true;
+            this.bill_carPlatenumlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bill_carPlatenumlbl.Location = new System.Drawing.Point(15, 322);
+            this.bill_carPlatenumlbl.Name = "bill_carPlatenumlbl";
+            this.bill_carPlatenumlbl.Size = new System.Drawing.Size(80, 20);
+            this.bill_carPlatenumlbl.TabIndex = 9;
+            this.bill_carPlatenumlbl.Text = "Car No: ";
+            // 
+            // carPlateNum
+            // 
+            this.carPlateNum.AutoSize = true;
+            this.carPlateNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.carPlateNum.Location = new System.Drawing.Point(163, 325);
+            this.carPlateNum.Name = "carPlateNum";
+            this.carPlateNum.Size = new System.Drawing.Size(59, 20);
+            this.carPlateNum.TabIndex = 11;
+            this.carPlateNum.Text = "label8";
+            // 
             // Bill_Generate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.AutoScrollMargin = new System.Drawing.Size(10, 10);
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(951, 1055);
-            this.Controls.Add(this.totaldue_lbl);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
+            this.ClientSize = new System.Drawing.Size(1046, 1055);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.bill_serviceData);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.subtotal_lbl);
-            this.Controls.Add(this.discount_lbl);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.bill_dataview);
+            this.Controls.Add(this.carPlateNum);
             this.Controls.Add(this.bill_name);
             this.Controls.Add(this.bill_invoiceNo);
             this.Controls.Add(this.bill_datelbl);
             this.Controls.Add(this.bill_id);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.bill_carPlatenumlbl);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -380,11 +473,15 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bill_logo);
             this.Controls.Add(this.bill_headlbl);
+            this.MaximizeBox = false;
             this.Name = "Bill_Generate";
             this.Text = "Bill_Generate";
             this.Load += new System.EventHandler(this.Bill_Generate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bill_logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bill_dataview)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bill_serviceData)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,19 +503,26 @@
         private System.Windows.Forms.Label bill_name;
         private System.Windows.Forms.DataGridView bill_dataview;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label discount_lbl;
         private System.Windows.Forms.Label subtotal_lbl;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label totaldue_lbl;
         private System.Windows.Forms.Label bill_datelbl;
         private System.Windows.Forms.Label bill_invoiceNo;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DataGridView bill_serviceData;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.RichTextBox bill_Notestxt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BService_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Service_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Service_Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount_Given;
         private System.Windows.Forms.DataGridViewTextBoxColumn bill_part;
         private System.Windows.Forms.DataGridViewTextBoxColumn bill_partName;
         private System.Windows.Forms.DataGridViewTextBoxColumn partQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn billpartPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn billTotal_P;
         private System.Windows.Forms.DataGridViewTextBoxColumn ServiceAp;
         private System.Windows.Forms.DataGridViewTextBoxColumn task_ids;
+        private System.Windows.Forms.Label bill_carPlatenumlbl;
+        private System.Windows.Forms.Label carPlateNum;
     }
 }
