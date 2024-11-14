@@ -616,6 +616,29 @@ namespace GA_TestRun1.Customer
                 return true;
             }
         }
+
+        public Dictionary<string, string> BillChecking(int cus_ID)
+        {
+            string query = @"select paymentStatus, paymentValue from Payments where customer_ID = @CUSID";
+            Dictionary<string, string> billCheck = new Dictionary<string, string>();
+            using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@CUSID", cus_ID);
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                         while (reader.Read())
+                         {
+                            billCheck.Add(reader["paymentStatus"].ToString(), reader["paymentValue"].ToString());
+                         }
+                    }
+                }
+            }
+            return billCheck;
+        }
     }
 
 }

@@ -1005,143 +1005,143 @@ namespace GA_TestRun1.Admins
 
             foreach (KeyValuePair<string, string> item in grossProfitDic)
             {
-                grossProfitList.Add($"PaymentID:{item.Key}-----Paymentt Value: {item.Value}");
+                grossProfitList.Add($"PaymentID:{item.Key}---------Paymentt Value: {item.Value}");
             }
 
             return grossProfitList;
         }
 
-        public Dictionary<string, int> ExpensesCal(string month, string year)
-        {
-            List<string> serviceAP_List = new List<string>();
-            List<string> taskID_List = new List<string>();
-            List<string> finalExpenses_List = new List<string>();
-            Dictionary<string, int> partInfo_Dic = new Dictionary<string, int>();
-            Dictionary<string, int> partDtls_Dic = new Dictionary<string, int>();
-            Dictionary<string, int> totalExpenses_Dic = new Dictionary<string, int>();
+        //public Dictionary<string, int> ExpensesCal(string month, string year)
+        //{
+        //    List<string> serviceAP_List = new List<string>();
+        //    List<string> taskID_List = new List<string>();
+        //    List<string> finalExpenses_List = new List<string>();
+        //    Dictionary<string, int> partInfo_Dic = new Dictionary<string, int>();
+        //    Dictionary<string, int> partDtls_Dic = new Dictionary<string, int>();
+        //    Dictionary<string, int> totalExpenses_Dic = new Dictionary<string, int>();
 
-            string query1 = @"select serviceAP_ID 
-                                from ServiceAppoinments 
-                                where MONTH(serviceAPDate) = @MONTH
-                                and YEAR(serviceAPDate) = @YEAR";
+        //    string query1 = @"select serviceAP_ID 
+        //                        from ServiceAppoinments 
+        //                        where MONTH(serviceAPDate) = @MONTH
+        //                        and YEAR(serviceAPDate) = @YEAR";
 
-            string query2 = @"select task_ID
-                                 from Tasks 
-                                 where taskStatus = 'COMPLETE' 
-                                 and serviceAP_ID = @SERVICEAP_ID";
+        //    string query2 = @"select task_ID
+        //                         from Tasks 
+        //                         where taskStatus = 'COMPLETE' 
+        //                         and serviceAP_ID = @SERVICEAP_ID";
 
-            string query3 = @"select part_ID, requestPartQuantity
-                                  from Requests
-                                  where rrequestStatus = 'COMPLETE'
-                                  and task_ID = @TASK_ID";
+        //    string query3 = @"select part_ID, requestPartQuantity
+        //                          from Requests
+        //                          where rrequestStatus = 'COMPLETE'
+        //                          and task_ID = @TASK_ID";
 
-            string query4 = @"select part_ID, partPrice
-                                from Parts
-                                where part_ID = @PART_ID";
+        //    string query4 = @"select part_ID, partPrice
+        //                        from Parts
+        //                        where part_ID = @PART_ID";
 
-            try
-            {
-                // First query - get initial service appointments
-                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(query1, connection))
-                    {
-                        command.Parameters.AddWithValue("@MONTH", month);
-                        command.Parameters.AddWithValue("@YEAR", year);
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                serviceAP_List.Add(reader["serviceAP_ID"].ToString());
-                            }
-                        }
-                    }
-                }
+        //    try
+        //    {
+        //        // First query - get initial service appointments
+        //        using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+        //        {
+        //            connection.Open();
+        //            using (SqlCommand command = new SqlCommand(query1, connection))
+        //            {
+        //                command.Parameters.AddWithValue("@MONTH", month);
+        //                command.Parameters.AddWithValue("@YEAR", year);
+        //                using (SqlDataReader reader = command.ExecuteReader())
+        //                {
+        //                    while (reader.Read())
+        //                    {
+        //                        serviceAP_List.Add(reader["serviceAP_ID"].ToString());
+        //                    }
+        //                }
+        //            }
+        //        }
 
-                // Second query - check completed tasks
-                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(query2, connection))
-                    {
-                        foreach (string id in serviceAP_List)
-                        {
-                            command.Parameters.Clear();
-                            command.Parameters.AddWithValue("@SERVICEAP_ID", id);
-                            using (SqlDataReader reader = command.ExecuteReader())
-                            {
-                                while (reader.Read())
-                                {
-                                    taskID_List.Add(reader["task_ID"].ToString());
-                                }
-                            }
-                        }
-                    }
-                }
+        //        // Second query - check completed tasks
+        //        using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+        //        {
+        //            connection.Open();
+        //            using (SqlCommand command = new SqlCommand(query2, connection))
+        //            {
+        //                foreach (string id in serviceAP_List)
+        //                {
+        //                    command.Parameters.Clear();
+        //                    command.Parameters.AddWithValue("@SERVICEAP_ID", id);
+        //                    using (SqlDataReader reader = command.ExecuteReader())
+        //                    {
+        //                        while (reader.Read())
+        //                        {
+        //                            taskID_List.Add(reader["task_ID"].ToString());
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
 
-                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(query3, connection))
-                    {
-                        foreach (string ID in taskID_List)
-                        {
-                            command.Parameters.Clear();
-                            command.Parameters.AddWithValue("@TASK_ID", ID);
-                            using (SqlDataReader reader = command.ExecuteReader())
-                            {
-                                while (reader.Read())
-                                {
-                                    partInfo_Dic.Add(reader["part_ID"].ToString(), Convert.ToInt32(reader["requestPartQuantity"]));
-                                }
-                            }
-                        }
-                    }
-                }
+        //        using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+        //        {
+        //            connection.Open();
+        //            using (SqlCommand command = new SqlCommand(query3, connection))
+        //            {
+        //                foreach (string ID in taskID_List)
+        //                {
+        //                    command.Parameters.Clear();
+        //                    command.Parameters.AddWithValue("@TASK_ID", ID);
+        //                    using (SqlDataReader reader = command.ExecuteReader())
+        //                    {
+        //                        while (reader.Read())
+        //                        {
+        //                            partInfo_Dic.Add(reader["part_ID"].ToString(), Convert.ToInt32(reader["requestPartQuantity"]));
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
 
-                using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(query4, connection))
-                    {
-                        foreach (string key in partInfo_Dic.Keys)
-                        {
-                            command.Parameters.Clear();
-                            command.Parameters.AddWithValue("@PART_ID", key);
-                            using (SqlDataReader reader = command.ExecuteReader())
-                            {
-                                while (reader.Read())
-                                {
-                                    partDtls_Dic.Add(reader["part_ID"].ToString(), Convert.ToInt32(reader["partPrice"]));
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while processing feedback: {ex.Message}");
-            }
+        //        using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
+        //        {
+        //            connection.Open();
+        //            using (SqlCommand command = new SqlCommand(query4, connection))
+        //            {
+        //                foreach (string key in partInfo_Dic.Keys)
+        //                {
+        //                    command.Parameters.Clear();
+        //                    command.Parameters.AddWithValue("@PART_ID", key);
+        //                    using (SqlDataReader reader = command.ExecuteReader())
+        //                    {
+        //                        while (reader.Read())
+        //                        {
+        //                            partDtls_Dic.Add(reader["part_ID"].ToString(), Convert.ToInt32(reader["partPrice"]));
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"An error occurred while processing feedback: {ex.Message}");
+        //    }
 
-            foreach(KeyValuePair<string, int> info in partInfo_Dic)
-            {
-                foreach(KeyValuePair<string, int> dtls in partDtls_Dic)
-                {
-                    if(info.Key == dtls.Key)
-                    {
-                        int partTotalExpenses = info.Value * dtls.Value;
-                        totalExpenses_Dic.Add(info.Key, partTotalExpenses);
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                }
-            }
+        //    foreach(KeyValuePair<string, int> info in partInfo_Dic)
+        //    {
+        //        foreach(KeyValuePair<string, int> dtls in partDtls_Dic)
+        //        {
+        //            if(info.Key == dtls.Key)
+        //            {
+        //                int partTotalExpenses = info.Value * dtls.Value;
+        //                totalExpenses_Dic.Add(info.Key, partTotalExpenses);
+        //            }
+        //            else
+        //            {
+        //                continue;
+        //            }
+        //        }
+        //    }
 
-            return totalExpenses_Dic;
-        }
+        //    return totalExpenses_Dic;
+        //}
     }
 }

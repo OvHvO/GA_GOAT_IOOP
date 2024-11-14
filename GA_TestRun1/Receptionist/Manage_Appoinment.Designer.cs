@@ -33,19 +33,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manage_Appoinment));
             this.Rcp_dataview = new System.Windows.Forms.DataGridView();
             this.rcp_appoimentBar = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.reload_pict = new System.Windows.Forms.PictureBox();
             this.scr_lbl = new System.Windows.Forms.Label();
             this.SearchCBO_lbl = new System.Windows.Forms.Label();
             this.Rcp_searchbtn = new System.Windows.Forms.Button();
             this.Search_txtb = new System.Windows.Forms.TextBox();
             this.Search_cbo = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.reload_pict = new System.Windows.Forms.PictureBox();
             this.CusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.App_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cus_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cus_contactNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Vechi_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MecName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Task_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reshedule_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Rcp_dataview)).BeginInit();
             this.rcp_appoimentBar.SuspendLayout();
@@ -74,6 +75,7 @@
             this.Cus_contactNum,
             this.Vechi_num,
             this.MecName,
+            this.Task_status,
             this.Reshedule_Status});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -94,7 +96,7 @@
             this.Rcp_dataview.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Rcp_dataview.RowTemplate.Height = 24;
             this.Rcp_dataview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Rcp_dataview.Size = new System.Drawing.Size(972, 424);
+            this.Rcp_dataview.Size = new System.Drawing.Size(1039, 462);
             this.Rcp_dataview.TabIndex = 3;
             this.Rcp_dataview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rcp_dataview_CellContentClick_1);
             this.Rcp_dataview.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rcp_dataview_CellContentDoubleClick);
@@ -111,8 +113,31 @@
             this.rcp_appoimentBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.rcp_appoimentBar.Location = new System.Drawing.Point(0, 0);
             this.rcp_appoimentBar.Name = "rcp_appoimentBar";
-            this.rcp_appoimentBar.Size = new System.Drawing.Size(972, 65);
+            this.rcp_appoimentBar.Size = new System.Drawing.Size(1039, 65);
             this.rcp_appoimentBar.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(4, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(346, 17);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Hint: Please Double Click a detail to Assign Mechanic ";
+            // 
+            // reload_pict
+            // 
+            this.reload_pict.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reload_pict.Image = ((System.Drawing.Image)(resources.GetObject("reload_pict.Image")));
+            this.reload_pict.Location = new System.Drawing.Point(927, 24);
+            this.reload_pict.Name = "reload_pict";
+            this.reload_pict.Size = new System.Drawing.Size(33, 33);
+            this.reload_pict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.reload_pict.TabIndex = 5;
+            this.reload_pict.TabStop = false;
+            this.reload_pict.Click += new System.EventHandler(this.reload_pict_Click);
             // 
             // scr_lbl
             // 
@@ -156,7 +181,7 @@
             // 
             this.Search_cbo.FormattingEnabled = true;
             this.Search_cbo.Items.AddRange(new object[] {
-            "Appoinment ID",
+            "Appointment ID",
             "Customer Name",
             "Vehicle Number"});
             this.Search_cbo.Location = new System.Drawing.Point(136, 33);
@@ -164,29 +189,6 @@
             this.Search_cbo.Size = new System.Drawing.Size(173, 24);
             this.Search_cbo.TabIndex = 0;
             this.Search_cbo.SelectedIndexChanged += new System.EventHandler(this.Search_cbo_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(4, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(346, 17);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Hint: Please Double Click a detail to Assign Mechanic ";
-            // 
-            // reload_pict
-            // 
-            this.reload_pict.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reload_pict.Image = ((System.Drawing.Image)(resources.GetObject("reload_pict.Image")));
-            this.reload_pict.Location = new System.Drawing.Point(927, 24);
-            this.reload_pict.Name = "reload_pict";
-            this.reload_pict.Size = new System.Drawing.Size(33, 33);
-            this.reload_pict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.reload_pict.TabIndex = 5;
-            this.reload_pict.TabStop = false;
-            this.reload_pict.Click += new System.EventHandler(this.reload_pict_Click);
             // 
             // CusID
             // 
@@ -202,7 +204,7 @@
             // 
             this.App_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.App_id.DataPropertyName = "serviceAP_ID";
-            this.App_id.HeaderText = "Appoiment ID";
+            this.App_id.HeaderText = "Appointment ID";
             this.App_id.MinimumWidth = 6;
             this.App_id.Name = "App_id";
             this.App_id.ReadOnly = true;
@@ -247,6 +249,15 @@
             this.MecName.ReadOnly = true;
             this.MecName.Width = 101;
             // 
+            // Task_status
+            // 
+            this.Task_status.DataPropertyName = "taskStatus";
+            this.Task_status.HeaderText = "Task Status";
+            this.Task_status.MinimumWidth = 6;
+            this.Task_status.Name = "Task_status";
+            this.Task_status.ReadOnly = true;
+            this.Task_status.Width = 125;
+            // 
             // Reshedule_Status
             // 
             this.Reshedule_Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -261,11 +272,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 489);
+            this.ClientSize = new System.Drawing.Size(1039, 527);
             this.Controls.Add(this.Rcp_dataview);
             this.Controls.Add(this.rcp_appoimentBar);
             this.Name = "Manage_Appoinment";
-            this.Text = "Manage_Appoinment";
+            this.Text = "Manage Appointment";
             this.Load += new System.EventHandler(this.Manage_Appoinment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Rcp_dataview)).EndInit();
             this.rcp_appoimentBar.ResumeLayout(false);
@@ -292,6 +303,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cus_contactNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vechi_num;
         private System.Windows.Forms.DataGridViewTextBoxColumn MecName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Task_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reshedule_Status;
     }
 }

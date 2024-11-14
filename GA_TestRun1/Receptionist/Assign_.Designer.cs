@@ -165,8 +165,10 @@
             this.Controls.Add(this.Name_txtb);
             this.Controls.Add(this.task_btn);
             this.Controls.Add(this.Mec_namelistb);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Assign_task";
-            this.Text = "Assign_";
+            this.ShowInTaskbar = false;
+            this.Text = "Assign Task";
             this.Load += new System.EventHandler(this.Assign_task_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
