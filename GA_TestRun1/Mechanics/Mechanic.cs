@@ -230,7 +230,7 @@ namespace GA_TestRun1.Mechanics
         //============================== Refresh Button Function ==============================//
         public static Array RefreshProfile(string Names)
         {
-            using (SqlConnection conn = new SqlConnection(Connection))
+            using (SqlConnection conn = new SqlConnection(connect))
             {
                 string newuser;
                 conn.Open();
@@ -252,7 +252,7 @@ namespace GA_TestRun1.Mechanics
                     while (read.Read())
                     {
                         newProf[0] = read.GetString(0);
-                        newProf[1] = read.GetString(1);
+                        newProf[1] = read.GetInt32(1);
 
                     }
                     conn.Close();
