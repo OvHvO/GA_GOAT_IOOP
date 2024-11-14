@@ -43,7 +43,8 @@ namespace GA_TestRun1.Receptionist
 
             NO SIGNATURE REQUIRED. MECHINE GENERATED.
                                     ";
-
+             string paymentid=receptionists.updatePaymentStatus(ServiceID,Convert.ToInt32(cusid));
+             bill_invoiceNo.Text = paymentid;
         }
 
         private void bill_dataview_CellContentClick(object sender, DataGridViewCellEventArgs e)
