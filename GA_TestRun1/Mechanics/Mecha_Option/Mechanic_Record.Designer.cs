@@ -34,10 +34,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Status_Cbo = new System.Windows.Forms.ComboBox();
             this.Col_Time = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Add_txt = new System.Windows.Forms.TextBox();
             this.Submit_btn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.CarNum_Cbo = new System.Windows.Forms.ComboBox();
+            this.Number_LstB = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // Welcome_txt
@@ -96,13 +96,13 @@
             this.Col_Time.Size = new System.Drawing.Size(200, 20);
             this.Col_Time.TabIndex = 6;
             // 
-            // textBox1
+            // Add_txt
             // 
-            this.textBox1.Location = new System.Drawing.Point(25, 254);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(539, 80);
-            this.textBox1.TabIndex = 7;
+            this.Add_txt.Location = new System.Drawing.Point(25, 254);
+            this.Add_txt.Multiline = true;
+            this.Add_txt.Name = "Add_txt";
+            this.Add_txt.Size = new System.Drawing.Size(539, 80);
+            this.Add_txt.TabIndex = 7;
             // 
             // Submit_btn
             // 
@@ -113,6 +113,7 @@
             this.Submit_btn.TabIndex = 8;
             this.Submit_btn.Text = "Submit";
             this.Submit_btn.UseVisualStyleBackColor = true;
+            this.Submit_btn.Click += new System.EventHandler(this.Submit_btn_Click);
             // 
             // label4
             // 
@@ -124,23 +125,23 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Car Number: ";
             // 
-            // CarNum_Cbo
+            // Number_LstB
             // 
-            this.CarNum_Cbo.FormattingEnabled = true;
-            this.CarNum_Cbo.Location = new System.Drawing.Point(420, 115);
-            this.CarNum_Cbo.Name = "CarNum_Cbo";
-            this.CarNum_Cbo.Size = new System.Drawing.Size(121, 21);
-            this.CarNum_Cbo.TabIndex = 10;
-            this.CarNum_Cbo.SelectedIndexChanged += new System.EventHandler(this.CarNum_Cbo_SelectedIndexChanged);
+            this.Number_LstB.FormattingEnabled = true;
+            this.Number_LstB.Location = new System.Drawing.Point(420, 114);
+            this.Number_LstB.Name = "Number_LstB";
+            this.Number_LstB.Size = new System.Drawing.Size(129, 108);
+            this.Number_LstB.TabIndex = 10;
+            this.Number_LstB.SelectedIndexChanged += new System.EventHandler(this.Number_LstB_SelectedIndexChanged);
             // 
             // Mechanic_Record
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.CarNum_Cbo);
+            this.Controls.Add(this.Number_LstB);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Submit_btn);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Add_txt);
             this.Controls.Add(this.Col_Time);
             this.Controls.Add(this.Status_Cbo);
             this.Controls.Add(this.label3);
@@ -163,9 +164,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox Status_Cbo;
         private System.Windows.Forms.DateTimePicker Col_Time;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Add_txt;
         private System.Windows.Forms.Button Submit_btn;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox CarNum_Cbo;
+        private System.Windows.Forms.ListBox Number_LstB;
     }
 }
