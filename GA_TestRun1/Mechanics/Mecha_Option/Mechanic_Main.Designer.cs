@@ -66,7 +66,7 @@
             // 
             // Refresh_btn
             // 
-            this.Refresh_btn.Location = new System.Drawing.Point(183, 122);
+            this.Refresh_btn.Location = new System.Drawing.Point(127, 129);
             this.Refresh_btn.Name = "Refresh_btn";
             this.Refresh_btn.Size = new System.Drawing.Size(75, 23);
             this.Refresh_btn.TabIndex = 4;
@@ -78,7 +78,7 @@
             // 
             this.PNum_lbl.AutoSize = true;
             this.PNum_lbl.Font = new System.Drawing.Font("Franklin Gothic Heavy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PNum_lbl.Location = new System.Drawing.Point(224, 79);
+            this.PNum_lbl.Location = new System.Drawing.Point(165, 78);
             this.PNum_lbl.Name = "PNum_lbl";
             this.PNum_lbl.Size = new System.Drawing.Size(56, 21);
             this.PNum_lbl.TabIndex = 3;
@@ -88,7 +88,7 @@
             // 
             this.Name_lbl.AutoSize = true;
             this.Name_lbl.Font = new System.Drawing.Font("Franklin Gothic Heavy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name_lbl.Location = new System.Drawing.Point(224, 47);
+            this.Name_lbl.Location = new System.Drawing.Point(164, 46);
             this.Name_lbl.Name = "Name_lbl";
             this.Name_lbl.Size = new System.Drawing.Size(56, 21);
             this.Name_lbl.TabIndex = 2;
@@ -98,7 +98,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Heavy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(91, 79);
+            this.label2.Location = new System.Drawing.Point(32, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 21);
             this.label2.TabIndex = 1;
@@ -108,7 +108,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Heavy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(157, 47);
+            this.label1.Location = new System.Drawing.Point(97, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 21);
             this.label1.TabIndex = 0;
@@ -137,6 +137,7 @@
             this.Controls.Add(this.Welcome_txt);
             this.Name = "Mechanic_Main";
             this.Size = new System.Drawing.Size(587, 429);
+            this.Load += new System.EventHandler(this.Mechanic_Main_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

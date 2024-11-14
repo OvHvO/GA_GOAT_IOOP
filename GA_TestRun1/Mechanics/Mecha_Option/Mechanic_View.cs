@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GA_TestRun1.Mechanics.Mecha_Option
 {
@@ -34,24 +35,29 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
 
         private void Mcn_searchbtn_Click(object sender, EventArgs e)
         {
-            string selectedItems = "serviceAP_ID";
+            string SelectedItems = "serviceAP_ID";
             if (Search_Cbo.SelectedIndex == 0)
             {
-                selectedItems = "serviceAP_ID";
-                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, selectedItems);
+                SelectedItems = "serviceAP_ID";
+                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, SelectedItems, NewName);
             }
 
             else if (Search_Cbo.SelectedIndex == 1)
             {
-                selectedItems = "customerUsername";
-                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, selectedItems);
+                SelectedItems = "customerUsername";
+                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, SelectedItems, NewName);
             }
 
             else if (Search_Cbo.SelectedIndex == 2)
             {
-                selectedItems = "carNum";
-                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, selectedItems);
+                SelectedItems = "carNum";
+                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, SelectedItems, NewName);
             }
+        }
+
+        private void Search_Cbo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void Mcn_GridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -64,7 +70,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
         {
             Mechanic mechanic = new Mechanic(Uname);
             Mcn_GridView.DataSource = mechanic.ViewProfList(Uname);
-            Search_Cbo.SelectedIndex = 0;
+            Search_Cbo.SelectedIndex = 0;   
         }
 
         private void Mcn_GridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -82,15 +88,6 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
                 string serviceID = Mcn_GridView.Rows[e.RowIndex].Cells["App_id"].Value.ToString();
                 string mechanicID = Mcn_GridView.Rows[e.RowIndex].Cells["MecName"].Value.ToString();
                 string rescheduleStatus = Mcn_GridView.Rows[e.RowIndex].Cells["Reshedule_Status"].Value.ToString();
-                if (string.IsNullOrEmpty(mechanicID) || rescheduleStatus == "True")
-                {
-                    Assign_task assign = new Assign_task(name, vehicle, contact, cusID, serviceID, NewName);
-                    assign.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("This Task Has Already Been Assigned !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
             catch (Exception)
             {
@@ -98,6 +95,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
                 MessageBox.Show("Please Double Click On the Content Not header!", "Assigning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
     }
 }

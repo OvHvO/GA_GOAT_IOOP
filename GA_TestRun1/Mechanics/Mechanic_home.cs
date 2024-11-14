@@ -65,10 +65,10 @@ namespace GA_TestRun1.Mechanics
                 // Check if the Name is not null, empty or whitespace
                 if (string.IsNullOrWhiteSpace(Name))
                 {
-                    // If Name doesn't exist or is invalid, show an error message
+                    // If Name doesn't exist, it'll show an error message
                     MessageBox.Show("Name is not valid or not provided. Please check the input.",
                                     "Invalid Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Exit the method early if Name is invalid
+                    return; 
                 }
                 //----------Change border size----------//
                 this.V_ServiceTask_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -90,7 +90,7 @@ namespace GA_TestRun1.Mechanics
             //----------Change border size----------//
             this.R_Service_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.R_Service_btn.FlatAppearance.BorderSize = 0;
-            LoadUserControl(new Mechanic_Record());
+            LoadUserControl(new Mechanic_Record(Name));
         }
 
 
