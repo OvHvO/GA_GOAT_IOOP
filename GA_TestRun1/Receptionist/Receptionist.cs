@@ -307,7 +307,7 @@ namespace GA_TestRun1.Receptionist
         {
             SqlConnection conn = new SqlConnection(connectionS);
             conn.Open();
-            string query = @"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum, T.mechanic_ID, SA.rescheduleStatus
+            string query = @"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum, T.mechanic_ID,T.taskStatus, SA.rescheduleStatus
                              from Customers AS C
                              INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
                              LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
@@ -370,7 +370,7 @@ namespace GA_TestRun1.Receptionist
                 try
                 {
                     SqlTransaction transaction = conn.BeginTransaction();
-                    string query = @"Update Requests set rrequestStatus='COMPLETE' where request_ID=@requestid";
+                    string query = @"Update Requests set rrequestStatus='ASSIGNED' where request_ID=@requestid AND rrequestStatus='PENDING'";
                     SqlCommand command = new SqlCommand(query, conn, transaction);
                     command.Parameters.AddWithValue("@requestid", requestid);
 
@@ -394,14 +394,16 @@ namespace GA_TestRun1.Receptionist
                         {
                             transaction.Commit();
                             MessageBox.Show($"Assigned !, The Stock of the {partName} is {partQty}");
-
-
+                            if (partQty<10) 
+                            {
+                                MessageBox.Show($"Please Note That {partName} Quantity is below than 20 !","Warning !",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                            }
                         }
 
                         else
                         {
                             transaction.Rollback();
-                            MessageBox.Show("Please click on the Request ID cell to assign the Parts", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("This Request has been marked as COMPLETED ! If you didn't see it Please Refresh !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         }
                     }
@@ -531,7 +533,7 @@ namespace GA_TestRun1.Receptionist
                     cmd3.Parameters.AddWithValue("@mecuser", selectedItems);
                     string mechanicID = cmd3.ExecuteScalar().ToString();
 
-                    string query = "Insert Into Tasks(taskStatus,mechanic_ID,serviceAP_ID,rcptionist_ID) values('Under repairing',@mechanicID,@serviceAP_ID,@rcptionist_ID)";
+                    string query = "Insert Into Tasks(taskStatus,mechanic_ID,serviceAP_ID,rcptionist_ID) values('PENDING',@mechanicID,@serviceAP_ID,@rcptionist_ID)";
                     SqlCommand cmd = new SqlCommand(query, conn, transaction);
                     cmd.Parameters.AddWithValue("@mechanicID", mechanicID);
                     cmd.Parameters.AddWithValue("@serviceAP_ID", serviceID);
@@ -607,6 +609,8 @@ namespace GA_TestRun1.Receptionist
             cmd.Parameters.AddWithValue("@carver",carver);
             cmd.Parameters.AddWithValue("@serviceid",serviceid);
             int serviceAppoiRowAffect= cmd.ExecuteNonQuery();
+
+            
 
             if (status=="Check-In") 
             { 
@@ -696,7 +700,7 @@ namespace GA_TestRun1.Receptionist
         {
             SqlConnection con = new SqlConnection(connectionS);
             List<int> price = new List<int>();
-            List<int>  offer = new List<int>();
+            List<int> offer = new List<int>();
             int Tprice;
             int Allamt=0;
             con.Open();
@@ -764,24 +768,56 @@ namespace GA_TestRun1.Receptionist
             }
             reader.Close();
 
-            string query2 = @"Insert into Payments(paymentStatus,paymentValue,customer_ID,rcptionist_id)
-                              Values ('PENDING',@paymentvalue,@cusid,@rcpid)";
-            SqlCommand cmd2= new SqlCommand(query2, con);
-            allvalue= (ServiceAmt + PartAmt).ToString();
-            cmd2.Parameters.AddWithValue("@paymentvalue",allvalue);
-            cmd2.Parameters.AddWithValue("@cusid",cusid);
-            cmd2.Parameters.AddWithValue("@rcpid",rcpid);
-          
-            cmd2.ExecuteNonQuery();
+            string query4 = "Select payment_ID from Payments where customer_ID=@cusid And paymentStatus='PENDING'";
+            SqlCommand cmd4 = new SqlCommand(query4, con);
+            cmd4.Parameters.AddWithValue("@cusid", cusid);
+            paymentid = Convert.ToString(cmd4.ExecuteScalar());
+            
+            if (string.IsNullOrEmpty(paymentid)) 
+            { 
 
-            string query3 = "Select payment_ID from Payments where customer_ID=@cusid And paymentStatus='PENDING'";
-            SqlCommand cmd3 = new SqlCommand(query3, con);
-            cmd3.Parameters.AddWithValue("@cusid",cusid);
-            paymentid= Convert.ToString(cmd3.ExecuteScalar());
-            con.Close();
+                string query2 = @"Insert into Payments(paymentStatus,paymentValue,customer_ID,rcptionist_id)
+                                  Values ('PENDING',@paymentvalue,@cusid,@rcpid)";
+                SqlCommand cmd2= new SqlCommand(query2, con);
+                allvalue= (ServiceAmt + PartAmt).ToString();
+                cmd2.Parameters.AddWithValue("@paymentvalue",allvalue);
+                cmd2.Parameters.AddWithValue("@cusid",cusid);
+                cmd2.Parameters.AddWithValue("@rcpid",rcpid);
+          
+                cmd2.ExecuteNonQuery();
+
+                string query3 = "Select payment_ID from Payments where customer_ID=@cusid And paymentStatus='PENDING'";
+                SqlCommand cmd3 = new SqlCommand(query3, con);
+                cmd3.Parameters.AddWithValue("@cusid",cusid);
+                paymentid= Convert.ToString(cmd3.ExecuteScalar());
+                con.Close();
+                return paymentid;
+            }
             return paymentid;
 
             
+        }
+
+        public static List<string> AlretForShortage()
+        {   
+            List<string> shortageName = new List<string>();
+            //List<string> shortageQty = new List<string>();
+
+            SqlConnection con = new SqlConnection(connectionS);
+            con.Open();
+            string query = "Select partName from Parts where partShortage='True'";
+            SqlCommand cmd= new SqlCommand(query, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read()) 
+            {
+                shortageName.Add(reader[0].ToString());
+                
+            }
+            reader.Close();
+
+            con.Close();
+            return shortageName;
+
         }
 
 

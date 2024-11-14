@@ -451,7 +451,7 @@
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(10, 10);
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(1046, 1055);
+            this.ClientSize = new System.Drawing.Size(1067, 1055);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.bill_serviceData);
             this.Controls.Add(this.panel3);
@@ -475,9 +475,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bill_logo);
             this.Controls.Add(this.bill_headlbl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Bill_Generate";
-            this.Text = "Bill_Generate";
+            this.Text = "Bill ";
             this.Load += new System.EventHandler(this.Bill_Generate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bill_logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bill_dataview)).EndInit();

@@ -239,8 +239,9 @@ namespace GA_TestRun1.Receptionist
 
         private void buttonhover(object sender, EventArgs e)
         {
-            Rcp_home_delCus.BackColor=Color.Blue;
-            Rcp_home_delCus.ForeColor = Color.White;
+            Rcp_home_delCus.BackColor=Color.Aqua;
+            
+            
         }
 
         private void buttonmove(object sender, EventArgs e)

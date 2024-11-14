@@ -41,7 +41,7 @@ namespace GA_TestRun1.Receptionist
                         PLEASE COME AGAIN
 
 
-            NO SIGNATURE REQUIRED. MECHINE GENERATED.
+             NO SIGNATURE REQUIRED. MACHINE GENERATED.
                                     ";
              string paymentid=receptionists.updatePaymentStatus(ServiceID,Convert.ToInt32(cusid));
              bill_invoiceNo.Text = paymentid;
