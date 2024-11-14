@@ -1047,6 +1047,8 @@ namespace GA_TestRun1.Admins
                     connection.Open();
                     using (SqlCommand command = new SqlCommand(query1, connection))
                     {
+                        command.Parameters.AddWithValue("@MONTH", month);
+                        command.Parameters.AddWithValue("@YEAR", year);
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())

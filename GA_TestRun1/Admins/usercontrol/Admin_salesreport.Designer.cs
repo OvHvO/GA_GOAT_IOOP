@@ -33,7 +33,6 @@
             this.SR_GrossProfit_LB = new System.Windows.Forms.ListBox();
             this.SR_TotalExpenses_LB = new System.Windows.Forms.ListBox();
             this.SR_NetProfit_TB = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.SR_totalGrossProfit_TB = new System.Windows.Forms.TextBox();
             this.SR_TotalExpenses_TB = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -97,15 +96,6 @@
             this.SR_NetProfit_TB.Size = new System.Drawing.Size(316, 26);
             this.SR_NetProfit_TB.TabIndex = 4;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(349, 596);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 44);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "!!!NOTICE!!!";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // SR_totalGrossProfit_TB
             // 
             this.SR_totalGrossProfit_TB.Location = new System.Drawing.Point(248, 331);
@@ -129,7 +119,6 @@
             this.BackColor = System.Drawing.Color.Salmon;
             this.Controls.Add(this.SR_TotalExpenses_TB);
             this.Controls.Add(this.SR_totalGrossProfit_TB);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.SR_NetProfit_TB);
             this.Controls.Add(this.SR_TotalExpenses_LB);
             this.Controls.Add(this.SR_GrossProfit_LB);
@@ -150,7 +139,6 @@
         private System.Windows.Forms.ListBox SR_GrossProfit_LB;
         private System.Windows.Forms.ListBox SR_TotalExpenses_LB;
         private System.Windows.Forms.TextBox SR_NetProfit_TB;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox SR_totalGrossProfit_TB;
         private System.Windows.Forms.TextBox SR_TotalExpenses_TB;
     }

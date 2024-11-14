@@ -46,7 +46,7 @@ namespace GA_TestRun1.Admins
 
             //For Total Expenses
             int totalExpenses = 0;
-            List<string> finalExpenses_List = new List<string>;
+            List<string> finalExpenses_List = new List<string>();
             Dictionary<string, int> totalExpensesDic = admin.ExpensesCal(monthForm,currentYear);
 
             foreach (KeyValuePair<string, int> item in totalExpensesDic)
@@ -65,6 +65,8 @@ namespace GA_TestRun1.Admins
                 
             }
 
+            SR_TotalExpenses_TB.Text = "Total Expenses : " + totalExpenses.ToString();
+            SR_NetProfit_TB.Text = "Net Profit : " + (totalGrossProfit - totalExpenses);
         }
     }
 }
