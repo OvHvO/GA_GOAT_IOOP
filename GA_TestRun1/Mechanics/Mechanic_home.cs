@@ -126,12 +126,12 @@ namespace GA_TestRun1.Mechanics
 
         private void Mechanic_home_Load(object sender, EventArgs e)
         {
-            //LoadUserControl(new Mechanic_Main());
+            LoadUserControl(new Mechanic_Main(Name, Connection, Contact));
         }
 
         private void Logo_img_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new Mechanic_Main(Name));
+            LoadUserControl(new Mechanic_Main(Name, Connection, Contact));
         }
 
 

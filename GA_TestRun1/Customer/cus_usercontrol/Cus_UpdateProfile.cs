@@ -58,6 +58,11 @@ namespace GA_TestRun1.Customer.cus_usercontrol
             {
                 MessageBox.Show("Failed to update profile. Please try again.");
             }
+
+            Cus_ID_TB.Clear();
+            Cus_Update_PW_TB.Clear();
+            Cus_Update_UN_TB.Clear();
+            Cus_Update_CN_TB.Clear(); 
         }
 
 

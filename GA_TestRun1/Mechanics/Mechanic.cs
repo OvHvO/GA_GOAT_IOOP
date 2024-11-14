@@ -208,6 +208,9 @@ namespace GA_TestRun1.Mechanics
 
             }
 
+
+
+
             //============================== Testing ==============================//
             //public bool IsUserNameInMechanics(string userName)
             //{
@@ -223,6 +226,57 @@ namespace GA_TestRun1.Mechanics
             //    }
             //}
         }
-    }
 
+        //============================== Refresh Button Function ==============================//
+        public static Array RefreshProfile(string Names)
+        {
+            using (SqlConnection conn = new SqlConnection(connect))
+            {
+                string newuser;
+                conn.Open();
+
+                string query1 = "Select McnUsername from ##Mcntemptable where McnUsername=@username";
+                SqlCommand cmd = new SqlCommand(query1, conn);
+                cmd.Parameters.AddWithValue("@username", Names);
+                string[] newProf = new string[2];
+                //check the name is oldusername or newusername
+                if (cmd.ExecuteScalar() != null)
+                {
+                    newuser = cmd.ExecuteScalar().ToString();
+
+                    string query = "Select mechanicUsername,mechanicContactNum from Mechanics where mechanicUsername=@username";
+                    SqlCommand cmd2 = new SqlCommand(query, conn);
+                    cmd2.Parameters.AddWithValue("@username", newuser);
+
+                    SqlDataReader read = cmd2.ExecuteReader();
+                    while (read.Read())
+                    {
+                        newProf[0] = read.GetString(0);
+                        newProf[1] = read.GetInt32(1);
+
+                    }
+                    conn.Close();
+                    return newProf;
+
+                }
+                string query2 = "Select McnUsername from ##Mcntemptable where OldName=@username";
+                SqlCommand cmd3 = new SqlCommand(query2, conn);
+                cmd3.Parameters.AddWithValue("@username", Names);
+                newuser = cmd3.ExecuteScalar().ToString();
+                string query3 = "Select McnUsername, McnContactNum from Mechanics where McnUsername=@username";
+                SqlCommand cmd4 = new SqlCommand(query3, conn);
+                cmd4.Parameters.AddWithValue("@username", newuser);
+
+                SqlDataReader read2 = cmd4.ExecuteReader();
+                while (read2.Read())
+                {
+                    newProf[0] = read2.GetString(0);
+                    newProf[1] = read2.GetString(1);
+                }
+                conn.Close();
+
+                return newProf;
+            }
+        }
+    }
 }
