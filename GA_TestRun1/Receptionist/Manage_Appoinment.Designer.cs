@@ -46,6 +46,7 @@
             this.Cus_contactNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Vechi_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MecName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Task_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reshedule_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Rcp_dataview)).BeginInit();
             this.rcp_appoimentBar.SuspendLayout();
@@ -74,6 +75,7 @@
             this.Cus_contactNum,
             this.Vechi_num,
             this.MecName,
+            this.Task_status,
             this.Reshedule_Status});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -94,7 +96,7 @@
             this.Rcp_dataview.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Rcp_dataview.RowTemplate.Height = 24;
             this.Rcp_dataview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Rcp_dataview.Size = new System.Drawing.Size(972, 424);
+            this.Rcp_dataview.Size = new System.Drawing.Size(1039, 462);
             this.Rcp_dataview.TabIndex = 3;
             this.Rcp_dataview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rcp_dataview_CellContentClick_1);
             this.Rcp_dataview.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rcp_dataview_CellContentDoubleClick);
@@ -111,7 +113,7 @@
             this.rcp_appoimentBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.rcp_appoimentBar.Location = new System.Drawing.Point(0, 0);
             this.rcp_appoimentBar.Name = "rcp_appoimentBar";
-            this.rcp_appoimentBar.Size = new System.Drawing.Size(972, 65);
+            this.rcp_appoimentBar.Size = new System.Drawing.Size(1039, 65);
             this.rcp_appoimentBar.TabIndex = 2;
             // 
             // label1
@@ -247,6 +249,15 @@
             this.MecName.ReadOnly = true;
             this.MecName.Width = 101;
             // 
+            // Task_status
+            // 
+            this.Task_status.DataPropertyName = "taskStatus";
+            this.Task_status.HeaderText = "Task Status";
+            this.Task_status.MinimumWidth = 6;
+            this.Task_status.Name = "Task_status";
+            this.Task_status.ReadOnly = true;
+            this.Task_status.Width = 125;
+            // 
             // Reshedule_Status
             // 
             this.Reshedule_Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -261,7 +272,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 489);
+            this.ClientSize = new System.Drawing.Size(1039, 527);
             this.Controls.Add(this.Rcp_dataview);
             this.Controls.Add(this.rcp_appoimentBar);
             this.Name = "Manage_Appoinment";
@@ -292,6 +303,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cus_contactNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vechi_num;
         private System.Windows.Forms.DataGridViewTextBoxColumn MecName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Task_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reshedule_Status;
     }
 }

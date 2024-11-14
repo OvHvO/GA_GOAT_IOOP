@@ -69,9 +69,9 @@
             this.checkin_rightPanel.Controls.Add(this.checkin_Carnumtxt);
             this.checkin_rightPanel.Controls.Add(this.checkin_Cusnametxt);
             this.checkin_rightPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkin_rightPanel.Location = new System.Drawing.Point(484, 0);
+            this.checkin_rightPanel.Location = new System.Drawing.Point(542, 0);
             this.checkin_rightPanel.Name = "checkin_rightPanel";
-            this.checkin_rightPanel.Size = new System.Drawing.Size(405, 467);
+            this.checkin_rightPanel.Size = new System.Drawing.Size(405, 519);
             this.checkin_rightPanel.TabIndex = 0;
             // 
             // reload_pict
@@ -182,7 +182,7 @@
             this.checkin_leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkin_leftPanel.Location = new System.Drawing.Point(0, 0);
             this.checkin_leftPanel.Name = "checkin_leftPanel";
-            this.checkin_leftPanel.Size = new System.Drawing.Size(490, 467);
+            this.checkin_leftPanel.Size = new System.Drawing.Size(548, 519);
             this.checkin_leftPanel.TabIndex = 1;
             // 
             // checkin_dataView
@@ -207,7 +207,7 @@
             this.checkin_dataView.RowHeadersWidth = 51;
             this.checkin_dataView.RowTemplate.Height = 24;
             this.checkin_dataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.checkin_dataView.Size = new System.Drawing.Size(490, 467);
+            this.checkin_dataView.Size = new System.Drawing.Size(548, 519);
             this.checkin_dataView.TabIndex = 0;
             this.checkin_dataView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.checkin_dataView_CellContentClick);
             this.checkin_dataView.SelectionChanged += new System.EventHandler(this.checkin_dataView_SelectionChanged);
@@ -220,7 +220,7 @@
             this.Cus_ID.MinimumWidth = 6;
             this.Cus_ID.Name = "Cus_ID";
             this.Cus_ID.ReadOnly = true;
-            this.Cus_ID.Width = 101;
+            this.Cus_ID.Width = 109;
             // 
             // CusName
             // 
@@ -275,7 +275,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 467);
+            this.ClientSize = new System.Drawing.Size(947, 519);
             this.Controls.Add(this.checkin_leftPanel);
             this.Controls.Add(this.checkin_rightPanel);
             this.Name = "CheckInOutF";
@@ -305,12 +305,12 @@
         private System.Windows.Forms.Button checkin_Upbtn;
         private System.Windows.Forms.Label checkin_carVer;
         private System.Windows.Forms.TextBox checkin_carVertxt;
+        private System.Windows.Forms.PictureBox reload_pict;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cus_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CusName;
         private System.Windows.Forms.DataGridViewTextBoxColumn CarNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn carVer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service_status;
-        private System.Windows.Forms.PictureBox reload_pict;
     }
 }
