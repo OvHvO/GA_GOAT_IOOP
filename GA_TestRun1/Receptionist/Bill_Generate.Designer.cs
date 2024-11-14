@@ -41,26 +41,26 @@
             this.bill_id = new System.Windows.Forms.Label();
             this.bill_name = new System.Windows.Forms.Label();
             this.bill_dataview = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.subtotal_lbl = new System.Windows.Forms.Label();
-            this.bill_datelbl = new System.Windows.Forms.Label();
-            this.bill_invoiceNo = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.bill_serviceData = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.bill_Notestxt = new System.Windows.Forms.RichTextBox();
-            this.BService_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Service_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Service_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount_Given = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bill_part = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bill_partName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.billpartPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ServiceAp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.task_ids = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.subtotal_lbl = new System.Windows.Forms.Label();
+            this.bill_datelbl = new System.Windows.Forms.Label();
+            this.bill_invoiceNo = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.bill_serviceData = new System.Windows.Forms.DataGridView();
+            this.BService_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Service_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Service_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount_Given = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.bill_Notestxt = new System.Windows.Forms.RichTextBox();
             this.bill_carPlatenumlbl = new System.Windows.Forms.Label();
             this.carPlateNum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bill_logo)).BeginInit();
@@ -214,6 +214,66 @@
             this.bill_dataview.TabIndex = 12;
             this.bill_dataview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bill_dataview_CellContentClick);
             // 
+            // bill_part
+            // 
+            this.bill_part.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.bill_part.DataPropertyName = "part_ID";
+            this.bill_part.Frozen = true;
+            this.bill_part.HeaderText = "Part ID";
+            this.bill_part.MinimumWidth = 6;
+            this.bill_part.Name = "bill_part";
+            this.bill_part.ReadOnly = true;
+            this.bill_part.Width = 70;
+            // 
+            // bill_partName
+            // 
+            this.bill_partName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.bill_partName.DataPropertyName = "partName";
+            this.bill_partName.HeaderText = "Part Name";
+            this.bill_partName.MinimumWidth = 6;
+            this.bill_partName.Name = "bill_partName";
+            this.bill_partName.ReadOnly = true;
+            // 
+            // partQty
+            // 
+            this.partQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.partQty.DataPropertyName = "requestPartQuantity";
+            this.partQty.HeaderText = "Quantity";
+            this.partQty.MinimumWidth = 6;
+            this.partQty.Name = "partQty";
+            this.partQty.ReadOnly = true;
+            this.partQty.Width = 83;
+            // 
+            // billpartPrice
+            // 
+            this.billpartPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.billpartPrice.DataPropertyName = "partPrice";
+            this.billpartPrice.HeaderText = "Price (PCS)";
+            this.billpartPrice.MinimumWidth = 6;
+            this.billpartPrice.Name = "billpartPrice";
+            this.billpartPrice.ReadOnly = true;
+            this.billpartPrice.Width = 96;
+            // 
+            // ServiceAp
+            // 
+            this.ServiceAp.DataPropertyName = "serviceAP_ID";
+            this.ServiceAp.HeaderText = "Service Appoinment ID";
+            this.ServiceAp.MinimumWidth = 6;
+            this.ServiceAp.Name = "ServiceAp";
+            this.ServiceAp.ReadOnly = true;
+            this.ServiceAp.Visible = false;
+            this.ServiceAp.Width = 125;
+            // 
+            // task_ids
+            // 
+            this.task_ids.DataPropertyName = "task_ID";
+            this.task_ids.HeaderText = "Task ID";
+            this.task_ids.MinimumWidth = 6;
+            this.task_ids.Name = "task_ids";
+            this.task_ids.ReadOnly = true;
+            this.task_ids.Visible = false;
+            this.task_ids.Width = 125;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -285,44 +345,6 @@
             this.bill_serviceData.Size = new System.Drawing.Size(1001, 491);
             this.bill_serviceData.TabIndex = 20;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 861);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 20);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Service :";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 371);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(105, 20);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Part Used: ";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.bill_Notestxt);
-            this.panel4.Location = new System.Drawing.Point(12, 1390);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(515, 234);
-            this.panel4.TabIndex = 21;
-            // 
-            // bill_Notestxt
-            // 
-            this.bill_Notestxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bill_Notestxt.Location = new System.Drawing.Point(0, 0);
-            this.bill_Notestxt.Name = "bill_Notestxt";
-            this.bill_Notestxt.Size = new System.Drawing.Size(515, 234);
-            this.bill_Notestxt.TabIndex = 0;
-            this.bill_Notestxt.Text = "";
-            this.bill_Notestxt.TextChanged += new System.EventHandler(this.bill_Notetxt_TextChanged);
-            // 
             // BService_ID
             // 
             this.BService_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -362,65 +384,45 @@
             this.Discount_Given.ReadOnly = true;
             this.Discount_Given.Width = 91;
             // 
-            // bill_part
+            // label7
             // 
-            this.bill_part.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.bill_part.DataPropertyName = "part_ID";
-            this.bill_part.Frozen = true;
-            this.bill_part.HeaderText = "Part ID";
-            this.bill_part.MinimumWidth = 6;
-            this.bill_part.Name = "bill_part";
-            this.bill_part.ReadOnly = true;
-            this.bill_part.Width = 70;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(15, 861);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 20);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Service :";
             // 
-            // bill_partName
+            // label8
             // 
-            this.bill_partName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.bill_partName.DataPropertyName = "partName";
-            this.bill_partName.HeaderText = "Part Name";
-            this.bill_partName.MinimumWidth = 6;
-            this.bill_partName.Name = "bill_partName";
-            this.bill_partName.ReadOnly = true;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(12, 371);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(105, 20);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Part Used: ";
             // 
-            // partQty
+            // panel4
             // 
-            this.partQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.partQty.DataPropertyName = "requestPartQuantity";
-            this.partQty.HeaderText = "Quantity";
-            this.partQty.MinimumWidth = 6;
-            this.partQty.Name = "partQty";
-            this.partQty.ReadOnly = true;
-            this.partQty.Width = 83;
+            this.panel4.Controls.Add(this.bill_Notestxt);
+            this.panel4.Location = new System.Drawing.Point(12, 1390);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(515, 234);
+            this.panel4.TabIndex = 21;
             // 
-            // billpartPrice
+            // bill_Notestxt
             // 
-            this.billpartPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.billpartPrice.DataPropertyName = "partPrice";
-            this.billpartPrice.HeaderText = "Price (PCS)";
-            this.billpartPrice.MinimumWidth = 6;
-            this.billpartPrice.Name = "billpartPrice";
-            this.billpartPrice.ReadOnly = true;
-            this.billpartPrice.Width = 96;
-            // 
-            // ServiceAp
-            // 
-            this.ServiceAp.DataPropertyName = "serviceAP_ID";
-            this.ServiceAp.HeaderText = "Service Appoinment ID";
-            this.ServiceAp.MinimumWidth = 6;
-            this.ServiceAp.Name = "ServiceAp";
-            this.ServiceAp.ReadOnly = true;
-            this.ServiceAp.Visible = false;
-            this.ServiceAp.Width = 125;
-            // 
-            // task_ids
-            // 
-            this.task_ids.DataPropertyName = "task_ID";
-            this.task_ids.HeaderText = "Task ID";
-            this.task_ids.MinimumWidth = 6;
-            this.task_ids.Name = "task_ids";
-            this.task_ids.ReadOnly = true;
-            this.task_ids.Visible = false;
-            this.task_ids.Width = 125;
+            this.bill_Notestxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bill_Notestxt.Enabled = false;
+            this.bill_Notestxt.Location = new System.Drawing.Point(0, 0);
+            this.bill_Notestxt.Name = "bill_Notestxt";
+            this.bill_Notestxt.ReadOnly = true;
+            this.bill_Notestxt.Size = new System.Drawing.Size(515, 234);
+            this.bill_Notestxt.TabIndex = 0;
+            this.bill_Notestxt.Text = "";
+            this.bill_Notestxt.TextChanged += new System.EventHandler(this.bill_Notetxt_TextChanged);
             // 
             // bill_carPlatenumlbl
             // 
