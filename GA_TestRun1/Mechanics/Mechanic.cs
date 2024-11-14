@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using static Azure.Core.HttpHeader;
 
 namespace GA_TestRun1.Mechanics
 {
@@ -43,6 +45,12 @@ namespace GA_TestRun1.Mechanics
             UserNames = UserName;
             Passwords = Password;
         }
+
+        public Mechanic() //Parameterless Constructor
+        {
+
+        }
+
 
         //============================== Update Mechanic Profile ==============================//
         public void mcnUpdateProf(string oldUserName, string UserName, string Password)
@@ -200,24 +208,6 @@ namespace GA_TestRun1.Mechanics
                 }
 
             }
-
-
-
-
-            //============================== Testing ==============================//
-            //public bool IsUserNameInMechanics(string userName)
-            //{
-            //    using (SqlConnection conn = new SqlConnection(connect))
-            //    {
-            //        conn.Open();
-            //        string query = "SELECT COUNT(1) FROM Mechanics WHERE mechanicUsername = @username";
-            //        SqlCommand cmd = new SqlCommand(query, conn);
-            //        cmd.Parameters.AddWithValue("@UserName", userName);
-            //        int result = (int)cmd.ExecuteScalar();
-            //        conn.Close();
-            //        return result > 0;
-            //    }
-            //}
         }
 
         //============================== Refresh Button Function ==============================//
@@ -264,7 +254,7 @@ namespace GA_TestRun1.Mechanics
                 while (read2.Read())
                 {
                     newProf[0] = read2.GetString(0);
-                    newProf[1] = read2.GetString(1);
+                    newProf[1] = read2.GetString(1).ToString();
                 }
                 conn.Close();
 
@@ -272,8 +262,78 @@ namespace GA_TestRun1.Mechanics
             }
         }
 
-        //============================== Refresh Button Function ==============================//
+        //============================== Record Service ==============================//
+        public static List<String> CarNumber(string Nname)
+        {
+            List<String> list = new List<String>();
+            SqlConnection conn = new SqlConnection(connect);
+            
+            conn.Open();
+            string query = @"SELECT DISTINCT SA.carNum 
+                            FROM Mechanics AS M
+                            INNER JOIN Tasks AS T ON T.mechanic_ID = M.mechanic_ID
+                            LEFT JOIN ServiceAppoinments as SA ON T.serviceAP_ID = SA.serviceAP_ID
+                            WHERE M.mechanicUsername = @username";
 
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@username", Nname);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(reader.GetString(0));
+            }
+            reader.Close();
+            conn.Close();
+            return list;
+        }
+
+        public static void SaveRecord(DateTime CollectTime, string Status, string CarNumbs, string Add_Rep)
+        {
+            using (SqlConnection conn = new SqlConnection(connect))
+            {
+                conn.Open();
+                SqlTransaction transaction = conn.BeginTransaction();
+                try
+                {
+                    string query = @"SELECT serviceAP_ID 
+                                    FROM ServiceAppoinments AS SA 
+                                    WHERE carNum = @CarNumbs";
+
+                    string query3 = @"UPDATE Tasks
+                                    SET taskStatus = @Status, collectionTime = @CollectionTime, addRepair = @Add_Rep
+                                    WHERE serviceAP_ID = @AppID";
+
+                    SqlCommand cmd1 = new SqlCommand(query, conn, transaction);
+                    cmd1.Parameters.AddWithValue("@CarNumbs", CarNumbs);
+                    String AppID = cmd1.ExecuteScalar().ToString();
+
+                    SqlCommand cmd3 = new SqlCommand(query3, conn, transaction);
+                    cmd3.Parameters.AddWithValue("@Status", Status);
+                    cmd3.Parameters.AddWithValue("@CollectionTime", CollectTime);
+                    cmd3.Parameters.AddWithValue("@Add_Rep", Add_Rep);
+                    cmd3.Parameters.AddWithValue("@AppID", AppID);
+
+                    if (cmd3.ExecuteNonQuery() < 1)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Error");
+                        conn.Close();
+                    }
+                    else
+                    {
+                        transaction.Commit();
+                        MessageBox.Show("Successfully Updated Service List");
+                        conn.Close();
+                    }
+                }
+                catch (SqlException ex) 
+                {
+                    transaction.Rollback();
+                    MessageBox.Show("Error: " + ex);
+                    conn.Close();
+                }
+            }
+        }
 
     }
 }

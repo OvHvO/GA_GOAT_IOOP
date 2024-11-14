@@ -70,7 +70,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
         {
             Mechanic mechanic = new Mechanic(Uname);
             Mcn_GridView.DataSource = mechanic.ViewProfList(Uname);
-            Search_Cbo.SelectedIndex = 0;
+            Search_Cbo.SelectedIndex = 0;   
         }
 
         private void Mcn_GridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
