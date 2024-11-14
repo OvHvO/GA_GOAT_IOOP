@@ -16,5 +16,15 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
         {
             InitializeComponent();
         }
+
+        private void Mechanic_Manage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Parts_ListB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -267,7 +267,7 @@ namespace GA_TestRun1.Mechanics
         {
             List<String> list = new List<String>();
             SqlConnection conn = new SqlConnection(connect);
-            
+
             conn.Open();
             string query = @"SELECT DISTINCT SA.carNum 
                             FROM Mechanics AS M
@@ -326,7 +326,7 @@ namespace GA_TestRun1.Mechanics
                         conn.Close();
                     }
                 }
-                catch (SqlException ex) 
+                catch (SqlException ex)
                 {
                     transaction.Rollback();
                     MessageBox.Show("Error: " + ex);
@@ -334,6 +334,9 @@ namespace GA_TestRun1.Mechanics
                 }
             }
         }
+
+        //==============================  ==============================//
+        
 
     }
 }
