@@ -31,6 +31,28 @@ namespace GA_TestRun1.Customer
             LoadUserControl(new Cus_Interface());
             Cus_Source cus = new Cus_Source();
             cus_ID = cus.ID_Checking(userN);
+            Dictionary<string, string> billResult = cus.BillChecking(cus_ID);
+            foreach (KeyValuePair<string, string> kvp in billResult)
+            {
+                if (kvp.Key == "PENDING")
+                {
+                    DialogResult result = MessageBox.Show($"Please pay your bill, amount : {kvp.Value}", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        MessageBox.Show("Thanks you for visiting!");
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Please pay the bill as soon as possible.");
+                    }
+                }
+                else
+                {
+                    continue;
+                }
+            }
         }
 
         private void LoadUserControl(UserControl userControl)

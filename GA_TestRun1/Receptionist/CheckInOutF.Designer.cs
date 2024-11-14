@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckInOutF));
             this.checkin_rightPanel = new System.Windows.Forms.Panel();
+            this.reload_pict = new System.Windows.Forms.PictureBox();
             this.checkin_Billbtn = new System.Windows.Forms.Button();
             this.checkin_Upbtn = new System.Windows.Forms.Button();
             this.checkin_Statuslbl = new System.Windows.Forms.Label();
@@ -48,11 +49,10 @@
             this.carVer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Service_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Service_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reload_pict = new System.Windows.Forms.PictureBox();
             this.checkin_rightPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).BeginInit();
             this.checkin_leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkin_dataView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).BeginInit();
             this.SuspendLayout();
             // 
             // checkin_rightPanel
@@ -69,10 +69,22 @@
             this.checkin_rightPanel.Controls.Add(this.checkin_Carnumtxt);
             this.checkin_rightPanel.Controls.Add(this.checkin_Cusnametxt);
             this.checkin_rightPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkin_rightPanel.Location = new System.Drawing.Point(484, 0);
+            this.checkin_rightPanel.Location = new System.Drawing.Point(542, 0);
             this.checkin_rightPanel.Name = "checkin_rightPanel";
-            this.checkin_rightPanel.Size = new System.Drawing.Size(405, 467);
+            this.checkin_rightPanel.Size = new System.Drawing.Size(405, 519);
             this.checkin_rightPanel.TabIndex = 0;
+            // 
+            // reload_pict
+            // 
+            this.reload_pict.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reload_pict.Image = ((System.Drawing.Image)(resources.GetObject("reload_pict.Image")));
+            this.reload_pict.Location = new System.Drawing.Point(12, 12);
+            this.reload_pict.Name = "reload_pict";
+            this.reload_pict.Size = new System.Drawing.Size(33, 33);
+            this.reload_pict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.reload_pict.TabIndex = 6;
+            this.reload_pict.TabStop = false;
+            this.reload_pict.Click += new System.EventHandler(this.reload_pict_Click);
             // 
             // checkin_Billbtn
             // 
@@ -170,7 +182,7 @@
             this.checkin_leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkin_leftPanel.Location = new System.Drawing.Point(0, 0);
             this.checkin_leftPanel.Name = "checkin_leftPanel";
-            this.checkin_leftPanel.Size = new System.Drawing.Size(490, 467);
+            this.checkin_leftPanel.Size = new System.Drawing.Size(548, 519);
             this.checkin_leftPanel.TabIndex = 1;
             // 
             // checkin_dataView
@@ -195,7 +207,7 @@
             this.checkin_dataView.RowHeadersWidth = 51;
             this.checkin_dataView.RowTemplate.Height = 24;
             this.checkin_dataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.checkin_dataView.Size = new System.Drawing.Size(490, 467);
+            this.checkin_dataView.Size = new System.Drawing.Size(548, 519);
             this.checkin_dataView.TabIndex = 0;
             this.checkin_dataView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.checkin_dataView_CellContentClick);
             this.checkin_dataView.SelectionChanged += new System.EventHandler(this.checkin_dataView_SelectionChanged);
@@ -208,7 +220,7 @@
             this.Cus_ID.MinimumWidth = 6;
             this.Cus_ID.Name = "Cus_ID";
             this.Cus_ID.ReadOnly = true;
-            this.Cus_ID.Width = 101;
+            this.Cus_ID.Width = 109;
             // 
             // CusName
             // 
@@ -259,33 +271,21 @@
             this.Service_status.ReadOnly = true;
             this.Service_status.Width = 112;
             // 
-            // reload_pict
-            // 
-            this.reload_pict.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reload_pict.Image = ((System.Drawing.Image)(resources.GetObject("reload_pict.Image")));
-            this.reload_pict.Location = new System.Drawing.Point(12, 12);
-            this.reload_pict.Name = "reload_pict";
-            this.reload_pict.Size = new System.Drawing.Size(33, 33);
-            this.reload_pict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.reload_pict.TabIndex = 6;
-            this.reload_pict.TabStop = false;
-            this.reload_pict.Click += new System.EventHandler(this.reload_pict_Click);
-            // 
             // CheckInOutF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 467);
+            this.ClientSize = new System.Drawing.Size(947, 519);
             this.Controls.Add(this.checkin_leftPanel);
             this.Controls.Add(this.checkin_rightPanel);
             this.Name = "CheckInOutF";
-            this.Text = "CheckInOutF";
+            this.Text = "Check In and Check Out";
             this.Load += new System.EventHandler(this.CheckInOutF_Load);
             this.checkin_rightPanel.ResumeLayout(false);
             this.checkin_rightPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).EndInit();
             this.checkin_leftPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkin_dataView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -305,12 +305,12 @@
         private System.Windows.Forms.Button checkin_Upbtn;
         private System.Windows.Forms.Label checkin_carVer;
         private System.Windows.Forms.TextBox checkin_carVertxt;
+        private System.Windows.Forms.PictureBox reload_pict;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cus_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CusName;
         private System.Windows.Forms.DataGridViewTextBoxColumn CarNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn carVer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service_status;
-        private System.Windows.Forms.PictureBox reload_pict;
     }
 }
