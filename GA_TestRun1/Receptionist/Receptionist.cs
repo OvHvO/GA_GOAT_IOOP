@@ -307,7 +307,7 @@ namespace GA_TestRun1.Receptionist
         {
             SqlConnection conn = new SqlConnection(connectionS);
             conn.Open();
-            string query = @"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum, T.mechanic_ID, SA.rescheduleStatus
+            string query = @"Select DISTINCT C.customer_ID, C.customerUsername,C.customerContactNum , SA.serviceAP_ID,SA.carNum, T.mechanic_ID,T.taskStatus, SA.rescheduleStatus
                              from Customers AS C
                              INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
                              LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
@@ -533,7 +533,7 @@ namespace GA_TestRun1.Receptionist
                     cmd3.Parameters.AddWithValue("@mecuser", selectedItems);
                     string mechanicID = cmd3.ExecuteScalar().ToString();
 
-                    string query = "Insert Into Tasks(taskStatus,mechanic_ID,serviceAP_ID,rcptionist_ID) values('Under repairing',@mechanicID,@serviceAP_ID,@rcptionist_ID)";
+                    string query = "Insert Into Tasks(taskStatus,mechanic_ID,serviceAP_ID,rcptionist_ID) values('PENDING',@mechanicID,@serviceAP_ID,@rcptionist_ID)";
                     SqlCommand cmd = new SqlCommand(query, conn, transaction);
                     cmd.Parameters.AddWithValue("@mechanicID", mechanicID);
                     cmd.Parameters.AddWithValue("@serviceAP_ID", serviceID);
@@ -609,6 +609,8 @@ namespace GA_TestRun1.Receptionist
             cmd.Parameters.AddWithValue("@carver",carver);
             cmd.Parameters.AddWithValue("@serviceid",serviceid);
             int serviceAppoiRowAffect= cmd.ExecuteNonQuery();
+
+            
 
             if (status=="Check-In") 
             { 
