@@ -252,7 +252,7 @@ namespace GA_TestRun1.Mechanics
                     while (read.Read())
                     {
                         newProf[0] = read.GetString(0);
-                        newProf[1] = read.GetInt32(1);
+                        newProf[1] = read.GetString(1);
 
                     }
                     conn.Close();
