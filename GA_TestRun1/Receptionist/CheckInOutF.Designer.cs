@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckInOutF));
             this.checkin_rightPanel = new System.Windows.Forms.Panel();
+            this.reload_pict = new System.Windows.Forms.PictureBox();
             this.checkin_Billbtn = new System.Windows.Forms.Button();
             this.checkin_Upbtn = new System.Windows.Forms.Button();
             this.checkin_Statuslbl = new System.Windows.Forms.Label();
@@ -48,11 +49,10 @@
             this.carVer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Service_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Service_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reload_pict = new System.Windows.Forms.PictureBox();
             this.checkin_rightPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).BeginInit();
             this.checkin_leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkin_dataView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).BeginInit();
             this.SuspendLayout();
             // 
             // checkin_rightPanel
@@ -73,6 +73,18 @@
             this.checkin_rightPanel.Name = "checkin_rightPanel";
             this.checkin_rightPanel.Size = new System.Drawing.Size(405, 467);
             this.checkin_rightPanel.TabIndex = 0;
+            // 
+            // reload_pict
+            // 
+            this.reload_pict.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reload_pict.Image = ((System.Drawing.Image)(resources.GetObject("reload_pict.Image")));
+            this.reload_pict.Location = new System.Drawing.Point(12, 12);
+            this.reload_pict.Name = "reload_pict";
+            this.reload_pict.Size = new System.Drawing.Size(33, 33);
+            this.reload_pict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.reload_pict.TabIndex = 6;
+            this.reload_pict.TabStop = false;
+            this.reload_pict.Click += new System.EventHandler(this.reload_pict_Click);
             // 
             // checkin_Billbtn
             // 
@@ -259,18 +271,6 @@
             this.Service_status.ReadOnly = true;
             this.Service_status.Width = 112;
             // 
-            // reload_pict
-            // 
-            this.reload_pict.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reload_pict.Image = ((System.Drawing.Image)(resources.GetObject("reload_pict.Image")));
-            this.reload_pict.Location = new System.Drawing.Point(12, 12);
-            this.reload_pict.Name = "reload_pict";
-            this.reload_pict.Size = new System.Drawing.Size(33, 33);
-            this.reload_pict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.reload_pict.TabIndex = 6;
-            this.reload_pict.TabStop = false;
-            this.reload_pict.Click += new System.EventHandler(this.reload_pict_Click);
-            // 
             // CheckInOutF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -279,13 +279,13 @@
             this.Controls.Add(this.checkin_leftPanel);
             this.Controls.Add(this.checkin_rightPanel);
             this.Name = "CheckInOutF";
-            this.Text = "CheckInOutF";
+            this.Text = "Check In and Check Out";
             this.Load += new System.EventHandler(this.CheckInOutF_Load);
             this.checkin_rightPanel.ResumeLayout(false);
             this.checkin_rightPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).EndInit();
             this.checkin_leftPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkin_dataView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).EndInit();
             this.ResumeLayout(false);
 
         }

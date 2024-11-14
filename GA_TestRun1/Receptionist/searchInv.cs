@@ -31,22 +31,20 @@ namespace GA_TestRun1.Receptionist
 
         private void searchInv_Load(object sender, EventArgs e)
         {
+            List<string> shortageAlert = new List<string>();
+            shortageAlert = Receptionists.AlretForShortage();
+            for (int index=0; index<shortageAlert.Count;index++)
+            {
+                MessageBox.Show($@"This is a shortage meesage for
+                {shortageAlert[index]}","Shortages Message", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
 
+            
         }
 
         private void Src_Invbtn_Click(object sender, EventArgs e)
         {
-            string selectedItems;
-            if (SearchInvcb.SelectedIndex==0)
-            {
-                selectedItems = "request_ID";
-               InvDataView.DataSource=  Receptionists.invSearchFunc(selectedItems,Invsrc_txt.Text); 
-            }
-            else 
-            {
-                selectedItems = "rrequestStatus";
-                InvDataView.DataSource = Receptionists.invSearchFunc(selectedItems, Invsrc_txt.Text);
-            }
+            searchFuncAndReloadFunc();
 
         }
 
@@ -77,7 +75,7 @@ namespace GA_TestRun1.Receptionist
         private void Request_combtn_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Do you confirm want to assign this Parts to Mechanics?","Assign Part",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if ( status=="Completed")
+            if ( status=="ASSIGNED")
             {
                 MessageBox.Show("This Request Is Mark As Completed, Cannot Assign Again","Assign Reminder",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
@@ -94,6 +92,27 @@ namespace GA_TestRun1.Receptionist
             }
            
 
+        }
+
+        private void reload_pict_Click(object sender, EventArgs e)
+        {
+            
+            searchFuncAndReloadFunc();
+        }
+
+        private void searchFuncAndReloadFunc()
+        {
+            string selectedItems;
+            if (SearchInvcb.SelectedIndex == 0)
+            {
+                selectedItems = "request_ID";
+                InvDataView.DataSource = Receptionists.invSearchFunc(selectedItems, Invsrc_txt.Text);
+            }
+            else
+            {
+                selectedItems = "rrequestStatus";
+                InvDataView.DataSource = Receptionists.invSearchFunc(selectedItems, Invsrc_txt.Text);
+            }
         }
     }
 }
