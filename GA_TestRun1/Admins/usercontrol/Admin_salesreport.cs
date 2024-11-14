@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GA_TestRun1.Admins.usercontrol;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,9 @@ namespace GA_TestRun1.Admins
 {
     public partial class Admin_salesreport : UserControl
     {
+        private string currentYear;
+        private string monthForm;
+        private string target;
         public Admin_salesreport()
         {
             InitializeComponent();
@@ -20,7 +24,7 @@ namespace GA_TestRun1.Admins
 
         private void SR_Month_CB_SelectedIndexChanged(object sender, EventArgs e)
         {   
-            string target = SR_Month_CB.SelectedItem.ToString();
+            target = SR_Month_CB.SelectedItem.ToString();
 
             List<string> months = new List<string>
             {
@@ -29,44 +33,13 @@ namespace GA_TestRun1.Admins
             };
 
             int index = months.IndexOf(target);
-            string currentYear = (DateTime.Now.Year).ToString();
-            string monthForm = (index).ToString("D2");
+            currentYear = (DateTime.Now.Year).ToString();
+            monthForm = (index).ToString("D2");            
+        }
 
-            Admins_Source admin = new Admins_Source();
-
-            //For GrossProfit
-            int totalGrossProfit = admin.grossProfitCal(monthForm, currentYear);
-            string totalGrossProfitString = totalGrossProfit.ToString();
-            SR_totalGrossProfit_TB.Text = "Total Gross Profit : " + totalGrossProfitString;
-            List<string> grossProfitList = admin.grossProfitList(monthForm, currentYear);
-            foreach(string item in grossProfitList)
-            {
-                SR_GrossProfit_LB.Items.Add(item);
-            }
-
-            //For Total Expenses
-            int totalExpenses = 0;
-            List<string> finalExpenses_List = new List<string>();
-            Dictionary<string, int> totalExpensesDic = admin.ExpensesCal(monthForm,currentYear);
-
-            foreach (KeyValuePair<string, int> item in totalExpensesDic)
-            {
-                finalExpenses_List.Add($"PartID : {item.Key}---------Sales : {item.Value}");
-            }
-
-            foreach (int value in totalExpensesDic.Values)
-            {
-                totalExpenses += value;
-            }
-
-            foreach (string item in finalExpenses_List)
-            {
-                SR_TotalExpenses_LB.Items.Add(item);
-                
-            }
-
-            SR_TotalExpenses_TB.Text = "Total Expenses : " + totalExpenses.ToString();
-            SR_NetProfit_TB.Text = "Net Profit : " + (totalGrossProfit - totalExpenses);
+        private void SR_Generate_Btn_Click(object sender, EventArgs e)
+        {
+            new Sales_Report(monthForm, currentYear, target).ShowDialog();
         }
     }
 }
