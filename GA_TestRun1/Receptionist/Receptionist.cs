@@ -700,7 +700,7 @@ namespace GA_TestRun1.Receptionist
             int Tprice;
             int Allamt=0;
             con.Open();
-            string query = @"Select S.service_ID, S.serviceName, S.servicePrice, S.serviceOffer, R.part_ID, T.serviceAP_ID
+            string query = @"Select S.service_ID, S.serviceName, S.servicePrice, S.serviceOffer
                             from Service as S
                             Inner Join Requests as R on R.part_ID=S.part_ID
                             Left Join Tasks as T on T.task_ID =R.task_ID
@@ -744,28 +744,48 @@ namespace GA_TestRun1.Receptionist
             
         }
 
-        /*public string updatePaymentStatus(int serviceId)
+        public string updatePaymentStatus(int serviceId,int cusid)
         {
-            string taskid;
-            string rcpid;
-            string sId=serviceId.ToString();
+            string paymentid = null;
+            string taskid=null;
+            string rcpid=null;
+            string allvalue;
+            string sId = serviceId.ToString();
             SqlConnection con = new SqlConnection(connectionS);
             con.Open();
             string query = "Select rcptionist_ID,task_id from Tasks where serviceAP_ID=@serviceid";
-            SqlCommand cmd= new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@serviceid",sId);
-            SqlDataReader reader= cmd.ExecuteReader();
-            while (reader.Read()) 
-            { 
-                
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@serviceid", sId);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                rcpid = Convert.ToString(reader[0]);
+                taskid = Convert.ToString(reader[1]);
             }
+            reader.Close();
+
+            string query2 = @"Insert into Payments(paymentStatus,paymentValue,customer_ID,rcptionist_id)
+                              Values ('PENDING',@paymentvalue,@cusid,@rcpid)";
+            SqlCommand cmd2= new SqlCommand(query2, con);
+            allvalue= (ServiceAmt + PartAmt).ToString();
+            cmd2.Parameters.AddWithValue("@paymentvalue",allvalue);
+            cmd2.Parameters.AddWithValue("@cusid",cusid);
+            cmd2.Parameters.AddWithValue("@rcpid",rcpid);
+          
+            cmd2.ExecuteNonQuery();
+
+            string query3 = "Select payment_ID from Payments where customer_ID=@cusid And paymentStatus='PENDING'";
+            SqlCommand cmd3 = new SqlCommand(query3, con);
+            cmd3.Parameters.AddWithValue("@cusid",cusid);
+            paymentid= Convert.ToString(cmd3.ExecuteScalar());
+            con.Close();
+            return paymentid;
+
             
+        }
 
-            string query2 = "Insert into Payments(payment_ID,paymentStatus,paymentValue,customer_ID,rcptionist_id,task_ID)";
-        }*/
 
-       
-      
+
     }
 }
 
