@@ -39,19 +39,19 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             if (Search_Cbo.SelectedIndex == 0)
             {
                 SelectedItems = "serviceAP_ID";
-                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, SelectedItems);
+                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, SelectedItems, NewName);
             }
 
             else if (Search_Cbo.SelectedIndex == 1)
             {
                 SelectedItems = "customerUsername";
-                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, SelectedItems);
+                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, SelectedItems, NewName);
             }
 
             else if (Search_Cbo.SelectedIndex == 2)
             {
                 SelectedItems = "carNum";
-                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, SelectedItems);
+                Mcn_GridView.DataSource = Mechanic.SearchFunc(Search_txt.Text, SelectedItems, NewName);
             }
         }
 

@@ -130,18 +130,6 @@ namespace GA_TestRun1.Mechanics
                     SqlCommand cmd1 = new SqlCommand(query1, conn, transaction);
                     cmd1.Parameters.AddWithValue("@username", UName);
 
-                    //---------- For testing ----------//
-                    //if (cmd1.ExecuteNonQuery() == 1)
-                    //{
-                    //    MessageBox.Show("Successful");
-                    //    transaction.Commit();
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Unsuccessful");
-                    //    transaction.Rollback();
-                    //}
-
                     // Execute main query with parameters to fetch the desired data //
                     SqlCommand cmd = new SqlCommand(query, conn, transaction);
                     cmd.Parameters.AddWithValue("@UserName", UName);
@@ -164,9 +152,9 @@ namespace GA_TestRun1.Mechanics
 
 
         //============================== Search Function ==============================//
-        public static object SearchFunc(string SearchKey, string SelectedItems)
+        public static object SearchFunc(string SearchKey, string SelectedItems, string UName)
         {
-            using (SqlConnection conn = new SqlConnection(Connection))
+            using (SqlConnection conn = new SqlConnection(connect))
             {
                 try
                 {
@@ -175,10 +163,13 @@ namespace GA_TestRun1.Mechanics
                                  from Customers AS C
                                  INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
                                  LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
+                                 LEFT JOIN Mechanics as M ON M.mechanic_ID = T.mechanic_ID
                                  WHERE SA.{SelectedItems} LIKE '%'+@searchkey+'%' 
+                                 AND M.mechanicUsername = @username
                                 ";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@searchkey", SearchKey);
+                    cmd.Parameters.AddWithValue("@username", UName);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable table = new DataTable();
@@ -193,10 +184,13 @@ namespace GA_TestRun1.Mechanics
                              from Customers AS C
                              INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
                              LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
+                             LEFT JOIN Mechanics as M ON M.mechanic_ID = T.mechanic_ID
                              WHERE C.{SelectedItems} LIKE '%'+@searchkey+'%' 
+                             AND M.mechanicUsername = @username
                             ";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@searchkey", SearchKey);
+                    cmd.Parameters.AddWithValue("@username", UName);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable table = new DataTable();
