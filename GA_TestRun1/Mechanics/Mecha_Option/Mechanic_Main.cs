@@ -28,11 +28,18 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             Connection = Connections;
         }
 
-
         public Mechanic_Main()
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
+        }
+
+        private void Mechanic_Main_Load(object sender, EventArgs e)
+        {
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
+            string[] newprof = (string[])Mechanic.RefreshProfile(Names);
+            Name_lbl.Text = newprof[0];
+            PNum_lbl.Text = newprof[1].ToString();
         }
 
         private void Refresh_btn_Click(object sender, EventArgs e)
@@ -44,12 +51,14 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
         {
             string[] newprof = (string[])Mechanic.RefreshProfile(Names);
             Name_lbl.Text = newprof[0];
-            PNum_lbl.Text = newprof[1];
+            PNum_lbl.Text = newprof[1].ToString();
         }
 
         private void Welcome_txt_Click(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }
