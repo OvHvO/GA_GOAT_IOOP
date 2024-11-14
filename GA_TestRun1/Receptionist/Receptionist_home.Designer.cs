@@ -59,6 +59,7 @@ namespace GA_TestRun1.Receptionist
             // Rcp_Add
             // 
             this.Rcp_Add.FlatAppearance.BorderSize = 0;
+            this.Rcp_Add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
             this.Rcp_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Rcp_Add.Location = new System.Drawing.Point(12, 162);
             this.Rcp_Add.Name = "Rcp_Add";
@@ -83,6 +84,7 @@ namespace GA_TestRun1.Receptionist
             // Rcp_home_delCus
             // 
             this.Rcp_home_delCus.FlatAppearance.BorderSize = 0;
+            this.Rcp_home_delCus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
             this.Rcp_home_delCus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Rcp_home_delCus.Location = new System.Drawing.Point(12, 106);
             this.Rcp_home_delCus.Name = "Rcp_home_delCus";
@@ -97,6 +99,7 @@ namespace GA_TestRun1.Receptionist
             // Rcp_home_signOut
             // 
             this.Rcp_home_signOut.FlatAppearance.BorderSize = 0;
+            this.Rcp_home_signOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
             this.Rcp_home_signOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Rcp_home_signOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Rcp_home_signOut.ForeColor = System.Drawing.Color.Red;
@@ -111,6 +114,7 @@ namespace GA_TestRun1.Receptionist
             // rcp_updateProf_btn
             // 
             this.rcp_updateProf_btn.FlatAppearance.BorderSize = 0;
+            this.rcp_updateProf_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
             this.rcp_updateProf_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rcp_updateProf_btn.Location = new System.Drawing.Point(12, 218);
             this.rcp_updateProf_btn.Name = "rcp_updateProf_btn";
@@ -152,6 +156,7 @@ namespace GA_TestRun1.Receptionist
             // rcp_srcInvbtn
             // 
             this.rcp_srcInvbtn.FlatAppearance.BorderSize = 0;
+            this.rcp_srcInvbtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
             this.rcp_srcInvbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rcp_srcInvbtn.Location = new System.Drawing.Point(12, 386);
             this.rcp_srcInvbtn.Name = "rcp_srcInvbtn";
@@ -164,6 +169,7 @@ namespace GA_TestRun1.Receptionist
             // rcp_CheckinOutbtn
             // 
             this.rcp_CheckinOutbtn.FlatAppearance.BorderSize = 0;
+            this.rcp_CheckinOutbtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
             this.rcp_CheckinOutbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rcp_CheckinOutbtn.Location = new System.Drawing.Point(12, 330);
             this.rcp_CheckinOutbtn.Name = "rcp_CheckinOutbtn";
@@ -176,6 +182,7 @@ namespace GA_TestRun1.Receptionist
             // rcp_manageAppbtn
             // 
             this.rcp_manageAppbtn.FlatAppearance.BorderSize = 0;
+            this.rcp_manageAppbtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
             this.rcp_manageAppbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rcp_manageAppbtn.Location = new System.Drawing.Point(12, 274);
             this.rcp_manageAppbtn.Name = "rcp_manageAppbtn";

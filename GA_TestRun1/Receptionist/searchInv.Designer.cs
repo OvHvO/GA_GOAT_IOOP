@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(searchInv));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.searchInv_panel = new System.Windows.Forms.Panel();
+            this.reload_pict = new System.Windows.Forms.PictureBox();
             this.Src_Invbtn = new System.Windows.Forms.Button();
             this.Invsrc_txt = new System.Windows.Forms.TextBox();
             this.SearchInvcb = new System.Windows.Forms.ComboBox();
@@ -45,11 +47,13 @@
             this.request_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.searchInv_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InvDataView)).BeginInit();
             this.SuspendLayout();
             // 
             // searchInv_panel
             // 
+            this.searchInv_panel.Controls.Add(this.reload_pict);
             this.searchInv_panel.Controls.Add(this.Src_Invbtn);
             this.searchInv_panel.Controls.Add(this.Invsrc_txt);
             this.searchInv_panel.Controls.Add(this.SearchInvcb);
@@ -62,9 +66,21 @@
             this.searchInv_panel.TabIndex = 0;
             this.searchInv_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchInv_panel_Paint);
             // 
+            // reload_pict
+            // 
+            this.reload_pict.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reload_pict.Image = ((System.Drawing.Image)(resources.GetObject("reload_pict.Image")));
+            this.reload_pict.Location = new System.Drawing.Point(971, 23);
+            this.reload_pict.Name = "reload_pict";
+            this.reload_pict.Size = new System.Drawing.Size(33, 33);
+            this.reload_pict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.reload_pict.TabIndex = 7;
+            this.reload_pict.TabStop = false;
+            this.reload_pict.Click += new System.EventHandler(this.reload_pict_Click);
+            // 
             // Src_Invbtn
             // 
-            this.Src_Invbtn.Location = new System.Drawing.Point(889, 26);
+            this.Src_Invbtn.Location = new System.Drawing.Point(886, 26);
             this.Src_Invbtn.Name = "Src_Invbtn";
             this.Src_Invbtn.Size = new System.Drawing.Size(79, 30);
             this.Src_Invbtn.TabIndex = 4;
@@ -112,7 +128,7 @@
             // 
             // Request_combtn
             // 
-            this.Request_combtn.Location = new System.Drawing.Point(489, 446);
+            this.Request_combtn.Location = new System.Drawing.Point(473, 446);
             this.Request_combtn.Name = "Request_combtn";
             this.Request_combtn.Size = new System.Drawing.Size(82, 33);
             this.Request_combtn.TabIndex = 5;
@@ -128,14 +144,14 @@
             this.InvDataView.AllowUserToResizeRows = false;
             this.InvDataView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.InvDataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.InvDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.InvDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.InvDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.InvDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Request_id,
@@ -237,10 +253,11 @@
             this.Controls.Add(this.InvDataView);
             this.Controls.Add(this.searchInv_panel);
             this.Name = "searchInv";
-            this.Text = "searchInv";
+            this.Text = "Manage Request ";
             this.Load += new System.EventHandler(this.searchInv_Load);
             this.searchInv_panel.ResumeLayout(false);
             this.searchInv_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InvDataView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -264,5 +281,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn request_status;
         private System.Windows.Forms.Button Request_combtn;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox reload_pict;
     }
 }
