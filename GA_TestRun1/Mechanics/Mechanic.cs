@@ -322,7 +322,7 @@ namespace GA_TestRun1.Mechanics
                     else
                     {
                         transaction.Commit();
-                        MessageBox.Show("Successfully Updated Service List");
+                        MessageBox.Show("Successfully Updated Service List!");
                         conn.Close();
                     }
                 }
@@ -335,8 +335,76 @@ namespace GA_TestRun1.Mechanics
             }
         }
 
-        //==============================  ==============================//
-        
+        //============================== Show Parts in ComboBox ==============================//
+        public static List<string> Parts() 
+        {
+            List<string> p_list = new List<string>();
+            SqlConnection conn = new SqlConnection(connect);
 
+            conn.Open();
+
+            string query = @"SELECT Distinct partName
+                             FROM Parts AS P";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                p_list.Add(reader.GetString(0));
+            }
+            reader.Close();
+            conn.Close();
+            return p_list;
+
+        }
+
+        //============================== Request Parts ==============================//
+        public static void RequestParts(string Parts, string Quantity, string Status)
+        {
+            using (SqlConnection conn = new SqlConnection(connect))
+            {
+                conn.Open();
+                SqlTransaction transaction = conn.BeginTransaction();
+                try
+                {
+                    string query = @"SELECT P.part_ID 
+                                     FROM Parts AS P
+                                     INNER JOIN Requests AS R ON R.part_ID = P.part_ID
+                                     WHERE partName = @Parts";
+
+                    string query2 = @"";
+
+                    string query3 = @"INSERT INTO Requests (requestPartQuantity, rrequestStatus, part_ID, task_ID)
+                                      VALUES (@Quantity, @Status, @part_ID)";
+
+                    SqlCommand cmd = new SqlCommand(query, conn, transaction);
+                    cmd.Parameters.AddWithValue("@Parts", Parts);
+
+                    SqlCommand cmd2 = new SqlCommand(query3, conn, transaction);
+                    cmd.Parameters.AddWithValue("@Quantity", Quantity);
+                    cmd.Parameters.AddWithValue("@Status", Status);
+                    cmd.Parameters.AddWithValue("@part_ID", query);
+
+                    if (cmd.ExecuteNonQuery() < 1)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Error");
+                        conn.Close();
+                    }
+                    else
+                    {
+                        transaction.Commit();
+                        MessageBox.Show("Successfully Requested!");
+                        conn.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    MessageBox.Show("Error: " + ex);
+                    conn.Close();
+                }
+            }
+        }
     }
 }

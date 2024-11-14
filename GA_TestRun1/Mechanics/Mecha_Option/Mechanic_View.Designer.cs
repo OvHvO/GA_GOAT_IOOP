@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rcp_appoimentBar = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.Reload_pic = new System.Windows.Forms.PictureBox();
             this.scr_lbl = new System.Windows.Forms.Label();
             this.SearchCBO_lbl = new System.Windows.Forms.Label();
@@ -54,7 +53,6 @@
             // 
             // rcp_appoimentBar
             // 
-            this.rcp_appoimentBar.Controls.Add(this.label1);
             this.rcp_appoimentBar.Controls.Add(this.Reload_pic);
             this.rcp_appoimentBar.Controls.Add(this.scr_lbl);
             this.rcp_appoimentBar.Controls.Add(this.SearchCBO_lbl);
@@ -67,18 +65,6 @@
             this.rcp_appoimentBar.Name = "rcp_appoimentBar";
             this.rcp_appoimentBar.Size = new System.Drawing.Size(729, 53);
             this.rcp_appoimentBar.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(3, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(263, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Hint: Please Double Click a detail to Assign Mechanic ";
             // 
             // Reload_pic
             // 
@@ -282,7 +268,6 @@
 
         #endregion
         private System.Windows.Forms.Panel rcp_appoimentBar;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox Reload_pic;
         private System.Windows.Forms.Label scr_lbl;
         private System.Windows.Forms.Label SearchCBO_lbl;

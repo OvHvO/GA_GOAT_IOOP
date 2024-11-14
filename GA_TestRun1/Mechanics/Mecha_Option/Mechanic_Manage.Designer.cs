@@ -33,12 +33,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.R_Quantity_txt = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.Parts_ListB = new System.Windows.Forms.ListBox();
             this.Request_btn = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.Update_btn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Update_btn = new System.Windows.Forms.Button();
-            this.Parts_ListB = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Status_Cbo = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -82,6 +84,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.Status_Cbo);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.Parts_ListB);
             this.panel1.Controls.Add(this.Request_btn);
             this.panel1.Controls.Add(this.R_Quantity_txt);
@@ -92,13 +96,14 @@
             this.panel1.Size = new System.Drawing.Size(587, 156);
             this.panel1.TabIndex = 7;
             // 
-            // panel2
+            // Parts_ListB
             // 
-            this.panel2.Controls.Add(this.Update_btn);
-            this.panel2.Location = new System.Drawing.Point(0, 293);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(587, 133);
-            this.panel2.TabIndex = 8;
+            this.Parts_ListB.FormattingEnabled = true;
+            this.Parts_ListB.Location = new System.Drawing.Point(139, 34);
+            this.Parts_ListB.Name = "Parts_ListB";
+            this.Parts_ListB.Size = new System.Drawing.Size(120, 56);
+            this.Parts_ListB.TabIndex = 8;
+            this.Parts_ListB.SelectedIndexChanged += new System.EventHandler(this.Parts_ListB_SelectedIndexChanged);
             // 
             // Request_btn
             // 
@@ -108,6 +113,24 @@
             this.Request_btn.TabIndex = 7;
             this.Request_btn.Text = "Request";
             this.Request_btn.UseVisualStyleBackColor = true;
+            this.Request_btn.Click += new System.EventHandler(this.Request_btn_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.Update_btn);
+            this.panel2.Location = new System.Drawing.Point(0, 293);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(587, 133);
+            this.panel2.TabIndex = 8;
+            // 
+            // Update_btn
+            // 
+            this.Update_btn.Location = new System.Drawing.Point(243, 91);
+            this.Update_btn.Name = "Update_btn";
+            this.Update_btn.Size = new System.Drawing.Size(97, 29);
+            this.Update_btn.TabIndex = 8;
+            this.Update_btn.Text = "Update";
+            this.Update_btn.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -129,23 +152,23 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Update Used Parts";
             // 
-            // Update_btn
+            // label5
             // 
-            this.Update_btn.Location = new System.Drawing.Point(243, 91);
-            this.Update_btn.Name = "Update_btn";
-            this.Update_btn.Size = new System.Drawing.Size(97, 29);
-            this.Update_btn.TabIndex = 8;
-            this.Update_btn.Text = "Update";
-            this.Update_btn.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(320, 70);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 20);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Status: ";
             // 
-            // Parts_ListB
+            // Status_Cbo
             // 
-            this.Parts_ListB.FormattingEnabled = true;
-            this.Parts_ListB.Location = new System.Drawing.Point(139, 34);
-            this.Parts_ListB.Name = "Parts_ListB";
-            this.Parts_ListB.Size = new System.Drawing.Size(120, 56);
-            this.Parts_ListB.TabIndex = 8;
-            this.Parts_ListB.SelectedIndexChanged += new System.EventHandler(this.Parts_ListB_SelectedIndexChanged);
+            this.Status_Cbo.FormattingEnabled = true;
+            this.Status_Cbo.Location = new System.Drawing.Point(390, 68);
+            this.Status_Cbo.Name = "Status_Cbo";
+            this.Status_Cbo.Size = new System.Drawing.Size(100, 21);
+            this.Status_Cbo.TabIndex = 10;
             // 
             // Mechanic_Manage
             // 
@@ -180,5 +203,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button Update_btn;
         private System.Windows.Forms.ListBox Parts_ListB;
+        private System.Windows.Forms.ComboBox Status_Cbo;
+        private System.Windows.Forms.Label label5;
     }
 }
