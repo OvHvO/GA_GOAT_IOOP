@@ -51,7 +51,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
         {
             string[] newprof = (string[])Mechanic.RefreshProfile(Names);
             Name_lbl.Text = newprof[0];
-            PNum_lbl.Text = newprof[1].ToString();
+            PNum_lbl.Text = newprof[1];
         }
 
         private void Welcome_txt_Click(object sender, EventArgs e)
