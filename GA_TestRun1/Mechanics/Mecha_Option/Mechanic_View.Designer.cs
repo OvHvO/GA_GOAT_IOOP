@@ -46,6 +46,7 @@
             this.Vechi_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MecName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reshedule_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TaskContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rcp_appoimentBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Reload_pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Mcn_GridView)).BeginInit();
@@ -156,7 +157,8 @@
             this.Cus_contactNum,
             this.Vechi_num,
             this.MecName,
-            this.Reshedule_Status});
+            this.Reshedule_Status,
+            this.TaskContent});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -188,7 +190,7 @@
             this.CusID.MinimumWidth = 6;
             this.CusID.Name = "CusID";
             this.CusID.ReadOnly = true;
-            this.CusID.Width = 83;
+            this.CusID.Width = 90;
             // 
             // App_id
             // 
@@ -198,7 +200,7 @@
             this.App_id.MinimumWidth = 6;
             this.App_id.Name = "App_id";
             this.App_id.ReadOnly = true;
-            this.App_id.Width = 88;
+            this.App_id.Width = 96;
             // 
             // Cus_name
             // 
@@ -248,6 +250,13 @@
             this.Reshedule_Status.ReadOnly = true;
             this.Reshedule_Status.Width = 109;
             // 
+            // TaskContent
+            // 
+            this.TaskContent.DataPropertyName = "taskContent";
+            this.TaskContent.HeaderText = "Task Detail";
+            this.TaskContent.Name = "TaskContent";
+            this.TaskContent.ReadOnly = true;
+            // 
             // Mechanic_View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,5 +291,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Vechi_num;
         private System.Windows.Forms.DataGridViewTextBoxColumn MecName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reshedule_Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TaskContent;
     }
 }
