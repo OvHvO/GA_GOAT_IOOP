@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.FeatureBox = new System.Windows.Forms.GroupBox();
+            this.logo_adminHome_PB = new System.Windows.Forms.PictureBox();
             this.btn_cus_FB = new System.Windows.Forms.Button();
             this.btn_sales_Report = new System.Windows.Forms.Button();
             this.btn_service_MNG = new System.Windows.Forms.Button();
             this.btn_staff_MNG = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.admin_Panel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FeatureBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_adminHome_PB)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // FeatureBox
             // 
             this.FeatureBox.BackColor = System.Drawing.Color.DimGray;
-            this.FeatureBox.Controls.Add(this.pictureBox1);
+            this.FeatureBox.Controls.Add(this.logo_adminHome_PB);
             this.FeatureBox.Controls.Add(this.btn_cus_FB);
             this.FeatureBox.Controls.Add(this.btn_sales_Report);
             this.FeatureBox.Controls.Add(this.btn_service_MNG);
@@ -58,6 +58,17 @@
             this.FeatureBox.Size = new System.Drawing.Size(107, 438);
             this.FeatureBox.TabIndex = 1;
             this.FeatureBox.TabStop = false;
+            // 
+            // logo_adminHome_PB
+            // 
+            this.logo_adminHome_PB.Image = global::GA_TestRun1.Properties.Resources.logo__4_;
+            this.logo_adminHome_PB.Location = new System.Drawing.Point(7, 18);
+            this.logo_adminHome_PB.Name = "logo_adminHome_PB";
+            this.logo_adminHome_PB.Size = new System.Drawing.Size(90, 90);
+            this.logo_adminHome_PB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logo_adminHome_PB.TabIndex = 5;
+            this.logo_adminHome_PB.TabStop = false;
+            this.logo_adminHome_PB.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btn_cus_FB
             // 
@@ -139,17 +150,6 @@
             this.admin_Panel.Size = new System.Drawing.Size(587, 429);
             this.admin_Panel.TabIndex = 5;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GA_TestRun1.Properties.Resources.logo__4_;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(90, 90);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // Admins_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,8 +161,8 @@
             this.Name = "Admins_home";
             this.Text = "Admins_home";
             this.FeatureBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo_adminHome_PB)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -175,6 +175,6 @@
         private System.Windows.Forms.Button btn_service_MNG;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel admin_Panel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox logo_adminHome_PB;
     }
 }
