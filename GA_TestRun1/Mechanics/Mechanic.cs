@@ -1,6 +1,7 @@
 ﻿using GA_TestRun1.Mechanics.Mecha_Option;
 using Microsoft.Identity.Client;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -372,8 +373,9 @@ namespace GA_TestRun1.Mechanics
 
             conn.Open();
 
-            string query = @"SELECT Distinct partName
-                             FROM Parts AS P";
+            string query = @"SELECT partName
+                             FROM Parts AS P
+                             INNER JOIN Requests AS R ON P.part_ID = R.part_ID";
 
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -385,6 +387,46 @@ namespace GA_TestRun1.Mechanics
             conn.Close();
             return u_list;
 
+        }
+
+        //---------- Update text customer name ----------//
+        public static string ShowName(string selecteditem, string carNum)
+        {
+            string UUcar = null;
+
+            SqlConnection conn = new SqlConnection(connect);
+            conn.Open();
+
+            string query = $@"SELECT C.customerUsername
+                            FROM Customers AS C
+                            INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
+                            LEFT JOIN Tasks AS T ON SA.serviceAP_ID = T.serviceAP_ID
+                            LEFT JOIN Requests AS R ON T.task_ID = R.task_ID
+                            LEFT JOIN Parts AS P ON R.part_ID = P.part_ID
+                            WHERE R.requestPartQuantity IS NOT NULL
+                            AND partName = '{selecteditem}'
+                            AND C.customer_ID = @CusName";
+
+            string query2 = @"SELECT SA.customer_ID
+                              FROM ServiceAppoinments AS SA
+                              WHERE SA.carNum = @Carnum";
+
+            SqlCommand cmd2 = new SqlCommand(query2, conn);
+            cmd2.Parameters.AddWithValue("@Carnum", carNum);
+            UUcar = cmd2.ExecuteScalar().ToString();
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@CusName", UUcar);
+            if (cmd.ExecuteScalar() != null)
+            {
+                string GetUname = cmd.ExecuteScalar().ToString();
+                conn.Close();
+                return GetUname;
+            }
+            MessageBox.Show("Error here lah!");
+            string GetUnames = "Error";
+            conn.Close();
+            return GetUnames;
         }
 
         //============================== Request Parts ==============================//
@@ -445,8 +487,11 @@ namespace GA_TestRun1.Mechanics
         }
 
         //============================== Update Parts ==============================//
-        public static void UpdateParts(string UParts, string UQuantity)
-        {
+        public static void UpdateParts(string UParts, string UQuantity, string Ucarnum)
+        { 
+            int IntQuantity = 0;
+            int IntInventory = 0;
+
             if (UParts == null || UQuantity == null)
             {
                 MessageBox.Show("Warning: Please insert value or select parts to perform task.");
@@ -462,15 +507,56 @@ namespace GA_TestRun1.Mechanics
                     {
                         List<int> calculation = new List<int>();
 
-                        string query = @"SELECT R.requestPartQuantity
-                                         FROM Requests";
+                        string query = @"SELECT T.task_ID
+                                         FROM ServiceAppoinments AS SA
+                                         INNER JOIN Tasks AS T ON T.serviceAP_ID = SA.serviceAP_ID
+                                         WHERE SA.carNum = @Carnum";
 
-                        SqlCommand cmd = new SqlCommand(query, conn);
+                        string query2 = $@"SELECT R.requestPartQuantity, P.partQuantity
+                                          FROM Requests AS R
+                                          INNER JOIN Parts AS P ON R.part_ID = P.part_ID
+                                          WHERE P.partName = '{UParts}'";
 
+                        string query3 = $@"UPDATE Parts 
+                                          SET partQuantity = @IntInventory
+                                          WHERE partName = '{UParts}'";
+
+                        string query4 = $@"UPDATE Requests
+                                          SET requestPartQuantity = @UQuantities
+                                          WHERE partName = '{UParts}'";
+
+                        SqlCommand cmd = new SqlCommand(query, conn, transaction);
+                        cmd.Parameters.AddWithValue("@Carnum", Ucarnum);
+                        string taskID = cmd.ExecuteScalar().ToString();
+
+                        SqlCommand cmd2 = new SqlCommand(query2, conn, transaction);
+                        SqlDataReader reader = cmd2.ExecuteReader();    
+                        while (reader.Read())
+                        {
+                            IntQuantity = Convert.ToInt32(reader[0]);
+                            IntInventory = Convert.ToInt32(reader[1]);
+
+                        }
+                        reader.Close();
+                        int.TryParse(UQuantity, out int UQuantities);
+                        IntQuantity -= UQuantities; //IntQuantity is my remainder now
+
+                        IntInventory += IntQuantity; //IntInventory is my new total
+                        
+                        SqlCommand cmd3 = new SqlCommand(query3, conn, transaction);
+                        cmd3.Parameters.AddWithValue("@IntInventory", IntInventory);
+                        cmd3.ExecuteNonQuery();
+
+                        SqlCommand cmd4 = new SqlCommand(query4, conn, transaction);
+                        cmd4.Parameters.AddWithValue("@UQuantities", UQuantities);
+                        cmd4.ExecuteNonQuery();
+
+                        transaction.Commit();
+                        conn.Close();
                     }
                     catch (Exception ex)
                     {
-
+                        MessageBox.Show("Error" + ex);
                     }
                 }
             }

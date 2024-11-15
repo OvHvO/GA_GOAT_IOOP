@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -70,7 +71,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             U_TxtBox = U_Quantity_txt.Text;
 
             Mechanic mechanic = new Mechanic();
-            Mechanic.UpdateParts(U_ListBox, U_TxtBox);
+            Mechanic.UpdateParts(U_ListBox, U_TxtBox, Manage_CarNum);
             Update_List.Items.Clear();
 
         }
@@ -82,9 +83,24 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
 
         private void Update_List_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Mechanic mechanic = new Mechanic();
+            Customer_Show.Text = Mechanic.ShowName(Update_List.SelectedItem.ToString(), Manage_CarNum);
         }
 
+        private void Reload_pic_Click(object sender, EventArgs e)
+        {
+            Update_List.Items.Clear();
+            List<string> UUparts = new List<string>();
+            UUparts = Mechanic.UParts();
+            foreach (string Parts in UUparts)
+            {
+                Update_List.Items.Add(Parts);
+            }
+        }
 
+        private void Customer_Show_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
