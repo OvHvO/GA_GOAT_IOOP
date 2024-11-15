@@ -35,7 +35,6 @@
             this.M_Inventory_btn = new System.Windows.Forms.Button();
             this.R_Service_btn = new System.Windows.Forms.Button();
             this.Detailpanel = new System.Windows.Forms.Panel();
-            this.SignOut_btn = new System.Windows.Forms.Button();
             this.OptionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_img)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +42,6 @@
             // OptionPanel
             // 
             this.OptionPanel.BackColor = System.Drawing.Color.Gray;
-            this.OptionPanel.Controls.Add(this.SignOut_btn);
             this.OptionPanel.Controls.Add(this.Logo_img);
             this.OptionPanel.Controls.Add(this.U_Profile_btn);
             this.OptionPanel.Controls.Add(this.V_ServiceTask_btn);
@@ -126,20 +124,6 @@
             this.Detailpanel.TabIndex = 1;
             this.Detailpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Detailpanel_Paint);
             // 
-            // SignOut_btn
-            // 
-            this.SignOut_btn.FlatAppearance.BorderSize = 0;
-            this.SignOut_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SignOut_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SignOut_btn.ForeColor = System.Drawing.Color.Firebrick;
-            this.SignOut_btn.Location = new System.Drawing.Point(3, 359);
-            this.SignOut_btn.Name = "SignOut_btn";
-            this.SignOut_btn.Size = new System.Drawing.Size(101, 52);
-            this.SignOut_btn.TabIndex = 5;
-            this.SignOut_btn.Text = "Sign Out";
-            this.SignOut_btn.UseVisualStyleBackColor = true;
-            this.SignOut_btn.Click += new System.EventHandler(this.SignOut_btn_Click);
-            // 
             // Mechanic_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,6 +150,5 @@
         private System.Windows.Forms.Button U_Profile_btn;
         private System.Windows.Forms.PictureBox Logo_img;
         private System.Windows.Forms.Panel Detailpanel;
-        private System.Windows.Forms.Button SignOut_btn;
     }
 }

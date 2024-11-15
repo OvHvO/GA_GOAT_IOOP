@@ -20,19 +20,20 @@ namespace GA_TestRun1.Mechanics
         private string Name;
         private string Contact;
         private string Connection;
+        string CARNUM;
 
-        public Mechanic_home(string N, string ConnectionS, string ContactNum)
+        public Mechanic_home(string N, string ConnectionS, string ContactNum, string CarNum)
         {
             InitializeComponent();
             Name = N;
             Mechanic mechanics = new Mechanic(Connection);
-
             Contact = ContactNum;
             Connection = ConnectionS;
+            CARNUM = CarNum;
         }
 
 
-//============================== Change panel colour ==============================//
+        //============================== Change panel colour ==============================//
         public Mechanic_home(string newUsername)
         {
             InitializeComponent();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GA_TestRun1.Mechanics.Mecha_Option;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -18,6 +19,7 @@ namespace GA_TestRun1.Mechanics
         static string Connection;
         private string UserName;
         private string Password;
+        private static string AppID;
         static string connect = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test1\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         SqlConnection connection = new SqlConnection(connect);
 
@@ -305,7 +307,7 @@ namespace GA_TestRun1.Mechanics
 
                     SqlCommand cmd1 = new SqlCommand(query, conn, transaction);
                     cmd1.Parameters.AddWithValue("@CarNumbs", CarNumbs);
-                    String AppID = cmd1.ExecuteScalar().ToString();
+                    AppID = cmd1.ExecuteScalar().ToString();
 
                     SqlCommand cmd3 = new SqlCommand(query3, conn, transaction);
                     cmd3.Parameters.AddWithValue("@Status", Status);
@@ -358,6 +360,13 @@ namespace GA_TestRun1.Mechanics
 
         }
 
+        //
+
+        public static string GerCarID ()
+        {
+            Mechanic_Manage 
+        }
+
         //============================== Request Parts ==============================//
         public static void RequestParts(string Parts, string Quantity, string Status, string carNum)
         {
@@ -367,25 +376,31 @@ namespace GA_TestRun1.Mechanics
                 SqlTransaction transaction = conn.BeginTransaction();
                 try
                 {
-                    //string query = @"SELECT P.part_ID 
-                    //                 FROM ServiceAppoinments AS SAP
-                    //                 INNER JOIN ServiceAdd AS SA ON SA.serviceAP_ID = SAP.serviceAP_ID
-                    //                 LEFT JOIN Service AS S ON S.service_ID = SA.service_ID
-                    //                 LEFT JOIN Parts AS P ON part_ID = S.part_ID 
-                    //                 WHERE SAP.carNum = @carNum";
+                    string query = @"SELECT P.part_ID 
+                                     FROM Parts AS P
+                                     WHERE partName = @Partname";
 
-                    string query = @"SELECT";
+                    string query2 = @"SELECT T.task_ID
+                                      FROM Tasks AS T
+                                      INNER JOIN ServiceAppoinments AS SA ON SA.serviceAP_ID = T.serviceAP_ID
+                                      WHERE SA.carNum = @CarNum";
 
                     string query3 = @"INSERT INTO Requests (requestPartQuantity, rrequestStatus, part_ID, task_ID)
-                                      VALUES (@Quantity, @Status, @part_ID)";
+                                      VALUES (@Quantity, @Status, @part_ID, @task_ID)";
 
                     SqlCommand cmd = new SqlCommand(query, conn, transaction);
-                    cmd.Parameters.AddWithValue("@carNum", carNum);
+                    cmd.Parameters.AddWithValue("@Partname", Parts);
+                    string PartID = cmd.ExecuteScalar().ToString();
 
-                    SqlCommand cmd2 = new SqlCommand(query3, conn, transaction);
+                    SqlCommand cmd2 = new SqlCommand(query2, conn, transaction);
+                    cmd2.Parameters.AddWithValue("@CarNum", carNum);
+                    string TaskID = cmd2.ExecuteScalar().ToString();
+
+                    SqlCommand cmd3 = new SqlCommand(query3, conn, transaction);
                     cmd.Parameters.AddWithValue("@Quantity", Quantity);
                     cmd.Parameters.AddWithValue("@Status", Status);
-                    cmd.Parameters.AddWithValue("@part_ID", query);
+                    cmd.Parameters.AddWithValue("@part_ID", PartID);
+                    cmd.Parameters.AddWithValue("@task_ID", TaskID);
 
                     if (cmd.ExecuteNonQuery() < 1)
                     {
