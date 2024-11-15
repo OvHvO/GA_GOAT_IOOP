@@ -433,7 +433,7 @@ namespace GA_TestRun1.Receptionist
                 string query = "Delete from Requests where request_ID=@requestid ";
                 SqlCommand cmd= new SqlCommand(query, conn,transaction);
                 cmd.Parameters.AddWithValue("@requestid", requestid);
-                if (cmd.ExecuteNonQuery()<0)
+                if (cmd.ExecuteNonQuery()<1)
                 {
                     transaction.Rollback();
                     MessageBox.Show("Delete Unsucess!","Delete Request",MessageBoxButtons.OK,MessageBoxIcon.Stop);
