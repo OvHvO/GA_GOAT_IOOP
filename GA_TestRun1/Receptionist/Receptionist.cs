@@ -533,11 +533,12 @@ namespace GA_TestRun1.Receptionist
                     cmd3.Parameters.AddWithValue("@mecuser", selectedItems);
                     string mechanicID = cmd3.ExecuteScalar().ToString();
 
-                    string query = "Insert Into Tasks(taskStatus,mechanic_ID,serviceAP_ID,rcptionist_ID) values('PENDING',@mechanicID,@serviceAP_ID,@rcptionist_ID)";
+                    string query = "Insert Into Tasks(taskStatus,mechanic_ID,serviceAP_ID,rcptionist_ID,taskContent) values('PENDING',@mechanicID,@serviceAP_ID,@rcptionist_ID,@taskname)";
                     SqlCommand cmd = new SqlCommand(query, conn, transaction);
                     cmd.Parameters.AddWithValue("@mechanicID", mechanicID);
                     cmd.Parameters.AddWithValue("@serviceAP_ID", serviceID);
                     cmd.Parameters.AddWithValue("@rcptionist_ID", rcpid);
+                    cmd.Parameters.AddWithValue("@taskname",taskname);
 
                     string query6 = "Update ServiceAppoinments set serviceAPDate=@servicedate,rescheduleStatus='False' where serviceAP_ID=@serviceid";
                     SqlCommand cmd6 = new SqlCommand(query6, conn, transaction);
