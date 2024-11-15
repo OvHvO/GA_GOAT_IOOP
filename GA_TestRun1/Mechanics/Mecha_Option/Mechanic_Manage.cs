@@ -4,25 +4,24 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GA_TestRun1.Mechanics.Mecha_Option
 {
-    public partial class Mechanic_Manage : UserControl
+    public partial class Mechanic_Manage : Form
     {
+        string Manage_CarNum;
 
-        string CARNUM;
-
-
-        public Mechanic_Manage(string CNUM)
+        public Mechanic_Manage(string manage_CarNum)
         {
             InitializeComponent();
-            CARNUM = CNUM;
+            Manage_CarNum = manage_CarNum;
         }
 
-        private void Mechanic_Manage_Load(object sender, EventArgs e)
+        private void Mechanic_Man_Load(object sender, EventArgs e)
         {
             //---------- Parts List Items ----------//
             List<string> parts = new List<string>();
@@ -32,14 +31,17 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
                 Parts_ListB.Items.Add(Part);
             }
 
+            //---------- Used Parts List Items ----------//
+            List<string> Uparts = new List<string>();
+            Uparts = Mechanic.UParts();
+            foreach (string Parts in Uparts)
+            {
+                Update_List.Items.Add(Parts);
+            }
+
             //---------- Status ComboBox Items ----------//
             Status_Cbo.Items.Add("PENDING");
             Status_Cbo.SelectedIndex = 0;
-        }
-
-        private void Parts_ListB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Request_btn_Click(object sender, EventArgs e)
@@ -52,18 +54,37 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             P_TxtBox = R_Quantity_txt.Text;
             P_ComboB = Status_Cbo.SelectedItem.ToString();
 
-            Mechanic mechanicViewForm = new Mechanic();
-            Mechanic.RequestParts(P_ListBox, P_TxtBox, P_ComboB, CARNUM);
+            Mechanic mechanic = new Mechanic();
+            Mechanic.RequestParts(P_ListBox, P_TxtBox, P_ComboB, Manage_CarNum);
+
+            Parts_ListB.SelectedIndex = -1;
+            R_Quantity_txt.Clear();
         }
 
-        //public void RequestBtn (string P_CarNum)
-        //{
+        private void Update_btn_Click(object sender, EventArgs e)
+        {
+            string U_ListBox;
+            string U_TxtBox;
 
-        //}
+            U_ListBox = Update_List.SelectedItem.ToString();
+            U_TxtBox = U_Quantity_txt.Text;
 
-        //public void ReceiveCarNum(string CarNum)
-        //{
-        //    CarList = CarNum;
-        //}
+            Mechanic mechanic = new Mechanic();
+            Mechanic.UpdateParts(U_ListBox, U_TxtBox);
+            Update_List.Items.Clear();
+
+        }
+
+        private void Parts_ListB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Update_List_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
