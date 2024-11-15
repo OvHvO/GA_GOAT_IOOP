@@ -28,9 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mechanic_Manage));
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.U_Quantity_txt = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Update_List = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.Update_btn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Status_Cbo = new System.Windows.Forms.ComboBox();
@@ -41,12 +46,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Welcome_txt = new System.Windows.Forms.Label();
-            this.Update_List = new System.Windows.Forms.ListBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.U_Quantity_txt = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.Reload_pic = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.Customer_Show = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Reload_pic)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -72,6 +77,9 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.Customer_Show);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.Reload_pic);
             this.panel2.Controls.Add(this.U_Quantity_txt);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.Update_List);
@@ -82,9 +90,45 @@
             this.panel2.Size = new System.Drawing.Size(587, 141);
             this.panel2.TabIndex = 13;
             // 
+            // U_Quantity_txt
+            // 
+            this.U_Quantity_txt.Location = new System.Drawing.Point(430, 65);
+            this.U_Quantity_txt.Name = "U_Quantity_txt";
+            this.U_Quantity_txt.Size = new System.Drawing.Size(100, 20);
+            this.U_Quantity_txt.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(306, 65);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(118, 20);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Used Quantity: ";
+            // 
+            // Update_List
+            // 
+            this.Update_List.FormattingEnabled = true;
+            this.Update_List.Location = new System.Drawing.Point(139, 29);
+            this.Update_List.Name = "Update_List";
+            this.Update_List.Size = new System.Drawing.Size(120, 56);
+            this.Update_List.TabIndex = 12;
+            this.Update_List.SelectedIndexChanged += new System.EventHandler(this.Update_List_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(77, 29);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 20);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Parts: ";
+            // 
             // Update_btn
             // 
-            this.Update_btn.Location = new System.Drawing.Point(243, 101);
+            this.Update_btn.Location = new System.Drawing.Point(243, 100);
             this.Update_btn.Name = "Update_btn";
             this.Update_btn.Size = new System.Drawing.Size(97, 29);
             this.Update_btn.TabIndex = 8;
@@ -181,41 +225,38 @@
             this.Welcome_txt.TabIndex = 10;
             this.Welcome_txt.Text = "Manage Inventory Sheet";
             // 
-            // Update_List
+            // Reload_pic
             // 
-            this.Update_List.FormattingEnabled = true;
-            this.Update_List.Location = new System.Drawing.Point(139, 29);
-            this.Update_List.Name = "Update_List";
-            this.Update_List.Size = new System.Drawing.Size(120, 56);
-            this.Update_List.TabIndex = 12;
-            this.Update_List.SelectedIndexChanged += new System.EventHandler(this.Update_List_SelectedIndexChanged);
+            this.Reload_pic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Reload_pic.Image = ((System.Drawing.Image)(resources.GetObject("Reload_pic.Image")));
+            this.Reload_pic.Location = new System.Drawing.Point(36, 29);
+            this.Reload_pic.Margin = new System.Windows.Forms.Padding(2);
+            this.Reload_pic.Name = "Reload_pic";
+            this.Reload_pic.Size = new System.Drawing.Size(25, 27);
+            this.Reload_pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Reload_pic.TabIndex = 15;
+            this.Reload_pic.TabStop = false;
+            this.Reload_pic.Click += new System.EventHandler(this.Reload_pic_Click);
             // 
-            // label6
+            // label8
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(77, 29);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 20);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Parts: ";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(293, 29);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(131, 20);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Customer Name: ";
             // 
-            // U_Quantity_txt
+            // Customer_Show
             // 
-            this.U_Quantity_txt.Location = new System.Drawing.Point(390, 30);
-            this.U_Quantity_txt.Name = "U_Quantity_txt";
-            this.U_Quantity_txt.Size = new System.Drawing.Size(100, 20);
-            this.U_Quantity_txt.TabIndex = 12;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(266, 29);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(118, 20);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Used Quantity: ";
+            this.Customer_Show.Enabled = false;
+            this.Customer_Show.Location = new System.Drawing.Point(430, 29);
+            this.Customer_Show.Name = "Customer_Show";
+            this.Customer_Show.ReadOnly = true;
+            this.Customer_Show.Size = new System.Drawing.Size(100, 20);
+            this.Customer_Show.TabIndex = 17;
+            this.Customer_Show.TextChanged += new System.EventHandler(this.Customer_Show_TextChanged);
             // 
             // Mechanic_Manage
             // 
@@ -234,6 +275,7 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Reload_pic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,5 +300,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListBox Update_List;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox Reload_pic;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox Customer_Show;
     }
 }
