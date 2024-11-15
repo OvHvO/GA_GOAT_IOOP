@@ -267,7 +267,7 @@ namespace GA_TestRun1.Mechanics
         {
             List<String> list = new List<String>();
             SqlConnection conn = new SqlConnection(connect);
-            
+
             conn.Open();
             string query = @"SELECT DISTINCT SA.carNum 
                             FROM Mechanics AS M
@@ -322,11 +322,11 @@ namespace GA_TestRun1.Mechanics
                     else
                     {
                         transaction.Commit();
-                        MessageBox.Show("Successfully Updated Service List");
+                        MessageBox.Show("Successfully Updated Service List!");
                         conn.Close();
                     }
                 }
-                catch (SqlException ex) 
+                catch (SqlException ex)
                 {
                     transaction.Rollback();
                     MessageBox.Show("Error: " + ex);
@@ -335,5 +335,78 @@ namespace GA_TestRun1.Mechanics
             }
         }
 
+        //============================== Show Parts in ComboBox ==============================//
+        public static List<string> Parts() 
+        {
+            List<string> p_list = new List<string>();
+            SqlConnection conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            string query = @"SELECT Distinct partName
+                             FROM Parts AS P";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                p_list.Add(reader.GetString(0));
+            }
+            reader.Close();
+            conn.Close();
+            return p_list;
+
+        }
+
+        //============================== Request Parts ==============================//
+        public static void RequestParts(string Parts, string Quantity, string Status, string carNum)
+        {
+            using (SqlConnection conn = new SqlConnection(connect))
+            {
+                conn.Open();
+                SqlTransaction transaction = conn.BeginTransaction();
+                try
+                {
+                    //string query = @"SELECT P.part_ID 
+                    //                 FROM ServiceAppoinments AS SAP
+                    //                 INNER JOIN ServiceAdd AS SA ON SA.serviceAP_ID = SAP.serviceAP_ID
+                    //                 LEFT JOIN Service AS S ON S.service_ID = SA.service_ID
+                    //                 LEFT JOIN Parts AS P ON part_ID = S.part_ID 
+                    //                 WHERE SAP.carNum = @carNum";
+
+                    string query = @"SELECT";
+
+                    string query3 = @"INSERT INTO Requests (requestPartQuantity, rrequestStatus, part_ID, task_ID)
+                                      VALUES (@Quantity, @Status, @part_ID)";
+
+                    SqlCommand cmd = new SqlCommand(query, conn, transaction);
+                    cmd.Parameters.AddWithValue("@carNum", carNum);
+
+                    SqlCommand cmd2 = new SqlCommand(query3, conn, transaction);
+                    cmd.Parameters.AddWithValue("@Quantity", Quantity);
+                    cmd.Parameters.AddWithValue("@Status", Status);
+                    cmd.Parameters.AddWithValue("@part_ID", query);
+
+                    if (cmd.ExecuteNonQuery() < 1)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Error");
+                        conn.Close();
+                    }
+                    else
+                    {
+                        transaction.Commit();
+                        MessageBox.Show("Successfully Requested!");
+                        conn.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    MessageBox.Show("Error: " + ex);
+                    conn.Close();
+                }
+            }
+        }
     }
 }
