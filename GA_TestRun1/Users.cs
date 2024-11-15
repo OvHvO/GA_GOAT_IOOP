@@ -20,7 +20,7 @@ namespace GA_TestRun1
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
 
-        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\IOOP_GA_GOAT\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
+        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test1\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         private string Password;
         private string ContactNum;
         private string Username;
@@ -148,7 +148,7 @@ namespace GA_TestRun1
                                     cmd4.Parameters.AddWithValue("@password", password);
                                     cmd4.ExecuteNonQuery();
                                     Mechanic_home Form = new Mechanic_home(username, connection, contactnum);
-                                    Mechanic recep = new Mechanic(username, password);
+                                    Mechanic mechanic = new Mechanic(username, password);
                                     Form.ShowDialog();
                                 }
                                 catch (SqlException)
@@ -439,7 +439,7 @@ namespace GA_TestRun1
 
         public static class ConnectionS_admin
         {
-        public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\waiki\\OneDrive\\Desktop\\C# OOP\\IOOP_GA_GOAT\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
+        public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test1\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         }
 
     }
