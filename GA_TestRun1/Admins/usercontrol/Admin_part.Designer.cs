@@ -46,7 +46,7 @@
             // 
             this.PartManagement.AutoSize = true;
             this.PartManagement.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PartManagement.Location = new System.Drawing.Point(173, 30);
+            this.PartManagement.Location = new System.Drawing.Point(161, 32);
             this.PartManagement.Name = "PartManagement";
             this.PartManagement.Size = new System.Drawing.Size(266, 33);
             this.PartManagement.TabIndex = 0;
@@ -55,7 +55,7 @@
             // PartListBox
             // 
             this.PartListBox.FormattingEnabled = true;
-            this.PartListBox.Location = new System.Drawing.Point(201, 82);
+            this.PartListBox.Location = new System.Drawing.Point(220, 82);
             this.PartListBox.Name = "PartListBox";
             this.PartListBox.Size = new System.Drawing.Size(147, 134);
             this.PartListBox.TabIndex = 7;
@@ -63,35 +63,35 @@
             // 
             // PartIDTB
             // 
-            this.PartIDTB.Location = new System.Drawing.Point(114, 296);
+            this.PartIDTB.Location = new System.Drawing.Point(139, 249);
             this.PartIDTB.Name = "PartIDTB";
             this.PartIDTB.Size = new System.Drawing.Size(100, 20);
             this.PartIDTB.TabIndex = 8;
             // 
             // PartQuantityTB
             // 
-            this.PartQuantityTB.Location = new System.Drawing.Point(382, 296);
+            this.PartQuantityTB.Location = new System.Drawing.Point(382, 249);
             this.PartQuantityTB.Name = "PartQuantityTB";
             this.PartQuantityTB.Size = new System.Drawing.Size(100, 20);
             this.PartQuantityTB.TabIndex = 10;
             // 
             // PartNameTB
             // 
-            this.PartNameTB.Location = new System.Drawing.Point(114, 350);
+            this.PartNameTB.Location = new System.Drawing.Point(139, 301);
             this.PartNameTB.Name = "PartNameTB";
             this.PartNameTB.Size = new System.Drawing.Size(100, 20);
             this.PartNameTB.TabIndex = 11;
             // 
             // PartPriceTB
             // 
-            this.PartPriceTB.Location = new System.Drawing.Point(382, 350);
+            this.PartPriceTB.Location = new System.Drawing.Point(382, 301);
             this.PartPriceTB.Name = "PartPriceTB";
             this.PartPriceTB.Size = new System.Drawing.Size(100, 20);
             this.PartPriceTB.TabIndex = 12;
             // 
             // PartDeleteBtn
             // 
-            this.PartDeleteBtn.Location = new System.Drawing.Point(320, 242);
+            this.PartDeleteBtn.Location = new System.Drawing.Point(382, 348);
             this.PartDeleteBtn.Name = "PartDeleteBtn";
             this.PartDeleteBtn.Size = new System.Drawing.Size(75, 23);
             this.PartDeleteBtn.TabIndex = 14;
@@ -102,7 +102,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 296);
+            this.label1.Location = new System.Drawing.Point(52, 252);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 15;
@@ -111,7 +111,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 353);
+            this.label2.Location = new System.Drawing.Point(52, 304);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 16;
@@ -120,16 +120,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(302, 299);
+            this.label3.Location = new System.Drawing.Point(302, 252);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Qauntity";
+            this.label3.Text = "Quantity";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(317, 353);
+            this.label4.Location = new System.Drawing.Point(302, 308);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 18;
@@ -137,7 +137,7 @@
             // 
             // PartSaveBtn
             // 
-            this.PartSaveBtn.Location = new System.Drawing.Point(139, 242);
+            this.PartSaveBtn.Location = new System.Drawing.Point(139, 348);
             this.PartSaveBtn.Name = "PartSaveBtn";
             this.PartSaveBtn.Size = new System.Drawing.Size(75, 23);
             this.PartSaveBtn.TabIndex = 19;

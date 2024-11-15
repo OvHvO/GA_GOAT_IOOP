@@ -505,6 +505,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database_GA.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\admin-3d-illustration-icon-png.png" />
     <None Include="Resources\logo %284%29.png" />
     <None Include="Resources\logo.png" />
     <None Include="Resources\OIP %282%29.jpg" />

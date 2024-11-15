@@ -111,20 +111,28 @@ namespace GA_TestRun1.Admins
             }
             else
             {
-                MessageBox.Show("Please f**king choose a service idiot");
+                MessageBox.Show("Please choose a staff");
             }
         }
 
         private void StaffAddBtn_Click(object sender, EventArgs e)
         {
-            string username = NewStaffNameTB.Text;
-            int contactnum = Convert.ToInt32(NewStaffContactNumTB.Text);
-            string role = NewStaffRoleCB.SelectedItem as string;
-            Admins_Source newStaff = new Admins_Source();
-            bool newStaffResult = newStaff.Staff_ADD(role, username, contactnum);
-            if (newStaffResult)
+            try
             {
-                MessageBox.Show("New staff created");
+                string username = NewStaffNameTB.Text;
+                int contactnum = Convert.ToInt32(NewStaffContactNumTB.Text);
+                string role = NewStaffRoleCB.SelectedItem as string;
+                Admins_Source newStaff = new Admins_Source();
+                bool newStaffResult = newStaff.Staff_ADD(role, username, contactnum);
+                if (newStaffResult)
+                {
+                    MessageBox.Show("New staff created");
+                }
+            }
+
+            catch
+            {
+                MessageBox.Show("Please enter a correct form of contact number.");
             }
         }
 
