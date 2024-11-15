@@ -66,7 +66,8 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
 
             Mechanic mechanicViewForm = new Mechanic();
             Mechanic.SaveRecord(CollectionTime, ComboBox, ListBox, TxtBox);
-            Sender(ListBox);
+            Mechanic_Manage mechanic_manage = new Mechanic_Manage(ListBox);
+
         }
 
         private void _SelectedIndexChanged(object sender, EventArgs e)
@@ -79,10 +80,5 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
 
         }
 
-        private void Sender(string CarNumB)
-        {
-            Mechanic_Manage mechanic_Manage = new Mechanic_Manage();
-            mechanic_Manage.RequestBtn(CarNumB);
-        }
     }
 }
