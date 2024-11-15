@@ -25,6 +25,7 @@ namespace GA_TestRun1.Mechanics
         private string Password;
         private static string AppID;
         private static string content;
+        private static string RQuantity;
         static string connect = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test1\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         SqlConnection connection = new SqlConnection(connect);
 
@@ -60,7 +61,7 @@ namespace GA_TestRun1.Mechanics
 
 
         //============================== Update Mechanic Profile ==============================//
-        public void mcnUpdateProf(string oldUserName, string UserName, string Password)
+        public void mcnUpdateProf(string oldUserName, string UserName, string Password, int Contact)
         {
             UserNames = UserName;
             Passwords = Password;
@@ -81,12 +82,20 @@ namespace GA_TestRun1.Mechanics
                     SqlCommand cmd = new SqlCommand(checking1, connection, transaction);
                     cmd.Parameters.AddWithValue("@username", UserName);
 
-                    string checking2 = "Update Mechanics set mechanicUsername=@username, mechanicPW=@password where mechanicUsername=@oldusername";
+                    string checking2 = "Update Mechanics set mechanicUsername=@username, mechanicPW=@password, mechanicContactNum=@Contact where mechanicUsername=@oldusername";
                     SqlCommand cmd2 = new SqlCommand(checking2, connection, transaction);
                     cmd2.Parameters.AddWithValue("@username", UserName);
                     cmd2.Parameters.AddWithValue("@password", Password);
+                    cmd2.Parameters.AddWithValue("@Contact", Contact);
                     cmd2.Parameters.AddWithValue("@oldusername", oldUserName);
 
+                    //Enter into Temp Table (## is global temp table)
+                    string query3 = "Update ##Mcntemptable set McnUsername=@username, McnPw=@password, OldName=@oldusername";
+                    SqlCommand cmd3 = new SqlCommand(query3, connection, transaction);
+                    cmd3.Parameters.AddWithValue("@username", UserName);
+                    cmd3.Parameters.AddWithValue("@password", Password);
+                    cmd3.Parameters.AddWithValue("@oldusername", oldUserName);
+                    cmd3.ExecuteNonQuery();
 
                     if (cmd.ExecuteScalar() == null)
                     {
@@ -110,9 +119,9 @@ namespace GA_TestRun1.Mechanics
                     }
                 }
 
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("User not found or System Wrong! Error Message: Error");
+                    MessageBox.Show("User not found or System Wrong! Error Message: Error" + ex);
                 }
 
             }
@@ -225,16 +234,17 @@ namespace GA_TestRun1.Mechanics
                 string newuser;
                 conn.Open();
 
-                string query1 = "Select McnUsername from ##Mcntemptable where McnUsername=@username";
+                string query1 = @"Select McnUsername from ##Mcntemptable
+                                   where McnUsername = @oldusername";
                 SqlCommand cmd = new SqlCommand(query1, conn);
-                cmd.Parameters.AddWithValue("@username", Names);
+                cmd.Parameters.AddWithValue("@oldusername", Names);
                 string[] newProf = new string[2];
                 //check the name is oldusername or newusername
                 if (cmd.ExecuteScalar() != null)
                 {
                     newuser = cmd.ExecuteScalar().ToString();
 
-                    string query = "Select mechanicUsername,mechanicContactNum from Mechanics where mechanicUsername=@username";
+                    string query = @"Select mechanicUsername,mechanicContactNum from Mechanics where mechanicUsername=@username";
                     SqlCommand cmd2 = new SqlCommand(query, conn);
                     cmd2.Parameters.AddWithValue("@username", newuser);
 
@@ -242,18 +252,17 @@ namespace GA_TestRun1.Mechanics
                     while (read.Read())
                     {
                         newProf[0] = read.GetString(0);
-                        newProf[1] = read.GetInt32(1).ToString();
-
+                        newProf[1] = Convert.ToString(read.GetInt32(1));
                     }
                     conn.Close();
                     return newProf;
-
                 }
                 string query2 = "Select McnUsername from ##Mcntemptable where OldName=@username";
                 SqlCommand cmd3 = new SqlCommand(query2, conn);
                 cmd3.Parameters.AddWithValue("@username", Names);
                 newuser = cmd3.ExecuteScalar().ToString();
-                string query3 = "Select McnUsername, McnContactNum from Mechanics where McnUsername=@username";
+
+                string query3 = "Select mechanicUsername, mechanicContactNum from Mechanics where mechanicUsername=@username";
                 SqlCommand cmd4 = new SqlCommand(query3, conn);
                 cmd4.Parameters.AddWithValue("@username", newuser);
 
@@ -261,7 +270,7 @@ namespace GA_TestRun1.Mechanics
                 while (read2.Read())
                 {
                     newProf[0] = read2.GetString(0);
-                    newProf[1] = read2.GetString(1).ToString();
+                    newProf[1] = read2.GetInt32(1).ToString();
                 }
                 conn.Close();
 
@@ -451,6 +460,8 @@ namespace GA_TestRun1.Mechanics
         //============================== Request Parts ==============================//
         public static void RequestParts(string Parts, string Quantity, string Status, string carNum)
         {
+            string Rquantity = null;
+
             using (SqlConnection conn = new SqlConnection(connect))
             {
                 conn.Open();
@@ -468,6 +479,11 @@ namespace GA_TestRun1.Mechanics
 
                     string query3 = @"INSERT INTO Requests (requestPartQuantity, rrequestStatus, part_ID, task_ID)
                                       VALUES (@Quantity, @Status, @part_ID, @task_ID)";
+
+                    string query4 = @"SELECT R.requestPartQuantity
+                                      FROM Requests AS R
+                                      INNER JOIN Parts AS P ON R.part_ID = P.part_ID
+                                      WHERE P.partName = @partName";
 
                     //---------- Get part_ID ----------//
                     SqlCommand cmd = new SqlCommand(query, conn, transaction);
@@ -494,6 +510,11 @@ namespace GA_TestRun1.Mechanics
                     }
                     else
                     {
+                        SqlCommand cmd4 = new SqlCommand(query4, conn, transaction);
+                        cmd4.Parameters.AddWithValue("@partName", Parts);
+                        Rquantity = cmd4.ExecuteScalar().ToString();
+                        RQuantity = Rquantity;
+
                         transaction.Commit();
                         MessageBox.Show("Successfully Requested!");
                         conn.Close();
@@ -506,6 +527,12 @@ namespace GA_TestRun1.Mechanics
                     conn.Close();
                 }
             }  
+        }
+
+        public static string PassQuantity()
+        {
+            string rQuantity = RQuantity;
+            return rQuantity;
         }
 
         //============================== Update Parts ==============================//
