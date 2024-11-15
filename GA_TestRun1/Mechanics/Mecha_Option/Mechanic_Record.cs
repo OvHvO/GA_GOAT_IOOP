@@ -17,7 +17,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
         public Mechanic_Record(string UNAME)
         {
             InitializeComponent();
-            UNames = UNAME;    
+            UNames = UNAME;
         }
 
 
@@ -57,6 +57,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             string ComboBox;
             string ListBox;
             string TxtBox;
+            
 
             DateTime CollectionTime = Col_Time.Value;
             ComboBox = Status_Cbo.SelectedItem.ToString();
@@ -65,7 +66,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
 
             Mechanic mechanicViewForm = new Mechanic();
             Mechanic.SaveRecord(CollectionTime, ComboBox, ListBox, TxtBox);
-
+            Sender(ListBox);
         }
 
         private void _SelectedIndexChanged(object sender, EventArgs e)
@@ -76,6 +77,12 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
         private void Number_LstB_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Sender(string CarNumB)
+        {
+            Mechanic_Manage mechanic_Manage = new Mechanic_Manage();
+            mechanic_Manage.RequestBtn(CarNumB);
         }
     }
 }
