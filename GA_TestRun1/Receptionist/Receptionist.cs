@@ -362,7 +362,7 @@ namespace GA_TestRun1.Receptionist
 
         }
 
-        public static void TaskStatus(int requestid, string status, int quantity,string partName)
+        public static void RequestStatus(int requestid, string status, int quantity,string partName)
         {
             using (SqlConnection conn = new SqlConnection(connectionS)) 
             {   
@@ -424,7 +424,30 @@ namespace GA_TestRun1.Receptionist
             }
         }
 
-
+        public static void DelRequest(int requestid)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionS)) 
+            {  
+                conn.Open(); 
+                SqlTransaction transaction = conn.BeginTransaction();
+                string query = "Delete from Requests where request_ID=@requestid ";
+                SqlCommand cmd= new SqlCommand(query, conn,transaction);
+                cmd.Parameters.AddWithValue("@requestid", requestid);
+                if (cmd.ExecuteNonQuery()<0)
+                {
+                    transaction.Rollback();
+                    MessageBox.Show("Delete Unsucess!","Delete Request",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                    conn.Close();
+                }
+                else
+                {
+                    transaction.Commit();
+                    MessageBox.Show("Delete Sucess!","Delete Request");
+                    conn.Close();
+                } 
+            }
+            
+        }
 
 
         public static object searchFunc(string searchKey, string selectedItems)
