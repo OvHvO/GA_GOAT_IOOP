@@ -38,7 +38,7 @@ namespace GA_TestRun1
 
         private void UpdateProfileF_Load(object sender, EventArgs e)
         {
-            
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
         }
 
         private void updateProf_usern_txt_TextChanged(object sender, EventArgs e)
