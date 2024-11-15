@@ -20,16 +20,14 @@ namespace GA_TestRun1.Mechanics
         private string Name;
         private string Contact;
         private string Connection;
-        string CARNUM;
 
-        public Mechanic_home(string N, string ConnectionS, string ContactNum, string CarNum)
+        public Mechanic_home(string N, string ConnectionS, string ContactNum)
         {
             InitializeComponent();
             Name = N;
             Mechanic mechanics = new Mechanic(Connection);
             Contact = ContactNum;
             Connection = ConnectionS;
-            CARNUM = CarNum;
         }
 
 
@@ -47,9 +45,7 @@ namespace GA_TestRun1.Mechanics
             //----------Change btn text colour----------//
             V_ServiceTask_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
             R_Service_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
-            M_Inventory_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
             U_Profile_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
-            SignOut_btn.ForeColor = ColorTranslator.FromHtml("#EEEBE3");
         }
 
         private void Detailpanel_Paint(object sender, PaintEventArgs e)
@@ -92,15 +88,6 @@ namespace GA_TestRun1.Mechanics
             this.R_Service_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.R_Service_btn.FlatAppearance.BorderSize = 0;
             LoadUserControl(new Mechanic_Record(Name));
-        }
-
-
-        private void M_Inventory_btn_Click(object sender, EventArgs e)
-        {
-            //----------Change border size----------//
-            this.M_Inventory_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.M_Inventory_btn.FlatAppearance.BorderSize = 0;
-            LoadUserControl(new Mechanic_Manage());
         }
 
 

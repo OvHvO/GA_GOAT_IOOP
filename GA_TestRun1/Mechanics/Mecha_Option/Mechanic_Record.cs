@@ -67,7 +67,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             Mechanic mechanicViewForm = new Mechanic();
             Mechanic.SaveRecord(CollectionTime, ComboBox, ListBox, TxtBox);
             Mechanic_Manage mechanic_manage = new Mechanic_Manage(ListBox);
-
+            mechanic_manage.ShowDialog();
         }
 
         private void _SelectedIndexChanged(object sender, EventArgs e)

@@ -281,7 +281,7 @@
       <DependentUpon>Mechanic_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Mechanics\Mecha_Option\Mechanic_Manage.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Mechanics\Mecha_Option\Mechanic_Manage.Designer.cs">
       <DependentUpon>Mechanic_Manage.cs</DependentUpon>

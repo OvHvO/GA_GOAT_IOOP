@@ -1,9 +1,11 @@
 ﻿using GA_TestRun1.Mechanics.Mecha_Option;
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -337,7 +339,8 @@ namespace GA_TestRun1.Mechanics
             }
         }
 
-        //============================== Show Parts in ComboBox ==============================//
+        //============================== Show Parts in Listbox ==============================//
+        //---------- Request Parts ----------//
         public static List<string> Parts() 
         {
             List<string> p_list = new List<string>();
@@ -360,11 +363,27 @@ namespace GA_TestRun1.Mechanics
 
         }
 
-        //
-
-        public static string GerCarID ()
+        //---------- Used Request Parts ----------//
+        public static List<string> UParts()
         {
-            Mechanic_Manage 
+            List<string> u_list = new List<string>();
+            SqlConnection conn = new SqlConnection(connect);
+
+            conn.Open();
+
+            string query = @"SELECT Distinct partName
+                             FROM Parts AS P";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                u_list.Add(reader.GetString(0));
+            }
+            reader.Close();
+            conn.Close();
+            return u_list;
+
         }
 
         //============================== Request Parts ==============================//
@@ -397,12 +416,12 @@ namespace GA_TestRun1.Mechanics
                     string TaskID = cmd2.ExecuteScalar().ToString();
 
                     SqlCommand cmd3 = new SqlCommand(query3, conn, transaction);
-                    cmd.Parameters.AddWithValue("@Quantity", Quantity);
-                    cmd.Parameters.AddWithValue("@Status", Status);
-                    cmd.Parameters.AddWithValue("@part_ID", PartID);
-                    cmd.Parameters.AddWithValue("@task_ID", TaskID);
+                    cmd3.Parameters.AddWithValue("@Quantity", Quantity);
+                    cmd3.Parameters.AddWithValue("@Status", Status);
+                    cmd3.Parameters.AddWithValue("@part_ID", PartID);
+                    cmd3.Parameters.AddWithValue("@task_ID", TaskID);
 
-                    if (cmd.ExecuteNonQuery() < 1)
+                    if (cmd3.ExecuteNonQuery() < 1)
                     {
                         transaction.Rollback();
                         MessageBox.Show("Error");
@@ -420,6 +439,32 @@ namespace GA_TestRun1.Mechanics
                     transaction.Rollback();
                     MessageBox.Show("Error: " + ex);
                     conn.Close();
+                }
+            }  
+        }
+
+        //============================== Update Parts ==============================//
+        public static void UpdateParts(string UParts, string UQuantity)
+        {
+            if (UParts == null || UQuantity == null)
+            {
+                MessageBox.Show("Warning: Please insert value or select parts to perform task.");
+            }
+            else 
+            {
+                using (SqlConnection conn = new SqlConnection(connect))
+                {
+                    conn.Open();
+                    SqlTransaction transaction = conn.BeginTransaction();
+
+                    try
+                    {
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
                 }
             }
         }
