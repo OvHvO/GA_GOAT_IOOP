@@ -136,28 +136,31 @@ namespace GA_TestRun1
                         case 3:
                             {
                                 conn.Open();
-                                string query3 = "Create Table ##Mcntemptable(McnUsername varchar(50), McnPw nchar(50))";
-                                SqlCommand cmd1 = new SqlCommand(query3, conn);
+                                string query1 = "Create Table ##Mcntemptable(McnUsername varchar(50), McnPw nchar(50), OldName varchar(50))";
+                                SqlCommand cmd1 = new SqlCommand(query1, conn);
 
                                 try
                                 {
                                     cmd1.ExecuteNonQuery();
-                                    string query4 = "Insert Into ##Mcntemptable(McnUsername,McnPw) values (@username,@password)";
-                                    SqlCommand cmd4 = new SqlCommand(query4, conn);
-                                    cmd4.Parameters.AddWithValue("@username", username);
-                                    cmd4.Parameters.AddWithValue("@password", password);
-                                    cmd4.ExecuteNonQuery();
+                                    string query2 = "Insert Into ##Mcntemptable(McnUsername,McnPw,OldName) values (@username,@password,@oldsusername)";
+                                    SqlCommand cmd2 = new SqlCommand(query2, conn);
+                                    cmd2.Parameters.AddWithValue("@username", username);
+                                    cmd2.Parameters.AddWithValue("@password", password);
+                                    cmd2.Parameters.AddWithValue("@oldusername", username);
+                                    cmd2.ExecuteNonQuery();
+
                                     Mechanic_home Form = new Mechanic_home(username, connection, contactnum);
                                     Mechanic mechanic = new Mechanic(username, password);
                                     Form.ShowDialog();
                                 }
                                 catch (SqlException)
                                 {
-                                    string query4 = "Insert Into ##Mcntemptable(McnUsername,McnPw) values (@username,@password)";
-                                    SqlCommand cmd4 = new SqlCommand(query4, conn);
-                                    cmd4.Parameters.AddWithValue("@username", username);
-                                    cmd4.Parameters.AddWithValue("@password", password);
-                                    cmd4.ExecuteNonQuery();
+                                    string query3 = "Insert Into ##Mcntemptable(McnUsername,McnPw) values (@username,@password)";
+                                    SqlCommand cmd3 = new SqlCommand(query3, conn);
+                                    cmd3.Parameters.AddWithValue("@username", username);
+                                    cmd3.Parameters.AddWithValue("@password", password);
+                                    cmd3.ExecuteNonQuery();
+
                                     Mechanic_home Form = new Mechanic_home(username, connection, contactnum);
                                     Mechanic_home mechanic = new Mechanic_home(username);
                                     Form.ShowDialog();
@@ -421,7 +424,7 @@ namespace GA_TestRun1
                                 case 3:
                                     {
                                         Mechanic mechanic = new Mechanic(username, password);
-                                        mechanic.mcnUpdateProf(oldusername, username, password);
+                                        mechanic.mcnUpdateProf(oldusername, username, password, int.Parse(contactnum));
                                         break;
                                     }
                             }

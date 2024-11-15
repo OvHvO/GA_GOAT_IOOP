@@ -83,6 +83,9 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
         {
             string U_ListBox;
             string U_TxtBox;
+            string Quantities = Mechanic.PassQuantity();
+            int.TryParse(Quantities, out int quantity);
+            int.TryParse(U_Quantity_txt.Text, out int uquantity);
 
             if (Update_List.SelectedItem == null)
             {
@@ -96,12 +99,14 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
                 return;
             }
 
-            else if (U_Quantity_txt.Text > )
+            else if (uquantity > quantity)
             {
                 MessageBox.Show("Warning: Quantity is more than Requested Quantity.");
                 U_Quantity_txt.Clear();
+                return;
             }
 
+            
             U_ListBox = Update_List.SelectedItem.ToString();
             U_TxtBox = U_Quantity_txt.Text;
 
