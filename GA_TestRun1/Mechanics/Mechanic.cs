@@ -359,7 +359,7 @@ namespace GA_TestRun1.Mechanics
         }
 
         //============================== Request Parts ==============================//
-        public static void RequestParts(string Parts, string Quantity, string Status)
+        public static void RequestParts(string Parts, string Quantity, string Status, string carNum)
         {
             using (SqlConnection conn = new SqlConnection(connect))
             {
@@ -367,18 +367,20 @@ namespace GA_TestRun1.Mechanics
                 SqlTransaction transaction = conn.BeginTransaction();
                 try
                 {
-                    string query = @"SELECT P.part_ID 
-                                     FROM Parts AS P
-                                     INNER JOIN Requests AS R ON R.part_ID = P.part_ID
-                                     WHERE partName = @Parts";
+                    //string query = @"SELECT P.part_ID 
+                    //                 FROM ServiceAppoinments AS SAP
+                    //                 INNER JOIN ServiceAdd AS SA ON SA.serviceAP_ID = SAP.serviceAP_ID
+                    //                 LEFT JOIN Service AS S ON S.service_ID = SA.service_ID
+                    //                 LEFT JOIN Parts AS P ON part_ID = S.part_ID 
+                    //                 WHERE SAP.carNum = @carNum";
 
-                    string query2 = @"";
+                    string query = @"SELECT";
 
                     string query3 = @"INSERT INTO Requests (requestPartQuantity, rrequestStatus, part_ID, task_ID)
                                       VALUES (@Quantity, @Status, @part_ID)";
 
                     SqlCommand cmd = new SqlCommand(query, conn, transaction);
-                    cmd.Parameters.AddWithValue("@Parts", Parts);
+                    cmd.Parameters.AddWithValue("@carNum", carNum);
 
                     SqlCommand cmd2 = new SqlCommand(query3, conn, transaction);
                     cmd.Parameters.AddWithValue("@Quantity", Quantity);

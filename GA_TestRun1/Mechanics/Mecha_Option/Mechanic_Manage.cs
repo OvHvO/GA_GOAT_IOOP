@@ -12,6 +12,8 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
 {
     public partial class Mechanic_Manage : UserControl
     {
+        
+
         public Mechanic_Manage()
         {
             InitializeComponent();
@@ -39,6 +41,11 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
 
         private void Request_btn_Click(object sender, EventArgs e)
         {
+            RequestBtn("");
+        }
+
+        public void RequestBtn (string P_CarNum)
+        {
             string P_ListBox;
             string P_TxtBox;
             string P_ComboB;
@@ -48,7 +55,12 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             P_ComboB = Status_Cbo.SelectedItem.ToString();
 
             Mechanic mechanicViewForm = new Mechanic();
-            Mechanic.RequestParts(P_ListBox, P_TxtBox, P_ComboB);
+            Mechanic.RequestParts(P_ListBox, P_TxtBox, P_ComboB, P_CarNum);
         }
+
+        //public void ReceiveCarNum(string CarNum)
+        //{
+        //    CarList = CarNum;
+        //}
     }
 }
