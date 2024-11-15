@@ -16,7 +16,7 @@ namespace GA_TestRun1.Receptionist
         string status;
         int quantity;
         string partname;
-        
+        int request;
         public searchInv()
         {
             InitializeComponent();
@@ -33,13 +33,13 @@ namespace GA_TestRun1.Receptionist
         {
             List<string> shortageAlert = new List<string>();
             shortageAlert = Receptionists.AlretForShortage();
-            for (int index=0; index<shortageAlert.Count;index++)
+            for (int index = 0; index < shortageAlert.Count; index++)
             {
                 MessageBox.Show($@"This is a shortage meesage for
-                {shortageAlert[index]}","Shortages Message", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                {shortageAlert[index]}", "Shortages Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            
+
         }
 
         private void Src_Invbtn_Click(object sender, EventArgs e)
@@ -48,25 +48,27 @@ namespace GA_TestRun1.Receptionist
 
         }
 
-     
+
 
         private void InvDataView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
 
-             
-              string p = InvDataView.Rows[e.RowIndex].Cells["Request_id"].Value.ToString();
-              string qty = InvDataView.Rows[e.RowIndex].Cells["Request_Qty"].Value.ToString();
-              string partNamee= InvDataView.Rows[e.RowIndex].Cells["Part_Name"].Value.ToString();
-              int.TryParse(p, out int spartid);
-              int.TryParse(qty, out int squantity);
-              partid=spartid;
-              quantity=squantity;
-              partname = partNamee;
-              status = InvDataView.Rows[e.RowIndex].Cells["request_status"].Value.ToString();
-            } 
-            catch(Exception) 
+
+                string p = InvDataView.Rows[e.RowIndex].Cells["Request_id"].Value.ToString();
+                string qty = InvDataView.Rows[e.RowIndex].Cells["Request_Qty"].Value.ToString();
+                string partNamee = InvDataView.Rows[e.RowIndex].Cells["Part_Name"].Value.ToString();
+                int requestid = Convert.ToInt32(InvDataView.Rows[e.RowIndex].Cells["Request_id"].Value);
+                int.TryParse(p, out int spartid);
+                int.TryParse(qty, out int squantity);
+                partid = spartid;
+                quantity = squantity;
+                partname = partNamee;
+                request = requestid;
+                status = InvDataView.Rows[e.RowIndex].Cells["request_status"].Value.ToString();
+            }
+            catch (Exception)
             {
                 MessageBox.Show("Please Click On the Content! Not Header.");
             }
@@ -74,29 +76,29 @@ namespace GA_TestRun1.Receptionist
 
         private void Request_combtn_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Do you confirm want to assign this Parts to Mechanics?","Assign Part",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if ( status=="ASSIGNED")
+            DialogResult dialog = MessageBox.Show("Do you confirm want to assign this Parts to Mechanics?", "Assign Part", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (status == "ASSIGNED")
             {
-                MessageBox.Show("This Request Is Mark As Completed, Cannot Assign Again","Assign Reminder",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("This Request Is Mark As Completed, Cannot Assign Again", "Assign Reminder", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else 
+            else
             {
                 if (dialog == DialogResult.Yes)
                 {
-                    Receptionists.TaskStatus(partid, status, quantity, partname);
+                    Receptionists.RequestStatus(partid, status, quantity, partname);
                 }
                 else
                 {
                     MessageBox.Show("Operation Cancelled", "Assign Parts");
-                } 
+                }
             }
-           
+
 
         }
 
         private void reload_pict_Click(object sender, EventArgs e)
         {
-            
+
             searchFuncAndReloadFunc();
         }
 
@@ -112,6 +114,26 @@ namespace GA_TestRun1.Receptionist
             {
                 selectedItems = "rrequestStatus";
                 InvDataView.DataSource = Receptionists.invSearchFunc(selectedItems, Invsrc_txt.Text);
+            }
+        }
+
+        private void inv_Delbtn_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Do you want to delete this Request?", "Delete Request", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (status == "ASSIGNED")
+            {
+                MessageBox.Show("This Request Is Mark As Completed, Cannot Delete", "Assign Reminder", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (dialog == DialogResult.Yes)
+                {
+                    Receptionists.DelRequest(request);
+                }
+                else
+                {
+                    MessageBox.Show("Operation Cancelled", "Delete Request");
+                }
             }
         }
     }
