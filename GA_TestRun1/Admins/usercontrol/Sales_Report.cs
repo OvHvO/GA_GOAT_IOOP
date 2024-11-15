@@ -16,7 +16,7 @@ namespace GA_TestRun1.Admins.usercontrol
         {
             InitializeComponent();
 
-            label4.Text = month;
+            label3.Text = $"MONTH:  {month}";
 
             Admins_Source admin = new Admins_Source();
 
