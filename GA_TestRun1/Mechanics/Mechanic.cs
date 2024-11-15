@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Diagnostics.Eventing.Reader;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -459,6 +460,12 @@ namespace GA_TestRun1.Mechanics
 
                     try
                     {
+                        List<int> calculation = new List<int>();
+
+                        string query = @"SELECT R.requestPartQuantity
+                                         FROM Requests";
+
+                        SqlCommand cmd = new SqlCommand(query, conn);
 
                     }
                     catch (Exception ex)
