@@ -96,7 +96,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
                 return;
             }
 
-            else if (U_Quantity_txt.Text > )
+            //else if (U_Quantity_txt.Text > )
             {
                 MessageBox.Show("Warning: Quantity is more than Requested Quantity.");
                 U_Quantity_txt.Clear();

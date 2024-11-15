@@ -20,7 +20,7 @@ namespace GA_TestRun1.Customer.cus_usercontrol
             cusID = CUS_ID;
             this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             Cus_Source obj1 = new Cus_Source();
-            List<string> AP_list = obj1.CusNetChecking(cusID, "NOT COMPLETE");
+            List<string> AP_list = obj1.CusNetChecking(cusID, "PENDING");
             foreach(string item in AP_list)
             {
                 CusAP_LB.Items.Add(item);

@@ -400,7 +400,7 @@ namespace GA_TestRun1.Customer
 
             string query2 = @"select serviceAP_ID 
                                  from Tasks 
-                                 where taskStatus = 'COMPLETE' 
+                                 where taskStatus = @STATUS
                                  and serviceAP_ID = @ServiceAP_ID";
 
             string query3 = @"select serviceAP_ID 
@@ -435,6 +435,7 @@ namespace GA_TestRun1.Customer
                         foreach (string serviceAP_ID in serviceAP_List)
                         {
                             command.Parameters.Clear();
+                            command.Parameters.AddWithValue("@STATUS", status);
                             command.Parameters.AddWithValue("@SERVICEAP_ID", serviceAP_ID);
                             using (SqlDataReader reader = command.ExecuteReader())
                             {
