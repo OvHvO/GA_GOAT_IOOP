@@ -67,7 +67,7 @@
             this.U_Profile_btn.FlatAppearance.BorderSize = 0;
             this.U_Profile_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.U_Profile_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.U_Profile_btn.Location = new System.Drawing.Point(4, 294);
+            this.U_Profile_btn.Location = new System.Drawing.Point(4, 271);
             this.U_Profile_btn.Name = "U_Profile_btn";
             this.U_Profile_btn.Size = new System.Drawing.Size(101, 52);
             this.U_Profile_btn.TabIndex = 3;
@@ -80,7 +80,7 @@
             this.V_ServiceTask_btn.FlatAppearance.BorderSize = 0;
             this.V_ServiceTask_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.V_ServiceTask_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.V_ServiceTask_btn.Location = new System.Drawing.Point(3, 158);
+            this.V_ServiceTask_btn.Location = new System.Drawing.Point(3, 135);
             this.V_ServiceTask_btn.Name = "V_ServiceTask_btn";
             this.V_ServiceTask_btn.Size = new System.Drawing.Size(101, 52);
             this.V_ServiceTask_btn.TabIndex = 2;
@@ -93,7 +93,7 @@
             this.R_Service_btn.FlatAppearance.BorderSize = 0;
             this.R_Service_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.R_Service_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.R_Service_btn.Location = new System.Drawing.Point(3, 227);
+            this.R_Service_btn.Location = new System.Drawing.Point(3, 204);
             this.R_Service_btn.Name = "R_Service_btn";
             this.R_Service_btn.Size = new System.Drawing.Size(101, 52);
             this.R_Service_btn.TabIndex = 0;

@@ -24,6 +24,7 @@ namespace GA_TestRun1.Mechanics
         private string UserName;
         private string Password;
         private static string AppID;
+        private static string content;
         static string connect = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test1\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
         SqlConnection connection = new SqlConnection(connect);
 
@@ -295,6 +296,8 @@ namespace GA_TestRun1.Mechanics
 
         public static void SaveRecord(DateTime CollectTime, string Status, string CarNumbs, string Add_Rep)
         {
+            string TaskContent = null;
+
             using (SqlConnection conn = new SqlConnection(connect))
             {
                 conn.Open();
@@ -305,21 +308,26 @@ namespace GA_TestRun1.Mechanics
                                     FROM ServiceAppoinments AS SA 
                                     WHERE carNum = @CarNumbs";
 
-                    string query3 = @"UPDATE Tasks
+                    string query2 = @"UPDATE Tasks
                                     SET taskStatus = @Status, collectionTime = @CollectionTime, addRepair = @Add_Rep
                                     WHERE serviceAP_ID = @AppID";
+
+                    string query3 = @"SELECT T.taskContent
+                                      FROM Tasks AS T
+                                      INNER JOIN ServiceAppoinments AS SA ON T.serviceAP_ID = SA.serviceAP_ID
+                                      WHERE SA.carNum = @CarNumbs";
 
                     SqlCommand cmd1 = new SqlCommand(query, conn, transaction);
                     cmd1.Parameters.AddWithValue("@CarNumbs", CarNumbs);
                     AppID = cmd1.ExecuteScalar().ToString();
 
-                    SqlCommand cmd3 = new SqlCommand(query3, conn, transaction);
-                    cmd3.Parameters.AddWithValue("@Status", Status);
-                    cmd3.Parameters.AddWithValue("@CollectionTime", CollectTime);
-                    cmd3.Parameters.AddWithValue("@Add_Rep", Add_Rep);
-                    cmd3.Parameters.AddWithValue("@AppID", AppID);
+                    SqlCommand cmd2 = new SqlCommand(query2, conn, transaction);
+                    cmd2.Parameters.AddWithValue("@Status", Status);
+                    cmd2.Parameters.AddWithValue("@CollectionTime", CollectTime);
+                    cmd2.Parameters.AddWithValue("@Add_Rep", Add_Rep);
+                    cmd2.Parameters.AddWithValue("@AppID", AppID);
 
-                    if (cmd3.ExecuteNonQuery() < 1)
+                    if (cmd2.ExecuteNonQuery() < 1)
                     {
                         transaction.Rollback();
                         MessageBox.Show("Error");
@@ -327,6 +335,11 @@ namespace GA_TestRun1.Mechanics
                     }
                     else
                     {
+                        SqlCommand cmd3 = new SqlCommand(query3, conn, transaction);
+                        cmd3.Parameters.AddWithValue("@CarNumbs", CarNumbs);
+                        TaskContent = cmd3.ExecuteScalar().ToString();
+                        content = TaskContent;
+
                         transaction.Commit();
                         MessageBox.Show("Successfully Updated Service List!");
                         conn.Close();
@@ -339,6 +352,12 @@ namespace GA_TestRun1.Mechanics
                     conn.Close();
                 }
             }
+        }
+
+        public static string PassContent()
+        {
+            string ConTent = content;
+            return ConTent;
         }
 
         //============================== Show Parts in Listbox ==============================//
@@ -450,14 +469,17 @@ namespace GA_TestRun1.Mechanics
                     string query3 = @"INSERT INTO Requests (requestPartQuantity, rrequestStatus, part_ID, task_ID)
                                       VALUES (@Quantity, @Status, @part_ID, @task_ID)";
 
+                    //---------- Get part_ID ----------//
                     SqlCommand cmd = new SqlCommand(query, conn, transaction);
                     cmd.Parameters.AddWithValue("@Partname", Parts);
                     string PartID = cmd.ExecuteScalar().ToString();
 
+                    //---------- Get task_ID ----------// 
                     SqlCommand cmd2 = new SqlCommand(query2, conn, transaction);
                     cmd2.Parameters.AddWithValue("@CarNum", carNum);
                     string TaskID = cmd2.ExecuteScalar().ToString();
 
+                    //---------- Insert into Requests table ----------//
                     SqlCommand cmd3 = new SqlCommand(query3, conn, transaction);
                     cmd3.Parameters.AddWithValue("@Quantity", Quantity);
                     cmd3.Parameters.AddWithValue("@Status", Status);
@@ -491,6 +513,7 @@ namespace GA_TestRun1.Mechanics
         { 
             int IntQuantity = 0;
             int IntInventory = 0;
+            int PartID = 0;
 
             if (UParts == null || UQuantity == null)
             {
@@ -512,47 +535,64 @@ namespace GA_TestRun1.Mechanics
                                          INNER JOIN Tasks AS T ON T.serviceAP_ID = SA.serviceAP_ID
                                          WHERE SA.carNum = @Carnum";
 
-                        string query2 = $@"SELECT R.requestPartQuantity, P.partQuantity
-                                          FROM Requests AS R
-                                          INNER JOIN Parts AS P ON R.part_ID = P.part_ID
-                                          WHERE P.partName = '{UParts}'";
+                        string query2 = $@"SELECT R.requestPartQuantity, P.partQuantity, P.part_ID
+                                           FROM Requests AS R
+                                           INNER JOIN Parts AS P ON R.part_ID = P.part_ID
+                                           WHERE P.partName = '{UParts}'";
 
                         string query3 = $@"UPDATE Parts 
-                                          SET partQuantity = @IntInventory
-                                          WHERE partName = '{UParts}'";
+                                           SET partQuantity = @IntInventory
+                                           WHERE partName = '{UParts}'";
 
                         string query4 = $@"UPDATE Requests
-                                          SET requestPartQuantity = @UQuantities
-                                          WHERE partName = '{UParts}'";
+                                           SET requestPartQuantity = @UQuantities
+                                           WHERE part_ID = @partID";
 
+                        string query5 = @"UPDATE Parts
+                                          SET partShortage = 'True'
+                                          WHERE partName = @partName";
+
+                        //---------- Find task_ID based on CarNum ----------//
                         SqlCommand cmd = new SqlCommand(query, conn, transaction);
                         cmd.Parameters.AddWithValue("@Carnum", Ucarnum);
                         string taskID = cmd.ExecuteScalar().ToString();
 
+                        //---------- Perform calculation for remainder ----------//
                         SqlCommand cmd2 = new SqlCommand(query2, conn, transaction);
                         SqlDataReader reader = cmd2.ExecuteReader();    
                         while (reader.Read())
                         {
                             IntQuantity = Convert.ToInt32(reader[0]);
                             IntInventory = Convert.ToInt32(reader[1]);
-
+                            PartID = Convert.ToInt32(reader[2]);
                         }
                         reader.Close();
                         int.TryParse(UQuantity, out int UQuantities);
                         IntQuantity -= UQuantities; //IntQuantity is my remainder now
-
                         IntInventory += IntQuantity; //IntInventory is my new total
-                        
+
+                        if (IntInventory <= 10)
+                        {
+                            MessageBox.Show("Part Quantity shortage for"+ (UParts) +", automatically alert to Receptionist.");
+                            SqlCommand cmd5 = new SqlCommand(query5, conn, transaction);
+                            cmd5.Parameters.AddWithValue("@partName", UParts);
+                            cmd5.ExecuteNonQuery();
+                        }
+
+                        //---------- Update Parts for inventory(partQuantity) ----------//
                         SqlCommand cmd3 = new SqlCommand(query3, conn, transaction);
                         cmd3.Parameters.AddWithValue("@IntInventory", IntInventory);
                         cmd3.ExecuteNonQuery();
 
+                        //---------- Update Requests table----------//
                         SqlCommand cmd4 = new SqlCommand(query4, conn, transaction);
+                        cmd4.Parameters.AddWithValue("@partID", PartID);
                         cmd4.Parameters.AddWithValue("@UQuantities", UQuantities);
                         cmd4.ExecuteNonQuery();
 
                         transaction.Commit();
                         conn.Close();
+                        MessageBox.Show("Updated Successfully!");
                     }
                     catch (Exception ex)
                     {

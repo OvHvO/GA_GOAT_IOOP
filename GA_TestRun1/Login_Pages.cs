@@ -22,6 +22,7 @@ namespace GA_TestRun1
 
         private void Login_Pages_Load(object sender, EventArgs e)
         {
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             Users pass=new Users(passwords);
             passwords=L_pw_txt.Text;
         }
@@ -47,16 +48,6 @@ namespace GA_TestRun1
             L_pw_txt.Clear();
 
         }
-
-
-       private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-           Sign_Up_form sign_Up = new Sign_Up_form();  
-            sign_Up.ShowDialog();
-           
-        }
-
-        
 
         private void Lpages_showpw_CheckedChanged(object sender, EventArgs e)
         {   //hide password for privacy

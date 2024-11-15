@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -58,6 +59,23 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             string ListBox;
             string TxtBox;
             
+            if (Status_Cbo.SelectedItem == null)
+            {
+                MessageBox.Show("Warning: Please select a status to perform task.");
+                return;
+            }
+
+            else if (Number_LstB.SelectedItem == null)
+            {
+                MessageBox.Show("Warning: Please select an item to perform task.");
+                return;
+            }
+
+            else if (string.IsNullOrWhiteSpace(Add_txt.Text))
+            {
+                MessageBox.Show("Warning: Please enter content to perform task.");
+                return;
+            }
 
             DateTime CollectionTime = Col_Time.Value;
             ComboBox = Status_Cbo.SelectedItem.ToString();
