@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.Record_txt = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label_CS = new System.Windows.Forms.Label();
+            this.label_CT = new System.Windows.Forms.Label();
+            this.label_AR = new System.Windows.Forms.Label();
             this.Status_Cbo = new System.Windows.Forms.ComboBox();
             this.Col_Time = new System.Windows.Forms.DateTimePicker();
             this.Add_txt = new System.Windows.Forms.TextBox();
             this.Submit_btn = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label_CR = new System.Windows.Forms.Label();
             this.CarNumber_LstB = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
@@ -50,35 +50,35 @@
             this.Record_txt.TabIndex = 1;
             this.Record_txt.Text = "Record Service Progress Sheet";
             // 
-            // label1
+            // label_CS
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 114);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Completion Status: ";
+            this.label_CS.AutoSize = true;
+            this.label_CS.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_CS.Location = new System.Drawing.Point(21, 114);
+            this.label_CS.Name = "label_CS";
+            this.label_CS.Size = new System.Drawing.Size(149, 20);
+            this.label_CS.TabIndex = 2;
+            this.label_CS.Text = "Completion Status: ";
             // 
-            // label2
+            // label_CT
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(43, 173);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Collection Time:";
+            this.label_CT.AutoSize = true;
+            this.label_CT.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_CT.Location = new System.Drawing.Point(43, 173);
+            this.label_CT.Name = "label_CT";
+            this.label_CT.Size = new System.Drawing.Size(121, 20);
+            this.label_CT.TabIndex = 3;
+            this.label_CT.Text = "Collection Time:";
             // 
-            // label3
+            // label_AR
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 230);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Additional Repairs: ";
+            this.label_AR.AutoSize = true;
+            this.label_AR.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_AR.Location = new System.Drawing.Point(22, 230);
+            this.label_AR.Name = "label_AR";
+            this.label_AR.Size = new System.Drawing.Size(149, 20);
+            this.label_AR.TabIndex = 4;
+            this.label_AR.Text = "Additional Repairs: ";
             // 
             // Status_Cbo
             // 
@@ -115,15 +115,15 @@
             this.Submit_btn.UseVisualStyleBackColor = true;
             this.Submit_btn.Click += new System.EventHandler(this.Submit_btn_Click);
             // 
-            // label4
+            // label_CR
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(313, 114);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Car Number: ";
+            this.label_CR.AutoSize = true;
+            this.label_CR.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_CR.Location = new System.Drawing.Point(313, 114);
+            this.label_CR.Name = "label_CR";
+            this.label_CR.Size = new System.Drawing.Size(101, 20);
+            this.label_CR.TabIndex = 9;
+            this.label_CR.Text = "Car Number: ";
             // 
             // CarNumber_LstB
             // 
@@ -139,14 +139,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.CarNumber_LstB);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label_CR);
             this.Controls.Add(this.Submit_btn);
             this.Controls.Add(this.Add_txt);
             this.Controls.Add(this.Col_Time);
             this.Controls.Add(this.Status_Cbo);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_AR);
+            this.Controls.Add(this.label_CT);
+            this.Controls.Add(this.label_CS);
             this.Controls.Add(this.Record_txt);
             this.Name = "Mechanic_Record";
             this.Size = new System.Drawing.Size(587, 429);
@@ -159,14 +159,14 @@
         #endregion
 
         private System.Windows.Forms.Label Record_txt;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label_CS;
+        private System.Windows.Forms.Label label_CT;
+        private System.Windows.Forms.Label label_AR;
         private System.Windows.Forms.ComboBox Status_Cbo;
         private System.Windows.Forms.DateTimePicker Col_Time;
         private System.Windows.Forms.TextBox Add_txt;
         private System.Windows.Forms.Button Submit_btn;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label_CR;
         private System.Windows.Forms.ListBox CarNumber_LstB;
     }
 }
