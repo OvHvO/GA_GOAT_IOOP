@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.Welcome_txt = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_Prof = new System.Windows.Forms.Panel();
             this.Refresh_btn = new System.Windows.Forms.Button();
             this.PNum_lbl = new System.Windows.Forms.Label();
             this.Name_lbl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_PNum = new System.Windows.Forms.Label();
+            this.label_name = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panel_Month = new System.Windows.Forms.Panel();
+            this.panel_Prof.SuspendLayout();
+            this.panel_Month.SuspendLayout();
             this.SuspendLayout();
             // 
             // Welcome_txt
@@ -52,17 +52,17 @@
             this.Welcome_txt.Text = "Welcome to Mechanic Home Page";
             this.Welcome_txt.Click += new System.EventHandler(this.Welcome_txt_Click);
             // 
-            // panel1
+            // panel_Prof
             // 
-            this.panel1.Controls.Add(this.Refresh_btn);
-            this.panel1.Controls.Add(this.PNum_lbl);
-            this.panel1.Controls.Add(this.Name_lbl);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 105);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(293, 186);
-            this.panel1.TabIndex = 1;
+            this.panel_Prof.Controls.Add(this.Refresh_btn);
+            this.panel_Prof.Controls.Add(this.PNum_lbl);
+            this.panel_Prof.Controls.Add(this.Name_lbl);
+            this.panel_Prof.Controls.Add(this.label_PNum);
+            this.panel_Prof.Controls.Add(this.label_name);
+            this.panel_Prof.Location = new System.Drawing.Point(0, 105);
+            this.panel_Prof.Name = "panel_Prof";
+            this.panel_Prof.Size = new System.Drawing.Size(293, 186);
+            this.panel_Prof.TabIndex = 1;
             // 
             // Refresh_btn
             // 
@@ -94,25 +94,25 @@
             this.Name_lbl.TabIndex = 2;
             this.Name_lbl.Text = "label3";
             // 
-            // label2
+            // label_PNum
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Heavy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(32, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 21);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Phone Number: ";
+            this.label_PNum.AutoSize = true;
+            this.label_PNum.Font = new System.Drawing.Font("Franklin Gothic Heavy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_PNum.Location = new System.Drawing.Point(32, 78);
+            this.label_PNum.Name = "label_PNum";
+            this.label_PNum.Size = new System.Drawing.Size(127, 21);
+            this.label_PNum.TabIndex = 1;
+            this.label_PNum.Text = "Phone Number: ";
             // 
-            // label1
+            // label_name
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Franklin Gothic Heavy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(97, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name: ";
+            this.label_name.AutoSize = true;
+            this.label_name.Font = new System.Drawing.Font("Franklin Gothic Heavy", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_name.Location = new System.Drawing.Point(97, 46);
+            this.label_name.Name = "label_name";
+            this.label_name.Size = new System.Drawing.Size(61, 21);
+            this.label_name.TabIndex = 0;
+            this.label_name.Text = "Name: ";
             // 
             // monthCalendar1
             // 
@@ -120,27 +120,27 @@
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
             // 
-            // panel3
+            // panel_Month
             // 
-            this.panel3.Controls.Add(this.monthCalendar1);
-            this.panel3.Location = new System.Drawing.Point(294, 105);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(293, 186);
-            this.panel3.TabIndex = 5;
+            this.panel_Month.Controls.Add(this.monthCalendar1);
+            this.panel_Month.Location = new System.Drawing.Point(294, 105);
+            this.panel_Month.Name = "panel_Month";
+            this.panel_Month.Size = new System.Drawing.Size(293, 186);
+            this.panel_Month.TabIndex = 5;
             // 
             // Mechanic_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel_Month);
+            this.Controls.Add(this.panel_Prof);
             this.Controls.Add(this.Welcome_txt);
             this.Name = "Mechanic_Main";
             this.Size = new System.Drawing.Size(587, 429);
             this.Load += new System.EventHandler(this.Mechanic_Main_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
+            this.panel_Prof.ResumeLayout(false);
+            this.panel_Prof.PerformLayout();
+            this.panel_Month.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,13 +149,13 @@
         #endregion
 
         private System.Windows.Forms.Label Welcome_txt;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel_Prof;
+        private System.Windows.Forms.Label label_PNum;
+        private System.Windows.Forms.Label label_name;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Button Refresh_btn;
         private System.Windows.Forms.Label PNum_lbl;
         private System.Windows.Forms.Label Name_lbl;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel_Month;
     }
 }
