@@ -984,7 +984,7 @@ namespace GA_TestRun1.Admins
                 }
             }
 
-            foreach(int item in grossProfit)
+            foreach (int item in grossProfit)
             {
                 totalGrossProfit += item;
             }
