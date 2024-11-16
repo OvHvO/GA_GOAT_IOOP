@@ -119,7 +119,7 @@ namespace GA_TestRun1.Receptionist
 
         private void Rcp_Add_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
+            rcp_homePanel.Controls.Clear();
             Loadcontrol(new Rcp_addCusForm());
 
 
@@ -139,19 +139,19 @@ namespace GA_TestRun1.Receptionist
         // Load The usercontrol with the clear pages
         private void Loadcontrol(UserControl controlp)
         {
-            panel1.Visible = true;
-            panel1.Controls.Clear();
+            rcp_homePanel.Visible = true;
+            rcp_homePanel.Controls.Clear();
             controlp.Dock = DockStyle.Fill;
-            panel1.Controls.Add(controlp);
+            rcp_homePanel.Controls.Add(controlp);
         }
 
         // Load Usercontrol with previous data (the data won't delete when switch pages)
         private void Instance_loadControl(UserControl controlPage)
         {    // 确认实例(instance=Cus_deleteForm)是否存在于Panel 1 中，假如不存在就创建一个实例，并移到最前面
-            if (!panel1.Controls.Contains(controlPage))
+            if (!rcp_homePanel.Controls.Contains(controlPage))
             {
-                panel1.Visible = true;
-                panel1.Controls.Add(controlPage);
+                rcp_homePanel.Visible = true;
+                rcp_homePanel.Controls.Add(controlPage);
                 controlPage.Dock = DockStyle.Fill;
                 controlPage.BringToFront();
             }
@@ -231,8 +231,8 @@ namespace GA_TestRun1.Receptionist
 
         private void logobox_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
-            panel1.Visible = false;
+            rcp_homePanel.Controls.Clear();
+            rcp_homePanel.Visible = false;
         }
 
        

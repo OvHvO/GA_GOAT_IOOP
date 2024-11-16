@@ -43,7 +43,7 @@ namespace GA_TestRun1
             Users userName = new Users(L_username_txt.Text);
             Receptionists recep = new Receptionists(L_username_txt.Text,L_pw_txt.Text);
             
-            MessageBox.Show(signin.LoginForms(L_username_txt.Text, L_pw_txt.Text));
+            signin.LoginForms(L_username_txt.Text, L_pw_txt.Text);
             L_username_txt.Clear();
             L_pw_txt.Clear();
 

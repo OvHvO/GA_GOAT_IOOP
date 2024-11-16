@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.Sup_contNum_txt = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.Sup_contactNumlbl = new System.Windows.Forms.Label();
             this.Sup_Cbox_role = new System.Windows.Forms.ComboBox();
             this.Sup_btn = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.Sup_roleCbolbl = new System.Windows.Forms.Label();
+            this.Sup_conpwlbl = new System.Windows.Forms.Label();
             this.Sup_Cpassword_txt = new System.Windows.Forms.TextBox();
             this.Sup_password_txt = new System.Windows.Forms.TextBox();
             this.Sup_username_txt = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Sup_pwlbl = new System.Windows.Forms.Label();
+            this.Sup_usernamelbl = new System.Windows.Forms.Label();
             this.Sup_title = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -50,15 +50,15 @@
             this.Sup_contNum_txt.TabIndex = 36;
             this.Sup_contNum_txt.TextChanged += new System.EventHandler(this.Sup_contNum_txt_TextChanged);
             // 
-            // label6
+            // Sup_contactNumlbl
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(491, 133);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(136, 20);
-            this.label6.TabIndex = 35;
-            this.label6.Text = "Contact Number:";
+            this.Sup_contactNumlbl.AutoSize = true;
+            this.Sup_contactNumlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sup_contactNumlbl.Location = new System.Drawing.Point(491, 133);
+            this.Sup_contactNumlbl.Name = "Sup_contactNumlbl";
+            this.Sup_contactNumlbl.Size = new System.Drawing.Size(136, 20);
+            this.Sup_contactNumlbl.TabIndex = 35;
+            this.Sup_contactNumlbl.Text = "Contact Number:";
             // 
             // Sup_Cbox_role
             // 
@@ -84,25 +84,25 @@
             this.Sup_btn.UseVisualStyleBackColor = true;
             this.Sup_btn.Click += new System.EventHandler(this.Sup_btn_Click);
             // 
-            // label5
+            // Sup_roleCbolbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 329);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(203, 18);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Please Choose Your Role";
+            this.Sup_roleCbolbl.AutoSize = true;
+            this.Sup_roleCbolbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sup_roleCbolbl.Location = new System.Drawing.Point(12, 329);
+            this.Sup_roleCbolbl.Name = "Sup_roleCbolbl";
+            this.Sup_roleCbolbl.Size = new System.Drawing.Size(203, 18);
+            this.Sup_roleCbolbl.TabIndex = 25;
+            this.Sup_roleCbolbl.Text = "Please Choose Your Role";
             // 
-            // label3
+            // Sup_conpwlbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 269);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 20);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "Confirm Password";
+            this.Sup_conpwlbl.AutoSize = true;
+            this.Sup_conpwlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sup_conpwlbl.Location = new System.Drawing.Point(11, 269);
+            this.Sup_conpwlbl.Name = "Sup_conpwlbl";
+            this.Sup_conpwlbl.Size = new System.Drawing.Size(147, 20);
+            this.Sup_conpwlbl.TabIndex = 32;
+            this.Sup_conpwlbl.Text = "Confirm Password";
             // 
             // Sup_Cpassword_txt
             // 
@@ -128,25 +128,25 @@
             this.Sup_username_txt.TabIndex = 29;
             this.Sup_username_txt.TextChanged += new System.EventHandler(this.Sup_username_txt_TextChanged);
             // 
-            // label2
+            // Sup_pwlbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 202);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 20);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "Password: ";
+            this.Sup_pwlbl.AutoSize = true;
+            this.Sup_pwlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sup_pwlbl.Location = new System.Drawing.Point(11, 202);
+            this.Sup_pwlbl.Name = "Sup_pwlbl";
+            this.Sup_pwlbl.Size = new System.Drawing.Size(93, 20);
+            this.Sup_pwlbl.TabIndex = 28;
+            this.Sup_pwlbl.Text = "Password: ";
             // 
-            // label1
+            // Sup_usernamelbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 135);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 20);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Username: ";
+            this.Sup_usernamelbl.AutoSize = true;
+            this.Sup_usernamelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sup_usernamelbl.Location = new System.Drawing.Point(11, 135);
+            this.Sup_usernamelbl.Name = "Sup_usernamelbl";
+            this.Sup_usernamelbl.Size = new System.Drawing.Size(96, 20);
+            this.Sup_usernamelbl.TabIndex = 27;
+            this.Sup_usernamelbl.Text = "Username: ";
             // 
             // Sup_title
             // 
@@ -165,16 +165,16 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.Controls.Add(this.Sup_contNum_txt);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.Sup_contactNumlbl);
             this.Controls.Add(this.Sup_Cbox_role);
             this.Controls.Add(this.Sup_btn);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Sup_roleCbolbl);
+            this.Controls.Add(this.Sup_conpwlbl);
             this.Controls.Add(this.Sup_Cpassword_txt);
             this.Controls.Add(this.Sup_password_txt);
             this.Controls.Add(this.Sup_username_txt);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Sup_pwlbl);
+            this.Controls.Add(this.Sup_usernamelbl);
             this.Controls.Add(this.Sup_title);
             this.Name = "Rcp_addCusForm";
             this.Size = new System.Drawing.Size(791, 504);
@@ -187,16 +187,16 @@
         #endregion
 
         private System.Windows.Forms.TextBox Sup_contNum_txt;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label Sup_contactNumlbl;
         private System.Windows.Forms.ComboBox Sup_Cbox_role;
         private System.Windows.Forms.Button Sup_btn;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label Sup_roleCbolbl;
+        private System.Windows.Forms.Label Sup_conpwlbl;
         private System.Windows.Forms.TextBox Sup_Cpassword_txt;
         private System.Windows.Forms.TextBox Sup_password_txt;
         private System.Windows.Forms.TextBox Sup_username_txt;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Sup_pwlbl;
+        private System.Windows.Forms.Label Sup_usernamelbl;
         private System.Windows.Forms.Label Sup_title;
     }
 }

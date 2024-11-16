@@ -394,7 +394,7 @@ namespace GA_TestRun1.Receptionist
                         {
                             transaction.Commit();
                             MessageBox.Show($"Assigned !, The Stock of the {partName} is {partQty}");
-                            if (partQty<10) 
+                            if (partQty<20) 
                             {
                                 MessageBox.Show($"Please Note That {partName} Quantity is below than 20 !","Warning !",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                             }
@@ -604,7 +604,35 @@ namespace GA_TestRun1.Receptionist
             }
 
         }
-        
+
+        public static bool ManageAppoint(int serviceap)
+        {
+            SqlConnection conn = new SqlConnection(connectionS);
+            conn.Open();
+            string query = @"Select DISTINCT SA.serviceAP_ID
+                             from Customers AS C
+                             INNER JOIN ServiceAppoinments AS SA ON C.customer_ID = SA.customer_ID
+                             LEFT JOIN Tasks as T ON T.serviceAP_ID = SA.serviceAP_ID
+                             Where T.serviceAP_ID=@seviceap
+                             AND SA.rescheduleStatus <> 'True'
+                            ";
+            //<> in sql is not equal
+
+            SqlCommand command = new SqlCommand(query, conn);
+            command.Parameters.AddWithValue("@seviceap",serviceap);
+            if (command.ExecuteScalar()!=null)
+            {  
+                conn.Close();
+                return true;
+
+            }
+            conn.Close();
+            return false;
+        }
+
+
+
+
         public static object cus_CheckInOut()
         {
             SqlConnection conn = new SqlConnection(connectionS);

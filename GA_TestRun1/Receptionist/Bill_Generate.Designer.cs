@@ -30,14 +30,14 @@
         {
             this.bill_headlbl = new System.Windows.Forms.Label();
             this.bill_logo = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.bill_invoicelbl = new System.Windows.Forms.Label();
+            this.first_divider = new System.Windows.Forms.Panel();
+            this.bill_dateSign = new System.Windows.Forms.Label();
+            this.bill_invoiceNumlbl = new System.Windows.Forms.Label();
+            this.lbl_billTolbl = new System.Windows.Forms.Label();
+            this.second_divider = new System.Windows.Forms.Panel();
+            this.bill_idNumSignlbl = new System.Windows.Forms.Label();
+            this.bill_nameSignlbl = new System.Windows.Forms.Label();
             this.bill_id = new System.Windows.Forms.Label();
             this.bill_name = new System.Windows.Forms.Label();
             this.bill_dataview = new System.Windows.Forms.DataGridView();
@@ -47,27 +47,27 @@
             this.billpartPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ServiceAp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.task_ids = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label9 = new System.Windows.Forms.Label();
+            this.bill_totAmtSign = new System.Windows.Forms.Label();
             this.subtotal_lbl = new System.Windows.Forms.Label();
             this.bill_datelbl = new System.Windows.Forms.Label();
             this.bill_invoiceNo = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.bill_dgvPartPanel = new System.Windows.Forms.Panel();
             this.bill_serviceData = new System.Windows.Forms.DataGridView();
             this.BService_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Service_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Service_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Discount_Given = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.bill_servicelbl = new System.Windows.Forms.Label();
+            this.bill_partUsedlbl = new System.Windows.Forms.Label();
+            this.Note_panel = new System.Windows.Forms.Panel();
             this.bill_Notestxt = new System.Windows.Forms.RichTextBox();
             this.bill_carPlatenumlbl = new System.Windows.Forms.Label();
             this.carPlateNum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bill_logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bill_dataview)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.bill_dgvPartPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bill_serviceData)).BeginInit();
-            this.panel4.SuspendLayout();
+            this.Note_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // bill_headlbl
@@ -90,81 +90,81 @@
             this.bill_logo.TabIndex = 1;
             this.bill_logo.TabStop = false;
             // 
-            // label1
+            // bill_invoicelbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(673, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(196, 39);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "  INVOICE ";
+            this.bill_invoicelbl.AutoSize = true;
+            this.bill_invoicelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bill_invoicelbl.Location = new System.Drawing.Point(673, 35);
+            this.bill_invoicelbl.Name = "bill_invoicelbl";
+            this.bill_invoicelbl.Size = new System.Drawing.Size(196, 39);
+            this.bill_invoicelbl.TabIndex = 2;
+            this.bill_invoicelbl.Text = "  INVOICE ";
             // 
-            // panel1
+            // first_divider
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.panel1.Location = new System.Drawing.Point(12, 165);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1001, 10);
-            this.panel1.TabIndex = 3;
+            this.first_divider.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.first_divider.Location = new System.Drawing.Point(12, 165);
+            this.first_divider.Name = "first_divider";
+            this.first_divider.Size = new System.Drawing.Size(1001, 10);
+            this.first_divider.TabIndex = 3;
             // 
-            // label2
+            // bill_dateSign
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(659, 101);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "DATE: ";
+            this.bill_dateSign.AutoSize = true;
+            this.bill_dateSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bill_dateSign.Location = new System.Drawing.Point(659, 101);
+            this.bill_dateSign.Name = "bill_dateSign";
+            this.bill_dateSign.Size = new System.Drawing.Size(59, 17);
+            this.bill_dateSign.TabIndex = 4;
+            this.bill_dateSign.Text = "DATE: ";
             // 
-            // label3
+            // bill_invoiceNumlbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(659, 142);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 17);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "INVOICE NO.:";
+            this.bill_invoiceNumlbl.AutoSize = true;
+            this.bill_invoiceNumlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bill_invoiceNumlbl.Location = new System.Drawing.Point(659, 142);
+            this.bill_invoiceNumlbl.Name = "bill_invoiceNumlbl";
+            this.bill_invoiceNumlbl.Size = new System.Drawing.Size(107, 17);
+            this.bill_invoiceNumlbl.TabIndex = 5;
+            this.bill_invoiceNumlbl.Text = "INVOICE NO.:";
             // 
-            // label4
+            // lbl_billTolbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 199);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "BILL TO: ";
+            this.lbl_billTolbl.AutoSize = true;
+            this.lbl_billTolbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_billTolbl.Location = new System.Drawing.Point(12, 199);
+            this.lbl_billTolbl.Name = "lbl_billTolbl";
+            this.lbl_billTolbl.Size = new System.Drawing.Size(92, 20);
+            this.lbl_billTolbl.TabIndex = 6;
+            this.lbl_billTolbl.Text = "BILL TO: ";
             // 
-            // panel2
+            // second_divider
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel2.Location = new System.Drawing.Point(12, 222);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1001, 10);
-            this.panel2.TabIndex = 7;
+            this.second_divider.BackColor = System.Drawing.SystemColors.Highlight;
+            this.second_divider.Location = new System.Drawing.Point(12, 222);
+            this.second_divider.Name = "second_divider";
+            this.second_divider.Size = new System.Drawing.Size(1001, 10);
+            this.second_divider.TabIndex = 7;
             // 
-            // label5
+            // bill_idNumSignlbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(15, 249);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 20);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "ID: ";
+            this.bill_idNumSignlbl.AutoSize = true;
+            this.bill_idNumSignlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bill_idNumSignlbl.Location = new System.Drawing.Point(15, 249);
+            this.bill_idNumSignlbl.Name = "bill_idNumSignlbl";
+            this.bill_idNumSignlbl.Size = new System.Drawing.Size(40, 20);
+            this.bill_idNumSignlbl.TabIndex = 8;
+            this.bill_idNumSignlbl.Text = "ID: ";
             // 
-            // label6
+            // bill_nameSignlbl
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 283);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 20);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Name: ";
+            this.bill_nameSignlbl.AutoSize = true;
+            this.bill_nameSignlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bill_nameSignlbl.Location = new System.Drawing.Point(15, 283);
+            this.bill_nameSignlbl.Name = "bill_nameSignlbl";
+            this.bill_nameSignlbl.Size = new System.Drawing.Size(69, 20);
+            this.bill_nameSignlbl.TabIndex = 9;
+            this.bill_nameSignlbl.Text = "Name: ";
             // 
             // bill_id
             // 
@@ -274,15 +274,15 @@
             this.task_ids.Visible = false;
             this.task_ids.Width = 125;
             // 
-            // label9
+            // bill_totAmtSign
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(552, 1406);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(192, 29);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "Total Amount: ";
+            this.bill_totAmtSign.AutoSize = true;
+            this.bill_totAmtSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bill_totAmtSign.Location = new System.Drawing.Point(552, 1406);
+            this.bill_totAmtSign.Name = "bill_totAmtSign";
+            this.bill_totAmtSign.Size = new System.Drawing.Size(192, 29);
+            this.bill_totAmtSign.TabIndex = 13;
+            this.bill_totAmtSign.Text = "Total Amount: ";
             // 
             // subtotal_lbl
             // 
@@ -315,13 +315,13 @@
             this.bill_invoiceNo.TabIndex = 10;
             this.bill_invoiceNo.Text = "label7";
             // 
-            // panel3
+            // bill_dgvPartPanel
             // 
-            this.panel3.Controls.Add(this.bill_dataview);
-            this.panel3.Location = new System.Drawing.Point(12, 394);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1001, 441);
-            this.panel3.TabIndex = 19;
+            this.bill_dgvPartPanel.Controls.Add(this.bill_dataview);
+            this.bill_dgvPartPanel.Location = new System.Drawing.Point(12, 394);
+            this.bill_dgvPartPanel.Name = "bill_dgvPartPanel";
+            this.bill_dgvPartPanel.Size = new System.Drawing.Size(1001, 441);
+            this.bill_dgvPartPanel.TabIndex = 19;
             // 
             // bill_serviceData
             // 
@@ -384,33 +384,33 @@
             this.Discount_Given.ReadOnly = true;
             this.Discount_Given.Width = 91;
             // 
-            // label7
+            // bill_servicelbl
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 861);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 20);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Service :";
+            this.bill_servicelbl.AutoSize = true;
+            this.bill_servicelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bill_servicelbl.Location = new System.Drawing.Point(15, 861);
+            this.bill_servicelbl.Name = "bill_servicelbl";
+            this.bill_servicelbl.Size = new System.Drawing.Size(84, 20);
+            this.bill_servicelbl.TabIndex = 9;
+            this.bill_servicelbl.Text = "Service :";
             // 
-            // label8
+            // bill_partUsedlbl
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 371);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(105, 20);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Part Used: ";
+            this.bill_partUsedlbl.AutoSize = true;
+            this.bill_partUsedlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bill_partUsedlbl.Location = new System.Drawing.Point(12, 371);
+            this.bill_partUsedlbl.Name = "bill_partUsedlbl";
+            this.bill_partUsedlbl.Size = new System.Drawing.Size(105, 20);
+            this.bill_partUsedlbl.TabIndex = 9;
+            this.bill_partUsedlbl.Text = "Part Used: ";
             // 
-            // panel4
+            // Note_panel
             // 
-            this.panel4.Controls.Add(this.bill_Notestxt);
-            this.panel4.Location = new System.Drawing.Point(12, 1390);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(515, 234);
-            this.panel4.TabIndex = 21;
+            this.Note_panel.Controls.Add(this.bill_Notestxt);
+            this.Note_panel.Location = new System.Drawing.Point(12, 1390);
+            this.Note_panel.Name = "Note_panel";
+            this.Note_panel.Size = new System.Drawing.Size(515, 234);
+            this.Note_panel.TabIndex = 21;
             // 
             // bill_Notestxt
             // 
@@ -452,27 +452,27 @@
             this.AutoScrollMargin = new System.Drawing.Size(10, 10);
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(1067, 1055);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.Note_panel);
             this.Controls.Add(this.bill_serviceData);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.bill_dgvPartPanel);
             this.Controls.Add(this.subtotal_lbl);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.bill_totAmtSign);
             this.Controls.Add(this.carPlateNum);
             this.Controls.Add(this.bill_name);
             this.Controls.Add(this.bill_invoiceNo);
             this.Controls.Add(this.bill_datelbl);
             this.Controls.Add(this.bill_id);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.bill_partUsedlbl);
+            this.Controls.Add(this.bill_servicelbl);
             this.Controls.Add(this.bill_carPlatenumlbl);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.bill_nameSignlbl);
+            this.Controls.Add(this.bill_idNumSignlbl);
+            this.Controls.Add(this.lbl_billTolbl);
+            this.Controls.Add(this.second_divider);
+            this.Controls.Add(this.bill_invoiceNumlbl);
+            this.Controls.Add(this.bill_dateSign);
+            this.Controls.Add(this.first_divider);
+            this.Controls.Add(this.bill_invoicelbl);
             this.Controls.Add(this.bill_logo);
             this.Controls.Add(this.bill_headlbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -482,9 +482,9 @@
             this.Load += new System.EventHandler(this.Bill_Generate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bill_logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bill_dataview)).EndInit();
-            this.panel3.ResumeLayout(false);
+            this.bill_dgvPartPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bill_serviceData)).EndInit();
-            this.panel4.ResumeLayout(false);
+            this.Note_panel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,26 +494,25 @@
 
         private System.Windows.Forms.Label bill_headlbl;
         private System.Windows.Forms.PictureBox bill_logo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label bill_invoicelbl;
+        private System.Windows.Forms.Panel first_divider;
+        private System.Windows.Forms.Label bill_dateSign;
+        private System.Windows.Forms.Label bill_invoiceNumlbl;
+        private System.Windows.Forms.Label lbl_billTolbl;
+        private System.Windows.Forms.Panel second_divider;
+        private System.Windows.Forms.Label bill_idNumSignlbl;
+        private System.Windows.Forms.Label bill_nameSignlbl;
         private System.Windows.Forms.Label bill_id;
         private System.Windows.Forms.Label bill_name;
         private System.Windows.Forms.DataGridView bill_dataview;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label subtotal_lbl;
         private System.Windows.Forms.Label bill_datelbl;
         private System.Windows.Forms.Label bill_invoiceNo;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel bill_dgvPartPanel;
         private System.Windows.Forms.DataGridView bill_serviceData;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label bill_servicelbl;
+        private System.Windows.Forms.Label bill_partUsedlbl;
+        private System.Windows.Forms.Panel Note_panel;
         private System.Windows.Forms.RichTextBox bill_Notestxt;
         private System.Windows.Forms.DataGridViewTextBoxColumn BService_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Service_Name;
@@ -527,5 +526,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn task_ids;
         private System.Windows.Forms.Label bill_carPlatenumlbl;
         private System.Windows.Forms.Label carPlateNum;
+        private System.Windows.Forms.Label bill_totAmtSign;
     }
 }

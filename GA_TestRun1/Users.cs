@@ -20,7 +20,7 @@ namespace GA_TestRun1
     internal class Users
     {   //**** PLEASE CHANGE THE STRING BEFORE USING DATABASE ****//
 
-        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test1\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
+        string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\LAB_IOOP\\TEST_RUN_GIT\\New folder\\OvHvO\\GA_GOAT_IOOP\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
         private string Password;
         private string ContactNum;
         private string Username;
@@ -57,12 +57,12 @@ namespace GA_TestRun1
 
         }
 
-        public string LoginForms(string username, string password)
+        public void LoginForms(string username, string password)
         {
             var SigninP = new Login_Pages();
             //string role = null;
             SqlConnection conn = new SqlConnection(connection);
-            string status = null;
+            
             string role = AuthenticateUser(connection, username, password);
             string[] Roles = new string[4] { "rcptionist", "customer", "admin", "mechanic" };
 
@@ -87,10 +87,11 @@ namespace GA_TestRun1
                                         cmd4.Parameters.AddWithValue("@username", username);
                                         cmd4.Parameters.AddWithValue("@password", password);
                                         cmd4.ExecuteNonQuery();
+                                        MessageBox.Show("Sign In sucessfull");
                                         Receptionist_home Form = new Receptionist_home(username, connection, contactnum);
                                         Receptionists recep = new Receptionists(username, password);
 
-                                    SigninP.Hide();
+                                        SigninP.Hide();
                                         Form.ShowDialog();
 
                                     }
@@ -101,9 +102,10 @@ namespace GA_TestRun1
                                         cmd4.Parameters.AddWithValue("@username", username);
                                         cmd4.Parameters.AddWithValue("@password", password);
                                         cmd4.ExecuteNonQuery();
+                                        MessageBox.Show("Sign In sucessfull");
                                         Receptionist_home Form = new Receptionist_home(username, connection, contactnum);
 
-                                    SigninP.Hide();
+                                        SigninP.Hide();
                                         Form.ShowDialog();
 
 
@@ -113,25 +115,28 @@ namespace GA_TestRun1
 
                                
 
-                                return status = "Login Sucessfull";
+                              return;
 
                             }
                         case 1:
                             {
+                                MessageBox.Show("Sign In sucessfull");
                                 Customer_home customer = new Customer_home(username);
                                 SigninP.Hide();
                                 customer.ShowDialog();
 
-                                return status = "Login Sucessfull";
+                                return;  
 
                             }
                         case 2:
                             {
+                                MessageBox.Show("Sign In sucessfull");
                                 Admins_home admins = new Admins_home(username);
                                 SigninP.Hide();
                                 admins.ShowDialog();
 
-                                return status = "Login Sucessfull";
+                               
+                                return;
                             }
                         case 3:
                             {
@@ -148,7 +153,8 @@ namespace GA_TestRun1
                                     cmd2.Parameters.AddWithValue("@password", password);
                                     cmd2.Parameters.AddWithValue("@oldusername", username);
                                     cmd2.ExecuteNonQuery();
-
+                                    
+                                    MessageBox.Show("Sign In sucessfull");
                                     Mechanic_home Form = new Mechanic_home(username, connection, contactnum);
                                     Mechanic mechanic = new Mechanic(username, password);
                                     Form.ShowDialog();
@@ -160,19 +166,19 @@ namespace GA_TestRun1
                                     cmd3.Parameters.AddWithValue("@username", username);
                                     cmd3.Parameters.AddWithValue("@password", password);
                                     cmd3.ExecuteNonQuery();
-
+                                    MessageBox.Show("Sign In sucessfull");
                                     Mechanic_home Form = new Mechanic_home(username, connection, contactnum);
                                     Mechanic_home mechanic = new Mechanic_home(username);
                                     Form.ShowDialog();
                                 }
-                                return status = "Login Sucessfull";
+                                
+                                return;
                             }
                             
                         default:
                             {
-                                status = "Error";
-                                return status;
-
+                                MessageBox.Show("Error");
+                                return;
                             }
                     }
 
@@ -184,8 +190,7 @@ namespace GA_TestRun1
 
             }
 
-            status = "Role not found";
-            return status;
+            MessageBox.Show("User not found","Login Failed",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
         }
 
@@ -442,7 +447,7 @@ namespace GA_TestRun1
 
         public static class ConnectionS_admin
         {
-        public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nixon\\OneDrive\\Desktop\\IOOP\\GA_Test1\\GA_TestRun1\\Database_GA.mdf;Integrated Security=True";
+        public static string ConnectionString { get; } = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\LAB_IOOP\\TEST_RUN_GIT\\New folder\\OvHvO\\GA_GOAT_IOOP\\GA_TestRun1\\Database_GA.mdf\";Integrated Security=True";
         }
 
     }
