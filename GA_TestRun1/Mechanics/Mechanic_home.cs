@@ -54,7 +54,7 @@ namespace GA_TestRun1.Mechanics
         }
 
 
-//============================== Navigation Option ==============================//
+        //============================== Navigation Option ==============================//
         private void V_ServiceTask_btn_Click(object sender, EventArgs e)
         {
             try
@@ -104,14 +104,6 @@ namespace GA_TestRun1.Mechanics
         }
 
 
-        private void SignOut_btn_Click(object sender, EventArgs e)
-        {
-            //----------Change border size----------//
-            this.U_Profile_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.U_Profile_btn.FlatAppearance.BorderSize = 0;
-        }
-
-
         private void Mechanic_home_Load(object sender, EventArgs e)
         {
             LoadUserControl(new Mechanic_Main(Name, Connection, Contact));
@@ -130,9 +122,5 @@ namespace GA_TestRun1.Mechanics
             userControl.Dock = DockStyle.Fill;
             Detailpanel.Controls.Add(userControl);
         }
-
-
-
-        //============================== ==============================//
     }
 }
