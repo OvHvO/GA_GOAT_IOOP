@@ -45,7 +45,7 @@
             this.Part_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Request_Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.request_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
+            this.hint_lbl = new System.Windows.Forms.Label();
             this.inv_Delbtn = new System.Windows.Forms.Button();
             this.searchInv_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).BeginInit();
@@ -233,16 +233,16 @@
             this.request_status.ReadOnly = true;
             this.request_status.Width = 73;
             // 
-            // label1
+            // hint_lbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(12, 426);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(498, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Hint: Please Select a detail Then Press the Confirm Button to Assign Request ";
+            this.hint_lbl.AutoSize = true;
+            this.hint_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hint_lbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.hint_lbl.Location = new System.Drawing.Point(12, 426);
+            this.hint_lbl.Name = "hint_lbl";
+            this.hint_lbl.Size = new System.Drawing.Size(498, 17);
+            this.hint_lbl.TabIndex = 6;
+            this.hint_lbl.Text = "Hint: Please Select a detail Then Press the Confirm Button to Assign Request ";
             // 
             // inv_Delbtn
             // 
@@ -259,7 +259,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 486);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.hint_lbl);
             this.Controls.Add(this.inv_Delbtn);
             this.Controls.Add(this.Request_combtn);
             this.Controls.Add(this.InvDataView);
@@ -292,7 +292,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Request_Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn request_status;
         private System.Windows.Forms.Button Request_combtn;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label hint_lbl;
         private System.Windows.Forms.PictureBox reload_pict;
         private System.Windows.Forms.Button inv_Delbtn;
     }
