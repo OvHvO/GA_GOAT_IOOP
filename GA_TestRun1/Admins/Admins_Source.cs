@@ -22,6 +22,7 @@ namespace GA_TestRun1.Admins
             Thread.Sleep(400);
         }
 
+        //For admin profile
         public object[] Admin_Profile(string userN)
         {
             string query = @"select admin_ID, adminUsername, adminContactNum from Admins 
@@ -55,6 +56,7 @@ namespace GA_TestRun1.Admins
             }
         }
 
+        //Return all the serviceName in a list
         public List<string> Service_Net()
         {
             string query = @"select serviceName from Service";
@@ -89,6 +91,7 @@ namespace GA_TestRun1.Admins
             return serviceList;
         }
 
+        //Return all the partName in a list and show to the admin to manage
         public List<string> Part_Net()
         {
             string query = @"select partName from Parts";
@@ -122,6 +125,7 @@ namespace GA_TestRun1.Admins
             return partList;
         }
 
+        //Return the service details by the service selected
         public object[] Service_Details(string targetService)
         {
             string query = @"select serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, admin_ID, part_ID from Service
@@ -163,6 +167,7 @@ namespace GA_TestRun1.Admins
             return serviceDetails;
         }
 
+        //Return the part details by the service selected
         public string[] Part_Details(string targetService)
         {
             string query = @"select part_ID, partQuantity, partPrice from Parts
@@ -200,6 +205,8 @@ namespace GA_TestRun1.Admins
 
             return partDetails;
         }
+
+        //If admin choose to edit a service we need to show him the old details of the service
         public string[] Edit_Service(string targetService)
         {
             string query = @"select serviceName, serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, part_ID from Service
@@ -240,6 +247,7 @@ namespace GA_TestRun1.Admins
             return editServiceInfo;
         }
 
+        //For the admin to check the partID belongs to which partName
         public string Part_Checking(int selectedPart)
         {
             string query = @"select partName from Parts where part_ID = @partID";
@@ -261,11 +269,13 @@ namespace GA_TestRun1.Admins
             return partName;
         }
 
+        //Edit or Add the service
         public bool Service_Change(string type, string serviceName, string serviceInfo, string serviceTimeTaken, int servicePrice, int serviceOffer, int admin_ID, int part_ID)
         {
             if (type == "ADD")
             {
-                string query = "insert into Service (serviceName, serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, admin_ID, part_ID) values (@ServiceName, @ServiceInfo, @ServiceTimeTaken, @ServicePrice, @ServiceOffer, @Admin_ID, @Part_ID)";
+                string query = "insert into Service (serviceName, serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, admin_ID, part_ID) " +
+                    "values (@ServiceName, @ServiceInfo, @ServiceTimeTaken, @ServicePrice, @ServiceOffer, @Admin_ID, @Part_ID)";
 
                 try
                 {
@@ -315,7 +325,10 @@ namespace GA_TestRun1.Admins
 
             else if (type == "EDIT")
             {
-                string query = "update Service \r\n SET serviceInfo = @ServiceInfo, \r\nserviceTimeTaken = @ServiceTimeTaken, \r\nservicePrice = @ServicePrice, serviceOffer = @ServiceOffer, admin_ID = @Admin_ID, part_ID = @Part_ID \r\n WHERE serviceName = @ServiceName;";
+                string query = "update Service \r\n " +
+                               "SET serviceInfo = @ServiceInfo, \r\nserviceTimeTaken = @ServiceTimeTaken, " + "\r\nservicePrice = @ServicePrice," +
+                               " serviceOffer = @ServiceOffer, " + "admin_ID = @Admin_ID, part_ID = @Part_ID" +
+                               " \r\n WHERE serviceName = @ServiceName;";
 
                 try
                 {
@@ -368,6 +381,7 @@ namespace GA_TestRun1.Admins
             }
         }
 
+        //For delete service
         public bool Delete_Service(string selectedName)
         {
             string query = @"delete from Service where serviceName = @ServiceName";
@@ -385,6 +399,7 @@ namespace GA_TestRun1.Admins
             }
         }
 
+        //For delete part
         public bool Delete_Part(string selectedName)
         {
             string query = @"delete from Parts where partName = @PartName";
@@ -402,6 +417,7 @@ namespace GA_TestRun1.Admins
             }
         }
 
+        //For admin to save the part details
         public bool Part_Change(string type, string partName, int partQuantity, int partPrice)
         {
             if (type == "ADD")
@@ -504,6 +520,7 @@ namespace GA_TestRun1.Admins
                 return false;
             }
         }
+
 
         public List<string> Rcp_Net()
         {
