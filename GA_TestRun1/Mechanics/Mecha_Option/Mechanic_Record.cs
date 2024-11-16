@@ -43,16 +43,6 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             Status_Cbo.SelectedIndex = 0;
         }
 
-        private void Status_Cbo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CarNum_Cbo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Submit_btn_Click(object sender, EventArgs e)
         {
             string ComboBox;
@@ -97,6 +87,14 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
         {
 
         }
+        private void Status_Cbo_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void CarNum_Cbo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
