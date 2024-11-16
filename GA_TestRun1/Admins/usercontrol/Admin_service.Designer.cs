@@ -146,7 +146,7 @@
             this.BackColor = System.Drawing.Color.Salmon;
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.admin_service_panel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Admin_service";
             this.Size = new System.Drawing.Size(587, 429);
             this.admin_service_panel.ResumeLayout(false);

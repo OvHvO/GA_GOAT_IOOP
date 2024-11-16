@@ -64,7 +64,7 @@ namespace GA_TestRun1.Admins
 
             else
             {
-                MessageBox.Show("Please f**king choose a service idiot");
+                MessageBox.Show("Please choose a service");
             }
         }
 
@@ -105,7 +105,7 @@ namespace GA_TestRun1.Admins
             }
             else
             {
-                MessageBox.Show("Please f**king choose a service idiot");
+                MessageBox.Show("Please choose a service");
             }
         }
 

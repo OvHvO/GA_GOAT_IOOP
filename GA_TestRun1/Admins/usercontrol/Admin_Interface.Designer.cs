@@ -32,6 +32,8 @@
             this.AdminProfilelistBox = new System.Windows.Forms.ListBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // AdminProfilelistBox
@@ -40,7 +42,7 @@
             this.AdminProfilelistBox.FormattingEnabled = true;
             this.AdminProfilelistBox.Location = new System.Drawing.Point(342, 125);
             this.AdminProfilelistBox.Name = "AdminProfilelistBox";
-            this.AdminProfilelistBox.Size = new System.Drawing.Size(192, 56);
+            this.AdminProfilelistBox.Size = new System.Drawing.Size(200, 56);
             this.AdminProfilelistBox.TabIndex = 5;
             // 
             // textBox2
@@ -64,17 +66,29 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "ADMIN INTERFACE";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GA_TestRun1.Properties.Resources.admin_3d_illustration_icon_png;
+            this.pictureBox1.Location = new System.Drawing.Point(342, 219);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 143);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // Admin_Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.AdminProfilelistBox);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Admin_Interface";
             this.Size = new System.Drawing.Size(587, 429);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -84,5 +98,6 @@
         private System.Windows.Forms.ListBox AdminProfilelistBox;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

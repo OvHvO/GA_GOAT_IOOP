@@ -353,12 +353,6 @@
     <Compile Include="Receptionist\searchInv.Designer.cs">
       <DependentUpon>searchInv.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sign_Up_form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sign_Up_form.Designer.cs">
-      <DependentUpon>Sign_Up_form.cs</DependentUpon>
-    </Compile>
     <Compile Include="UpdateProfileF.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -464,9 +458,6 @@
     <EmbeddedResource Include="Receptionist\searchInv.resx">
       <DependentUpon>searchInv.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sign_Up_form.resx">
-      <DependentUpon>Sign_Up_form.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UpdateProfileF.resx">
       <DependentUpon>UpdateProfileF.cs</DependentUpon>
     </EmbeddedResource>
@@ -505,6 +496,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database_GA.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\admin-3d-illustration-icon-png.png" />
     <None Include="Resources\logo %284%29.png" />
     <None Include="Resources\logo.png" />
     <None Include="Resources\OIP %282%29.jpg" />

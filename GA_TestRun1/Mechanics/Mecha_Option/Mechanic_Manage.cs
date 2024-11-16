@@ -24,6 +24,8 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
 
         private void Mechanic_Man_Load(object sender, EventArgs e)
         {
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
+
             //---------- Parts List Items ----------//
             List<string> parts = new List<string>();
             parts = Mechanic.Parts();
@@ -43,6 +45,9 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             //---------- Status ComboBox Items ----------//
             Status_Cbo.Items.Add("PENDING");
             Status_Cbo.SelectedIndex = 0;
+
+            //---------- Task Content----------//
+            Show_taskDetail.Text = Mechanic.PassContent().ToString();
         }
 
         private void Request_btn_Click(object sender, EventArgs e)
@@ -50,6 +55,18 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             string P_ListBox;
             string P_TxtBox;
             string P_ComboB;
+
+            if (Parts_ListB.SelectedItem == null)
+            {
+                MessageBox.Show("Warning: Please select parts to perform task.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(R_Quantity_txt.Text))
+            {
+                MessageBox.Show("Warning: Please enter quantity to perform task.");
+                return;
+            }
 
             P_ListBox = Parts_ListB.SelectedItem.ToString();
             P_TxtBox = R_Quantity_txt.Text;
@@ -66,14 +83,36 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
         {
             string U_ListBox;
             string U_TxtBox;
+            string Quantities = Mechanic.PassQuantity();
+            int.TryParse(Quantities, out int quantity);
+            int.TryParse(U_Quantity_txt.Text, out int uquantity);
 
+            if (Update_List.SelectedItem == null)
+            {
+                MessageBox.Show("Warning: Please select an item to perform task.");
+                return;
+            }
+
+            else if (string.IsNullOrWhiteSpace(U_Quantity_txt.Text))
+            {
+                MessageBox.Show("Warning: Please enter quantity to perform task.");
+                return;
+            }
+
+            else if (uquantity > quantity)
+            {
+                MessageBox.Show("Warning: Quantity is more than Requested Quantity.");
+                U_Quantity_txt.Clear();
+                return;
+            }
+
+            
             U_ListBox = Update_List.SelectedItem.ToString();
             U_TxtBox = U_Quantity_txt.Text;
 
             Mechanic mechanic = new Mechanic();
             Mechanic.UpdateParts(U_ListBox, U_TxtBox, Manage_CarNum);
-            Update_List.Items.Clear();
-
+            U_Quantity_txt.Clear();
         }
 
         private void Parts_ListB_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,6 +138,16 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
         }
 
         private void Customer_Show_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Show_taskDetail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void U_Quantity_txt_TextChanged(object sender, EventArgs e)
         {
 
         }
