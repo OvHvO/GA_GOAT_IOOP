@@ -35,7 +35,7 @@
             this.Name_lbl = new System.Windows.Forms.Label();
             this.label_PNum = new System.Windows.Forms.Label();
             this.label_name = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.panel_Month = new System.Windows.Forms.Panel();
             this.panel_Prof.SuspendLayout();
             this.panel_Month.SuspendLayout();
@@ -114,15 +114,15 @@
             this.label_name.TabIndex = 0;
             this.label_name.Text = "Name: ";
             // 
-            // monthCalendar1
+            // monthCalendar
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(22, 15);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 0;
+            this.monthCalendar.Location = new System.Drawing.Point(22, 15);
+            this.monthCalendar.Name = "monthCalendar";
+            this.monthCalendar.TabIndex = 0;
             // 
             // panel_Month
             // 
-            this.panel_Month.Controls.Add(this.monthCalendar1);
+            this.panel_Month.Controls.Add(this.monthCalendar);
             this.panel_Month.Location = new System.Drawing.Point(294, 105);
             this.panel_Month.Name = "panel_Month";
             this.panel_Month.Size = new System.Drawing.Size(293, 186);
@@ -152,7 +152,7 @@
         private System.Windows.Forms.Panel panel_Prof;
         private System.Windows.Forms.Label label_PNum;
         private System.Windows.Forms.Label label_name;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.Button Refresh_btn;
         private System.Windows.Forms.Label PNum_lbl;
         private System.Windows.Forms.Label Name_lbl;
