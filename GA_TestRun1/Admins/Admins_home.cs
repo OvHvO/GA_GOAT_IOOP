@@ -24,6 +24,7 @@ namespace GA_TestRun1.Admins
         {
             InitializeComponent();
             userN = username;
+            //Set the colour of the whole UI
             FeatureBox.BackColor = ColorTranslator.FromHtml("#69764F");
             btn_cus_FB.BackColor = ColorTranslator.FromHtml("#69764F");
             btn_sales_Report.BackColor = ColorTranslator.FromHtml("#69764F");
@@ -52,6 +53,7 @@ namespace GA_TestRun1.Admins
             LoadUserControl(new Admin_cus_FB());
         }
 
+        //A method for load different usercontrol inside the "admin_Panel"
         private void LoadUserControl(UserControl userControl)
         {
             admin_Panel.Controls.Clear();
