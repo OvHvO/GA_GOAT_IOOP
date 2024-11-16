@@ -32,14 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Manage_Appoinment));
             this.Rcp_dataview = new System.Windows.Forms.DataGridView();
-            this.rcp_appoimentBar = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.reload_pict = new System.Windows.Forms.PictureBox();
-            this.scr_lbl = new System.Windows.Forms.Label();
-            this.SearchCBO_lbl = new System.Windows.Forms.Label();
-            this.Rcp_searchbtn = new System.Windows.Forms.Button();
-            this.Search_txtb = new System.Windows.Forms.TextBox();
-            this.Search_cbo = new System.Windows.Forms.ComboBox();
             this.CusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.App_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cus_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +40,14 @@
             this.MecName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Task_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reshedule_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rcp_appoimentBar = new System.Windows.Forms.Panel();
+            this.Inv_hintlbl = new System.Windows.Forms.Label();
+            this.reload_pict = new System.Windows.Forms.PictureBox();
+            this.scr_lbl = new System.Windows.Forms.Label();
+            this.SearchCBO_lbl = new System.Windows.Forms.Label();
+            this.Rcp_searchbtn = new System.Windows.Forms.Button();
+            this.Search_txtb = new System.Windows.Forms.TextBox();
+            this.Search_cbo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.Rcp_dataview)).BeginInit();
             this.rcp_appoimentBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reload_pict)).BeginInit();
@@ -101,95 +101,6 @@
             this.Rcp_dataview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rcp_dataview_CellContentClick_1);
             this.Rcp_dataview.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rcp_dataview_CellContentDoubleClick);
             // 
-            // rcp_appoimentBar
-            // 
-            this.rcp_appoimentBar.Controls.Add(this.label1);
-            this.rcp_appoimentBar.Controls.Add(this.reload_pict);
-            this.rcp_appoimentBar.Controls.Add(this.scr_lbl);
-            this.rcp_appoimentBar.Controls.Add(this.SearchCBO_lbl);
-            this.rcp_appoimentBar.Controls.Add(this.Rcp_searchbtn);
-            this.rcp_appoimentBar.Controls.Add(this.Search_txtb);
-            this.rcp_appoimentBar.Controls.Add(this.Search_cbo);
-            this.rcp_appoimentBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rcp_appoimentBar.Location = new System.Drawing.Point(0, 0);
-            this.rcp_appoimentBar.Name = "rcp_appoimentBar";
-            this.rcp_appoimentBar.Size = new System.Drawing.Size(1039, 65);
-            this.rcp_appoimentBar.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(4, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(346, 17);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Hint: Please Double Click a detail to Assign Mechanic ";
-            // 
-            // reload_pict
-            // 
-            this.reload_pict.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reload_pict.Image = ((System.Drawing.Image)(resources.GetObject("reload_pict.Image")));
-            this.reload_pict.Location = new System.Drawing.Point(927, 24);
-            this.reload_pict.Name = "reload_pict";
-            this.reload_pict.Size = new System.Drawing.Size(33, 33);
-            this.reload_pict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.reload_pict.TabIndex = 5;
-            this.reload_pict.TabStop = false;
-            this.reload_pict.Click += new System.EventHandler(this.reload_pict_Click);
-            // 
-            // scr_lbl
-            // 
-            this.scr_lbl.AutoSize = true;
-            this.scr_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scr_lbl.Location = new System.Drawing.Point(448, 37);
-            this.scr_lbl.Name = "scr_lbl";
-            this.scr_lbl.Size = new System.Drawing.Size(80, 20);
-            this.scr_lbl.TabIndex = 4;
-            this.scr_lbl.Text = "Search: ";
-            // 
-            // SearchCBO_lbl
-            // 
-            this.SearchCBO_lbl.AutoSize = true;
-            this.SearchCBO_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchCBO_lbl.Location = new System.Drawing.Point(3, 33);
-            this.SearchCBO_lbl.Name = "SearchCBO_lbl";
-            this.SearchCBO_lbl.Size = new System.Drawing.Size(108, 20);
-            this.SearchCBO_lbl.TabIndex = 3;
-            this.SearchCBO_lbl.Text = "Search By: ";
-            // 
-            // Rcp_searchbtn
-            // 
-            this.Rcp_searchbtn.Location = new System.Drawing.Point(797, 34);
-            this.Rcp_searchbtn.Name = "Rcp_searchbtn";
-            this.Rcp_searchbtn.Size = new System.Drawing.Size(98, 23);
-            this.Rcp_searchbtn.TabIndex = 2;
-            this.Rcp_searchbtn.Text = "Search";
-            this.Rcp_searchbtn.UseVisualStyleBackColor = true;
-            this.Rcp_searchbtn.Click += new System.EventHandler(this.Rcp_searchbtn_Click_1);
-            // 
-            // Search_txtb
-            // 
-            this.Search_txtb.Location = new System.Drawing.Point(550, 35);
-            this.Search_txtb.Name = "Search_txtb";
-            this.Search_txtb.Size = new System.Drawing.Size(241, 22);
-            this.Search_txtb.TabIndex = 1;
-            this.Search_txtb.TextChanged += new System.EventHandler(this.Search_txtb_TextChanged);
-            // 
-            // Search_cbo
-            // 
-            this.Search_cbo.FormattingEnabled = true;
-            this.Search_cbo.Items.AddRange(new object[] {
-            "Appointment ID",
-            "Customer Name",
-            "Vehicle Number"});
-            this.Search_cbo.Location = new System.Drawing.Point(136, 33);
-            this.Search_cbo.Name = "Search_cbo";
-            this.Search_cbo.Size = new System.Drawing.Size(173, 24);
-            this.Search_cbo.TabIndex = 0;
-            this.Search_cbo.SelectedIndexChanged += new System.EventHandler(this.Search_cbo_SelectedIndexChanged);
-            // 
             // CusID
             // 
             this.CusID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -198,7 +109,7 @@
             this.CusID.MinimumWidth = 6;
             this.CusID.Name = "CusID";
             this.CusID.ReadOnly = true;
-            this.CusID.Width = 109;
+            this.CusID.Width = 101;
             // 
             // App_id
             // 
@@ -268,6 +179,95 @@
             this.Reshedule_Status.ReadOnly = true;
             this.Reshedule_Status.Width = 132;
             // 
+            // rcp_appoimentBar
+            // 
+            this.rcp_appoimentBar.Controls.Add(this.Inv_hintlbl);
+            this.rcp_appoimentBar.Controls.Add(this.reload_pict);
+            this.rcp_appoimentBar.Controls.Add(this.scr_lbl);
+            this.rcp_appoimentBar.Controls.Add(this.SearchCBO_lbl);
+            this.rcp_appoimentBar.Controls.Add(this.Rcp_searchbtn);
+            this.rcp_appoimentBar.Controls.Add(this.Search_txtb);
+            this.rcp_appoimentBar.Controls.Add(this.Search_cbo);
+            this.rcp_appoimentBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rcp_appoimentBar.Location = new System.Drawing.Point(0, 0);
+            this.rcp_appoimentBar.Name = "rcp_appoimentBar";
+            this.rcp_appoimentBar.Size = new System.Drawing.Size(1039, 65);
+            this.rcp_appoimentBar.TabIndex = 2;
+            // 
+            // Inv_hintlbl
+            // 
+            this.Inv_hintlbl.AutoSize = true;
+            this.Inv_hintlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Inv_hintlbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Inv_hintlbl.Location = new System.Drawing.Point(4, 13);
+            this.Inv_hintlbl.Name = "Inv_hintlbl";
+            this.Inv_hintlbl.Size = new System.Drawing.Size(346, 17);
+            this.Inv_hintlbl.TabIndex = 7;
+            this.Inv_hintlbl.Text = "Hint: Please Double Click a detail to Assign Mechanic ";
+            // 
+            // reload_pict
+            // 
+            this.reload_pict.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reload_pict.Image = ((System.Drawing.Image)(resources.GetObject("reload_pict.Image")));
+            this.reload_pict.Location = new System.Drawing.Point(927, 24);
+            this.reload_pict.Name = "reload_pict";
+            this.reload_pict.Size = new System.Drawing.Size(33, 33);
+            this.reload_pict.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.reload_pict.TabIndex = 5;
+            this.reload_pict.TabStop = false;
+            this.reload_pict.Click += new System.EventHandler(this.reload_pict_Click);
+            // 
+            // scr_lbl
+            // 
+            this.scr_lbl.AutoSize = true;
+            this.scr_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scr_lbl.Location = new System.Drawing.Point(448, 37);
+            this.scr_lbl.Name = "scr_lbl";
+            this.scr_lbl.Size = new System.Drawing.Size(80, 20);
+            this.scr_lbl.TabIndex = 4;
+            this.scr_lbl.Text = "Search: ";
+            // 
+            // SearchCBO_lbl
+            // 
+            this.SearchCBO_lbl.AutoSize = true;
+            this.SearchCBO_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchCBO_lbl.Location = new System.Drawing.Point(3, 33);
+            this.SearchCBO_lbl.Name = "SearchCBO_lbl";
+            this.SearchCBO_lbl.Size = new System.Drawing.Size(108, 20);
+            this.SearchCBO_lbl.TabIndex = 3;
+            this.SearchCBO_lbl.Text = "Search By: ";
+            // 
+            // Rcp_searchbtn
+            // 
+            this.Rcp_searchbtn.Location = new System.Drawing.Point(797, 34);
+            this.Rcp_searchbtn.Name = "Rcp_searchbtn";
+            this.Rcp_searchbtn.Size = new System.Drawing.Size(98, 23);
+            this.Rcp_searchbtn.TabIndex = 2;
+            this.Rcp_searchbtn.Text = "Search";
+            this.Rcp_searchbtn.UseVisualStyleBackColor = true;
+            this.Rcp_searchbtn.Click += new System.EventHandler(this.Rcp_searchbtn_Click_1);
+            // 
+            // Search_txtb
+            // 
+            this.Search_txtb.Location = new System.Drawing.Point(550, 35);
+            this.Search_txtb.Name = "Search_txtb";
+            this.Search_txtb.Size = new System.Drawing.Size(241, 22);
+            this.Search_txtb.TabIndex = 1;
+            this.Search_txtb.TextChanged += new System.EventHandler(this.Search_txtb_TextChanged);
+            // 
+            // Search_cbo
+            // 
+            this.Search_cbo.FormattingEnabled = true;
+            this.Search_cbo.Items.AddRange(new object[] {
+            "Appointment ID",
+            "Customer Name",
+            "Vehicle Number"});
+            this.Search_cbo.Location = new System.Drawing.Point(136, 33);
+            this.Search_cbo.Name = "Search_cbo";
+            this.Search_cbo.Size = new System.Drawing.Size(173, 24);
+            this.Search_cbo.TabIndex = 0;
+            this.Search_cbo.SelectedIndexChanged += new System.EventHandler(this.Search_cbo_SelectedIndexChanged);
+            // 
             // Manage_Appoinment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -296,7 +296,7 @@
         private System.Windows.Forms.TextBox Search_txtb;
         private System.Windows.Forms.ComboBox Search_cbo;
         private System.Windows.Forms.PictureBox reload_pict;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Inv_hintlbl;
         private System.Windows.Forms.DataGridViewTextBoxColumn CusID;
         private System.Windows.Forms.DataGridViewTextBoxColumn App_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cus_name;

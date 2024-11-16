@@ -44,20 +44,26 @@ namespace GA_TestRun1.Receptionist
                 string serviceID = Rcp_dataview.Rows[e.RowIndex].Cells["App_id"].Value.ToString();
                 string mechanicID = Rcp_dataview.Rows[e.RowIndex].Cells["MecName"].Value.ToString();
                 string rescheduleStatus= Rcp_dataview.Rows[e.RowIndex].Cells["Reshedule_Status"].Value.ToString();
-                if (string.IsNullOrEmpty(mechanicID)|| rescheduleStatus == "True")
+
+                int.TryParse(serviceID, out int NumSerID);
+                if (Receptionists.ManageAppoint(NumSerID))
                 {
+                    MessageBox.Show("This Task has Already Been Assigned ! If you didn't see the result please refresh to see the lastest details", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                else if (string.IsNullOrEmpty(mechanicID)|| rescheduleStatus == "True")
+                {  
                     Assign_task assign = new Assign_task(name, vehicle, contact, cusID, serviceID, username);
-                    assign.ShowDialog(); 
+                    assign.ShowDialog();
+                    
                 }
-                else
-                {
-                    MessageBox.Show("This Task Has Already Been Assigned !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+               
             }
-            catch (Exception )
+            catch (Exception ex)
             {
-                //MessageBox.Show(ex.ToString());
-                MessageBox.Show("Please Double Click On the Content Not header!","Assigning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show(ex.ToString());
+                //MessageBox.Show("Please Double Click On the Content Not header!","Assigning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
 
 
