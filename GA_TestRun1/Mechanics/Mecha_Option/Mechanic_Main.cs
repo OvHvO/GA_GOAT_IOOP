@@ -44,7 +44,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
 
         private void Refresh_btn_Click(object sender, EventArgs e)
         {
-            RefreshProfile();
+            //RefreshProfile();
         }
 
         private void RefreshProfile()

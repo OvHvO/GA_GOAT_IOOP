@@ -34,7 +34,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             CarNums = Mechanic.CarNumber(UNames);
             foreach (string CarNum in CarNums)
             {
-                Number_LstB.Items.Add(CarNum);
+                CarNumber_LstB.Items.Add(CarNum);
             }
 
             //---------- Status ComboBox Items ----------//
@@ -65,7 +65,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
                 return;
             }
 
-            else if (Number_LstB.SelectedItem == null)
+            else if (CarNumber_LstB.SelectedItem == null)
             {
                 MessageBox.Show("Warning: Please select an item to perform task.");
                 return;
@@ -79,7 +79,7 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
 
             DateTime CollectionTime = Col_Time.Value;
             ComboBox = Status_Cbo.SelectedItem.ToString();
-            ListBox = Number_LstB.SelectedItem.ToString();
+            ListBox = CarNumber_LstB.SelectedItem.ToString();
             TxtBox = Add_txt.Text;
 
             Mechanic mechanicViewForm = new Mechanic();

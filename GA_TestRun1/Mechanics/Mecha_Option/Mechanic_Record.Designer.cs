@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Welcome_txt = new System.Windows.Forms.Label();
+            this.Record_txt = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,18 +37,18 @@
             this.Add_txt = new System.Windows.Forms.TextBox();
             this.Submit_btn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.Number_LstB = new System.Windows.Forms.ListBox();
+            this.CarNumber_LstB = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // Welcome_txt
+            // Record_txt
             // 
-            this.Welcome_txt.AutoSize = true;
-            this.Welcome_txt.Font = new System.Drawing.Font("Bauhaus 93", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Welcome_txt.Location = new System.Drawing.Point(109, 19);
-            this.Welcome_txt.Name = "Welcome_txt";
-            this.Welcome_txt.Size = new System.Drawing.Size(366, 30);
-            this.Welcome_txt.TabIndex = 1;
-            this.Welcome_txt.Text = "Record Service Progress Sheet";
+            this.Record_txt.AutoSize = true;
+            this.Record_txt.Font = new System.Drawing.Font("Bauhaus 93", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Record_txt.Location = new System.Drawing.Point(109, 19);
+            this.Record_txt.Name = "Record_txt";
+            this.Record_txt.Size = new System.Drawing.Size(366, 30);
+            this.Record_txt.TabIndex = 1;
+            this.Record_txt.Text = "Record Service Progress Sheet";
             // 
             // label1
             // 
@@ -125,20 +125,20 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Car Number: ";
             // 
-            // Number_LstB
+            // CarNumber_LstB
             // 
-            this.Number_LstB.FormattingEnabled = true;
-            this.Number_LstB.Location = new System.Drawing.Point(420, 114);
-            this.Number_LstB.Name = "Number_LstB";
-            this.Number_LstB.Size = new System.Drawing.Size(129, 108);
-            this.Number_LstB.TabIndex = 10;
-            this.Number_LstB.SelectedIndexChanged += new System.EventHandler(this.Number_LstB_SelectedIndexChanged);
+            this.CarNumber_LstB.FormattingEnabled = true;
+            this.CarNumber_LstB.Location = new System.Drawing.Point(420, 114);
+            this.CarNumber_LstB.Name = "CarNumber_LstB";
+            this.CarNumber_LstB.Size = new System.Drawing.Size(129, 108);
+            this.CarNumber_LstB.TabIndex = 10;
+            this.CarNumber_LstB.SelectedIndexChanged += new System.EventHandler(this.Number_LstB_SelectedIndexChanged);
             // 
             // Mechanic_Record
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Number_LstB);
+            this.Controls.Add(this.CarNumber_LstB);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Submit_btn);
             this.Controls.Add(this.Add_txt);
@@ -147,7 +147,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Welcome_txt);
+            this.Controls.Add(this.Record_txt);
             this.Name = "Mechanic_Record";
             this.Size = new System.Drawing.Size(587, 429);
             this.Load += new System.EventHandler(this.Mechanic_Record_Load);
@@ -158,7 +158,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label Welcome_txt;
+        private System.Windows.Forms.Label Record_txt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -167,6 +167,6 @@
         private System.Windows.Forms.TextBox Add_txt;
         private System.Windows.Forms.Button Submit_btn;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox Number_LstB;
+        private System.Windows.Forms.ListBox CarNumber_LstB;
     }
 }

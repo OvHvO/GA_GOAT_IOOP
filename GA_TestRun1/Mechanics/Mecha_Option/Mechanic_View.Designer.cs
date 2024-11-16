@@ -34,7 +34,7 @@
             this.rcp_appoimentBar = new System.Windows.Forms.Panel();
             this.Reload_pic = new System.Windows.Forms.PictureBox();
             this.scr_lbl = new System.Windows.Forms.Label();
-            this.SearchCBO_lbl = new System.Windows.Forms.Label();
+            this.SearchCbo_lbl = new System.Windows.Forms.Label();
             this.Mcn_searchbtn = new System.Windows.Forms.Button();
             this.Search_txt = new System.Windows.Forms.TextBox();
             this.Search_Cbo = new System.Windows.Forms.ComboBox();
@@ -56,7 +56,7 @@
             // 
             this.rcp_appoimentBar.Controls.Add(this.Reload_pic);
             this.rcp_appoimentBar.Controls.Add(this.scr_lbl);
-            this.rcp_appoimentBar.Controls.Add(this.SearchCBO_lbl);
+            this.rcp_appoimentBar.Controls.Add(this.SearchCbo_lbl);
             this.rcp_appoimentBar.Controls.Add(this.Mcn_searchbtn);
             this.rcp_appoimentBar.Controls.Add(this.Search_txt);
             this.rcp_appoimentBar.Controls.Add(this.Search_Cbo);
@@ -90,16 +90,16 @@
             this.scr_lbl.TabIndex = 4;
             this.scr_lbl.Text = "Search: ";
             // 
-            // SearchCBO_lbl
+            // SearchCbo_lbl
             // 
-            this.SearchCBO_lbl.AutoSize = true;
-            this.SearchCBO_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchCBO_lbl.Location = new System.Drawing.Point(2, 27);
-            this.SearchCBO_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.SearchCBO_lbl.Name = "SearchCBO_lbl";
-            this.SearchCBO_lbl.Size = new System.Drawing.Size(92, 17);
-            this.SearchCBO_lbl.TabIndex = 3;
-            this.SearchCBO_lbl.Text = "Search By: ";
+            this.SearchCbo_lbl.AutoSize = true;
+            this.SearchCbo_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchCbo_lbl.Location = new System.Drawing.Point(2, 27);
+            this.SearchCbo_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SearchCbo_lbl.Name = "SearchCbo_lbl";
+            this.SearchCbo_lbl.Size = new System.Drawing.Size(92, 17);
+            this.SearchCbo_lbl.TabIndex = 3;
+            this.SearchCbo_lbl.Text = "Search By: ";
             // 
             // Mcn_searchbtn
             // 
@@ -190,7 +190,7 @@
             this.CusID.MinimumWidth = 6;
             this.CusID.Name = "CusID";
             this.CusID.ReadOnly = true;
-            this.CusID.Width = 90;
+            this.CusID.Width = 83;
             // 
             // App_id
             // 
@@ -200,7 +200,7 @@
             this.App_id.MinimumWidth = 6;
             this.App_id.Name = "App_id";
             this.App_id.ReadOnly = true;
-            this.App_id.Width = 96;
+            this.App_id.Width = 88;
             // 
             // Cus_name
             // 
@@ -279,7 +279,7 @@
         private System.Windows.Forms.Panel rcp_appoimentBar;
         private System.Windows.Forms.PictureBox Reload_pic;
         private System.Windows.Forms.Label scr_lbl;
-        private System.Windows.Forms.Label SearchCBO_lbl;
+        private System.Windows.Forms.Label SearchCbo_lbl;
         private System.Windows.Forms.Button Mcn_searchbtn;
         private System.Windows.Forms.TextBox Search_txt;
         private System.Windows.Forms.ComboBox Search_Cbo;
