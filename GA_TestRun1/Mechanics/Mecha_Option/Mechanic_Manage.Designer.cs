@@ -51,6 +51,7 @@
             this.label_Quan = new System.Windows.Forms.Label();
             this.label_P = new System.Windows.Forms.Label();
             this.Manage_txt = new System.Windows.Forms.Label();
+            this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             this.panel_UUP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Reload_pic)).BeginInit();
             this.panel_RP.SuspendLayout();
@@ -286,6 +287,11 @@
             this.Manage_txt.TabIndex = 10;
             this.Manage_txt.Text = "Manage Inventory Sheet";
             // 
+            // sqlCommand1
+            // 
+            this.sqlCommand1.CommandTimeout = 30;
+            this.sqlCommand1.EnableOptimizedParameterBinding = false;
+            // 
             // Mechanic_Manage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,5 +339,6 @@
         private System.Windows.Forms.TextBox Customer_Show;
         private System.Windows.Forms.TextBox Show_taskDetail;
         private System.Windows.Forms.Label label_TD;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
     }
 }
