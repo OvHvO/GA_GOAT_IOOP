@@ -41,6 +41,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Update_btn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Show_taskDetail = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.Status_Cbo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Parts_ListB = new System.Windows.Forms.ListBox();
@@ -48,9 +50,7 @@
             this.R_Quantity_txt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Welcome_txt = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.Show_taskDetail = new System.Windows.Forms.TextBox();
+            this.Manage_txt = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Reload_pic)).BeginInit();
             this.panel1.SuspendLayout();
@@ -189,6 +189,29 @@
             this.panel1.Size = new System.Drawing.Size(587, 148);
             this.panel1.TabIndex = 11;
             // 
+            // Show_taskDetail
+            // 
+            this.Show_taskDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Show_taskDetail.Enabled = false;
+            this.Show_taskDetail.Location = new System.Drawing.Point(140, 20);
+            this.Show_taskDetail.Multiline = true;
+            this.Show_taskDetail.Name = "Show_taskDetail";
+            this.Show_taskDetail.ReadOnly = true;
+            this.Show_taskDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.Show_taskDetail.Size = new System.Drawing.Size(119, 52);
+            this.Show_taskDetail.TabIndex = 12;
+            this.Show_taskDetail.TextChanged += new System.EventHandler(this.Show_taskDetail_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(37, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(96, 20);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Task Detail: ";
+            // 
             // Status_Cbo
             // 
             this.Status_Cbo.FormattingEnabled = true;
@@ -253,38 +276,15 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Parts: ";
             // 
-            // Welcome_txt
+            // Manage_txt
             // 
-            this.Welcome_txt.AutoSize = true;
-            this.Welcome_txt.Font = new System.Drawing.Font("Bauhaus 93", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Welcome_txt.Location = new System.Drawing.Point(134, 10);
-            this.Welcome_txt.Name = "Welcome_txt";
-            this.Welcome_txt.Size = new System.Drawing.Size(302, 30);
-            this.Welcome_txt.TabIndex = 10;
-            this.Welcome_txt.Text = "Manage Inventory Sheet";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Franklin Gothic Heavy", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(37, 20);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(96, 20);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Task Detail: ";
-            // 
-            // Show_taskDetail
-            // 
-            this.Show_taskDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Show_taskDetail.Enabled = false;
-            this.Show_taskDetail.Location = new System.Drawing.Point(140, 20);
-            this.Show_taskDetail.Multiline = true;
-            this.Show_taskDetail.Name = "Show_taskDetail";
-            this.Show_taskDetail.ReadOnly = true;
-            this.Show_taskDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Show_taskDetail.Size = new System.Drawing.Size(119, 52);
-            this.Show_taskDetail.TabIndex = 12;
-            this.Show_taskDetail.TextChanged += new System.EventHandler(this.Show_taskDetail_TextChanged);
+            this.Manage_txt.AutoSize = true;
+            this.Manage_txt.Font = new System.Drawing.Font("Bauhaus 93", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Manage_txt.Location = new System.Drawing.Point(134, 10);
+            this.Manage_txt.Name = "Manage_txt";
+            this.Manage_txt.Size = new System.Drawing.Size(302, 30);
+            this.Manage_txt.TabIndex = 10;
+            this.Manage_txt.Text = "Manage Inventory Sheet";
             // 
             // Mechanic_Manage
             // 
@@ -295,7 +295,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.Welcome_txt);
+            this.Controls.Add(this.Manage_txt);
             this.Name = "Mechanic_Manage";
             this.Text = "Mechanic_Man";
             this.Load += new System.EventHandler(this.Mechanic_Man_Load);
@@ -323,7 +323,7 @@
         private System.Windows.Forms.TextBox R_Quantity_txt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label Welcome_txt;
+        private System.Windows.Forms.Label Manage_txt;
         private System.Windows.Forms.TextBox U_Quantity_txt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListBox Update_List;

@@ -82,7 +82,8 @@ namespace GA_TestRun1.Mechanics
                     SqlCommand cmd = new SqlCommand(checking1, connection, transaction);
                     cmd.Parameters.AddWithValue("@username", UserName);
 
-                    string checking2 = "Update Mechanics set mechanicUsername=@username, mechanicPW=@password, mechanicContactNum=@Contact where mechanicUsername=@oldusername";
+                    string checking2 = @"Update Mechanics set mechanicUsername=@username, mechanicPW=@password, mechanicContactNum=@Contact
+                                         Where mechanicUsername=@oldusername";
                     SqlCommand cmd2 = new SqlCommand(checking2, connection, transaction);
                     cmd2.Parameters.AddWithValue("@username", UserName);
                     cmd2.Parameters.AddWithValue("@password", Password);
