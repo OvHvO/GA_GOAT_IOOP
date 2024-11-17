@@ -55,7 +55,8 @@ namespace GA_TestRun1.Admins
 
         private void CusFB_NoticeBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Each customer feedback entry will only exist in the system for 30 days.\nAfter 30 days, it will be automatically deleted, so please check customer feedback regularly.\nThank you.");
+            MessageBox.Show("Each customer feedback entry will only exist in the system for 30 days.\nAfter 30 days, " +
+                "it will be automatically deleted, so please check customer feedback regularly.\nThank you.");
         }
     }
 }
