@@ -39,7 +39,15 @@ namespace GA_TestRun1.Admins
 
         private void SR_Generate_Btn_Click(object sender, EventArgs e)
         {
-            new Sales_Report(monthForm, currentYear, target).ShowDialog();
+            if (monthForm != null)
+            {
+                new Sales_Report(monthForm, currentYear, target).ShowDialog();
+            }
+
+            else
+            {
+                MessageBox.Show("Please choose a month");
+            }
         }
     }
 }

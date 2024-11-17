@@ -38,37 +38,45 @@ namespace GA_TestRun1.Admins
         }
 
         private void serviceChangeBtn_Click(object sender, EventArgs e)
-        {   
-            string serviceName = ServiceNameTB.Text;
-            string serviceInfo = ServiceInfoTB.Text;
-            string serviceTimeTaken = ServiceTimeTakenTB.Text;
-            int servicePrice = Convert.ToInt32(ServicePriceTB.Text);
-            int serviceOffer = Convert.ToInt32(ServiceOfferTB.Text);
-            int servicePartID = Convert.ToInt32(ServicePartIDTB.Text);
-            Admins_Source serviceChange = new Admins_Source();
-            bool resultChange = serviceChange.Service_Change(typeOfChange, serviceName, serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, Admin_Interface.adminID, servicePartID);
-
-            if (resultChange && (typeOfChange == "ADD"))
+        {
+            try
             {
-                MessageBox.Show("Service added");
+                string serviceName = ServiceNameTB.Text;
+                string serviceInfo = ServiceInfoTB.Text;
+                string serviceTimeTaken = ServiceTimeTakenTB.Text;
+                int servicePrice = Convert.ToInt32(ServicePriceTB.Text);
+                int serviceOffer = Convert.ToInt32(ServiceOfferTB.Text);
+                int servicePartID = Convert.ToInt32(ServicePartIDTB.Text);
+                Admins_Source serviceChange = new Admins_Source();
+                bool resultChange = serviceChange.Service_Change(typeOfChange, serviceName, serviceInfo, serviceTimeTaken, servicePrice, serviceOffer, Admin_Interface.adminID, servicePartID);
+
+                if (resultChange && (typeOfChange == "ADD"))
+                {
+                    MessageBox.Show("Service added");
+                }
+
+                else if (resultChange && (typeOfChange == "EDIT"))
+                {
+                    MessageBox.Show("Service edited");
+                }
+
+                else
+                {
+                    MessageBox.Show("Problem occurs (Please remember Service name is unchangeable)");
+                }
+
+                ServiceNameTB.Clear();
+                ServiceInfoTB.Clear();
+                ServiceTimeTakenTB.Clear();
+                ServicePriceTB.Clear();
+                ServiceOfferTB.Clear();
+                ServicePartIDTB.Clear();
             }
 
-            else if (resultChange && (typeOfChange == "EDIT"))
+            catch
             {
-                MessageBox.Show("Service edited");
+                MessageBox.Show("Please enter the details of sevice tq");
             }
-
-            else
-            {
-                MessageBox.Show("Problem occurs (Please remember Service name is unchangeable)");
-            }
-
-            ServiceNameTB.Clear();
-            ServiceInfoTB.Clear();
-            ServiceTimeTakenTB.Clear();
-            ServicePriceTB.Clear();
-            ServiceOfferTB.Clear();
-            ServicePartIDTB.Clear();
         }
 
         private void partCheckBtn_Click(object sender, EventArgs e)

@@ -73,38 +73,46 @@ namespace GA_TestRun1.Admins
 
         private void PartSaveBtn_Click(object sender, EventArgs e)
         {
-            string partName = PartNameTB.Text.ToString();
-            int partQuantity = Convert.ToInt32(PartQuantityTB.Text);
-            int partPrice = Convert.ToInt32(PartPriceTB.Text);
-            if (PartListBox.SelectedItem != null)
+            try
             {
-                typeOfChange = "EDIT";
-                Admins_Source partEDIT = new Admins_Source();
-                bool result = partEDIT.Part_Change(typeOfChange, partName, partQuantity, partPrice);
-                if(result)
-                {
-                    MessageBox.Show("Part edited");
-                }
-                PartIDTB.Clear();
-                PartNameTB.Clear();
-                PartQuantityTB.Clear();
-                PartPriceTB.Clear();
-            }
-            else
-            {
-                typeOfChange = "ADD";
-                Admins_Source partADD = new Admins_Source();
-                bool result = partADD.Part_Change(typeOfChange, partName, partQuantity, partPrice);
-                if (result) 
-                {
-                    MessageBox.Show("Part added");
-                }
-                PartIDTB.Clear();
-                PartNameTB.Clear();
-                PartQuantityTB.Clear();
-                PartPriceTB.Clear();
-            }
+                string partName = PartNameTB.Text.ToString();
+                int partQuantity = Convert.ToInt32(PartQuantityTB.Text);
+                int partPrice = Convert.ToInt32(PartPriceTB.Text);
 
+                if (PartListBox.SelectedItem != null)
+                {
+                    typeOfChange = "EDIT";
+                    Admins_Source partEDIT = new Admins_Source();
+                    bool result = partEDIT.Part_Change(typeOfChange, partName, partQuantity, partPrice);
+                    if (result)
+                    {
+                        MessageBox.Show("Part edited");
+                    }
+                    PartIDTB.Clear();
+                    PartNameTB.Clear();
+                    PartQuantityTB.Clear();
+                    PartPriceTB.Clear();
+                }
+                else
+                {
+                    typeOfChange = "ADD";
+                    Admins_Source partADD = new Admins_Source();
+                    bool result = partADD.Part_Change(typeOfChange, partName, partQuantity, partPrice);
+                    if (result)
+                    {
+                        MessageBox.Show("Part added");
+                    }
+                    PartIDTB.Clear();
+                    PartNameTB.Clear();
+                    PartQuantityTB.Clear();
+                    PartPriceTB.Clear();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please enter the details or choose to edit a part");
+            }
+            
         }
 
     }

@@ -9,9 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Azure.Identity;
 using GA_TestRun1;
-using GA_TestRun1.Customer;
-using GA_TestRun1.Mechanics;
-using GA_TestRun1.Receptionist;
 
 namespace GA_TestRun1.Admins
 {

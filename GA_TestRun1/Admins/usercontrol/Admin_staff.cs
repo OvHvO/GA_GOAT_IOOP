@@ -88,13 +88,14 @@ namespace GA_TestRun1.Admins
         }
 
         private void StaffDeleteBtn_Click(object sender, EventArgs e)
-        {
+        {   
             if (selectedStaff != null)
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
+                    StaffDetailsLB.Items.Clear();
                     Admins_Source deleteStaff = new Admins_Source();
                     bool deleteResult = deleteStaff.Delete_Staff(selectedRole, selectedStaff);
                     if (deleteResult)
