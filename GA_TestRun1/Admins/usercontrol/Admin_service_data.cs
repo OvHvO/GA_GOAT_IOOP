@@ -26,6 +26,7 @@ namespace GA_TestRun1.Admins
         {
             InitializeComponent();
             Admins_Source editService = new Admins_Source();
+            this.BackColor = ColorTranslator.FromHtml("#EEEBE3");
             string[] editServiceInfo = editService.Edit_Service(selectedService);
             ServiceNameTB.Text = editServiceInfo[0];
             ServiceInfoTB.Text = editServiceInfo[1];
