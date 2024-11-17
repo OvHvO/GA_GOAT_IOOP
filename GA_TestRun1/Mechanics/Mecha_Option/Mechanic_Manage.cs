@@ -115,11 +115,6 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             U_Quantity_txt.Clear();
         }
 
-        private void Parts_ListB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Update_List_SelectedIndexChanged(object sender, EventArgs e)
         {
             Mechanic mechanic = new Mechanic();
@@ -135,6 +130,11 @@ namespace GA_TestRun1.Mechanics.Mecha_Option
             {
                 Update_List.Items.Add(Parts);
             }
+        }
+
+        private void Parts_ListB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void Customer_Show_TextChanged(object sender, EventArgs e)
