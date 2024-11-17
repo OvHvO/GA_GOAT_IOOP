@@ -30,22 +30,24 @@ namespace GA_TestRun1.Admins
 
         private void CusFBlistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedFB_ID = Convert.ToInt32(CusFBlistBox.SelectedItem);
-
-            Admins_Source objCusFB = new Admins_Source();
-            string fbContent = objCusFB.CusFB_Content(selectedFB_ID);
-            string[] cusDetails = objCusFB.CusFB_Details(selectedFB_ID);
-
-            CusFBContentTB.Text = fbContent;
-            CusFBContentTB.ReadOnly = true;
-
             try
             {
+                CusDetailsLB.Items.Clear();
+                selectedFB_ID = Convert.ToInt32(CusFBlistBox.SelectedItem);
+
+                Admins_Source objCusFB = new Admins_Source();
+                string fbContent = objCusFB.CusFB_Content(selectedFB_ID);
+                string[] cusDetails = objCusFB.CusFB_Details(selectedFB_ID);
+
+                CusFBContentTB.Text = fbContent;
+                CusFBContentTB.ReadOnly = true;
+
                 foreach (string item in cusDetails)
                 {
                     CusDetailsLB.Items.Add(item);
                 }
             }
+
 
             catch (Exception)
             {

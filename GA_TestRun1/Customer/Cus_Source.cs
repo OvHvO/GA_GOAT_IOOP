@@ -595,17 +595,41 @@ namespace GA_TestRun1.Customer
                 return true;
             }
         }
-        public bool Cancel_AP(string selected)
+        public bool Cancel_AP(string selected, string status)
         {
+            string query1 = @"select serviceAP_ID from Tasks where taskStatus = @STATUS";
             string query = @"delete from ServiceAppoinments where serviceAP_ID = @TARGET";
+            int svAPID = 0;
 
             using (SqlConnection connection = new SqlConnection(ConnectionS_admin.ConnectionString))
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand(query1, connection))
                 {
-                    command.Parameters.AddWithValue("@TARGET", selected);
+                    command.Parameters.AddWithValue("@STATUS", status);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            svAPID = Convert.ToInt32(reader["serviceAP_ID"]);
+                        }
+                    }
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected == 0)
+                    {
+                        return false;
+                    }
+                }
+        
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {   
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@TARGET", svAPID);
 
                     int rowsAffected = command.ExecuteNonQuery();
                     if (rowsAffected == 0)

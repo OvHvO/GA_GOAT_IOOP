@@ -24,6 +24,9 @@ namespace GA_TestRun1.Admins
         private void RoleComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {   
             StaffListBox.Items.Clear();
+            selectedStaff = null;
+            StaffDetailsLB.Items.Clear();
+
             if (RoleComboBox.SelectedItem.ToString() == "Receptionist")
             {
                 Admins_Source rcptionistStaff = new Admins_Source();

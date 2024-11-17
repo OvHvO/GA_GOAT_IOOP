@@ -29,15 +29,23 @@ namespace GA_TestRun1.Customer.cus_usercontrol
 
         private void Cus_RSH_Btn_Click(object sender, EventArgs e)
         {
-            Cus_Source rsh = new Cus_Source();
-            bool checkR = rsh.Reschedule_AP(target);
-            if (checkR)
+            try
             {
-                MessageBox.Show("Your reschedule request has been submitted. Please wait for a response from the receptionist.\nThank you.");
+                Cus_Source rsh = new Cus_Source();
+                bool checkR = rsh.Reschedule_AP(target);
+                if (checkR)
+                {
+                    MessageBox.Show("Your reschedule request has been submitted. Please wait for a response from the receptionist.\nThank you.");
+                }
+                else
+                {
+                    MessageBox.Show("The reschedule request has some problem.");
+                }
             }
-            else
+
+            catch
             {
-                MessageBox.Show("The reschedule request has some problem.");
+                MessageBox.Show("Please select an appointment");
             }
         }
 
@@ -55,15 +63,23 @@ namespace GA_TestRun1.Customer.cus_usercontrol
 
         private void cus_CancelAP_Btn_Click(object sender, EventArgs e)
         {
-            Cus_Source cancel = new Cus_Source();
-            bool checkR = cancel.Cancel_AP(target);
-            if(checkR)
+            try
             {
-                MessageBox.Show("Service Appoinment has been deleted");
+                Cus_Source cancel = new Cus_Source();
+                bool checkR = cancel.Cancel_AP(target, "PENDING");
+                if (checkR)
+                {
+                    MessageBox.Show("Service Appoinment has been deleted");
+                }
+                else
+                {
+                    MessageBox.Show("The appointment started");
+                }
             }
-            else
+
+            catch
             {
-                MessageBox.Show("There are some problems");
+                MessageBox.Show("Please select an appointment");
             }
         }
     }
