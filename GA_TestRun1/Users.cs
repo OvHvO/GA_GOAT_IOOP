@@ -281,108 +281,12 @@ namespace GA_TestRun1
 
 
 
-        public void Mechanic_Sup(string username, string password, int contactNum)
-        {
-            SqlConnection Sp_con = new SqlConnection(connection);
-            Sp_con.Open();
-
-
-
-            string query1 = @"Select rcptionistUsername from Receptionists where rcptionistUsername=@username
-                                    UNION ALL
-                                    Select customerUsername from Customers where customerUsername=@username
-                                    UNION ALL
-                                    Select mechanicUsername from Mechanics where mechanicUsername= @username
-                                    UNION ALL
-                                    Select adminUsername from Admins where adminUsername=@username";
-            SqlCommand cmd2 = new SqlCommand(query1, Sp_con);
-            cmd2.Parameters.AddWithValue("@username", username);
-
-            if (cmd2.ExecuteScalar() == null)
-            {
-
-                string command2 = "Insert into Mechanics(mechanicUsername,mechanicPW,mechanicContactNum,)\r\nvalues(@username,@password,@contactNum)";
-                SqlCommand sp_cmd2 = new SqlCommand(command2, Sp_con);
-
-                sp_cmd2.Parameters.AddWithValue("@username", username);
-                sp_cmd2.Parameters.AddWithValue("@password", password);
-                sp_cmd2.Parameters.AddWithValue("@contactNum", contactNum);
-
-                if (sp_cmd2.ExecuteNonQuery() == 1)
-                {
-                    MessageBox.Show("SignUp Sucessfull");
-                }
-                else
-                {
-                    MessageBox.Show("SignUp Failed");
-                }
-            }
-
-            else
-            {
-                MessageBox.Show("The Username Seems has been Used, Please Try Again", "Username Issues");
-            }
+       
 
 
 
 
-            Sp_con.Close();
-
-        }
-
-
-
-
-
-        public void Receptionist_Sup(string username, string password, int contactNum)
-        {
-            SqlConnection Sp_con = new SqlConnection(connection);
-            Sp_con.Open();
-
-
-
-            string query1 = @"Select rcptionistUsername from Receptionists where rcptionistUsername=@username
-                                    UNION ALL
-                                    Select customerUsername from Customers where customerUsername=@username
-                                    UNION ALL
-                                    Select mechanicUsername from Mechanics where mechanicUsername= @username
-                                    UNION ALL
-                                    Select adminUsername from Admins where adminUsername=@username";
-            SqlCommand cmd2 = new SqlCommand(query1, Sp_con);
-            cmd2.Parameters.AddWithValue("@username", username);
-
-            if (cmd2.ExecuteScalar()==null)
-            {
-
-                string command2 = "Insert into Receptionists(rcptionistUsername,rcptionistPW,rcptionistContactNum,)\r\nvalues(@username,@password,@contactNum)";
-                SqlCommand sp_cmd2 = new SqlCommand(command2, Sp_con);
-
-                sp_cmd2.Parameters.AddWithValue("@username", username);
-                sp_cmd2.Parameters.AddWithValue("@password", password);
-                sp_cmd2.Parameters.AddWithValue("@contactNum", contactNum);
-
-                if (sp_cmd2.ExecuteNonQuery() == 1)
-                {
-                    MessageBox.Show("SignUp Sucessfull");
-                }
-                else
-                {
-                    MessageBox.Show("SignUp Failed");
-                }
-            }
-
-            else
-            {
-                MessageBox.Show("The Username Seems has been Used, Please Try Again", "Username Issues");
-            }
-
-
-
-
-            Sp_con.Close();
-        }
-
-
+        
 
         public void updateProf(string username, string password, string contactnum)
         { //string status;
